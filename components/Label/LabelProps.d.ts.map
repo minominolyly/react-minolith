@@ -1,0 +1,1 @@
+{"version":3,"file":"LabelProps.d.ts","sourceRoot":"","sources":["../../../src/components/Label/LabelProps.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAE,kBAAkB,EAAE,MAAM,qBAAqB,CAAC;AAEzD,MAAM,CAAC,OAAO,WAAW,UACvB,SAAQ,KAAK,CAAC,iBAAiB,CAC3B,KAAK,CAAC,mBAAmB,CAAC,gBAAgB,CAAC,EAC3C,gBAAgB,CACjB,EACD,kBAAkB;CAAG"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"MessageProps.d.ts","sourceRoot":"","sources":["../../../src/components/Message/MessageProps.tsx"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,2BAA2B,CAAC;AACtD,OAAO,EAAE,QAAQ,EAAE,MAAM,QAAQ,CAAC;AAElC,MAAM,CAAC,OAAO,WAAW,YAAa,SAAQ,QAAQ;IACpD,SAAS,CAAC,EAAE,SAAS,CAAC;CACvB"}

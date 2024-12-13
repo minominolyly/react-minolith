@@ -1,0 +1,1 @@
+{"version":3,"file":"MessageHeaderProps.d.ts","sourceRoot":"","sources":["../../../src/components/Message/MessageHeaderProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,kBAAkB,EAAE,MAAM,qBAAqB,CAAC;AAEzD,MAAM,CAAC,OAAO,WAAW,kBACvB,SAAQ,KAAK,CAAC,iBAAiB,CAC7B,KAAK,CAAC,cAAc,CAAC,cAAc,CAAC,EACpC,cAAc,CACf,EAAE,kBAAkB;CACtB"}

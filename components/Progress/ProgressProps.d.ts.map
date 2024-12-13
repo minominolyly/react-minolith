@@ -1,0 +1,1 @@
+{"version":3,"file":"ProgressProps.d.ts","sourceRoot":"","sources":["../../../src/components/Progress/ProgressProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,UAAU,EAAE,MAAM,2BAA2B,CAAC;AAClE,OAAO,EAAE,QAAQ,EAAE,MAAM,QAAQ,CAAC;AAElC,MAAM,CAAC,OAAO,WAAW,aAAc,SAAQ,QAAQ;IACrD,SAAS,CAAC,EAAE,SAAS,CAAC;IACtB,UAAU,EAAE,UAAU,CAAC;CACxB"}

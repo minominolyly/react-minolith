@@ -1,0 +1,1 @@
+{"version":3,"file":"CardBodyProps.d.ts","sourceRoot":"","sources":["../../../src/components/Card/CardBodyProps.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAE,QAAQ,EAAE,MAAM,QAAQ,CAAC;AAElC,MAAM,CAAC,OAAO,WAAW,aAAc,SAAQ,QAAQ;IACrD,EAAE,CAAC,EAAE,KAAK,CAAC,WAAW,GAAG,SAAS,CAAC;IAEnC,CAAC,GAAG,EAAE,MAAM,GAAG,GAAG,CAAC;CACpB"}

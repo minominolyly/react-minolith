@@ -1,0 +1,1 @@
+{"version":3,"file":"ModalProps.d.ts","sourceRoot":"","sources":["../../../src/components/Modal/ModalProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,QAAQ,CAAC;AAElC,MAAM,CAAC,OAAO,WAAW,UAAW,SAAQ,QAAQ;IAClD,QAAQ,CAAC,EAAE,OAAO,GAAG,SAAS,CAAC;CAChC"}

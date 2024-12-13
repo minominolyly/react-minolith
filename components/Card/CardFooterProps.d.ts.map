@@ -1,0 +1,1 @@
+{"version":3,"file":"CardFooterProps.d.ts","sourceRoot":"","sources":["../../../src/components/Card/CardFooterProps.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAC1B,OAAO,EAAE,QAAQ,EAAE,MAAM,QAAQ,CAAC;AAElC,MAAM,CAAC,OAAO,WAAW,eAAgB,SAAQ,QAAQ;IACvD,EAAE,CAAC,EAAE,KAAK,CAAC,WAAW,GAAG,SAAS,CAAC;IAEnC,CAAC,GAAG,EAAE,MAAM,GAAG,GAAG,CAAC;CACpB"}

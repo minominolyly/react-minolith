@@ -1,0 +1,1 @@
+{"version":3,"file":"ColorAttributes.d.ts","sourceRoot":"","sources":["../../../src/common/literalTypes/ColorAttributes.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAC9C,OAAO,SAAS,MAAM,aAAa,CAAC;AAEpC,KAAK,eAAe,GAAG;IACrB,IAAI,EAAE,SAAS,CAAC;IAChB,SAAS,EAAE,cAAc,CAAC;CAC3B,CAAC;AAEF,eAAe,eAAe,CAAC"}

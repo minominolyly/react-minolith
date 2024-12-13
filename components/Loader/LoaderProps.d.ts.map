@@ -1,0 +1,1 @@
+{"version":3,"file":"LoaderProps.d.ts","sourceRoot":"","sources":["../../../src/components/Loader/LoaderProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,2BAA2B,CAAC;AACtD,OAAO,EAAE,QAAQ,EAAE,MAAM,QAAQ,CAAC;AAElC,MAAM,CAAC,OAAO,WAAW,WAAY,SAAQ,QAAQ;IACnD,SAAS,CAAC,EAAE,SAAS,CAAC;CACvB"}

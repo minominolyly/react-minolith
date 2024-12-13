@@ -1,0 +1,1 @@
+{"version":3,"file":"MiscellaneousCssVariable.d.ts","sourceRoot":"","sources":["../../../src/common/models/MiscellaneousCssVariable.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,WAAW,wBAAwB;IAC/C,YAAY,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IAClC,WAAW,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IACjC,kBAAkB,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;IACxC,oBAAoB,CAAC,EAAE,MAAM,GAAG,SAAS,CAAC;CAC3C"}
