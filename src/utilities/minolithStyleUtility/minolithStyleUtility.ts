@@ -234,11 +234,12 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
         oklch?: Oklch
       ) => {
         if (oklch) {
+          const oklchString = `${oklch.lightness}% ${oklch.chroma} ${oklch.hue}`;
           rootStyles.push(
-            `--${cssVariablePrefix}color-${colorName}-${lightness}-oklch: ${oklch.lightness}% ${oklch.chroma} ${oklch.hue};`
+            `--${cssVariablePrefix}color-${colorName}-${lightness}-oklch: ${oklchString};`
           );
           rootStyles.push(
-            `--${cssVariablePrefix}color-${colorName}-${lightness}: oklch(var(--color-${colorName}-${lightness}-oklch));`
+            `--${cssVariablePrefix}color-${colorName}-${lightness}: oklch(${oklchString});`
           );
         }
       };
@@ -247,10 +248,11 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
         if (typeof color.white === "string") {
           rootStyles.push(`--${cssVariablePrefix}color-white: ${color.white};`);
         } else {
+          const oklchString = `${color.white.lightness}% ${color.white.chroma} ${color.white.hue}`;
           rootStyles.push(
-            `--${cssVariablePrefix}color-white-oklch: ${color.white.lightness}% ${color.white.chroma} ${color.white.hue};`
+            `--${cssVariablePrefix}color-white-oklch: ${oklchString};`
           );
-          rootStyles.push(`--${cssVariablePrefix}color-white: oklch(var(--color-white-oklch));`);
+          rootStyles.push(`--${cssVariablePrefix}color-white: oklch(${oklchString});`);
         }
       }
 
@@ -258,10 +260,11 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
         if (typeof color.black === "string") {
           rootStyles.push(`--${cssVariablePrefix}color-black: ${color.black};`);
         } else {
+          const oklchString = `${color.black.lightness}% ${color.black.chroma} ${color.black.hue}`;
           rootStyles.push(
-            `--${cssVariablePrefix}color-black-oklch: ${color.black.lightness}% ${color.black.chroma} ${color.black.hue};`
+            `--${cssVariablePrefix}color-black-oklch: ${oklchString};`
           );
-          rootStyles.push(`--${cssVariablePrefix}color-black: oklch(var(--color-black-oklch));`);
+          rootStyles.push(`--${cssVariablePrefix}color-black: oklch(${oklchString});`);
         }
       }
 
