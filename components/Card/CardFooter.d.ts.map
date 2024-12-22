@@ -1,1 +1,1 @@
-{"version":3,"file":"CardFooter.d.ts","sourceRoot":"","sources":["../../../src/components/Card/CardFooter.tsx"],"names":[],"mappings":"AAEA,OAAO,eAAe,MAAM,mBAAmB,CAAC;AAEhD,MAAM,CAAC,OAAO,UAAU,UAAU,CAAC,KAAK,EAAE,eAAe,GAAG,GAAG,CAAC,OAAO,CAoBtE"}
+{"version":3,"file":"CardFooter.d.ts","sourceRoot":"","sources":["../../../src/components/Card/CardFooter.tsx"],"names":[],"mappings":"AAEA,OAAO,eAAe,MAAM,mBAAmB,CAAC;AAEhD,MAAM,CAAC,OAAO,UAAU,UAAU,CAAC,KAAK,EAAE,eAAe,GAAG,GAAG,CAAC,OAAO,CAsBtE"}

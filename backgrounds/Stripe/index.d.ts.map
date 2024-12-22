@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/backgrounds/Stripe/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,UAAU,CAAC;AACnC,YAAY,EAAE,OAAO,IAAI,WAAW,EAAE,MAAM,eAAe,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/backgrounds/Stripe/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,IAAI,MAAM,EAAE,MAAM,UAAU,CAAC;AAC7C,YAAY,EAAE,OAAO,IAAI,WAAW,EAAE,MAAM,eAAe,CAAC"}

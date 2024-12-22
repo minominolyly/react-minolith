@@ -1,0 +1,1 @@
+{"version":3,"file":"MainProps.d.ts","sourceRoot":"","sources":["../../../src/components/Main/MainProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,cAAc,EAAE,MAAM,OAAO,CAAC;AAC1D,OAAO,EAAE,kBAAkB,EAAE,MAAM,sBAAsB,CAAC;AAE1D,MAAM,CAAC,OAAO,WAAW,SACvB,SAAQ,iBAAiB,CAAC,cAAc,CAAC,WAAW,CAAC,EAAE,WAAW,CAAC,EACjE,kBAAkB;CAAG"}

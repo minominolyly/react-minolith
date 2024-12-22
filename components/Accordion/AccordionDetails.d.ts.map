@@ -1,1 +1,1 @@
-{"version":3,"file":"AccordionDetails.d.ts","sourceRoot":"","sources":["../../../src/components/Accordion/AccordionDetails.tsx"],"names":[],"mappings":"AAEA,OAAO,qBAAqB,MAAM,yBAAyB,CAAC;AAE5D,MAAM,CAAC,OAAO,UAAU,gBAAgB,CACtC,KAAK,EAAE,qBAAqB,GAC3B,GAAG,CAAC,OAAO,CAeb"}
+{"version":3,"file":"AccordionDetails.d.ts","sourceRoot":"","sources":["../../../src/components/Accordion/AccordionDetails.tsx"],"names":[],"mappings":"AAEA,OAAO,qBAAqB,MAAM,yBAAyB,CAAC;AAE5D,MAAM,CAAC,OAAO,UAAU,gBAAgB,CACtC,KAAK,EAAE,qBAAqB,GAC3B,GAAG,CAAC,OAAO,CAiBb"}

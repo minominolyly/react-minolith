@@ -9,6 +9,6 @@ declare const meta: {
 export default meta;
 type Story = StoryObj<typeof meta>;
 export declare const AllAuto: Story;
-export declare const SmallDown: Story;
+export declare const SmallOrLess: Story;
 export declare const Small6XSmall12: Story;
 //# sourceMappingURL=Columns.stories.d.ts.map

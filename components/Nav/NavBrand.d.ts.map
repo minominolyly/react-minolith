@@ -1,1 +1,1 @@
-{"version":3,"file":"NavBrand.d.ts","sourceRoot":"","sources":["../../../src/components/Nav/NavBrand.tsx"],"names":[],"mappings":"AAEA,OAAO,aAAa,MAAM,iBAAiB,CAAC;AAE5C,MAAM,CAAC,OAAO,UAAU,QAAQ,CAAC,KAAK,EAAE,aAAa,GAAG,GAAG,CAAC,OAAO,CAiBlE"}
+{"version":3,"file":"NavBrand.d.ts","sourceRoot":"","sources":["../../../src/components/Nav/NavBrand.tsx"],"names":[],"mappings":"AAEA,OAAO,aAAa,MAAM,iBAAiB,CAAC;AAE5C,MAAM,CAAC,OAAO,UAAU,QAAQ,CAAC,KAAK,EAAE,aAAa,GAAG,GAAG,CAAC,OAAO,CAmBlE"}

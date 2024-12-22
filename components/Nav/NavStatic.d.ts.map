@@ -1,1 +1,1 @@
-{"version":3,"file":"NavStatic.d.ts","sourceRoot":"","sources":["../../../src/components/Nav/NavStatic.tsx"],"names":[],"mappings":"AAEA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAE9C,MAAM,CAAC,OAAO,UAAU,SAAS,CAAC,KAAK,EAAE,cAAc,GAAG,GAAG,CAAC,OAAO,CAoDpE"}
+{"version":3,"file":"NavStatic.d.ts","sourceRoot":"","sources":["../../../src/components/Nav/NavStatic.tsx"],"names":[],"mappings":"AAEA,OAAO,cAAc,MAAM,kBAAkB,CAAC;AAE9C,MAAM,CAAC,OAAO,UAAU,SAAS,CAAC,KAAK,EAAE,cAAc,GAAG,GAAG,CAAC,OAAO,CAgDpE"}
