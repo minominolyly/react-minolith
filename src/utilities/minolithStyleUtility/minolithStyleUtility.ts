@@ -504,6 +504,26 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
 
     if (cssVariableSetting.typography) {
       const typography = cssVariableSetting.typography;
+      if (typography.fontFamily) {
+        if (typography.fontFamily.sansSerif) {
+          rootStyles.push(`--${cssVariablePrefix}font-family-sans-serif: ${typography.fontFamily.sansSerif};`);
+        }
+        if (typography.fontFamily.serif) {
+          rootStyles.push(`--${cssVariablePrefix}font-family-serif: ${typography.fontFamily.serif};`);
+        }
+        if (typography.fontFamily.monospace) {
+          rootStyles.push(`--${cssVariablePrefix}font-family-monospace: ${typography.fontFamily.monospace};`);
+        }
+        if (typography.fontFamily.main) {
+          rootStyles.push(`--${cssVariablePrefix}font-family-main: ${typography.fontFamily.main};`);
+        }
+        if (typography.fontFamily.heading) {
+          rootStyles.push(`--${cssVariablePrefix}font-family-heading: ${typography.fontFamily.heading};`);
+        }
+        if (typography.fontFamily.code) {
+          rootStyles.push(`--${cssVariablePrefix}font-family-code: ${typography.fontFamily.code};`);
+        }
+      }
       if (typography.fontSize) {
         if (typography.fontSize.xsmall) {
           rootStyles.push(`--${cssVariablePrefix}font-size-xsmall: ${typography.fontSize.xsmall};`);

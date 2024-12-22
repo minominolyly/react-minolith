@@ -6,8 +6,10 @@ export default function Section(props: SectionProps): JSX.Element {
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
-  delete assignedProps["border"];
   delete assignedProps["highlighter"];
+  delete assignedProps["border"];
+  delete assignedProps["positioning"];
+  delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 

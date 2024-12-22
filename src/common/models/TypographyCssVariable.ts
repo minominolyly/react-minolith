@@ -1,4 +1,12 @@
 export default interface TypographyCssVariable {
+  fontFamily?: {
+    serif?: string | undefined;
+    sansSerif?: string | undefined;
+    monospace?: string | undefined;
+    main?: string | undefined;
+    heading?: string | undefined;
+    code?: string | undefined;
+  };
   fontSize?: {
     xsmall?: string | undefined;
     small?: string | undefined;

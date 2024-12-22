@@ -43,7 +43,11 @@ export * from "./components/Button";
 
 export * from "./components/Card";
 
+export * from "./components/Dialogue";
+
 export * from "./components/Div";
+
+export * from "./components/Footer";
 
 export * from "./components/Hamburger";
 
@@ -58,6 +62,8 @@ export * from "./components/Label";
 export * from "./components/Link";
 
 export * from "./components/Loader";
+
+export * from "./components/Main";
 
 export * from "./components/Message";
 

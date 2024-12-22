@@ -39,7 +39,7 @@ export const Plain: Story = {
   render: (props) => (
     <MinolithStatic>
       <Nav {...props}>
-        <NavAccordion isSmallDown>
+        <NavAccordion isSmallOrLess>
           <NavBrand>
             <NavBrandLeft>
               <Hamburger />
@@ -49,7 +49,7 @@ export const Plain: Story = {
           </NavBrand>
           <NavMenu isActive={true}>{navMenuItems}</NavMenu>
         </NavAccordion>
-        <NavStatic isMediumUp>
+        <NavStatic isMediumOrMore>
           <NavBrand>
             <NavBrandLeft>{"NavBrandLeft"}</NavBrandLeft>
             <NavBrandCenter>{"NavBrandCenter"}</NavBrandCenter>

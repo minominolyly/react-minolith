@@ -2,16 +2,14 @@ import { DivProps } from "../Div";
 
 export default interface NavStaticProps extends DivProps {
   isXSmall?: boolean | undefined;
-  isXSmallUp?: boolean | undefined;
-  isSmallDown?: boolean | undefined;
+  isSmallOrLess?: boolean | undefined;
   isSmall?: boolean | undefined;
-  isSmallUp?: boolean | undefined;
-  isMediumDown?: boolean | undefined;
+  isSmallOrMore?: boolean | undefined;
+  isMediumOrLess?: boolean | undefined;
   isMedium?: boolean | undefined;
-  isMediumUp?: boolean | undefined;
-  isLargeDown?: boolean | undefined;
+  isMediumOrMore?: boolean | undefined;
+  isLargeOrLess?: boolean | undefined;
   isLarge?: boolean | undefined;
-  isLargeUp?: boolean | undefined;
-  isXLargeDown?: boolean | undefined;
+  isLargeOrMore?: boolean | undefined;
   isXLarge?: boolean | undefined;
 }

@@ -16,13 +16,24 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Plain: Story = {
+export const LightPlain: Story = {
   args: {
     colorName: undefined,
     percentage: 50,
   },
   render: (props) => (
-    <MinolithStatic>
+    <MinolithStatic colorScheme="light">
+      <Progress {...props} />
+    </MinolithStatic>
+  ),
+};
+export const DarkPlain: Story = {
+  args: {
+    colorName: undefined,
+    percentage: 50,
+  },
+  render: (props) => (
+    <MinolithStatic colorScheme="dark">
       <Progress {...props} />
     </MinolithStatic>
   ),

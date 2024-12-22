@@ -9,62 +9,64 @@ export default function Columns(props: ColumnsProps): JSX.Element {
   delete assignedProps["isDirectionColumn"];
   delete assignedProps["isDirectionColumnReverse"];
   delete assignedProps["isXSmallDirectionRow"];
-  delete assignedProps["isXSmallUpDirectionRow"];
-  delete assignedProps["isSmallDownDirectionRow"];
+  delete assignedProps["isXSmallOrMoreDirectionRow"];
+  delete assignedProps["isSmallOrLessDirectionRow"];
   delete assignedProps["isSmallDirectionRow"];
-  delete assignedProps["isSmallUpDirectionRow"];
-  delete assignedProps["isMediumDownDirectionRow"];
+  delete assignedProps["isSmallOrMoreDirectionRow"];
+  delete assignedProps["isMediumOrLessDirectionRow"];
   delete assignedProps["isMediumDirectionRow"];
-  delete assignedProps["isMediumUpDirectionRow"];
-  delete assignedProps["isLargeDownDirectionRow"];
+  delete assignedProps["isMediumOrMoreDirectionRow"];
+  delete assignedProps["isLargeOrLessDirectionRow"];
   delete assignedProps["isLargeDirectionRow"];
-  delete assignedProps["isLargeUpDirectionRow"];
-  delete assignedProps["isXLargeDownDirectionRow"];
+  delete assignedProps["isLargeOrMoreDirectionRow"];
+  delete assignedProps["isXLargeOrLessDirectionRow"];
   delete assignedProps["isXLargeDirectionRow"];
   delete assignedProps["isXSmallDirectionRowReverse"];
-  delete assignedProps["isXSmallUpDirectionRowReverse"];
-  delete assignedProps["isSmallDownDirectionRowReverse"];
+  delete assignedProps["isXSmallOrMoreDirectionRowReverse"];
+  delete assignedProps["isSmallOrLessDirectionRowReverse"];
   delete assignedProps["isSmallDirectionRowReverse"];
-  delete assignedProps["isSmallUpDirectionRowReverse"];
-  delete assignedProps["isMediumDownDirectionRowReverse"];
+  delete assignedProps["isSmallOrMoreDirectionRowReverse"];
+  delete assignedProps["isMediumOrLessDirectionRowReverse"];
   delete assignedProps["isMediumDirectionRowReverse"];
-  delete assignedProps["isMediumUpDirectionRowReverse"];
-  delete assignedProps["isLargeDownDirectionRowReverse"];
+  delete assignedProps["isMediumOrMoreDirectionRowReverse"];
+  delete assignedProps["isLargeOrLessDirectionRowReverse"];
   delete assignedProps["isLargeDirectionRowReverse"];
-  delete assignedProps["isLargeUpDirectionRowReverse"];
-  delete assignedProps["isXLargeDownDirectionRowReverse"];
+  delete assignedProps["isLargeOrMoreDirectionRowReverse"];
+  delete assignedProps["isXLargeOrLessDirectionRowReverse"];
   delete assignedProps["isXLargeDirectionRowReverse"];
   delete assignedProps["isXSmallDirectionColumn"];
-  delete assignedProps["isXSmallUpDirectionColumn"];
-  delete assignedProps["isSmallDownDirectionColumn"];
+  delete assignedProps["isXSmallOrMoreDirectionColumn"];
+  delete assignedProps["isSmallOrLessDirectionColumn"];
   delete assignedProps["isSmallDirectionColumn"];
-  delete assignedProps["isSmallUpDirectionColumn"];
-  delete assignedProps["isMediumDownDirectionColumn"];
+  delete assignedProps["isSmallOrMoreDirectionColumn"];
+  delete assignedProps["isMediumOrLessDirectionColumn"];
   delete assignedProps["isMediumDirectionColumn"];
-  delete assignedProps["isMediumUpDirectionColumn"];
-  delete assignedProps["isLargeDownDirectionColumn"];
+  delete assignedProps["isMediumOrMoreDirectionColumn"];
+  delete assignedProps["isLargeOrLessDirectionColumn"];
   delete assignedProps["isLargeDirectionColumn"];
-  delete assignedProps["isLargeUpDirectionColumn"];
-  delete assignedProps["isXLargeDownDirectionColumn"];
+  delete assignedProps["isLargeOrMoreDirectionColumn"];
+  delete assignedProps["isXLargeOrLessDirectionColumn"];
   delete assignedProps["isXLargeDirectionColumn"];
   delete assignedProps["isXSmallDirectionColumnReverse"];
-  delete assignedProps["isXSmallUpDirectionColumnReverse"];
-  delete assignedProps["isSmallDownDirectionColumnReverse"];
+  delete assignedProps["isXSmallOrMoreDirectionColumnReverse"];
+  delete assignedProps["isSmallOrLessDirectionColumnReverse"];
   delete assignedProps["isSmallDirectionColumnReverse"];
-  delete assignedProps["isSmallUpDirectionColumnReverse"];
-  delete assignedProps["isMediumDownDirectionColumnReverse"];
+  delete assignedProps["isSmallOrMoreDirectionColumnReverse"];
+  delete assignedProps["isMediumOrLessDirectionColumnReverse"];
   delete assignedProps["isMediumDirectionColumnReverse"];
-  delete assignedProps["isMediumUpDirectionColumnReverse"];
-  delete assignedProps["isLargeDownDirectionColumnReverse"];
+  delete assignedProps["isMediumOrMoreDirectionColumnReverse"];
+  delete assignedProps["isLargeOrLessDirectionColumnReverse"];
   delete assignedProps["isLargeDirectionColumnReverse"];
-  delete assignedProps["isLargeUpDirectionColumnReverse"];
-  delete assignedProps["isXLargeDownDirectionColumnReverse"];
+  delete assignedProps["isLargeOrMoreDirectionColumnReverse"];
+  delete assignedProps["isXLargeOrLessDirectionColumnReverse"];
   delete assignedProps["isXLargeDirectionColumnReverse"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
-  delete assignedProps["border"];
   delete assignedProps["highlighter"];
+  delete assignedProps["border"];
+  delete assignedProps["positioning"];
+  delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 
@@ -80,67 +82,67 @@ export default function Columns(props: ColumnsProps): JSX.Element {
     assignedClassNames.push(classNames["is-direction-column-reverse"]);
   props.isXSmallDirectionRow &&
     assignedClassNames.push(classNames["is-XSmall-direction-row"]);
-  props.isXSmallUpDirectionRow &&
+  props.isXSmallOrMoreDirectionRow &&
     assignedClassNames.push(classNames["is-XSmall-or-more-direction-row"]);
-  props.isSmallDownDirectionRow &&
+  props.isSmallOrLessDirectionRow &&
     assignedClassNames.push(classNames["is-Small-or-less-direction-row"]);
   props.isSmallDirectionRow &&
     assignedClassNames.push(classNames["is-Small-direction-row"]);
-  props.isSmallUpDirectionRow &&
+  props.isSmallOrMoreDirectionRow &&
     assignedClassNames.push(classNames["is-Small-or-more-direction-row"]);
-  props.isMediumDownDirectionRow &&
+  props.isMediumOrLessDirectionRow &&
     assignedClassNames.push(classNames["is-Medium-or-less-direction-row"]);
   props.isMediumDirectionRow &&
     assignedClassNames.push(classNames["is-Medium-direction-row"]);
-  props.isMediumUpDirectionRow &&
+  props.isMediumOrMoreDirectionRow &&
     assignedClassNames.push(classNames["is-Medium-or-more-direction-row"]);
-  props.isLargeDownDirectionRow &&
+  props.isLargeOrLessDirectionRow &&
     assignedClassNames.push(classNames["is-Large-or-less-direction-row"]);
   props.isLargeDirectionRow &&
     assignedClassNames.push(classNames["is-Large-direction-row"]);
-  props.isLargeUpDirectionRow &&
+  props.isLargeOrMoreDirectionRow &&
     assignedClassNames.push(classNames["is-Large-or-more-direction-row"]);
-  props.isXLargeDownDirectionRow &&
+  props.isXLargeOrLessDirectionRow &&
     assignedClassNames.push(classNames["is-XLarge-or-less-direction-row"]);
   props.isXLargeDirectionRow &&
     assignedClassNames.push(classNames["is-XLarge-direction-row"]);
   props.isXSmallDirectionRowReverse &&
     assignedClassNames.push(classNames["is-XSmall-direction-row-reverse"]);
-  props.isXSmallUpDirectionRowReverse &&
+  props.isXSmallOrMoreDirectionRowReverse &&
     assignedClassNames.push(
       classNames["is-XSmall-or-more-direction-row-reverse"]
     );
-  props.isSmallDownDirectionRowReverse &&
+  props.isSmallOrLessDirectionRowReverse &&
     assignedClassNames.push(
       classNames["is-Small-or-less-direction-row-reverse"]
     );
   props.isSmallDirectionRowReverse &&
     assignedClassNames.push(classNames["is-Small-direction-row-reverse"]);
-  props.isSmallUpDirectionRowReverse &&
+  props.isSmallOrMoreDirectionRowReverse &&
     assignedClassNames.push(
       classNames["is-Small-or-more-direction-row-reverse"]
     );
-  props.isMediumDownDirectionRowReverse &&
+  props.isMediumOrLessDirectionRowReverse &&
     assignedClassNames.push(
       classNames["is-Medium-or-less-direction-row-reverse"]
     );
   props.isMediumDirectionRowReverse &&
     assignedClassNames.push(classNames["is-Medium-direction-row-reverse"]);
-  props.isMediumUpDirectionRowReverse &&
+  props.isMediumOrMoreDirectionRowReverse &&
     assignedClassNames.push(
       classNames["is-Medium-or-more-direction-row-reverse"]
     );
-  props.isLargeDownDirectionRowReverse &&
+  props.isLargeOrLessDirectionRowReverse &&
     assignedClassNames.push(
       classNames["is-Large-or-less-direction-row-reverse"]
     );
   props.isLargeDirectionRowReverse &&
     assignedClassNames.push(classNames["is-Large-direction-row-reverse"]);
-  props.isLargeUpDirectionRowReverse &&
+  props.isLargeOrMoreDirectionRowReverse &&
     assignedClassNames.push(
       classNames["is-Large-or-more-direction-row-reverse"]
     );
-  props.isXLargeDownDirectionRowReverse &&
+  props.isXLargeOrLessDirectionRowReverse &&
     assignedClassNames.push(
       classNames["is-XLarge-or-less-direction-row-reverse"]
     );
@@ -148,61 +150,61 @@ export default function Columns(props: ColumnsProps): JSX.Element {
     assignedClassNames.push(classNames["is-XLarge-direction-row-reverse"]);
   props.isXSmallDirectionColumn &&
     assignedClassNames.push(classNames["is-XSmall-direction-column"]);
-  props.isXSmallUpDirectionColumn &&
+  props.isXSmallOrMoreDirectionColumn &&
     assignedClassNames.push(classNames["is-XSmall-or-more-direction-column"]);
-  props.isSmallDownDirectionColumn &&
+  props.isSmallOrLessDirectionColumn &&
     assignedClassNames.push(classNames["is-Small-or-less-direction-column"]);
   props.isSmallDirectionColumn &&
     assignedClassNames.push(classNames["is-Small-direction-column"]);
-  props.isSmallUpDirectionColumn &&
+  props.isSmallOrMoreDirectionColumn &&
     assignedClassNames.push(classNames["is-Small-or-more-direction-column"]);
-  props.isMediumDownDirectionColumn &&
+  props.isMediumOrLessDirectionColumn &&
     assignedClassNames.push(classNames["is-Medium-or-less-direction-column"]);
   props.isMediumDirectionColumn &&
     assignedClassNames.push(classNames["is-Medium-direction-column"]);
-  props.isMediumUpDirectionColumn &&
+  props.isMediumOrMoreDirectionColumn &&
     assignedClassNames.push(classNames["is-Medium-or-more-direction-column"]);
-  props.isLargeDownDirectionColumn &&
+  props.isLargeOrLessDirectionColumn &&
     assignedClassNames.push(
       classNames["is-Large-or-less-direction-column"]
     );
   props.isLargeDirectionColumn &&
     assignedClassNames.push(classNames["is-Large-direction-column"]);
-  props.isLargeUpDirectionColumn &&
+  props.isLargeOrMoreDirectionColumn &&
     assignedClassNames.push(
       classNames["is-Large-or-more-direction-column"]
     );
-  props.isXLargeDownDirectionColumn &&
+  props.isXLargeOrLessDirectionColumn &&
     assignedClassNames.push(classNames["is-XLarge-or-less-direction-column"]);
   props.isXLargeDirectionColumn &&
     assignedClassNames.push(classNames["is-XLarge-direction-column"]);
   props.isXSmallDirectionColumnReverse &&
     assignedClassNames.push(classNames["is-XSmall-direction-column-reverse"]);
-  props.isXSmallUpDirectionColumnReverse &&
+  props.isXSmallOrMoreDirectionColumnReverse &&
     assignedClassNames.push(
       classNames["is-XSmall-or-more-direction-column-reverse"]
     );
-  props.isSmallDownDirectionColumnReverse &&
+  props.isSmallOrLessDirectionColumnReverse &&
     assignedClassNames.push(
       classNames["is-Small-or-less-direction-column-reverse"]
     );
   props.isSmallDirectionColumnReverse &&
     assignedClassNames.push(classNames["is-Small-direction-column-reverse"]);
-  props.isSmallUpDirectionColumnReverse &&
+  props.isSmallOrMoreDirectionColumnReverse &&
     assignedClassNames.push(
       classNames["is-Small-or-more-direction-column-reverse"]
     );
-  props.isMediumDownDirectionColumnReverse &&
+  props.isMediumOrLessDirectionColumnReverse &&
     assignedClassNames.push(
       classNames["is-Medium-or-less-direction-column-reverse"]
     );
   props.isMediumDirectionColumnReverse &&
     assignedClassNames.push(classNames["is-Medium-direction-column-reverse"]);
-  props.isMediumUpDirectionColumnReverse &&
+  props.isMediumOrMoreDirectionColumnReverse &&
     assignedClassNames.push(
       classNames["is-Medium-or-more-direction-column-reverse"]
     );
-  props.isLargeDownDirectionColumnReverse &&
+  props.isLargeOrLessDirectionColumnReverse &&
     assignedClassNames.push(
       classNames["is-Large-or-less-direction-column-reverse"]
     );
@@ -210,11 +212,11 @@ export default function Columns(props: ColumnsProps): JSX.Element {
     assignedClassNames.push(
       classNames["is-Large-direction-column-reverse"]
     );
-  props.isLargeUpDirectionColumnReverse &&
+  props.isLargeOrMoreDirectionColumnReverse &&
     assignedClassNames.push(
       classNames["is-Large-or-more-direction-column-reverse"]
     );
-  props.isXLargeDownDirectionColumnReverse &&
+  props.isXLargeOrLessDirectionColumnReverse &&
     assignedClassNames.push(
       classNames["is-XLarge-or-less-direction-column-reverse"]
     );

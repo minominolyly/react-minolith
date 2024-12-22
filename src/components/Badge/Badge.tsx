@@ -7,11 +7,13 @@ export default function Badge(props: BadgeProps): JSX.Element {
   delete assignedProps["colorName"];
   delete assignedProps["isSmall"];
   delete assignedProps["as"];
-  // //#region BaseComponentProps
+  //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
-  delete assignedProps["border"];
   delete assignedProps["highlighter"];
+  delete assignedProps["border"];
+  delete assignedProps["positioning"];
+  delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 

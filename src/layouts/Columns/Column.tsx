@@ -7,23 +7,23 @@ export default function Column(props: ColumnProps): JSX.Element {
   delete assignedProps["isFull"];
   delete assignedProps["size"];
   delete assignedProps["sizeXSmall"];
-  delete assignedProps["sizeXSmallUp"];
-  delete assignedProps["sizeSmallDown"];
+  delete assignedProps["sizeSmallOrLess"];
   delete assignedProps["sizeSmall"];
-  delete assignedProps["sizeSmallUp"];
-  delete assignedProps["sizeMediumDown"];
+  delete assignedProps["sizeSmallOrMore"];
+  delete assignedProps["sizeMediumOrLess"];
   delete assignedProps["sizeMedium"];
-  delete assignedProps["sizeMediumUp"];
-  delete assignedProps["sizeLargeDown"];
+  delete assignedProps["sizeMediumOrMore"];
+  delete assignedProps["sizeLargeOrLess"];
   delete assignedProps["sizeLarge"];
-  delete assignedProps["sizeLargeUp"];
-  delete assignedProps["sizeXLargeDown"];
+  delete assignedProps["sizeLargeOrMore"];
   delete assignedProps["sizeXLarge"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
-  delete assignedProps["border"];
   delete assignedProps["highlighter"];
+  delete assignedProps["border"];
+  delete assignedProps["positioning"];
+  delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 
@@ -33,45 +33,37 @@ export default function Column(props: ColumnProps): JSX.Element {
   props.size && assignedClassNames.push(classNames[`column-${props.size}`]);
   props.sizeXSmall &&
     assignedClassNames.push(classNames[`is-xsmall-${props.sizeXSmall}`]);
-  props.sizeXSmallUp &&
+  props.sizeSmallOrLess &&
     assignedClassNames.push(
-      classNames[`is-xsmall-up-${props.sizeXSmallUp}`]
-    );
-  props.sizeSmallDown &&
-    assignedClassNames.push(
-      classNames[`is-small-down-${props.sizeSmallDown}`]
+      classNames[`is-small-or-less-${props.sizeSmallOrLess}`]
     );
   props.sizeSmall &&
     assignedClassNames.push(classNames[`is-small-${props.sizeSmall}`]);
-  props.sizeSmallUp &&
+  props.sizeSmallOrMore &&
     assignedClassNames.push(
-      classNames[`is-small-up-${props.sizeSmallUp}`]
+      classNames[`is-small-or-more-${props.sizeSmallOrMore}`]
     );
-  props.sizeMediumDown &&
+  props.sizeMediumOrLess &&
     assignedClassNames.push(
-      classNames[`is-medium-down-${props.sizeMediumDown}`]
+      classNames[`is-medium-or-less-${props.sizeMediumOrLess}`]
     );
   props.sizeMedium &&
     assignedClassNames.push(classNames[`is-medium-${props.sizeMedium}`]);
-  props.sizeMediumUp &&
+  props.sizeMediumOrMore &&
     assignedClassNames.push(
-      classNames[`is-medium-up-${props.sizeMediumUp}`]
+      classNames[`is-medium-or-more-${props.sizeMediumOrMore}`]
     );
-  props.sizeLargeDown &&
+  props.sizeLargeOrLess &&
     assignedClassNames.push(
-      classNames[`is-large-down-${props.sizeLargeDown}`]
+      classNames[`is-large-or-less-${props.sizeLargeOrLess}`]
     );
   props.sizeLarge &&
     assignedClassNames.push(
       classNames[`is-large-${props.sizeLarge}`]
     );
-  props.sizeLargeUp &&
+  props.sizeLargeOrMore &&
     assignedClassNames.push(
-      classNames[`is-large-up-${props.sizeLargeUp}`]
-    );
-  props.sizeXLargeDown &&
-    assignedClassNames.push(
-      classNames[`is-xlarge-down-${props.sizeXLargeDown}`]
+      classNames[`is-large-or-more-${props.sizeLargeOrMore}`]
     );
   props.sizeXLarge &&
     assignedClassNames.push(classNames[`is-xlarge-${props.sizeXLarge}`]);

@@ -7,8 +7,10 @@ export default function Centering(props: CenteringProps) {
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
-  delete assignedProps["border"];
   delete assignedProps["highlighter"];
+  delete assignedProps["border"];
+  delete assignedProps["positioning"];
+  delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 

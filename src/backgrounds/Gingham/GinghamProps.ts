@@ -1,14 +1,7 @@
-import React from "react";
-import { ColorLightness, ColorName } from "../../common/literalTypes";
-import { BaseComponentProps } from "../../common/models";
+import { ColorName } from "../../common/literalTypes";
+import { DivProps } from "../../components/Div";
 
-export default interface GinghamProps
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  >, BaseComponentProps {
-  patternColor?: {
-    name: ColorName;
-    lightness: ColorLightness;
-  } | undefined;
+export default interface GinghamProps extends DivProps {
+  colorName?: ColorName;
+  degree?: 0 | 45 | 90 | 135 | 180;
 }

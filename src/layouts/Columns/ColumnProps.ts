@@ -4,16 +4,14 @@ export default interface ColumnProps extends DivProps {
   isFull?: boolean;
   size?: number | undefined;
   sizeXSmall?: number | undefined;
-  sizeXSmallUp?: number | undefined;
-  sizeSmallDown?: number | undefined;
+  sizeSmallOrLess?: number | undefined;
   sizeSmall?: number | undefined;
-  sizeSmallUp?: number | undefined;
-  sizeMediumDown?: number | undefined;
+  sizeSmallOrMore?: number | undefined;
+  sizeMediumOrLess?: number | undefined;
   sizeMedium?: number | undefined;
-  sizeMediumUp?: number | undefined;
-  sizeLargeDown?: number | undefined;
+  sizeMediumOrMore?: number | undefined;
+  sizeLargeOrLess?: number | undefined;
   sizeLarge?: number | undefined;
-  sizeLargeUp?: number | undefined;
-  sizeXLargeDown?: number | undefined;
+  sizeLargeOrMore?: number | undefined;
   sizeXLarge?: number | undefined;
 }

@@ -4,18 +4,23 @@ import HamburgerProps from "./HamburgerProps";
 
 export default function Hamburger(props: HamburgerProps): JSX.Element {
   const assignedProps = { ...props };
+  delete assignedProps["colorName"];
   delete assignedProps["isActive"];
   delete assignedProps["crownInner"];
   delete assignedProps["heelInner"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
-  delete assignedProps["border"];
   delete assignedProps["highlighter"];
+  delete assignedProps["border"];
+  delete assignedProps["positioning"];
+  delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["hamburger"]];
+  props.colorName &&
+    assignedClassNames.push(classNames[`is-${props.colorName}`]);
   props.isActive && assignedClassNames.push(classNames["is-active"]);
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);

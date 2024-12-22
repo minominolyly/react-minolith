@@ -64,46 +64,46 @@ export const AllAuto: Story = {
   ),
 };
 
-export const SmallDown: Story = {
+export const SmallOrLess: Story = {
   args: {
   },
   render: (props) => (
     <MinolithStatic>
       <Columns {...props}>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column1"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column2"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column3"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column4"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column5"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column6"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column7"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column8"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column9"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column10"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column11"}
         </Column>
-        <Column sizeSmallDown={12}>
+        <Column sizeSmallOrLess={12}>
           {"Column12"}
         </Column>
       </Columns>
