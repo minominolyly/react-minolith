@@ -13,7 +13,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
       assignedClassNames.push(
         `${name}${colorScheme ? `-${colorScheme}` : ""}${
           stateStr === "default" ? "" : `-${stateStr}`
-        }-${state.name}-${state.lightness}`
+        }-${state.name}-${state.lightness === 5 ? `05` : state.lightness}`
       );
   };
 
