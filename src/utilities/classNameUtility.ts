@@ -197,7 +197,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
   }
 
   if (props.border) {
-    assignedClassNames.push(`has-border-${props.border.style}`);
+    assignedClassNames.push(`border-${props.border.style}`);
 
     if (props.border.color) {
       assignStateColor("bordercolor", "default", props.border.color.default);
