@@ -21,6 +21,7 @@ export default function DialogueAvatar(props: DialogueAvatarProps): JSX.Element 
     assignedClassNames.push(classNames[`is-circle`]);
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
+
   return props.as ? (
     <props.as {...assignedProps} className={assignedClassNames.join(" ")} />
   ) : (

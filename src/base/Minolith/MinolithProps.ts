@@ -1,8 +1,6 @@
-import { ColorScheme } from "../../common/literalTypes";
 import { MinolithCssVariable } from "../../common/models";
-import { PropsWithChildren } from "react";
+import { TabulaProps } from "../Tabula";
 
-export default interface MinolithProps extends PropsWithChildren {
-  colorScheme?: ColorScheme;
+export default interface MinolithProps extends TabulaProps {
   cssVariableSetting?: MinolithCssVariable;
 }

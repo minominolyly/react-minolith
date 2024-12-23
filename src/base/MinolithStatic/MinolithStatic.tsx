@@ -4,12 +4,14 @@ import "./MinolithStatic.scss";
 import MinolithStaticProps from "./MinolithStaticProps";
 
 export default function MinolithStatic(props: MinolithStaticProps) {
+  const assignedProps = { ...props };
+  delete assignedProps["cssVariableSetting"];
   return (
     <>
       <MinolithCssVariableStylesProviderStatic
         cssVariableSetting={props.cssVariableSetting}
       >
-        <Tabula colorScheme={props.colorScheme}>{props.children}</Tabula>
+        <Tabula {...assignedProps} />
       </MinolithCssVariableStylesProviderStatic>
     </>
   );

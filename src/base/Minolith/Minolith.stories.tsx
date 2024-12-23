@@ -7,6 +7,7 @@ import {
   Message,
   MessageBody,
   MessageHeader,
+  Stripe,
 } from "../../react-minolith";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
@@ -58,11 +59,11 @@ export const LightTheme: Story = {
   args: {
     colorScheme: "light",
   },
-  render: (props) => <Minolith {...props}>{elem}</Minolith>,
+  render: (props) => <Minolith as={Stripe} degree={135} {...props}>{elem}</Minolith>,
 };
 export const DarkTheme: Story = {
   args: {
     colorScheme: "dark",
   },
-  render: (props) => <Minolith {...props}>{elem}</Minolith>,
+  render: (props) => <Minolith as={Stripe} degree={90} {...props}>{elem}</Minolith>,
 };

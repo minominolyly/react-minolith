@@ -6,6 +6,7 @@ export default function AccordionDetails(
   props: AccordionDetailsProps,
 ): JSX.Element {
   const assignedProps = { ...props };
+  delete assignedProps["as"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -20,5 +21,9 @@ export default function AccordionDetails(
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <div {...assignedProps} className={assignedClassNames.join(" ")} />;
+  return props.as ? (
+    <props.as {...assignedProps} className={assignedClassNames.join(" ")} />
+  ) : (
+    <div {...assignedProps} className={assignedClassNames.join(" ")} />
+  );
 }

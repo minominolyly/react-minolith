@@ -1,6 +1,11 @@
 import { ColorScheme } from "../../common/literalTypes";
-import { PropsWithChildren } from "react";
+import { DivProps } from "../../react-minolith";
 
-export default interface TabulaProps extends PropsWithChildren {
+export default interface TabulaProps extends DivProps {
+  as?:
+    | React.ElementType
+    | undefined;
   colorScheme?: ColorScheme;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
 }

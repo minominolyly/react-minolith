@@ -98,7 +98,7 @@ const elem = (
             <AccordionSummary>
               <Ruby rubyText="バッジ">{"Badge"}</Ruby>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails as={Gingham} degree={45}>
               <Div spacing={{ padding: 1 }}>
                 <Columns>
                   <Column>
@@ -649,11 +649,11 @@ export const LightTheme: Story = {
   args: {
     colorScheme: "light",
   },
-  render: (props) => <MinolithStatic {...props}>{elem}</MinolithStatic>,
+  render: (props) => <MinolithStatic as={Gingham} {...props}>{elem}</MinolithStatic>,
 };
 export const DarkTheme: Story = {
   args: {
     colorScheme: "dark",
   },
-  render: (props) => <MinolithStatic {...props}>{elem}</MinolithStatic>,
+  render: (props) => <MinolithStatic as={Gingham} {...props}>{elem}</MinolithStatic>,
 };
