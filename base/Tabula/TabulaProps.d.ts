@@ -1,6 +1,8 @@
 import { ColorScheme } from '../../common/literalTypes';
-import { PropsWithChildren } from '../../../node_modules/react';
-export default interface TabulaProps extends PropsWithChildren {
+import { DivProps } from '../../react-minolith';
+export default interface TabulaProps extends DivProps {
+    as?: React.ElementType | undefined;
     colorScheme?: ColorScheme;
+    [key: string]: any;
 }
 //# sourceMappingURL=TabulaProps.d.ts.map

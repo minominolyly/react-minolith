@@ -1,4 +1,6 @@
-import { BaseComponentProps } from '../../common/models';
-export default interface MessageHeaderProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>, BaseComponentProps {
+import { DivProps } from '../Div';
+export default interface MessageHeaderProps extends DivProps {
+    as?: React.ElementType | undefined;
+    [key: string]: any;
 }
 //# sourceMappingURL=MessageHeaderProps.d.ts.map
