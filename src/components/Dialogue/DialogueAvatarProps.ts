@@ -9,5 +9,4 @@ export default interface DialogueAvatarProps
   as?: React.ElementType | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
-  isCircle?: boolean;
 }

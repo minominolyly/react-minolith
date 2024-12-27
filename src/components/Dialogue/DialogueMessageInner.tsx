@@ -1,8 +1,8 @@
 import { classNameUtility } from "../../utilities";
-import DialogueAvatarProps from "./DialogueAvatarProps";
-import classNames from "./DialogueAvatar.module.scss";
+import DialogueMessageInnerProps from "./DialogueMessageInnerProps";
+import classNames from "./DialogueMessageInner.module.scss";
 
-export default function DialogueAvatar(props: DialogueAvatarProps): JSX.Element {
+export default function DialogueMessageInner(props: DialogueMessageInnerProps): JSX.Element {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps
@@ -15,13 +15,13 @@ export default function DialogueAvatar(props: DialogueAvatarProps): JSX.Element 
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 
-  const assignedClassNames: string[] = [classNames["dialogue-avatar"]];
+  const assignedClassNames: string[] = [classNames["dialogue-message-inner"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
   return props.as ? (
     <props.as {...assignedProps} className={assignedClassNames.join(" ")} />
   ) : (
-    <img {...assignedProps} className={assignedClassNames.join(" ")} />
+    <div {...assignedProps} className={assignedClassNames.join(" ")} />
   );
 }

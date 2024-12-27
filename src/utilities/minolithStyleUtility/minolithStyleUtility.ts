@@ -175,54 +175,84 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
     if (cssVariableSetting.animation) {
       const animation = cssVariableSetting.animation;
       if (animation.speedHeavey) {
-        rootStyles.push(`--${cssVariablePrefix}animation-speed-heavy: ${animation.speedHeavey};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}animation-speed-heavy: ${animation.speedHeavey};`
+        );
       }
       if (animation.speedSlower) {
-        rootStyles.push(`--${cssVariablePrefix}animation-speed-slower: ${animation.speedSlower};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}animation-speed-slower: ${animation.speedSlower};`
+        );
       }
       if (animation.speedSlow) {
-        rootStyles.push(`--${cssVariablePrefix}animation-speed-slow: ${animation.speedSlow};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}animation-speed-slow: ${animation.speedSlow};`
+        );
       }
       if (animation.speedNormal) {
-        rootStyles.push(`--${cssVariablePrefix}animation-speed-normal: ${animation.speedNormal};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}animation-speed-normal: ${animation.speedNormal};`
+        );
       }
       if (animation.speedfFast) {
-        rootStyles.push(`--${cssVariablePrefix}animation-speed-fast: ${animation.speedfFast};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}animation-speed-fast: ${animation.speedfFast};`
+        );
       }
       if (animation.speedfFaster) {
-        rootStyles.push(`--${cssVariablePrefix}animation-speed-faster: ${animation.speedfFaster};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}animation-speed-faster: ${animation.speedfFaster};`
+        );
       }
       if (animation.speedfFlash) {
-        rootStyles.push(`--${cssVariablePrefix}animation-speed-flash: ${animation.speedfFlash};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}animation-speed-flash: ${animation.speedfFlash};`
+        );
       }
     }
 
     if (cssVariableSetting.border) {
       const border = cssVariableSetting.border;
       if (border.borderWidthXThin) {
-        rootStyles.push(`--${cssVariablePrefix}border-width-xthin: ${border.borderWidthXThin};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}border-width-xthin: ${border.borderWidthXThin};`
+        );
       }
       if (border.borderWidthThin) {
-        rootStyles.push(`--${cssVariablePrefix}border-width-thin: ${border.borderWidthThin};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}border-width-thin: ${border.borderWidthThin};`
+        );
       }
       if (border.borderWidthMedium) {
-        rootStyles.push(`--${cssVariablePrefix}border-width-medium: ${border.borderWidthMedium};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}border-width-medium: ${border.borderWidthMedium};`
+        );
       }
       if (border.borderWidthThick) {
-        rootStyles.push(`--${cssVariablePrefix}border-width-thick: ${border.borderWidthThick};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}border-width-thick: ${border.borderWidthThick};`
+        );
       }
       if (border.borderWidthXThick) {
-        rootStyles.push(`--${cssVariablePrefix}border-width-xthick: ${border.borderWidthXThick};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}border-width-xthick: ${border.borderWidthXThick};`
+        );
       }
 
       if (border.borderRadiusSmall) {
-        rootStyles.push(`--${cssVariablePrefix}border-radius-small: ${border.borderRadiusSmall};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}border-radius-small: ${border.borderRadiusSmall};`
+        );
       }
       if (border.borderRadiusMedium) {
-        rootStyles.push(`--${cssVariablePrefix}border-radius-medium: ${border.borderRadiusMedium};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}border-radius-medium: ${border.borderRadiusMedium};`
+        );
       }
       if (border.borderRadiusLarge) {
-        rootStyles.push(`--${cssVariablePrefix}border-radius-large: ${border.borderRadiusLarge};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}border-radius-large: ${border.borderRadiusLarge};`
+        );
       }
     }
 
@@ -252,7 +282,9 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
           rootStyles.push(
             `--${cssVariablePrefix}color-white-oklch: ${oklchString};`
           );
-          rootStyles.push(`--${cssVariablePrefix}color-white: oklch(${oklchString});`);
+          rootStyles.push(
+            `--${cssVariablePrefix}color-white: oklch(${oklchString});`
+          );
         }
       }
 
@@ -264,7 +296,9 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
           rootStyles.push(
             `--${cssVariablePrefix}color-black-oklch: ${oklchString};`
           );
-          rootStyles.push(`--${cssVariablePrefix}color-black: oklch(${oklchString});`);
+          rootStyles.push(
+            `--${cssVariablePrefix}color-black: oklch(${oklchString});`
+          );
         }
       }
 
@@ -488,72 +522,111 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
     if (cssVariableSetting.miscellaneous) {
       const miscellaneous = cssVariableSetting.miscellaneous;
       if (miscellaneous.zIndexTabula) {
-        rootStyles.push(`--${cssVariablePrefix}z-index-tabula: ${miscellaneous.zIndexTabula};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}z-index-tabula: ${miscellaneous.zIndexTabula};`
+        );
       }
       if (miscellaneous.zIndexModal) {
-        rootStyles.push(`--${cssVariablePrefix}z-index-modal: ${miscellaneous.zIndexModal};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}z-index-modal: ${miscellaneous.zIndexModal};`
+        );
       }
       if (miscellaneous.zIndexModalContent) {
-        rootStyles.push(`--${cssVariablePrefix}z-index-tabula-content: ${miscellaneous.zIndexModalContent};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}z-index-tabula-content: ${miscellaneous.zIndexModalContent};`
+        );
       }
       if (miscellaneous.zIndexHeaderIsSticky) {
-        rootStyles.push(`--${cssVariablePrefix}z-index-header-is-sticky: ${miscellaneous.zIndexHeaderIsSticky};`);
+        rootStyles.push(
+          `--${cssVariablePrefix}z-index-header-is-sticky: ${miscellaneous.zIndexHeaderIsSticky};`
+        );
       }
-
     }
 
     if (cssVariableSetting.typography) {
       const typography = cssVariableSetting.typography;
       if (typography.fontFamily) {
         if (typography.fontFamily.sansSerif) {
-          rootStyles.push(`--${cssVariablePrefix}font-family-sans-serif: ${typography.fontFamily.sansSerif};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-family-sans-serif: ${typography.fontFamily.sansSerif};`
+          );
         }
         if (typography.fontFamily.serif) {
-          rootStyles.push(`--${cssVariablePrefix}font-family-serif: ${typography.fontFamily.serif};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-family-serif: ${typography.fontFamily.serif};`
+          );
         }
         if (typography.fontFamily.monospace) {
-          rootStyles.push(`--${cssVariablePrefix}font-family-monospace: ${typography.fontFamily.monospace};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-family-monospace: ${typography.fontFamily.monospace};`
+          );
         }
         if (typography.fontFamily.main) {
-          rootStyles.push(`--${cssVariablePrefix}font-family-main: ${typography.fontFamily.main};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-family-main: ${typography.fontFamily.main};`
+          );
         }
         if (typography.fontFamily.heading) {
-          rootStyles.push(`--${cssVariablePrefix}font-family-heading: ${typography.fontFamily.heading};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-family-heading: ${typography.fontFamily.heading};`
+          );
         }
         if (typography.fontFamily.code) {
-          rootStyles.push(`--${cssVariablePrefix}font-family-code: ${typography.fontFamily.code};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-family-code: ${typography.fontFamily.code};`
+          );
         }
       }
       if (typography.fontSize) {
         if (typography.fontSize.xsmall) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-xsmall: ${typography.fontSize.xsmall};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-xsmall: ${typography.fontSize.xsmall};`
+          );
         }
         if (typography.fontSize.small) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-small: ${typography.fontSize.small};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-small: ${typography.fontSize.small};`
+          );
         }
         if (typography.fontSize.normal) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-normal: ${typography.fontSize.normal};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-normal: ${typography.fontSize.normal};`
+          );
         }
         if (typography.fontSize.medium) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-medium: ${typography.fontSize.medium};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-medium: ${typography.fontSize.medium};`
+          );
         }
         if (typography.fontSize.large) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-large: ${typography.fontSize.large};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-large: ${typography.fontSize.large};`
+          );
         }
         if (typography.fontSize.xlarge) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-xlarge: ${typography.fontSize.xlarge};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-xlarge: ${typography.fontSize.xlarge};`
+          );
         }
         if (typography.fontSize.xxlarge) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-xxlarge: ${typography.fontSize.xxlarge};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-xxlarge: ${typography.fontSize.xxlarge};`
+          );
         }
         if (typography.fontSize.xxxlarge) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-xxxlarge: ${typography.fontSize.xxxlarge};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-xxxlarge: ${typography.fontSize.xxxlarge};`
+          );
         }
         if (typography.fontSize.xxxxlarge) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-xxxxlarge: ${typography.fontSize.xxxxlarge};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-xxxxlarge: ${typography.fontSize.xxxxlarge};`
+          );
         }
         if (typography.fontSize.xxxxxlarge) {
-          rootStyles.push(`--${cssVariablePrefix}font-size-xxxxxlarge: ${typography.fontSize.xxxxxlarge};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-size-xxxxxlarge: ${typography.fontSize.xxxxxlarge};`
+          );
         }
       }
       if (typography.fontWeight) {
@@ -578,7 +651,89 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
           );
         }
         if (typography.fontWeight.bold) {
-          rootStyles.push(`--${cssVariablePrefix}font-weight-bold: ${typography.fontWeight.bold};`);
+          rootStyles.push(
+            `--${cssVariablePrefix}font-weight-bold: ${typography.fontWeight.bold};`
+          );
+        }
+      }
+    }
+    if (cssVariableSetting.components) {
+      const components = cssVariableSetting.components;
+      if (components.button) {
+        const button = components.button;
+        if (button.paddingX) {
+          rootStyles.push(
+            `--${cssVariablePrefix}button-padding-x: ${button.paddingX};`
+          );
+        }
+        if (button.paddingY) {
+          rootStyles.push(
+            `--${cssVariablePrefix}button-padding-y: ${button.paddingY};`
+          );
+        }
+      }
+      if (components.dialogue) {
+        const dialogue = components.dialogue;
+        if (dialogue.avatarSizeDefault) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-avatar-size-default: ${dialogue.avatarSizeDefault};`
+          );
+        }
+        if (dialogue.avatarSizeSmall) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-avatar-size-small: ${dialogue.avatarSizeSmall};`
+          );
+        }
+        if (dialogue.avatarSizeLarge) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-avatar-size-large: ${dialogue.avatarSizeLarge};`
+          );
+        }
+        if (dialogue.avatarTopOffset) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-avatar-top-offset: ${dialogue.avatarTopOffset};`
+          );
+        }
+        if (dialogue.nameFontSize) {
+          if (typeof dialogue.nameFontSize.includes("rem")) {
+            rootStyles.push(
+              `--${cssVariablePrefix}dialogue-name-font-size: ${dialogue.nameFontSize};`
+            );
+          } else {
+            rootStyles.push(
+              `--${cssVariablePrefix}dialogue-name-font-size: var(--${cssVariablePrefix}font-size-${dialogue.nameFontSize});`
+            );
+          }
+        }
+        if (dialogue.namePaddingX) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-name-padding-x: ${dialogue.namePaddingX};`
+          );
+        }
+        if (dialogue.namePaddingY) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-name-padding-y: ${dialogue.namePaddingY};`
+          );
+        }
+        if (dialogue.messageArrowHeight) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-messege-arrow-height: ${dialogue.messageArrowHeight};`
+          );
+        }
+        if (dialogue.messageArrowWidth) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-messege-arrow-width: ${dialogue.messageArrowWidth};`
+          );
+        }
+        if (dialogue.messageInnerPaddingX) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-message-inner-padding-x: ${dialogue.messageInnerPaddingX};`
+          );
+        }
+        if (dialogue.messageInnerPaddingY) {
+          rootStyles.push(
+            `--${cssVariablePrefix}dialogue-message-inner-padding-y: ${dialogue.messageInnerPaddingY};`
+          );
         }
       }
     }

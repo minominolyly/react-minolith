@@ -11,3 +11,5 @@ export { default as DialogueName } from "./DialogueName";
 export type { default as DialogueNameProps } from "./DialogueNameProps";
 export { default as DialogueMessage } from "./DialogueMessage";
 export type { default as DialogueMessageProps } from "./DialogueMessageProps";
+export { default as DialogueMessageInner } from "./DialogueMessageInner";
+export type { default as DialogueMessageInnerProps } from "./DialogueMessageInnerProps";

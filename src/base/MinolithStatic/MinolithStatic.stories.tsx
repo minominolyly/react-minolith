@@ -19,6 +19,7 @@ import {
   DialogueAvatarContainer,
   DialogueContentContainer,
   DialogueMessage,
+  DialogueMessageInner,
   DialogueName,
   Div,
   Footer,
@@ -29,6 +30,7 @@ import {
   Message,
   MessageBody,
   MessageHeader,
+  MinolithCssVariable,
   Nav,
   NavAccordion,
   NavBrand,
@@ -52,6 +54,14 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+const minolithCssVariable: MinolithCssVariable = {
+  components: {
+    dialogue: {
+      avatarTopOffset: "0rem",
+    }
+  }
+};
 
 const navMenuItems = (
   <>
@@ -83,7 +93,9 @@ const elem = (
         </NavAccordion>
         <NavStatic isMediumOrMore>
           <NavBrand>
-            <NavBrandLeft><Div spacing={{ padding: 1 }}>{"react-minolith"}</Div></NavBrandLeft>
+            <NavBrandLeft>
+              <Div spacing={{ padding: 1 }}>{"react-minolith"}</Div>
+            </NavBrandLeft>
             <NavBrandCenter></NavBrandCenter>
             <NavBrandRight></NavBrandRight>
           </NavBrand>
@@ -290,29 +302,39 @@ const elem = (
               <Div spacing={{ padding: 1 }}>
                 <Dialogue>
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
               </Div>
               <Div spacing={{ padding: 1 }}>
-                <Dialogue colorName="red">
+                <Dialogue colorName="red" isAvatarCircle={true}>
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
@@ -320,14 +342,19 @@ const elem = (
               <Div spacing={{ padding: 1 }}>
                 <Dialogue colorName="orange">
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
@@ -335,14 +362,19 @@ const elem = (
               <Div spacing={{ padding: 1 }}>
                 <Dialogue colorName="yellow">
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
@@ -350,14 +382,19 @@ const elem = (
               <Div spacing={{ padding: 1 }}>
                 <Dialogue colorName="green">
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
@@ -365,14 +402,19 @@ const elem = (
               <Div spacing={{ padding: 1 }}>
                 <Dialogue colorName="cyan">
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
@@ -380,14 +422,19 @@ const elem = (
               <Div spacing={{ padding: 1 }}>
                 <Dialogue colorName="blue">
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
@@ -395,14 +442,19 @@ const elem = (
               <Div spacing={{ padding: 1 }}>
                 <Dialogue colorName="violet">
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
@@ -410,14 +462,19 @@ const elem = (
               <Div spacing={{ padding: 1 }}>
                 <Dialogue colorName="magenta">
                   <DialogueAvatarContainer>
-                    <DialogueAvatar isCircle={true} src="https://minominolyly.github.io/minolith/images/avatar.png" alt="avatar" />
+                    <DialogueAvatar
+                      src="https://minominolyly.github.io/minolith/images/avatar.png"
+                      alt="avatar"
+                    />
                   </DialogueAvatarContainer>
                   <DialogueContentContainer>
-                    <DialogueName>
-                      {"DialogueName"}
-                    </DialogueName>
+                    <DialogueName>{"DialogueName"}</DialogueName>
                     <DialogueMessage>
-                      {"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+                      <DialogueMessageInner>
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        }
+                      </DialogueMessageInner>
                     </DialogueMessage>
                   </DialogueContentContainer>
                 </Dialogue>
@@ -636,9 +693,7 @@ const elem = (
     </Main>
     <Footer>
       <Container>
-        <Div spacing={{ padding: 1 }}>
-          {"© minominolyly"}
-        </Div>
+        <Div spacing={{ padding: 1 }}>{"© minominolyly"}</Div>
       </Container>
     </Footer>
   </>
@@ -649,11 +704,19 @@ export const LightTheme: Story = {
   args: {
     colorScheme: "light",
   },
-  render: (props) => <MinolithStatic as={Gingham} {...props}>{elem}</MinolithStatic>,
+  render: (props) => (
+    <MinolithStatic as={Gingham} cssVariableSetting={minolithCssVariable} {...props}>
+      {elem}
+    </MinolithStatic>
+  ),
 };
 export const DarkTheme: Story = {
   args: {
     colorScheme: "dark",
   },
-  render: (props) => <MinolithStatic as={Gingham} {...props}>{elem}</MinolithStatic>,
+  render: (props) => (
+    <MinolithStatic as={Gingham} cssVariableSetting={minolithCssVariable} {...props}>
+      {elem}
+    </MinolithStatic>
+  ),
 };

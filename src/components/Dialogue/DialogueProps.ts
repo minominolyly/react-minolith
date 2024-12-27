@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorName } from "../../common/literalTypes";
+import { BorderStyle, BorderWidth, ColorName } from "../../common/literalTypes";
 import { DivProps } from "../Div";
 
 export default interface DialogueProps extends DivProps {
@@ -7,5 +7,9 @@ export default interface DialogueProps extends DivProps {
   as?: React.ElementType | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
-  isAvatarRight?: boolean;
+  avatarSize?: "large" | "small";
+  borderStyle?: BorderStyle;
+  borderWidth?: BorderWidth;
+  isAvatarCircle?: boolean;
+  isRight?: boolean;
 }

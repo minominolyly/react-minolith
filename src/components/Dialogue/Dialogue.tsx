@@ -6,7 +6,11 @@ export default function Dialogue(props: DialogueProps): JSX.Element {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   delete assignedProps["colorName"];
-  delete assignedProps["isAvatarRight"];
+  delete assignedProps["avatarSize"];
+  delete assignedProps["borderStyle"];
+  delete assignedProps["borderWidth"];
+  delete assignedProps["isRight"];
+  delete assignedProps["isAvatarCircle"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -20,8 +24,22 @@ export default function Dialogue(props: DialogueProps): JSX.Element {
   const assignedClassNames = [classNames["dialogue"]];
   props.colorName &&
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  props.isAvatarRight &&
-    assignedClassNames.push(classNames[`is-avatar-right`]);
+  if (props.isRight) {
+    assignedClassNames.push(classNames[`is-right`]);
+  } else {
+    assignedClassNames.push(classNames[`is-left`]);
+  }
+  if (props.avatarSize) {
+    assignedClassNames.push(classNames[`is-avatar-size-${props.avatarSize}`]);
+  }
+  if (props.borderStyle) {
+    assignedClassNames.push(classNames[`is-border-style-${props.borderStyle}`]);
+  }
+  if (props.borderWidth) {
+    assignedClassNames.push(classNames[`is-border-width-${props.borderWidth}`]);
+  }
+  props.isAvatarCircle &&
+    assignedClassNames.push(classNames[`is-avatar-circle`]);
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
