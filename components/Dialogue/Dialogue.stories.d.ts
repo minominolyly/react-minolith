@@ -9,6 +9,5 @@ declare const meta: {
 export default meta;
 type Story = StoryObj<typeof meta>;
 export declare const Plain: Story;
-export declare const IsAvatarRight: Story;
-export declare const AvatarCircle: Story;
+export declare const IsRight: Story;
 //# sourceMappingURL=Dialogue.stories.d.ts.map
