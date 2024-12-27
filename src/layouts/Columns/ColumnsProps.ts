@@ -57,4 +57,10 @@ export default interface ColumnsProps extends DivProps {
   isLargeOrMoreDirectionColumnReverse?: boolean | undefined;
   isXLargeOrLessDirectionColumnReverse?: boolean | undefined;
   isXLargeDirectionColumnReverse?: boolean | undefined;
+  gutter?:
+    | `${number}rem`
+    | {
+        x?: `${number}rem`;
+        y?: `${number}rem`;
+      };
 }
