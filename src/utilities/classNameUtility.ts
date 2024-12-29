@@ -473,7 +473,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           if (props.spacing.margin.x === "auto") {
             assignedClassNames.push(`mx-auto`);
           } else {
-            assignedClassNames.push(`mx-${props.spacing.margin.top}rem`);
+            assignedClassNames.push(`mx-${props.spacing.margin.x}rem`);
           }
         }
 
@@ -481,7 +481,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           if (props.spacing.margin.y === "auto") {
             assignedClassNames.push(`my-auto`);
           } else {
-            assignedClassNames.push(`my-${props.spacing.margin.top}rem`);
+            assignedClassNames.push(`my-${props.spacing.margin.y}rem`);
           }
         }
 
@@ -529,7 +529,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           if (props.spacing.padding.x === "auto") {
             assignedClassNames.push(`px-auto`);
           } else {
-            assignedClassNames.push(`px-${props.spacing.padding.top}rem`);
+            assignedClassNames.push(`px-${props.spacing.padding.x}rem`);
           }
         }
 
@@ -537,7 +537,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           if (props.spacing.padding.y === "auto") {
             assignedClassNames.push(`py-auto`);
           } else {
-            assignedClassNames.push(`py-${props.spacing.padding.top}rem`);
+            assignedClassNames.push(`py-${props.spacing.padding.y}rem`);
           }
         }
 
