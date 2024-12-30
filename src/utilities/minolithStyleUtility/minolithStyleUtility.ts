@@ -4,6 +4,8 @@ import {
   ComponentStatePseudoClass,
   Oklch,
 } from "../../common/models";
+import ComponentColor from "../../common/models/ComponentSchemeColor";
+import SchemeColorComponents from "../../common/models/SchemeColorComponents";
 
 const cssVariablePrefix = "minolith-";
 
@@ -144,6 +146,289 @@ function getColorVariables(
   return derives;
 }
 
+function getComponentColorStyles(
+  component: ComponentColor,
+  componentName: string
+): string[] {
+  const schemeStyles: string[] = [];
+  if (component.default) {
+    const styles = getColorVariables(
+      "default",
+      component.default,
+      componentName
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (component.gray) {
+    const styles = getColorVariables("gray", component.gray, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (component.red) {
+    const styles = getColorVariables("red", component.red, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+  if (component.orange) {
+    const styles = getColorVariables("orange", component.orange, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+  if (component.yellow) {
+    const styles = getColorVariables("yellow", component.yellow, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (component.green) {
+    const styles = getColorVariables("green", component.green, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (component.cyan) {
+    const styles = getColorVariables("cyan", component.cyan, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (component.blue) {
+    const styles = getColorVariables("blue", component.blue, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (component.violet) {
+    const styles = getColorVariables("violet", component.violet, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (component.magenta) {
+    const styles = getColorVariables(
+      "magenta",
+      component.magenta,
+      componentName
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  return schemeStyles;
+}
+
+function getSchemeColorComponentsStyles(
+  schemeColorComponents: SchemeColorComponents
+) {
+  const schemeStyles: string[] = [];
+
+  if (schemeColorComponents.badge) {
+    const styles = getComponentColorStyles(
+      schemeColorComponents.badge,
+      "badge"
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (schemeColorComponents.accordion) {
+    const styles = getComponentColorStyles(schemeColorComponents.accordion, "accordion");
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+    if (schemeColorComponents.accordion.accordionSummary) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.accordion.accordionSummary,
+        "accordion-summary"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+    if (schemeColorComponents.accordion.accordionDetails) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.accordion.accordionDetails,
+        "accordion-details"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+  }
+
+  if (schemeColorComponents.button) {
+    const styles = getComponentColorStyles(
+      schemeColorComponents.button,
+      "button"
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (schemeColorComponents.card) {
+    const styles = getComponentColorStyles(schemeColorComponents.card, "card");
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+    if (schemeColorComponents.card.cardHeader) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.card.cardHeader,
+        "card-header"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+    if (schemeColorComponents.card.cardBody) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.card.cardBody,
+        "card-body"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+    if (schemeColorComponents.card.cardFooter) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.card.cardFooter,
+        "card-footer"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+  }
+
+  if (schemeColorComponents.dialogue) {
+    const styles = getComponentColorStyles(schemeColorComponents.dialogue, "dialogue");
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+    if (schemeColorComponents.dialogue.dialogueAvatar) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.dialogue.dialogueAvatar,
+        "dialogue-avatar"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+    if (schemeColorComponents.dialogue.dialogueName) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.dialogue.dialogueName,
+        "dialogue-name"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+    if (schemeColorComponents.dialogue.dialogueMessage) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.dialogue.dialogueMessage,
+        "dialogue-message"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+  }
+
+  if (schemeColorComponents.header) {
+    const styles = getComponentColorStyles(
+      schemeColorComponents.header,
+      "header"
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (schemeColorComponents.label) {
+    const styles = getComponentColorStyles(
+      schemeColorComponents.label,
+      "label"
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (schemeColorComponents.link) {
+    const styles = getComponentColorStyles(
+      schemeColorComponents.link,
+      "link"
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (schemeColorComponents.loader) {
+    const styles = getComponentColorStyles(
+      schemeColorComponents.loader,
+      "loader"
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (schemeColorComponents.message) {
+    const styles = getComponentColorStyles(
+      schemeColorComponents.message,
+      "message"
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+    if (schemeColorComponents.message.messageHeader) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.message.messageHeader,
+        "message-header"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+    if (schemeColorComponents.message.messageBody) {
+      const styles = getComponentColorStyles(
+        schemeColorComponents.message.messageBody,
+        "message-body"
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
+    }
+  }
+
+  if (schemeColorComponents.progress) {
+    const styles = getComponentColorStyles(
+      schemeColorComponents.progress,
+      "progress"
+    );
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  return schemeStyles;
+}
+
 function getMinolithCssVariableStyles(
   cssVariableSetting?: MinolithCssVariable
 ): string[] {
@@ -273,34 +558,6 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
           );
         }
       };
-
-      if (color.white) {
-        if (typeof color.white === "string") {
-          rootStyles.push(`--${cssVariablePrefix}color-white: ${color.white};`);
-        } else {
-          const oklchString = `${color.white.lightness}% ${color.white.chroma} ${color.white.hue}`;
-          rootStyles.push(
-            `--${cssVariablePrefix}color-white-oklch: ${oklchString};`
-          );
-          rootStyles.push(
-            `--${cssVariablePrefix}color-white: oklch(${oklchString});`
-          );
-        }
-      }
-
-      if (color.black) {
-        if (typeof color.black === "string") {
-          rootStyles.push(`--${cssVariablePrefix}color-black: ${color.black};`);
-        } else {
-          const oklchString = `${color.black.lightness}% ${color.black.chroma} ${color.black.hue}`;
-          rootStyles.push(
-            `--${cssVariablePrefix}color-black-oklch: ${oklchString};`
-          );
-          rootStyles.push(
-            `--${cssVariablePrefix}color-black: oklch(${oklchString});`
-          );
-        }
-      }
 
       if (color.gray) {
         const gradation = color.gray;
@@ -657,6 +914,7 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
         }
       }
     }
+
     if (cssVariableSetting.components) {
       const components = cssVariableSetting.components;
       if (components.button) {
@@ -805,107 +1063,11 @@ function getLightSchemeStyles(
             lightSchemeStyles.push(...styles);
           }
         }
-
-        if (color.light.button) {
-          if (color.light.button.default) {
-            const styles = getColorVariables(
-              "default",
-              color.light.button.default,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.gray) {
-            const styles = getColorVariables(
-              "gray",
-              color.light.button.gray,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.red) {
-            const styles = getColorVariables(
-              "red",
-              color.light.button.red,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.orange) {
-            const styles = getColorVariables(
-              "orange",
-              color.light.button.orange,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.yellow) {
-            const styles = getColorVariables(
-              "yellow",
-              color.light.button.yellow,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.green) {
-            const styles = getColorVariables(
-              "green",
-              color.light.button.green,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.cyan) {
-            const styles = getColorVariables(
-              "cyan",
-              color.light.button.cyan,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.blue) {
-            const styles = getColorVariables(
-              "blue",
-              color.light.button.blue,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.violet) {
-            const styles = getColorVariables(
-              "violet",
-              color.light.button.violet,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-          if (color.light.button.magenta) {
-            const styles = getColorVariables(
-              "magenta",
-              color.light.button.magenta,
-              "button"
-            );
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
+        if (color.light.components) {
+          const components = color.light.components;
+          const styles = getSchemeColorComponentsStyles(components);
+          if (styles.length > 0) {
+            lightSchemeStyles.push(...styles);
           }
         }
       }
@@ -984,107 +1146,11 @@ function getDarkSchemeStyles(
             darkSchemeStyles.push(...styles);
           }
         }
-
-        if (color.dark.button) {
-          if (color.dark.button.default) {
-            const styles = getColorVariables(
-              "default",
-              color.dark.button.default,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.gray) {
-            const styles = getColorVariables(
-              "gray",
-              color.dark.button.gray,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.red) {
-            const styles = getColorVariables(
-              "red",
-              color.dark.button.red,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.orange) {
-            const styles = getColorVariables(
-              "orange",
-              color.dark.button.orange,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.yellow) {
-            const styles = getColorVariables(
-              "yellow",
-              color.dark.button.yellow,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.green) {
-            const styles = getColorVariables(
-              "green",
-              color.dark.button.green,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.cyan) {
-            const styles = getColorVariables(
-              "cyan",
-              color.dark.button.cyan,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.blue) {
-            const styles = getColorVariables(
-              "blue",
-              color.dark.button.blue,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.violet) {
-            const styles = getColorVariables(
-              "violet",
-              color.dark.button.violet,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-          if (color.dark.button.magenta) {
-            const styles = getColorVariables(
-              "magenta",
-              color.dark.button.magenta,
-              "button"
-            );
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
+        if (color.dark.components) {
+          const components = color.dark.components;
+          const styles = getSchemeColorComponentsStyles(components);
+          if (styles.length > 0) {
+            darkSchemeStyles.push(...styles);
           }
         }
       }
