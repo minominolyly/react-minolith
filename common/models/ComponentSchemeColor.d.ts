@@ -1,6 +1,5 @@
 import { default as ComponentStatePseudoClass } from './ComponentStatePseudoClass';
-import { default as SchemeColorComponents } from './SchemeColorComponents';
-export default interface SchemeColor {
+export default interface ComponentSchemeColor {
     default?: ComponentStatePseudoClass | undefined;
     gray?: ComponentStatePseudoClass | undefined;
     red?: ComponentStatePseudoClass | undefined;
@@ -11,6 +10,5 @@ export default interface SchemeColor {
     blue?: ComponentStatePseudoClass | undefined;
     violet?: ComponentStatePseudoClass | undefined;
     magenta?: ComponentStatePseudoClass | undefined;
-    components?: SchemeColorComponents | undefined;
 }
-//# sourceMappingURL=SchemeColor.d.ts.map
+//# sourceMappingURL=ComponentSchemeColor.d.ts.map
