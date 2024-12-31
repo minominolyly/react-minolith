@@ -1,1 +1,1 @@
-{"version":3,"file":"NavBrandRight.d.ts","sourceRoot":"","sources":["../../../src/components/Nav/NavBrandRight.tsx"],"names":[],"mappings":"AAEA,OAAO,kBAAkB,MAAM,sBAAsB,CAAC;AAEtD,MAAM,CAAC,OAAO,UAAU,aAAa,CAAC,KAAK,EAAE,kBAAkB,GAAG,GAAG,CAAC,OAAO,CAmB5E"}
+{"version":3,"file":"NavBrandRight.d.ts","sourceRoot":"","sources":["../../../src/components/Nav/NavBrandRight.tsx"],"names":[],"mappings":"AAEA,OAAO,kBAAkB,MAAM,sBAAsB,CAAC;AAEtD,MAAM,CAAC,OAAO,UAAU,aAAa,CAAC,KAAK,EAAE,kBAAkB,GAAG,KAAK,CAAC,YAAY,CAmBnF"}

@@ -1,3 +1,3 @@
 import { default as AccordionSummaryProps } from './AccordionSummaryProps';
-export default function AccordionSummary(props: AccordionSummaryProps): JSX.Element;
+export default function AccordionSummary(props: AccordionSummaryProps): React.ReactElement;
 //# sourceMappingURL=AccordionSummary.d.ts.map

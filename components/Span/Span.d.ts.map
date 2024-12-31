@@ -1,1 +1,1 @@
-{"version":3,"file":"Span.d.ts","sourceRoot":"","sources":["../../../src/components/Span/Span.tsx"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,aAAa,CAAC;AAEpC,MAAM,CAAC,OAAO,UAAU,IAAI,CAAC,KAAK,EAAE,SAAS,GAAG,GAAG,CAAC,OAAO,CAiB1D"}
+{"version":3,"file":"Span.d.ts","sourceRoot":"","sources":["../../../src/components/Span/Span.tsx"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,aAAa,CAAC;AAEpC,MAAM,CAAC,OAAO,UAAU,IAAI,CAAC,KAAK,EAAE,SAAS,GAAG,KAAK,CAAC,YAAY,CAiBjE"}

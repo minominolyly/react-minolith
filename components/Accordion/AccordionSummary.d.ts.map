@@ -1,1 +1,1 @@
-{"version":3,"file":"AccordionSummary.d.ts","sourceRoot":"","sources":["../../../src/components/Accordion/AccordionSummary.tsx"],"names":[],"mappings":"AACA,OAAO,qBAAqB,MAAM,yBAAyB,CAAC;AAG5D,MAAM,CAAC,OAAO,UAAU,gBAAgB,CAAC,KAAK,EAAE,qBAAqB,GAAG,GAAG,CAAC,OAAO,CAiBlF"}
+{"version":3,"file":"AccordionSummary.d.ts","sourceRoot":"","sources":["../../../src/components/Accordion/AccordionSummary.tsx"],"names":[],"mappings":"AACA,OAAO,qBAAqB,MAAM,yBAAyB,CAAC;AAG5D,MAAM,CAAC,OAAO,UAAU,gBAAgB,CAAC,KAAK,EAAE,qBAAqB,GAAG,KAAK,CAAC,YAAY,CAiBzF"}

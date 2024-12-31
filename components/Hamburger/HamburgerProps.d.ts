@@ -3,7 +3,7 @@ import { DivProps } from '../Div';
 export default interface HamburgerProps extends DivProps {
     colorName?: ColorName;
     isActive?: boolean | undefined;
-    crownInner?: JSX.Element | string | undefined;
-    heelInner?: JSX.Element | string | undefined;
+    crownInner?: React.ReactNode | string | undefined;
+    heelInner?: React.ReactNode | string | undefined;
 }
 //# sourceMappingURL=HamburgerProps.d.ts.map

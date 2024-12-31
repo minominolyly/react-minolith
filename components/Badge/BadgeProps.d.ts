@@ -4,6 +4,7 @@ import { default as React } from '../../../node_modules/react';
 export default interface BadgeProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>, BaseComponentProps {
     colorName?: ColorName;
     isSmall?: boolean;
+    isClickable?: boolean;
     as?: React.ElementType | undefined;
     [key: string]: any;
 }

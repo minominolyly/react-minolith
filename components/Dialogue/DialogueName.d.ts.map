@@ -1,1 +1,1 @@
-{"version":3,"file":"DialogueName.d.ts","sourceRoot":"","sources":["../../../src/components/Dialogue/DialogueName.tsx"],"names":[],"mappings":"AACA,OAAO,iBAAiB,MAAM,qBAAqB,CAAC;AAGpD,MAAM,CAAC,OAAO,UAAU,YAAY,CAAC,KAAK,EAAE,iBAAiB,GAAG,GAAG,CAAC,OAAO,CAqB1E"}
+{"version":3,"file":"DialogueName.d.ts","sourceRoot":"","sources":["../../../src/components/Dialogue/DialogueName.tsx"],"names":[],"mappings":"AACA,OAAO,iBAAiB,MAAM,qBAAqB,CAAC;AAGpD,MAAM,CAAC,OAAO,UAAU,YAAY,CAAC,KAAK,EAAE,iBAAiB,GAAG,KAAK,CAAC,YAAY,CAqBjF"}
