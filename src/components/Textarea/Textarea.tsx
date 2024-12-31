@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Textarea.module.scss";
 import TextareaProps from "./TextareaProps";
 
-export default function Textarea(props: TextareaProps) {
+export default function Textarea(props: TextareaProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

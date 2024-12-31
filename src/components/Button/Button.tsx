@@ -2,7 +2,7 @@ import ButtonProps from "./ButtonProps";
 import classNames from "./Button.module.scss";
 import { classNameUtility } from "../../utilities";
 
-export default function Button(props: ButtonProps): JSX.Element {
+export default function Button(props: ButtonProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

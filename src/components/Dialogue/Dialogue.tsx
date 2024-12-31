@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Dialogue.module.scss";
 import DialogueProps from "./DialogueProps";
 
-export default function Dialogue(props: DialogueProps): JSX.Element {
+export default function Dialogue(props: DialogueProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   delete assignedProps["colorName"];

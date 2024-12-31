@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./MessageHeader.module.scss";
 import MessageHeaderProps from "./MessageHeaderProps";
 
-export default function MessageHeader(props: MessageHeaderProps): JSX.Element {
+export default function MessageHeader(props: MessageHeaderProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps

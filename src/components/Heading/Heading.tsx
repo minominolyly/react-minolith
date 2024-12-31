@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Heading.module.scss";
 import HeadingProps from "./HeadingProps";
 
-export default function Heading(props: HeadingProps): JSX.Element {
+export default function Heading(props: HeadingProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["level"];
   //#region BaseComponentProps

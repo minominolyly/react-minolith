@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./NavStatic.module.scss";
 import NavStaticProps from "./NavStaticProps";
 
-export default function NavStatic(props: NavStaticProps): JSX.Element {
+export default function NavStatic(props: NavStaticProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isXSmall"];
   delete assignedProps["isSmallOrLess"];

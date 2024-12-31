@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import ColumnProps from "./ColumnProps";
 import classNames from "./Column.module.scss";
 
-export default function Column(props: ColumnProps): JSX.Element {
+export default function Column(props: ColumnProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isFull"];
   delete assignedProps["size"];

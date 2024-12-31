@@ -2,10 +2,11 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Badge.module.scss";
 import BadgeProps from "./BadgeProps";
 
-export default function Badge(props: BadgeProps): JSX.Element {
+export default function Badge(props: BadgeProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["isSmall"];
+  delete assignedProps["isClickable"];
   delete assignedProps["as"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -21,6 +22,7 @@ export default function Badge(props: BadgeProps): JSX.Element {
   props.colorName &&
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
   props.isSmall && assignedClassNames.push(classNames[`is-small`]);
+  props.isClickable && assignedClassNames.push(classNames[`is-clickable`]);
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 

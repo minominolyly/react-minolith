@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Progress.module.scss";
 import ProgressProps from "./ProgressProps";
 
-export default function Progress(props: ProgressProps): JSX.Element {
+export default function Progress(props: ProgressProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

@@ -1,7 +1,7 @@
 import { classNameUtility } from "../../utilities";
 import DivProps from "./DivProps";
 
-export default function Div(props: DivProps): JSX.Element {
+export default function Div(props: DivProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

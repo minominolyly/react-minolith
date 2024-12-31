@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./NavBrandLeft.module.scss";
 import NavBrandLeftProps from "./NavBrandLeftProps";
 
-export default function NavBrandLeft(props: NavBrandLeftProps): JSX.Element {
+export default function NavBrandLeft(props: NavBrandLeftProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

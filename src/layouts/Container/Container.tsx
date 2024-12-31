@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Container.module.scss";
 import ContainerProps from "./ContainerProps";
 
-export default function Container(props: ContainerProps): JSX.Element {
+export default function Container(props: ContainerProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isFluid"];
   delete assignedProps["gutter"];

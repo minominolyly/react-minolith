@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./NavBrand.module.scss";
 import NavBrandProps from "./NavBrandProps";
 
-export default function NavBrand(props: NavBrandProps): JSX.Element {
+export default function NavBrand(props: NavBrandProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

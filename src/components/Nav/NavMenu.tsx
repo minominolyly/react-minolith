@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./NavMenu.module.scss";
 import NavMenuProps from "./NavMenuProps";
 
-export default function NavMenu(props: NavMenuProps): JSX.Element {
+export default function NavMenu(props: NavMenuProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isActive"];
   //#region BaseComponentProps

@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Loader.module.scss";
 import LoaderProps from "./LoaderProps";
 
-export default function Loader(props: LoaderProps): JSX.Element {
+export default function Loader(props: LoaderProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

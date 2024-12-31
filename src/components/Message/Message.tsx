@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Message.module.scss";
 import MessageProps from "./MessageProps";
 
-export default function Message(props: MessageProps): JSX.Element {
+export default function Message(props: MessageProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["as"];

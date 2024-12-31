@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Centering.module.scss";
 import CenteringProps from "./CenteringProps";
 
-export default function Centering(props: CenteringProps) {
+export default function Centering(props: CenteringProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

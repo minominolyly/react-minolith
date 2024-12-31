@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Stripe.module.scss";
 import StripeProps from "./StripeProps";
 
-export default function Stripe(props: StripeProps): JSX.Element {
+export default function Stripe(props: StripeProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["degree"];

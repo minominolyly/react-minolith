@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import MainProps from "./MainProps";
 
 
-export default function Main(props: MainProps) {
+export default function Main(props: MainProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

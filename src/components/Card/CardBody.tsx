@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./CardBody.module.scss";
 import CardBodyProps from "./CardBodyProps";
 
-export default function CardBody(props: CardBodyProps): JSX.Element {
+export default function CardBody(props: CardBodyProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps

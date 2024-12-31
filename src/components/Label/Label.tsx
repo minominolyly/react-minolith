@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Label.module.scss";
 import LabelProps from "./LabelProps";
 
-export default function Label(props: LabelProps): JSX.Element {
+export default function Label(props: LabelProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

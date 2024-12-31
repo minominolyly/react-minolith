@@ -10,6 +10,7 @@ export default interface BadgeProps
     BaseComponentProps {
   colorName?: ColorName;
   isSmall?: boolean;
+  isClickable?: boolean;
   as?: React.ElementType | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;

@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./NavAccordion.module.scss";
 import NavAccordionProps from "./NavAccordionProps";
 
-export default function NavAccordion(props: NavAccordionProps): JSX.Element {
+export default function NavAccordion(props: NavAccordionProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isXSmall"];
   delete assignedProps["isSmallOrLess"];

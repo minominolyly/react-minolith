@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Nav.module.scss";
 import NavProps from "./NavProps";
 
-export default function Nav(props: NavProps): JSX.Element {
+export default function Nav(props: NavProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

@@ -2,7 +2,7 @@ import ColumnsProps from "./ColumnsProps";
 import classNames from "./Columns.module.scss";
 import { classNameUtility } from "../../utilities";
 
-export default function Columns(props: ColumnsProps): JSX.Element {
+export default function Columns(props: ColumnsProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isDirectionRow"];
   delete assignedProps["isDirectionRowReverse"];

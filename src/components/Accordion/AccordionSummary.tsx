@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import AccordionSummaryProps from "./AccordionSummaryProps";
 import classNames from "./AccordionSummary.module.scss";
 
-export default function AccordionSummary(props: AccordionSummaryProps): JSX.Element {
+export default function AccordionSummary(props: AccordionSummaryProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

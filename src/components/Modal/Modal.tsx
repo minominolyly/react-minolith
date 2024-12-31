@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Modal.module.scss";
 import ModalProps from "./ModalProps";
 
-export default function Modal(props: ModalProps): JSX.Element {
+export default function Modal(props: ModalProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isActive"];
   delete assignedProps["colorName"];

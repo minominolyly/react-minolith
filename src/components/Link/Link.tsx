@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Link.module.scss";
 import LinkProps from "./LinkProps";
 
-export default function Link(props: LinkProps): JSX.Element {
+export default function Link(props: LinkProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   delete assignedProps["colorName"];

@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import AccordionProps from "./AccordionProps";
 import classNames from "./Accordion.module.scss";
 
-export default function Accordion(props: AccordionProps): JSX.Element {
+export default function Accordion(props: AccordionProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

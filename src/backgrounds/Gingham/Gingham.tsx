@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Gingham.module.scss";
 import GinghamProps from "./GinghamProps";
 
-export default function Gingham(props: GinghamProps): JSX.Element {
+export default function Gingham(props: GinghamProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["degree"];

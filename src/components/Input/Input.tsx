@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Input.module.scss";
 import InputProps from "./InputProps";
 
-export default function Input(props: InputProps) {
+export default function Input(props: InputProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

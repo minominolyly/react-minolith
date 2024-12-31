@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import DialogueMessageInnerProps from "./DialogueMessageInnerProps";
 import classNames from "./DialogueMessageInner.module.scss";
 
-export default function DialogueMessageInner(props: DialogueMessageInnerProps): JSX.Element {
+export default function DialogueMessageInner(props: DialogueMessageInnerProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps

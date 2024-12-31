@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./MessageBody.module.scss";
 import MessageBodyProps from "./MessageBodyProps";
 
-export default function MessageBody(props: MessageBodyProps): JSX.Element {
+export default function MessageBody(props: MessageBodyProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps

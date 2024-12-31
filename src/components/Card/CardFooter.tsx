@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./CardFooter.module.scss";
 import CardFooterProps from "./CardFooterProps";
 
-export default function CardFooter(props: CardFooterProps): JSX.Element {
+export default function CardFooter(props: CardFooterProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps

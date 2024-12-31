@@ -1,7 +1,7 @@
 import { classNameUtility } from "../../utilities";
 import RubyProps from "./RubyProps";
 
-export default function Ruby(props: RubyProps): JSX.Element {
+export default function Ruby(props: RubyProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["rubyText"];
   //#region BaseComponentProps

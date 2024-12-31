@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Card.module.scss";
 import CardProps from "./CardProps";
 
-export default function Card(props: CardProps): JSX.Element {
+export default function Card(props: CardProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   delete assignedProps["colorName"];

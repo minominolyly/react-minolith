@@ -6,7 +6,7 @@ import MinolithCssVariableStylesProviderStaticProps from "./MinolithCssVariableS
 
 export default function MinolithCssVariableStylesProviderStatic(
   props: MinolithCssVariableStylesProviderStaticProps
-) {
+): React.ReactElement {
   const minolithStyles = useMemo(
     () =>
       minolithStyleUtility.getMinolithCssVariableStyles(props.cssVariableSetting),

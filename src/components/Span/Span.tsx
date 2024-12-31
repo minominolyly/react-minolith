@@ -1,7 +1,7 @@
 import { classNameUtility } from "../../utilities";
 import SpanProps from "./SpanProps";
 
-export default function Span(props: SpanProps): JSX.Element {
+export default function Span(props: SpanProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

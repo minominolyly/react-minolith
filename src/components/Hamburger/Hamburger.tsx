@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Hamburger.module.scss";
 import HamburgerProps from "./HamburgerProps";
 
-export default function Hamburger(props: HamburgerProps): JSX.Element {
+export default function Hamburger(props: HamburgerProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["isActive"];

@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Footer.module.scss";
 import FooterProps from "./FooterProps";
 
-export default function Footer(props: FooterProps): JSX.Element {
+export default function Footer(props: FooterProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

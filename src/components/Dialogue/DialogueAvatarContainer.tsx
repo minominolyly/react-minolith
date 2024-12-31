@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./DialogueAvatarContainer.module.scss";
 import DialogueAvatarContainerProps from "./DialogueAvatarContainerProps";
 
-export default function DialogueAvatarContainer(props: DialogueAvatarContainerProps): JSX.Element {
+export default function DialogueAvatarContainer(props: DialogueAvatarContainerProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps

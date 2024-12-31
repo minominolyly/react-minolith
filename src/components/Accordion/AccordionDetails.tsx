@@ -4,7 +4,7 @@ import AccordionDetailsProps from "./AccordionDetailsProps";
 
 export default function AccordionDetails(
   props: AccordionDetailsProps,
-): JSX.Element {
+): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps

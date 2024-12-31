@@ -3,7 +3,7 @@ import { Tabula } from "../Tabula";
 import "./MinolithStatic.scss";
 import MinolithStaticProps from "./MinolithStaticProps";
 
-export default function MinolithStatic(props: MinolithStaticProps) {
+export default function MinolithStatic(props: MinolithStaticProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["cssVariableSetting"];
   return (

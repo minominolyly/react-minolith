@@ -1,7 +1,7 @@
 import { classNameUtility } from "../../utilities";
 import SectionProps from "./SectionProps";
 
-export default function Section(props: SectionProps): JSX.Element {
+export default function Section(props: SectionProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

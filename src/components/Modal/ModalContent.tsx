@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./ModalContent.module.scss";
 import ModalContentProps from "./ModalContentProps";
 
-export default function ModalContent(props: ModalContentProps): JSX.Element {
+export default function ModalContent(props: ModalContentProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

@@ -2,7 +2,7 @@ import { classNameUtility } from "../../utilities";
 import classNames from "./Header.module.scss";
 import HeaderProps from "./HeaderProps";
 
-export default function Header(props: HeaderProps): JSX.Element {
+export default function Header(props: HeaderProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["isSticky"];
