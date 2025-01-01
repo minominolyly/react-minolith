@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: react-minolith
+message: >-
+  design system with React by minominolyly
+type: software
+authors:
+  - name: minominolyly
+repository-code: "https://github.com/minominolyly/react-minolith"
+url: "https://minominolyly.github.io/react-minolith/"
+license: MIT

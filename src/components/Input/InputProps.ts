@@ -1,4 +1,4 @@
-import { ColorName } from "../../common/literalTypes";
+import { BorderRadius, BorderWidth, ColorName } from "../../common/literalTypes";
 import { BaseComponentProps } from "../../common/models";
 
 export default interface InputProps
@@ -8,4 +8,6 @@ export default interface InputProps
     >,
     BaseComponentProps {
   colorName?: ColorName;
+  borderRadius?: BorderRadius;
+  borderWidth?: BorderWidth;
 }

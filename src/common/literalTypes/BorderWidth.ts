@@ -1,8 +1,8 @@
 type BorderWidth =
-  | "thick"
+  | "xthin"
   | "thin"
   | "medium"
-  | "xthick"
-  | "xthin";
+  | "thick"
+  | "xthick";
 
 export default BorderWidth;
