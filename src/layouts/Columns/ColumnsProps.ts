@@ -59,74 +59,75 @@ export default interface ColumnsProps extends DivProps {
   isXLargeDirectionColumnReverse?: boolean | undefined;
   gutter?:
     | `${number}rem`
+    | number
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterXSmall?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterSmallOrLess?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterSmall?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterSmallOrMore?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterMediumOrLess?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterMedium?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterMediumOrMore?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterLargeOrLess?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterLarge?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterLargeOrMore?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
   gutterXLarge?:
     | `${number}rem`
     | {
-        x?: `${number}rem`;
-        y?: `${number}rem`;
+        x?: `${number}rem` | number;
+        y?: `${number}rem` | number;
       };
 }

@@ -88,7 +88,7 @@ export const AllAuto: Story = {
 };
 export const HasGutter: Story = {
   args: {
-    gutter: "1rem",
+    gutter: 1,
   },
   render: (props) => (
     <MinolithStatic>
@@ -161,7 +161,7 @@ export const HasGutter: Story = {
 export const HasGutterX: Story = {
   args: {
     gutter: {
-      x: "1rem",
+      x: 1,
     },
   },
   render: (props) => (
