@@ -1,0 +1,1 @@
+{"version":3,"file":"DotProps.d.ts","sourceRoot":"","sources":["../../../src/backgrounds/Dot/DotProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,2BAA2B,CAAC;AACtD,OAAO,EAAE,QAAQ,EAAE,MAAM,sBAAsB,CAAC;AAEhD,MAAM,CAAC,OAAO,WAAW,QAAS,SAAQ,QAAQ;IAChD,SAAS,CAAC,EAAE,SAAS,CAAC;IACtB,OAAO,CAAC,EAAE,KAAK,GAAG,OAAO,GAAG,MAAM,CAAC;CACpC"}

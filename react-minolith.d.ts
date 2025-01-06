@@ -6,6 +6,7 @@ export * from './base/MinolithCssVariableStylesProviderStatic';
 export * from './base/Minolith';
 export * from './base/MinolithStatic';
 export * from './base/Tabula';
+export * from './backgrounds/Dot';
 export * from './backgrounds/Gingham';
 export * from './backgrounds/Stripe';
 export * from './components/Accordion';
