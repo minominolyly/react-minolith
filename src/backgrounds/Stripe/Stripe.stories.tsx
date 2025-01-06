@@ -21,8 +21,8 @@ export const LightPlain: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic colorScheme="light">
-      <Stripe {...props}>
+    <MinolithStatic>
+      <Stripe {...props} sizing={{ aspectRatio: "16:9" }}>
         <span>{"Plain"}</span>
       </Stripe>
     </MinolithStatic>

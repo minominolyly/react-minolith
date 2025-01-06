@@ -1,4 +1,5 @@
 import { classNameUtility } from "../../utilities";
+import classNames from "./Ruby.module.scss";
 import RubyProps from "./RubyProps";
 
 export default function Ruby(props: RubyProps): React.ReactElement {
@@ -14,7 +15,7 @@ export default function Ruby(props: RubyProps): React.ReactElement {
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 
-  const assignedClassNames: string[] = [];
+  const assignedClassNames: string[] = [classNames["element"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 

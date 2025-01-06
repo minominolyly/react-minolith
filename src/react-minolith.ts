@@ -27,6 +27,8 @@ export * from "./base/Tabula";
 
 //#region backgrounds
 
+export * from "./backgrounds/Dot";
+
 export * from "./backgrounds/Gingham";
 
 export * from "./backgrounds/Stripe";

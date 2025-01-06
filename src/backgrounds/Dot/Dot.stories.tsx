@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Gingham from "./Gingham";
+import Dot from "./Dot";
 import { MinolithStatic } from "../../base/MinolithStatic";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: "Backgrounds/Gingham",
-  component: Gingham,
+  title: "Backgrounds/Dot",
+  component: Dot,
   tags: ["autodocs"],
   argTypes: {
   },
-} satisfies Meta<typeof Gingham>;
+} satisfies Meta<typeof Dot>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -22,9 +22,9 @@ export const Plain: Story = {
   },
   render: (props) => (
     <MinolithStatic>
-      <Gingham {...props} sizing={{ aspectRatio: "16:9" }}>
+      <Dot {...props} sizing={{ aspectRatio: "16:9" }}>
         <span>{"Plain"}</span>
-      </Gingham>
+      </Dot>
     </MinolithStatic>
   ),
 };
