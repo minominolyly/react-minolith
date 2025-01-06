@@ -4,6 +4,8 @@
 [![NPM Version](https://img.shields.io/npm/v/react-minolith)](https://www.npmjs.com/package/react-minolith)
 [![npm downloads](https://img.shields.io/npm/dm/react-minolith)](https://www.npmjs.com/package/react-minolith)
 
+[![NPM](https://nodei.co/npm/react-minolith.png)](https://nodei.co/npm/react-minolith/)
+
 ## Overview
 
 react-minolith is an open-source react wrapper for [minolith](https://github.com/minominolyly/minolith).
