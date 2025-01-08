@@ -14,7 +14,7 @@ export default function Span(props: SpanProps): React.ReactElement {
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 
-  const assignedClassNames: string[] = [classNames["element"]];
+  const assignedClassNames: string[] = [classNames["span"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 

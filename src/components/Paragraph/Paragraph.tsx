@@ -1,8 +1,8 @@
 import { classNameUtility } from "../../utilities";
-import classNames from "./Div.module.scss";
-import DivProps from "./DivProps";
+import classNames from "./Paragraph.module.scss";
+import ParagraphProps from "./ParagraphProps";
 
-export default function Div(props: DivProps): React.ReactElement {
+export default function Paragraph(props: ParagraphProps): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -14,9 +14,9 @@ export default function Div(props: DivProps): React.ReactElement {
   delete assignedProps["spacing"];
   //#endregion BaseComponentProps
 
-  const assignedClassNames: string[] = [classNames["div"]];
+  const assignedClassNames: string[] = [classNames["paragraph"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <div {...assignedProps} className={assignedClassNames.join(" ")} />;
+  return <p {...assignedProps} className={assignedClassNames.join(" ")} />;
 }
