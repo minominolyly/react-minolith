@@ -4,6 +4,7 @@ import {
   BorderRadius,
   BorderStyle,
   BorderWidth,
+  ColorName,
   ColorProps,
   FontSize,
   FontWeight,
@@ -11,13 +12,13 @@ import {
 
 export default interface BaseComponentProps {
   fore?: {
-    color?: ColorProps;
+    color?: ColorProps<ColorName | "rainbow">;
     fontSize?: FontSize;
     fontWeight?: FontWeight;
     isItalic?: boolean;
   };
   back?: {
-    color?: ColorProps;
+    color?: ColorProps<ColorName | "rainbow">;
   };
   highlighter?: {
     color?: ColorProps;

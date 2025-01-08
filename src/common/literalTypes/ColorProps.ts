@@ -1,24 +1,25 @@
 import ColorAttributes from "./ColorAttributes";
+import ColorName from "./ColorName";
 
-type ColorProps = {
-  default?: ColorAttributes;
-  hover?: ColorAttributes;
-  focus?: ColorAttributes;
-  active?: ColorAttributes;
-  disabled?: ColorAttributes;
+type ColorProps<ColorNameType = ColorName> = {
+  default?: ColorAttributes<ColorNameType>;
+  hover?: ColorAttributes<ColorNameType>;
+  focus?: ColorAttributes<ColorNameType>;
+  active?: ColorAttributes<ColorNameType>;
+  disabled?: ColorAttributes<ColorNameType>;
   light?: {
-    default?: ColorAttributes;
-    hover?: ColorAttributes;
-    focus?: ColorAttributes;
-    active?: ColorAttributes;
-    disabled?: ColorAttributes;
+    default?: ColorAttributes<ColorNameType>;
+    hover?: ColorAttributes<ColorNameType>;
+    focus?: ColorAttributes<ColorNameType>;
+    active?: ColorAttributes<ColorNameType>;
+    disabled?: ColorAttributes<ColorNameType>;
   };
   dark?: {
-    default?: ColorAttributes;
-    hover?: ColorAttributes;
-    focus?: ColorAttributes;
-    active?: ColorAttributes;
-    disabled?: ColorAttributes;
+    default?: ColorAttributes<ColorNameType>;
+    hover?: ColorAttributes<ColorNameType>;
+    focus?: ColorAttributes<ColorNameType>;
+    active?: ColorAttributes<ColorNameType>;
+    disabled?: ColorAttributes<ColorNameType>;
   };
 };
 

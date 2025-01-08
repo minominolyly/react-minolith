@@ -1,9 +1,15 @@
+export type { default as AnimationCssVariable } from "./AnimationCssVariable";
 export type { default as BaseComponentProps } from "./BaseComponentProps";
+export type { default as BorderCssVariable } from "./BorderCssVariable";
 export type { default as ColorCssVariable } from "./ColorCssVariable";
 export type { default as ComponentPart } from "./ComponentPart";
+export type { default as ComponentSchemeColor } from "./ComponentSchemeColor";
+export type { default as ComponentsCssVariable } from "./ComponentsCssVariable";
 export type { default as ComponentStatePseudoClass } from "./ComponentStatePseudoClass";
 export type { default as Gradation } from "./Gradation";
+export type { default as MinolithCssVariable } from "./MinolithCssVariable";
+export type { default as MiscellaneousCssVariable } from "./MiscellaneousCssVariable";
 export type { default as Oklch } from "./Oklch";
 export type { default as SchemeColor } from "./SchemeColor";
-export type { default as MinolithCssVariable } from "./MinolithCssVariable";
+export type { default as SchemeColorComponents } from "./SchemeColorComponents";
 export type { default as TypographyCssVariable } from "./TypographyCssVariable";
