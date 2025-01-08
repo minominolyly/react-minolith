@@ -1,6 +1,6 @@
 {
   "name": "react-minolith",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "type": "module",
   "main": "./dist/react-minolith.js",
   "types": "./dist/react-minolith.d.ts",
