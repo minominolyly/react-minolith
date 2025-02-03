@@ -917,6 +917,14 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
 
     if (cssVariableSetting.components) {
       const components = cssVariableSetting.components;
+      if (components.breadcrumbs) {
+        const breadcrumbs = components.breadcrumbs;
+        if (breadcrumbs.breadcrumbDivider) {
+          rootStyles.push(
+            `--${cssVariablePrefix}breadcrumb-divider: ${breadcrumbs.breadcrumbDivider};`
+          );
+        }
+      }
       if (components.button) {
         const button = components.button;
         if (button.paddingX) {

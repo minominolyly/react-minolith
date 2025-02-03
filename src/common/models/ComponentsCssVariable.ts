@@ -1,6 +1,9 @@
 import { FontSize } from "../literalTypes";
 
 export default interface ComponentsCssVariable {
+  breadcrumbs?: {
+    breadcrumbDivider?: string;
+  };
   button?: {
     paddingX?: `${number}rem`;
     paddingY?: `${number}rem`;

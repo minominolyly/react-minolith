@@ -43,6 +43,8 @@ export * from "./components/Badge";
 
 export * from "./components/Blockquote";
 
+export * from "./components/Breadcrumbs";
+
 export * from "./components/Button";
 
 export * from "./components/Card";
