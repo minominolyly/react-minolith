@@ -1,4 +1,4 @@
-import{j as l}from"./jsx-runtime-D_zvdyIk.js";import{c as d}from"./Tabula-C_xKIuFK.js";import{M as p}from"./MinolithStatic-qxgbC_3i.js";import"./index-DmM0KDA7.js";const C="_zigzag_c08wr_1",u={zigzag:C,"is-small":"_is-small_c08wr_18","is-large":"_is-large_c08wr_21","is-0deg":"_is-0deg_c08wr_24","is-15deg":"_is-15deg_c08wr_27","is-30deg":"_is-30deg_c08wr_30","is-45deg":"_is-45deg_c08wr_33","is-60deg":"_is-60deg_c08wr_36","is-75deg":"_is-75deg_c08wr_39","is-90deg":"_is-90deg_c08wr_42","is-105deg":"_is-105deg_c08wr_45","is-120deg":"_is-120deg_c08wr_48","is-135deg":"_is-135deg_c08wr_51","is-150deg":"_is-150deg_c08wr_54","is-165deg":"_is-165deg_c08wr_57","is-180deg":"_is-180deg_c08wr_60","is-195deg":"_is-195deg_c08wr_63","is-210deg":"_is-210deg_c08wr_66","is-225deg":"_is-225deg_c08wr_69","is-240deg":"_is-240deg_c08wr_72","is-255deg":"_is-255deg_c08wr_75","is-270deg":"_is-270deg_c08wr_78","is-285deg":"_is-285deg_c08wr_81","is-300deg":"_is-300deg_c08wr_84","is-315deg":"_is-315deg_c08wr_87","is-330deg":"_is-330deg_c08wr_90","is-345deg":"_is-345deg_c08wr_93","is-360deg":"_is-360deg_c08wr_96","is-gray":"_is-gray_c08wr_99","is-red":"_is-red_c08wr_107","is-orange":"_is-orange_c08wr_115","is-yellow":"_is-yellow_c08wr_123","is-green":"_is-green_c08wr_131","is-cyan":"_is-cyan_c08wr_139","is-blue":"_is-blue_c08wr_147","is-violet":"_is-violet_c08wr_155","is-magenta":"_is-magenta_c08wr_163"};function i(e){const a={...e};delete a.colorName,delete a.degree,delete a.fore,delete a.back,delete a.highlighter,delete a.border,delete a.positioning,delete a.sizing,delete a.spacing;const n=[u.zigzag];return e.colorName&&n.push(u[`is-${e.colorName}`]),e.degree&&n.push(u[`is-${e.degree}deg`]),n.push(...d.getUtilityClassNames(e)),e.className&&n.push(e.className),l.jsx("div",{...a,className:n.join(" ")})}i.__docgenInfo={description:"",methods:[],displayName:"Zigzag",props:{fore:{required:!1,tsType:{name:"signature",type:"object",raw:`{
+import{j as l}from"./jsx-runtime-D_zvdyIk.js";import{c as d}from"./Tabula-C_xKIuFK.js";import{M as p}from"./MinolithStatic-qxgbC_3i.js";import"./index-DmM0KDA7.js";const C="_zigzag_c08wr_1",u={zigzag:C,"is-small":"_is-small_c08wr_18","is-large":"_is-large_c08wr_21","is-0deg":"_is-0deg_c08wr_24","is-15deg":"_is-15deg_c08wr_27","is-30deg":"_is-30deg_c08wr_30","is-45deg":"_is-45deg_c08wr_33","is-60deg":"_is-60deg_c08wr_36","is-75deg":"_is-75deg_c08wr_39","is-90deg":"_is-90deg_c08wr_42","is-105deg":"_is-105deg_c08wr_45","is-120deg":"_is-120deg_c08wr_48","is-135deg":"_is-135deg_c08wr_51","is-150deg":"_is-150deg_c08wr_54","is-165deg":"_is-165deg_c08wr_57","is-180deg":"_is-180deg_c08wr_60","is-195deg":"_is-195deg_c08wr_63","is-210deg":"_is-210deg_c08wr_66","is-225deg":"_is-225deg_c08wr_69","is-240deg":"_is-240deg_c08wr_72","is-255deg":"_is-255deg_c08wr_75","is-270deg":"_is-270deg_c08wr_78","is-285deg":"_is-285deg_c08wr_81","is-300deg":"_is-300deg_c08wr_84","is-315deg":"_is-315deg_c08wr_87","is-330deg":"_is-330deg_c08wr_90","is-345deg":"_is-345deg_c08wr_93","is-360deg":"_is-360deg_c08wr_96","is-gray":"_is-gray_c08wr_99","is-red":"_is-red_c08wr_107","is-orange":"_is-orange_c08wr_115","is-yellow":"_is-yellow_c08wr_123","is-green":"_is-green_c08wr_131","is-cyan":"_is-cyan_c08wr_139","is-blue":"_is-blue_c08wr_147","is-violet":"_is-violet_c08wr_155","is-magenta":"_is-magenta_c08wr_163"};function i(e){const a={...e};delete a.colorName,delete a.size,delete a.fore,delete a.back,delete a.highlighter,delete a.border,delete a.positioning,delete a.sizing,delete a.spacing;const n=[u.zigzag];return e.colorName&&n.push(u[`is-${e.colorName}`]),e.size&&n.push(u[`is-${e.size}`]),n.push(...d.getUtilityClassNames(e)),e.className&&n.push(e.className),l.jsx("div",{...a,className:n.join(" ")})}i.__docgenInfo={description:"",methods:[],displayName:"Zigzag",props:{fore:{required:!1,tsType:{name:"signature",type:"object",raw:`{
   color?: ColorProps<ColorName | "rainbow">;
   fontSize?: FontSize;
   fontWeight?: FontWeight;
@@ -3162,30 +3162,7 @@ import{j as l}from"./jsx-runtime-D_zvdyIk.js";import{c as d}from"./Tabula-C_xKIu
 | "cyan"
 | "blue"
 | "violet"
-| "magenta"`,elements:[{name:"literal",value:'"gray"'},{name:"literal",value:'"red"'},{name:"literal",value:'"orange"'},{name:"literal",value:'"yellow"'},{name:"literal",value:'"green"'},{name:"literal",value:'"cyan"'},{name:"literal",value:'"blue"'},{name:"literal",value:'"violet"'},{name:"literal",value:'"magenta"'}]},description:""},degree:{required:!1,tsType:{name:"union",raw:`| 0
-| 15
-| 30
-| 45
-| 60
-| 75
-| 90
-| 115
-| 135
-| 150
-| 165
-| 180
-| 195
-| 210
-| 225
-| 240
-| 255
-| 270
-| 285
-| 300
-| 315
-| 330
-| 345
-| 360`,elements:[{name:"literal",value:"0"},{name:"literal",value:"15"},{name:"literal",value:"30"},{name:"literal",value:"45"},{name:"literal",value:"60"},{name:"literal",value:"75"},{name:"literal",value:"90"},{name:"literal",value:"115"},{name:"literal",value:"135"},{name:"literal",value:"150"},{name:"literal",value:"165"},{name:"literal",value:"180"},{name:"literal",value:"195"},{name:"literal",value:"210"},{name:"literal",value:"225"},{name:"literal",value:"240"},{name:"literal",value:"255"},{name:"literal",value:"270"},{name:"literal",value:"285"},{name:"literal",value:"300"},{name:"literal",value:"315"},{name:"literal",value:"330"},{name:"literal",value:"345"},{name:"literal",value:"360"}]},description:""}}};const k={title:"Backgrounds/Zigzag",component:i,tags:["autodocs"],argTypes:{}},r={args:{colorName:void 0},render:e=>l.jsx(p,{colorScheme:"light",children:l.jsx(i,{...e,sizing:{aspectRatio:"16:9"},children:l.jsx("span",{children:"Plain"})})})},t={args:{colorName:void 0},render:e=>l.jsx(p,{colorScheme:"dark",children:l.jsx(i,{...e,sizing:{aspectRatio:"16:9"},children:l.jsx("span",{children:"Plain"})})})};var m,v,o;r.parameters={...r.parameters,docs:{...(m=r.parameters)==null?void 0:m.docs,source:{originalSource:`{
+| "magenta"`,elements:[{name:"literal",value:'"gray"'},{name:"literal",value:'"red"'},{name:"literal",value:'"orange"'},{name:"literal",value:'"yellow"'},{name:"literal",value:'"green"'},{name:"literal",value:'"cyan"'},{name:"literal",value:'"blue"'},{name:"literal",value:'"violet"'},{name:"literal",value:'"magenta"'}]},description:""},size:{required:!1,tsType:{name:"union",raw:'"small" | "large"',elements:[{name:"literal",value:'"small"'},{name:"literal",value:'"large"'}]},description:""}}};const k={title:"Backgrounds/Zigzag",component:i,tags:["autodocs"],argTypes:{}},r={args:{colorName:void 0},render:e=>l.jsx(p,{colorScheme:"light",children:l.jsx(i,{...e,sizing:{aspectRatio:"16:9"},children:l.jsx("span",{children:"Plain"})})})},t={args:{colorName:void 0},render:e=>l.jsx(p,{colorScheme:"dark",children:l.jsx(i,{...e,sizing:{aspectRatio:"16:9"},children:l.jsx("span",{children:"Plain"})})})};var m,v,o;r.parameters={...r.parameters,docs:{...(m=r.parameters)==null?void 0:m.docs,source:{originalSource:`{
   args: {
     colorName: undefined
   },
