@@ -16,6 +16,9 @@ jobs:
       with:
         node-version: 22
 
+    - name: clean
+      run: rm -rf node_modules package-lock.json
+
     - name: install
       run: npm install
 
