@@ -8,5 +8,6 @@ declare const meta: {
 };
 export default meta;
 type Story = StoryObj<typeof meta>;
-export declare const Plain: Story;
+export declare const LightPlain: Story;
+export declare const DarkPlain: Story;
 //# sourceMappingURL=Dot.stories.d.ts.map

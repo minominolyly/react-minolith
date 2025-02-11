@@ -1,0 +1,1 @@
+{"version":3,"file":"RhombusProps.d.ts","sourceRoot":"","sources":["../../../src/backgrounds/Rhombus/RhombusProps.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,2BAA2B,CAAC;AACtD,OAAO,EAAE,QAAQ,EAAE,MAAM,sBAAsB,CAAC;AAEhD,MAAM,CAAC,OAAO,WAAW,YAAa,SAAQ,QAAQ;IACpD,SAAS,CAAC,EAAE,SAAS,CAAC;IACtB,IAAI,CAAC,EAAE,OAAO,GAAG,OAAO,CAAC;CAC1B"}

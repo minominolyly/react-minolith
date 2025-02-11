@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/Ruby/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,IAAI,IAAI,EAAE,MAAM,QAAQ,CAAC;AACzC,YAAY,EAAE,OAAO,IAAI,SAAS,EAAE,MAAM,aAAa,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/Ruby/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,IAAI,IAAI,EAAE,MAAM,QAAQ,CAAC;AACzC,YAAY,EAAE,OAAO,IAAI,SAAS,EAAE,MAAM,aAAa,CAAC;AACxD,OAAO,EAAE,OAAO,IAAI,QAAQ,EAAE,MAAM,YAAY,CAAC;AACjD,YAAY,EAAE,OAAO,IAAI,aAAa,EAAE,MAAM,iBAAiB,CAAC"}

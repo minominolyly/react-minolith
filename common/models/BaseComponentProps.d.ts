@@ -1,13 +1,13 @@
-import { BorderCollapse, BorderDetailProps, BorderRadius, BorderStyle, BorderWidth, ColorProps, FontSize, FontWeight } from '../literalTypes';
+import { BorderCollapse, BorderDetailProps, BorderRadius, BorderStyle, BorderWidth, ColorName, ColorProps, FontSize, FontWeight } from '../literalTypes';
 export default interface BaseComponentProps {
     fore?: {
-        color?: ColorProps;
+        color?: ColorProps<ColorName | "rainbow">;
         fontSize?: FontSize;
         fontWeight?: FontWeight;
         isItalic?: boolean;
     };
     back?: {
-        color?: ColorProps;
+        color?: ColorProps<ColorName | "rainbow">;
     };
     highlighter?: {
         color?: ColorProps;
