@@ -31,7 +31,11 @@ export * from "./backgrounds/Dot";
 
 export * from "./backgrounds/Gingham";
 
+export * from "./backgrounds/Rhombus";
+
 export * from "./backgrounds/Stripe";
+
+export * from "./backgrounds/Zigzag";
 
 //#endregion backgrounds
 

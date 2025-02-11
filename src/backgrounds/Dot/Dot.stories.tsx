@@ -16,12 +16,25 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Plain: Story = {
+export const LightPlain: Story = {
   args: {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic>
+    <MinolithStatic colorScheme="light">
+      <Dot {...props} sizing={{ aspectRatio: "16:9" }}>
+        <span>{"Plain"}</span>
+      </Dot>
+    </MinolithStatic>
+  ),
+};
+
+export const DarkPlain: Story = {
+  args: {
+    colorName: undefined,
+  },
+  render: (props) => (
+    <MinolithStatic colorScheme="dark">
       <Dot {...props} sizing={{ aspectRatio: "16:9" }}>
         <span>{"Plain"}</span>
       </Dot>
