@@ -5,7 +5,7 @@ import ZigzagProps from "./ZigzagProps";
 export default function Zigzag(props: ZigzagProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
-  delete assignedProps["degree"];
+  delete assignedProps["size"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -17,10 +17,12 @@ export default function Zigzag(props: ZigzagProps): React.ReactElement {
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["zigzag"]];
-  props.colorName &&
+  if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  props.degree &&
-    assignedClassNames.push(classNames[`is-${props.degree}deg`]);
+  }
+  if (props.size) {
+    assignedClassNames.push(classNames[`is-${props.size}`]);
+  }
 
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);

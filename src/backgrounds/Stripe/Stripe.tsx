@@ -17,10 +17,12 @@ export default function Stripe(props: StripeProps): React.ReactElement {
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["stripe"]];
-  props.colorName &&
+  if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  props.degree &&
+  }
+  if (props.degree) {
     assignedClassNames.push(classNames[`is-${props.degree}deg`]);
+  }
 
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);

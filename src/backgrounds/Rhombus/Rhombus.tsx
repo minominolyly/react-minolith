@@ -17,10 +17,12 @@ export default function Rhombus(props: RhombusProps): React.ReactElement {
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["rhombus"]];
-  props.colorName &&
+  if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  props.size &&
+  }
+  if (props.size) {
     assignedClassNames.push(classNames[`is-${props.size}`]);
+  }
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
