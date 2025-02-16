@@ -1,6 +1,6 @@
 import { classNameUtility } from "../../utilities";
 import BreadcrumbProps from "./BreadcrumbProps";
-import classNames from "./Breadcrumbs.module.scss";
+import classNames from "./Breadcrumb.module.scss";
 
 export default function Breadcrumb(props: BreadcrumbProps): React.ReactElement {
   const assignedProps = { ...props };

@@ -917,6 +917,7 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
 
     if (cssVariableSetting.components) {
       const components = cssVariableSetting.components;
+
       if (components.breadcrumbs) {
         const breadcrumbs = components.breadcrumbs;
         if (breadcrumbs.breadcrumbDivider) {
@@ -925,6 +926,7 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
           );
         }
       }
+
       if (components.button) {
         const button = components.button;
         if (button.paddingX) {
@@ -938,6 +940,7 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
           );
         }
       }
+
       if (components.dialogue) {
         const dialogue = components.dialogue;
         if (dialogue.avatarSizeDefault) {
@@ -999,6 +1002,48 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
         if (dialogue.messageInnerPaddingY) {
           rootStyles.push(
             `--${cssVariablePrefix}dialogue-message-inner-padding-y: ${dialogue.messageInnerPaddingY};`
+          );
+        }
+      }
+
+      if (components.header) {
+        const header = components.header;
+        if (header.backdropFilter) {
+          rootStyles.push(
+            `--${cssVariablePrefix}header-backdrop-filter: ${header.backdropFilter};`
+          );
+        }
+
+        if (header.zIndexIsSticky) {
+          if (header.zIndexIsSticky === "auto") {
+            rootStyles.push(
+              `--${cssVariablePrefix}header-z-index-is-sticky: "auto";`
+            );
+          } else {
+            rootStyles.push(
+              `--${cssVariablePrefix}header-z-index-is-sticky: ${header.zIndexIsSticky};`
+            );
+          }
+        }
+
+        if (header.zIndexIsFixed) {
+          if (header.zIndexIsFixed === "auto") {
+            rootStyles.push(
+              `--${cssVariablePrefix}header-z-index-is-fixed: "auto";`
+            );
+          } else {
+            rootStyles.push(
+              `--${cssVariablePrefix}header-z-index-is-fixed: ${header.zIndexIsFixed};`
+            );
+          }
+        }
+      }
+
+      if (components.heading) {
+        const heading = components.heading;
+        if (heading.fontFamily) {
+          rootStyles.push(
+            `--${cssVariablePrefix}font-family-heading: ${heading.fontFamily};`
           );
         }
       }

@@ -1,5 +1,5 @@
 import { classNameUtility } from "../../utilities";
-import classNames from "./Breadcrumbs.module.scss";
+import classNames from "./BreadcrumbsNav.module.scss";
 import BreadcrumbsNavProps from "./BreadcrumbsNavProps";
 
 export default function BreadcrumbsNav(

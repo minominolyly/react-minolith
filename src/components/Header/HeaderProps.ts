@@ -10,4 +10,5 @@ export default interface HeaderProps
     BaseComponentProps {
   colorName?: ColorName;
   isSticky?: boolean | undefined;
+  isFixed?: boolean | undefined;
 }

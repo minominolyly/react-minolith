@@ -21,7 +21,12 @@ export default interface ComponentsCssVariable {
     messageInnerPaddingX?: `${number}rem`;
     messageInnerPaddingY?: `${number}rem`;
   };
+  header?: {
+    backdropFilter?: string;
+    zIndexIsSticky?: "auto" | number;
+    zIndexIsFixed?: "auto" | number;
+  };
   heading?: {
     fontFamily?: string;
-  }
+  };
 }

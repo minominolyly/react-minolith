@@ -1,6 +1,7 @@
 {
   "name": "react-minolith",
   "version": "0.0.28",
+  "description": "react-minolith is an open-source react wrapper for minolith.",
   "type": "module",
   "main": "./dist/react-minolith.js",
   "types": "./dist/react-minolith.d.ts",
@@ -72,7 +73,7 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "eslint-plugin-storybook": "^0.11.1",
     "glob": "^11.0.0",
-    "minolith": "^0.0.35",
+    "minolith": "^0.0.36",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rimraf": "^6.0.1",
