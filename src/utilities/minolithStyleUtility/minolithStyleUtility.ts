@@ -175,14 +175,30 @@ function getComponentColorStyles(
       schemeStyles.push(...styles);
     }
   }
+
+  if (component.coral) {
+    const styles = getColorVariables("coral", component.coral, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
   if (component.orange) {
     const styles = getColorVariables("orange", component.orange, componentName);
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
   }
+
   if (component.yellow) {
     const styles = getColorVariables("yellow", component.yellow, componentName);
+    if (styles.length > 0) {
+      schemeStyles.push(...styles);
+    }
+  }
+
+  if (component.lime) {
+    const styles = getColorVariables("lime", component.lime, componentName);
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
@@ -246,7 +262,10 @@ function getSchemeColorComponentsStyles(
   }
 
   if (schemeColorComponents.accordion) {
-    const styles = getComponentColorStyles(schemeColorComponents.accordion, "accordion");
+    const styles = getComponentColorStyles(
+      schemeColorComponents.accordion,
+      "accordion"
+    );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
@@ -315,7 +334,10 @@ function getSchemeColorComponentsStyles(
   }
 
   if (schemeColorComponents.dialogue) {
-    const styles = getComponentColorStyles(schemeColorComponents.dialogue, "dialogue");
+    const styles = getComponentColorStyles(
+      schemeColorComponents.dialogue,
+      "dialogue"
+    );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
@@ -369,10 +391,7 @@ function getSchemeColorComponentsStyles(
   }
 
   if (schemeColorComponents.link) {
-    const styles = getComponentColorStyles(
-      schemeColorComponents.link,
-      "link"
-    );
+    const styles = getComponentColorStyles(schemeColorComponents.link, "link");
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
@@ -607,6 +626,30 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
         setColorDetailVariable(colorName, "05", gradation[5]);
       }
 
+      if (color.coral) {
+        const gradation = color.coral;
+        const colorName = "coral";
+        setColorDetailVariable(colorName, "95", gradation[95]);
+        setColorDetailVariable(colorName, "90", gradation[90]);
+        setColorDetailVariable(colorName, "85", gradation[85]);
+        setColorDetailVariable(colorName, "80", gradation[80]);
+        setColorDetailVariable(colorName, "75", gradation[75]);
+        setColorDetailVariable(colorName, "70", gradation[70]);
+        setColorDetailVariable(colorName, "65", gradation[65]);
+        setColorDetailVariable(colorName, "60", gradation[60]);
+        setColorDetailVariable(colorName, "55", gradation[55]);
+        setColorDetailVariable(colorName, "50", gradation[50]);
+        setColorDetailVariable(colorName, "45", gradation[45]);
+        setColorDetailVariable(colorName, "40", gradation[40]);
+        setColorDetailVariable(colorName, "35", gradation[35]);
+        setColorDetailVariable(colorName, "30", gradation[30]);
+        setColorDetailVariable(colorName, "25", gradation[25]);
+        setColorDetailVariable(colorName, "20", gradation[20]);
+        setColorDetailVariable(colorName, "15", gradation[15]);
+        setColorDetailVariable(colorName, "10", gradation[10]);
+        setColorDetailVariable(colorName, "05", gradation[5]);
+      }
+
       if (color.orange) {
         const gradation = color.orange;
         const colorName = "orange";
@@ -634,6 +677,30 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
       if (color.yellow) {
         const gradation = color.yellow;
         const colorName = "yellow";
+        setColorDetailVariable(colorName, "95", gradation[95]);
+        setColorDetailVariable(colorName, "90", gradation[90]);
+        setColorDetailVariable(colorName, "85", gradation[85]);
+        setColorDetailVariable(colorName, "80", gradation[80]);
+        setColorDetailVariable(colorName, "75", gradation[75]);
+        setColorDetailVariable(colorName, "70", gradation[70]);
+        setColorDetailVariable(colorName, "65", gradation[65]);
+        setColorDetailVariable(colorName, "60", gradation[60]);
+        setColorDetailVariable(colorName, "55", gradation[55]);
+        setColorDetailVariable(colorName, "50", gradation[50]);
+        setColorDetailVariable(colorName, "45", gradation[45]);
+        setColorDetailVariable(colorName, "40", gradation[40]);
+        setColorDetailVariable(colorName, "35", gradation[35]);
+        setColorDetailVariable(colorName, "30", gradation[30]);
+        setColorDetailVariable(colorName, "25", gradation[25]);
+        setColorDetailVariable(colorName, "20", gradation[20]);
+        setColorDetailVariable(colorName, "15", gradation[15]);
+        setColorDetailVariable(colorName, "10", gradation[10]);
+        setColorDetailVariable(colorName, "05", gradation[5]);
+      }
+
+      if (color.lime) {
+        const gradation = color.lime;
+        const colorName = "lime";
         setColorDetailVariable(colorName, "95", gradation[95]);
         setColorDetailVariable(colorName, "90", gradation[90]);
         setColorDetailVariable(colorName, "85", gradation[85]);
@@ -1068,54 +1135,77 @@ function getLightSchemeStyles(
             lightSchemeStyles.push(...styles);
           }
         }
+
         if (color.light.gray) {
           const styles = getColorVariables("gray", color.light.gray);
           if (styles.length > 0) {
             lightSchemeStyles.push(...styles);
           }
         }
+
         if (color.light.red) {
           const styles = getColorVariables("red", color.light.red);
           if (styles.length > 0) {
             lightSchemeStyles.push(...styles);
           }
         }
+
+        if (color.light.coral) {
+          const styles = getColorVariables("coral", color.light.coral);
+          if (styles.length > 0) {
+            lightSchemeStyles.push(...styles);
+          }
+        }
+
         if (color.light.orange) {
           const styles = getColorVariables("orange", color.light.orange);
           if (styles.length > 0) {
             lightSchemeStyles.push(...styles);
           }
         }
+
         if (color.light.yellow) {
           const styles = getColorVariables("yellow", color.light.yellow);
           if (styles.length > 0) {
             lightSchemeStyles.push(...styles);
           }
         }
+
+        if (color.light.lime) {
+          const styles = getColorVariables("lime", color.light.lime);
+          if (styles.length > 0) {
+            lightSchemeStyles.push(...styles);
+          }
+        }
+
         if (color.light.green) {
           const styles = getColorVariables("green", color.light.green);
           if (styles.length > 0) {
             lightSchemeStyles.push(...styles);
           }
         }
+
         if (color.light.cyan) {
           const styles = getColorVariables("cyan", color.light.cyan);
           if (styles.length > 0) {
             lightSchemeStyles.push(...styles);
           }
         }
+
         if (color.light.blue) {
           const styles = getColorVariables("blue", color.light.blue);
           if (styles.length > 0) {
             lightSchemeStyles.push(...styles);
           }
         }
+
         if (color.light.violet) {
           const styles = getColorVariables("violet", color.light.violet);
           if (styles.length > 0) {
             lightSchemeStyles.push(...styles);
           }
         }
+
         if (color.light.components) {
           const components = color.light.components;
           const styles = getSchemeColorComponentsStyles(components);
@@ -1145,60 +1235,84 @@ function getDarkSchemeStyles(
             darkSchemeStyles.push(...styles);
           }
         }
+
         if (color.dark.gray) {
           const styles = getColorVariables("gray", color.dark.gray);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
         if (color.dark.red) {
           const styles = getColorVariables("red", color.dark.red);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
+        if (color.dark.coral) {
+          const styles = getColorVariables("coral", color.dark.coral);
+          if (styles.length > 0) {
+            darkSchemeStyles.push(...styles);
+          }
+        }
+
         if (color.dark.orange) {
           const styles = getColorVariables("orange", color.dark.orange);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
         if (color.dark.yellow) {
           const styles = getColorVariables("yellow", color.dark.yellow);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
+        if (color.dark.lime) {
+          const styles = getColorVariables("lime", color.dark.lime);
+          if (styles.length > 0) {
+            darkSchemeStyles.push(...styles);
+          }
+        }
+
         if (color.dark.green) {
           const styles = getColorVariables("green", color.dark.green);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
         if (color.dark.cyan) {
           const styles = getColorVariables("cyan", color.dark.cyan);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
         if (color.dark.blue) {
           const styles = getColorVariables("blue", color.dark.blue);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
         if (color.dark.violet) {
           const styles = getColorVariables("violet", color.dark.violet);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
         if (color.dark.magenta) {
           const styles = getColorVariables("magenta", color.dark.magenta);
           if (styles.length > 0) {
             darkSchemeStyles.push(...styles);
           }
         }
+
         if (color.dark.components) {
           const components = color.dark.components;
           const styles = getSchemeColorComponentsStyles(components);

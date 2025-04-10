@@ -1,5 +1,5 @@
 import { classNameUtility } from "../../utilities";
-import classNames from "./Ruby.module.scss";
+import classNames from "./RubyText.module.scss";
 import RubyTextProps from "./RubyTextProps";
 
 export default function RubyText(props: RubyTextProps): React.ReactElement {

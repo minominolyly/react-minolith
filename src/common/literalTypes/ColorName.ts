@@ -1,8 +1,10 @@
 type ColorName =
   | "gray"
   | "red"
+  | "coral"
   | "orange"
   | "yellow"
+  | "lime"
   | "green"
   | "cyan"
   | "blue"

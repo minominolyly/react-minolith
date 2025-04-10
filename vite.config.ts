@@ -18,6 +18,11 @@ export default defineConfig({
         /.*\/src\/base\/MinolithStatic\/.*/,
       ],
     },
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler",
+      }
+    },
   },
   build: {
     copyPublicDir: false,
