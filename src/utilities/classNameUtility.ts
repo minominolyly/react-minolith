@@ -1,5 +1,5 @@
 import BaseComponentProps from "../common/models/BaseComponentProps";
-import { BorderDetailProps, ColorAttributes, ColorName } from "../common/literalTypes";
+import { ColorAttributes, ColorName } from "../common/literalTypes";
 
 function getUtilityClassNames(props: BaseComponentProps): string[] {
   const assignedClassNames: string[] = [];
