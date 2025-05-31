@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Dialogue.module.scss";
 import DialogueProps from "./DialogueProps";

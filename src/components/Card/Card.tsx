@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Card.module.scss";
 import CardProps from "./CardProps";

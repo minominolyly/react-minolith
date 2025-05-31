@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Span.module.scss";
 import SpanProps from "./SpanProps";

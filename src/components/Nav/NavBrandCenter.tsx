@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./NavBrandCenter.module.scss";
 import NavBrandCenterProps from "./NavBrandCenterProps";

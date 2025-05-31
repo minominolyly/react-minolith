@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import AccordionProps from "./AccordionProps";
 import classNames from "./Accordion.module.scss";

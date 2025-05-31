@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Badge.module.scss";
 import BadgeProps from "./BadgeProps";

@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Link.module.scss";
 import LinkProps from "./LinkProps";

@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Textarea.module.scss";
 import TextareaProps from "./TextareaProps";

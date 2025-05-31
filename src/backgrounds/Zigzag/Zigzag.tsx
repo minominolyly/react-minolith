@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Zigzag.module.scss";
 import ZigzagProps from "./ZigzagProps";

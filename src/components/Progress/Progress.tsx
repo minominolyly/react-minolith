@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Progress.module.scss";
 import ProgressProps from "./ProgressProps";

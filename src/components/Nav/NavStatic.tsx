@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./NavStatic.module.scss";
 import NavStaticProps from "./NavStaticProps";

@@ -1,5 +1,6 @@
 import ColumnsProps from "./ColumnsProps";
 import classNames from "./Columns.module.scss";
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 
 export default function Columns(props: ColumnsProps): React.ReactElement {

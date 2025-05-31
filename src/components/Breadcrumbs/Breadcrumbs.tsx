@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import BreadcrumbsProps from "./BreadcrumbsProps";
 import classNames from "./Breadcrumbs.module.scss";

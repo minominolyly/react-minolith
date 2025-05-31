@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import ColumnProps from "./ColumnProps";
 import classNames from "./Column.module.scss";

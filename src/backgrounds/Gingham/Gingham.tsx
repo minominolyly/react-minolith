@@ -1,3 +1,4 @@
+"use client";
 import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Gingham.module.scss";
 import GinghamProps from "./GinghamProps";
