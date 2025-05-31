@@ -1,5 +1,6 @@
 "use client";
-import { classNameUtility, minolithStyleUtility } from "../../utilities";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Tabula.module.scss";
 import TabulaProps from "./TabulaProps";
 
@@ -22,7 +23,7 @@ export default function Tabula(props: TabulaProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  const css = minolithStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss(props);
 
   return props.as ? (
     <props.as

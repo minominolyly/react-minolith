@@ -1,5 +1,6 @@
 "use client";
-import { classNameUtility, minolithStyleUtility } from "../../utilities";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Badge.module.scss";
 import BadgeProps from "./BadgeProps";
 
@@ -28,7 +29,7 @@ export default function Badge(props: BadgeProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  const css = minolithStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss(props);
 
   return props.as ? (
     <props.as

@@ -1,5 +1,6 @@
 "use client";
-import { classNameUtility, minolithStyleUtility } from "../../utilities";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./NavBrandCenter.module.scss";
 import NavBrandCenterProps from "./NavBrandCenterProps";
 
@@ -22,7 +23,7 @@ export default function NavBrandCenter(
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  const css = minolithStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss(props);
 
   return (
     <div

@@ -1,5 +1,6 @@
 "use client";
-import { classNameUtility, minolithStyleUtility } from "../../utilities";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import BreadcrumbsProps from "./BreadcrumbsProps";
 import classNames from "./Breadcrumbs.module.scss";
 
@@ -25,7 +26,7 @@ export default function Breadcrumbs(
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  const css = minolithStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss(props);
 
   return (
     <ul {...assignedProps} className={assignedClassNames.join(" ")} css={css} />

@@ -1,5 +1,6 @@
 "use client";
-import { classNameUtility, minolithStyleUtility } from "../../utilities";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Ruby.module.scss";
 import RubyProps from "./RubyProps";
 import RubyText from "./RubyText";
@@ -22,7 +23,7 @@ export default function Ruby(props: RubyProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  const css = minolithStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss(props);
 
   const assignedRubyTextClassNames: string[] = [
     "ruby-text",
