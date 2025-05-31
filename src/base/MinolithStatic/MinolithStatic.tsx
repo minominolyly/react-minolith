@@ -1,3 +1,4 @@
+"use client";
 import { useMemo, useInsertionEffect } from "react";
 import { minolithStyleUtility } from "../../utilities";
 import { Tabula } from "../Tabula";
