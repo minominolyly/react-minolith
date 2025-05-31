@@ -1,4 +1,4 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Label.module.scss";
 import LabelProps from "./LabelProps";
 
@@ -13,6 +13,7 @@ export default function Label(props: LabelProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["label"]];
@@ -21,5 +22,13 @@ export default function Label(props: LabelProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <label {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = minolithStyleUtility.getEmotionCss(props);
+
+  return (
+    <label
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

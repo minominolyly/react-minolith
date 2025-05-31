@@ -1,8 +1,10 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./DialogueAvatarContainer.module.scss";
 import DialogueAvatarContainerProps from "./DialogueAvatarContainerProps";
 
-export default function DialogueAvatarContainer(props: DialogueAvatarContainerProps): React.ReactElement {
+export default function DialogueAvatarContainer(
+  props: DialogueAvatarContainerProps
+): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps
@@ -13,15 +15,28 @@ export default function DialogueAvatarContainer(props: DialogueAvatarContainerPr
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
-  const assignedClassNames: string[] = [classNames["dialogue-avatar-container"]];
+  const assignedClassNames: string[] = [
+    classNames["dialogue-avatar-container"],
+  ];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = minolithStyleUtility.getEmotionCss(props);
+
   return props.as ? (
-    <props.as {...assignedProps} className={assignedClassNames.join(" ")} />
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   ) : (
-    <div {...assignedProps} className={assignedClassNames.join(" ")} />
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }

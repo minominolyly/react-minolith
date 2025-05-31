@@ -1,8 +1,10 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import DialogueNameProps from "./DialogueNameProps";
 import classNames from "./DialogueName.module.scss";
 
-export default function DialogueName(props: DialogueNameProps): React.ReactElement {
+export default function DialogueName(
+  props: DialogueNameProps
+): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps
@@ -13,14 +15,26 @@ export default function DialogueName(props: DialogueNameProps): React.ReactEleme
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["dialogue-name"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
+
+  const css = minolithStyleUtility.getEmotionCss(props);
+
   return props.as ? (
-    <props.as {...assignedProps} className={assignedClassNames.join(" ")} />
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   ) : (
-    <div {...assignedProps} className={assignedClassNames.join(" ")} />
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }

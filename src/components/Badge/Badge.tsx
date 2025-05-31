@@ -1,4 +1,4 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Badge.module.scss";
 import BadgeProps from "./BadgeProps";
 
@@ -16,6 +16,7 @@ export default function Badge(props: BadgeProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["badge"]];
@@ -26,9 +27,19 @@ export default function Badge(props: BadgeProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = minolithStyleUtility.getEmotionCss(props);
+
   return props.as ? (
-    <props.as {...assignedProps} className={assignedClassNames.join(" ")} />
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   ) : (
-    <span {...assignedProps} className={assignedClassNames.join(" ")} />
+    <span
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }

@@ -1,4 +1,4 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./BreadcrumbsNav.module.scss";
 import BreadcrumbsNavProps from "./BreadcrumbsNavProps";
 
@@ -14,17 +14,21 @@ export default function BreadcrumbsNav(
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["breadcrumbs-nav"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = minolithStyleUtility.getEmotionCss(props);
+
   return (
     <nav
       aria-label="breadcrumb"
       {...assignedProps}
       className={assignedClassNames.join(" ")}
+      css={css}
     />
   );
 }

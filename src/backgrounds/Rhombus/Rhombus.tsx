@@ -1,4 +1,4 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Rhombus.module.scss";
 import RhombusProps from "./RhombusProps";
 
@@ -14,6 +14,7 @@ export default function Rhombus(props: RhombusProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["rhombus"]];
@@ -26,7 +27,13 @@ export default function Rhombus(props: RhombusProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = minolithStyleUtility.getEmotionCss(props);
+
   return (
-    <div {...assignedProps} className={assignedClassNames.join(" ")} />
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }

@@ -1,4 +1,4 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./NavMenu.module.scss";
 import NavMenuProps from "./NavMenuProps";
 
@@ -13,6 +13,7 @@ export default function NavMenu(props: NavMenuProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["nav-menu"]];
@@ -20,7 +21,13 @@ export default function NavMenu(props: NavMenuProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = minolithStyleUtility.getEmotionCss(props);
+
   return (
-    <div {...assignedProps} className={assignedClassNames.join(" ")} />
-  )
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

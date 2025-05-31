@@ -1,8 +1,10 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import AccordionSummaryProps from "./AccordionSummaryProps";
 import classNames from "./AccordionSummary.module.scss";
 
-export default function AccordionSummary(props: AccordionSummaryProps): React.ReactElement {
+export default function AccordionSummary(
+  props: AccordionSummaryProps
+): React.ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -12,11 +14,20 @@ export default function AccordionSummary(props: AccordionSummaryProps): React.Re
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["accordion-summary"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <summary {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = minolithStyleUtility.getEmotionCss(props);
+
+  return (
+    <summary
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

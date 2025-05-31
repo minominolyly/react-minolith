@@ -1,4 +1,4 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./NavStatic.module.scss";
 import NavStaticProps from "./NavStaticProps";
 
@@ -23,6 +23,7 @@ export default function NavStatic(props: NavStaticProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["nav-static"]];
@@ -42,12 +43,17 @@ export default function NavStatic(props: NavStaticProps): React.ReactElement {
   props.isLarge && assignedClassNames.push(classNames[`is-large`]);
   props.isLargeOrMore &&
     assignedClassNames.push(classNames[`is-large-or-more`]);
-  props.isXLarge &&
-    assignedClassNames.push(classNames[`is-xlarge`]);
+  props.isXLarge && assignedClassNames.push(classNames[`is-xlarge`]);
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = minolithStyleUtility.getEmotionCss(props);
+
   return (
-    <div {...assignedProps} className={assignedClassNames.join(" ")} />
-  )
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

@@ -1,4 +1,4 @@
-import MinolithCssVariableStylesProvider from "../MinolithCssVariableStylesProvider/MinolithCssVariableStylesProvider";
+import { minolithStyleUtility } from "../../utilities";
 import { Tabula } from "../Tabula";
 import "./Minolith.scss";
 import MinolithProps from "./MinolithProps";
@@ -6,13 +6,17 @@ import MinolithProps from "./MinolithProps";
 export default function Minolith(props: MinolithProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["cssVariableSetting"];
+
+  const minolithStyles = minolithStyleUtility.getMinolithCssVariableStyles(
+    props.cssVariableSetting
+  );
+
   return (
     <>
-      <MinolithCssVariableStylesProvider
-        cssVariableSetting={props.cssVariableSetting}
-      >
-        <Tabula {...assignedProps} />
-      </MinolithCssVariableStylesProvider>
+      {minolithStyles.length > 0 && (
+        <style suppressHydrationWarning={true}>{minolithStyles}</style>
+      )}
+      <Tabula {...assignedProps} />
     </>
   );
 }

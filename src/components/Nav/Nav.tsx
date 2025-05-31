@@ -1,4 +1,4 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./Nav.module.scss";
 import NavProps from "./NavProps";
 
@@ -13,6 +13,7 @@ export default function Nav(props: NavProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["nav"]];
@@ -21,5 +22,13 @@ export default function Nav(props: NavProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <nav {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = minolithStyleUtility.getEmotionCss(props);
+
+  return (
+    <nav
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

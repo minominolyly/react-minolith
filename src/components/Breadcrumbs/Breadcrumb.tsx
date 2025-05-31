@@ -1,4 +1,4 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import BreadcrumbProps from "./BreadcrumbProps";
 import classNames from "./Breadcrumb.module.scss";
 
@@ -12,11 +12,16 @@ export default function Breadcrumb(props: BreadcrumbProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["breadcrumb"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <li {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = minolithStyleUtility.getEmotionCss(props);
+
+  return (
+    <li {...assignedProps} className={assignedClassNames.join(" ")} css={css} />
+  );
 }

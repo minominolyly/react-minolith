@@ -1,8 +1,10 @@
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 import classNames from "./MessageBody.module.scss";
 import MessageBodyProps from "./MessageBodyProps";
 
-export default function MessageBody(props: MessageBodyProps): React.ReactElement {
+export default function MessageBody(
+  props: MessageBodyProps
+): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps
@@ -13,21 +15,26 @@ export default function MessageBody(props: MessageBodyProps): React.ReactElement
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["message-body"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = minolithStyleUtility.getEmotionCss(props);
+
   return props.as ? (
     <props.as
       {...assignedProps}
       className={assignedClassNames.join(" ")}
+      css={css}
     />
   ) : (
     <div
       {...assignedProps}
       className={assignedClassNames.join(" ")}
+      css={css}
     />
   );
 }

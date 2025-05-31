@@ -40,6 +40,7 @@ import {
   NavMenu,
   NavMenuItem,
   NavStatic,
+  Paragraph,
   Ruby,
   Stripe,
 } from "../../react-minolith";
@@ -55,13 +56,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const minolithCssVariable: MinolithCssVariable = {
-  components: {
-    dialogue: {
-      avatarTopOffset: "0rem",
-    }
-  }
-};
+const minolithCssVariable: MinolithCssVariable = {};
 
 const navMenuItems = (
   <>
@@ -105,6 +100,27 @@ const elem = (
     </Header>
     <Main>
       <Container>
+        <Div spacing={{ padding: 1 }}>
+          <Accordion>
+            <AccordionSummary>
+              <Ruby rubyText="えもーしょん">{"Emotion"}</Ruby>
+            </AccordionSummary>
+            <AccordionDetails as={Gingham}>
+              <Paragraph
+                fore={{ color: { default: { name: "rainbow", lightness: 80 } } }}
+                css={{ fontSize: "1.5rem" }}
+              >
+                {"It uses emotion css prop to style components"}
+              </Paragraph>
+              <Paragraph
+                fore={{ color: { default: { name: "red", lightness: 20 } } }}
+                back={{ color: { default: { name: "rainbow", lightness: 80 } } }}
+              >
+                {"It uses emotion css prop to style components"}
+              </Paragraph>
+            </AccordionDetails>
+          </Accordion>
+        </Div>
         <Div spacing={{ padding: 1 }}>
           <Accordion>
             <AccordionSummary>
@@ -705,7 +721,11 @@ export const LightTheme: Story = {
     colorScheme: "light",
   },
   render: (props) => (
-    <MinolithStatic as={Gingham} cssVariableSetting={minolithCssVariable} {...props}>
+    <MinolithStatic
+      as={Gingham}
+      cssVariableSetting={minolithCssVariable}
+      {...props}
+    >
       {elem}
     </MinolithStatic>
   ),
@@ -715,7 +735,11 @@ export const DarkTheme: Story = {
     colorScheme: "dark",
   },
   render: (props) => (
-    <MinolithStatic as={Gingham} cssVariableSetting={minolithCssVariable} {...props}>
+    <MinolithStatic
+      as={Gingham}
+      cssVariableSetting={minolithCssVariable}
+      {...props}
+    >
       {elem}
     </MinolithStatic>
   ),

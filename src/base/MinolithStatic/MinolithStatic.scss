@@ -1,2 +1,126 @@
+@use "sass:string";
+@forward "../../../node_modules/minolith/src/css-variables/index.scss";
 @forward "../../../node_modules/minolith/src/base/normalize.scss";
-@forward "../../../node_modules/minolith/src/utilities/index.scss";
+@forward "../../../node_modules/minolith/src/utilities/decoration.scss";
+@forward "../../../node_modules/minolith/src/utilities/positioning.scss";
+@forward "../../../node_modules/minolith/src/utilities/sizing.scss";
+@forward "../../../node_modules/minolith/src/utilities/typography.scss";
+@use "../../../node_modules/minolith/src/mixins/index.scss" as mixins;
+@use "../../../node_modules/minolith/src/variables/index.scss" as variables;
+
+@mixin forecolorRainbow($numStr) {
+  background-clip: text !important;
+  background-image: linear-gradient(
+    135deg,
+    var(--#{variables.$prefix}color-red-#{$numStr}),
+    var(--#{variables.$prefix}color-coral-#{$numStr}),
+    var(--#{variables.$prefix}color-orange-#{$numStr}),
+    var(--#{variables.$prefix}color-yellow-#{$numStr}),
+    var(--#{variables.$prefix}color-lime-#{$numStr}),
+    var(--#{variables.$prefix}color-green-#{$numStr}),
+    var(--#{variables.$prefix}color-cyan-#{$numStr}),
+    var(--#{variables.$prefix}color-blue-#{$numStr}),
+    var(--#{variables.$prefix}color-violet-#{$numStr}),
+    var(--#{variables.$prefix}color-magenta-#{$numStr})
+  ) !important;
+  color: transparent !important;
+}
+
+@mixin backcolorRainbow($numStr) {
+  background-image: linear-gradient(
+    135deg,
+    var(--#{variables.$prefix}color-red-#{$numStr}),
+    var(--#{variables.$prefix}color-coral-#{$numStr}),
+    var(--#{variables.$prefix}color-orange-#{$numStr}),
+    var(--#{variables.$prefix}color-yellow-#{$numStr}),
+    var(--#{variables.$prefix}color-lime-#{$numStr}),
+    var(--#{variables.$prefix}color-green-#{$numStr}),
+    var(--#{variables.$prefix}color-cyan-#{$numStr}),
+    var(--#{variables.$prefix}color-blue-#{$numStr}),
+    var(--#{variables.$prefix}color-violet-#{$numStr}),
+    var(--#{variables.$prefix}color-magenta-#{$numStr})
+  ) !important;
+}
+
+//#region rainbow
+
+@mixin colorUtilities($colorScheme: "") {
+  $derived: "";
+  @if $colorScheme != "" {
+    $derived: "-#{$colorScheme}";
+  }
+
+  $numStr: "00";
+  @for $p from 1 through 19 {
+    $numStr: "#{($p * 5)}";
+    @if (string.length($numStr) == 1) {
+      $numStr: "0" + $numStr;
+    }
+    //#region forecolor
+    .forecolor#{$derived}-rainbow-#{$numStr} {
+      @include forecolorRainbow($numStr);
+    }
+    .forecolor#{$derived}-hover-rainbow-#{$numStr} {
+      &:hover {
+        @include forecolorRainbow($numStr);
+      }
+    }
+    .forecolor#{$derived}-rainbow-focus-#{$numStr} {
+      &:focus {
+        @include forecolorRainbow($numStr);
+      }
+    }
+    .forecolor#{$derived}-rainbow-active-#{$numStr} {
+      &:active {
+        @include forecolorRainbow($numStr);
+      }
+    }
+    .forecolor#{$derived}-rainbow-disabled-#{$numStr} {
+      &[disabled],
+      fieldset[disabled] {
+        @include forecolorRainbow($numStr);
+      }
+    }
+    //#endregion forecolor
+
+    //#region backcolor
+    .backcolor#{$derived}-rainbow-#{$numStr} {
+      @include backcolorRainbow($numStr);
+    }
+    .backcolor#{$derived}-hover-rainbow-#{$numStr} {
+      &:hover {
+        @include backcolorRainbow($numStr);
+      }
+    }
+    .backcolor#{$derived}-rainbow-focus-#{$numStr} {
+      &:focus {
+        @include backcolorRainbow($numStr);
+      }
+    }
+    .backcolor#{$derived}-rainbow-active-#{$numStr} {
+      &:active {
+        @include backcolorRainbow($numStr);
+      }
+    }
+    .backcolor#{$derived}-rainbow-disabled-#{$numStr} {
+      &[disabled],
+      fieldset[disabled] {
+        @include backcolorRainbow($numStr);
+      }
+    }
+    //#endregion backcolor
+
+    // NOTE: bordercolor is not available
+
+    // NOTE: highlighter is not available
+  }
+  //#endregion rainbow
+}
+
+@include colorUtilities();
+@include mixins.setColorScheme("light") {
+  @include colorUtilities("light");
+}
+@include mixins.setColorScheme("dark") {
+  @include colorUtilities("dark");
+}

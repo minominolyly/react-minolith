@@ -17,7 +17,7 @@ react-minolith is still alpha.
 ## Installation
 
 ```shell
-npm install react-minolith
+npm install react-minolith @emotion/react lodash
 ```
 
 ## Getting Started

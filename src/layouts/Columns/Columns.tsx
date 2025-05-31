@@ -1,6 +1,6 @@
 import ColumnsProps from "./ColumnsProps";
 import classNames from "./Columns.module.scss";
-import { classNameUtility } from "../../utilities";
+import { classNameUtility, minolithStyleUtility } from "../../utilities";
 
 export default function Columns(props: ColumnsProps): React.ReactElement {
   const assignedProps = { ...props };
@@ -80,6 +80,7 @@ export default function Columns(props: ColumnsProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["columns"]];
@@ -692,5 +693,13 @@ export default function Columns(props: ColumnsProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <div {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = minolithStyleUtility.getEmotionCss(props);
+
+  return (
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

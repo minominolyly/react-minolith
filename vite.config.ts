@@ -8,7 +8,13 @@ import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), libInjectCss(), dts({ include: ["src"] })],
+  plugins: [
+    react({
+      jsxImportSource: "@emotion/react",
+    }),
+    libInjectCss(),
+    dts({ include: ["src"] }),
+  ],
   css: {
     modules: {
       globalModulePaths: [
@@ -21,7 +27,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         api: "modern-compiler",
-      }
+      },
     },
   },
   build: {
@@ -35,7 +41,13 @@ export default defineConfig({
     },
     sourcemap: true,
     rollupOptions: {
-      external: ["react", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react/jsx-runtime",
+        "@emotion/react",
+        "@emotion/react/jsx-runtime",
+        "lodash",
+      ],
       input: Object.fromEntries(
         glob
           .sync("src/**/*!(*.d).{ts,tsx}", {
@@ -49,6 +61,9 @@ export default defineConfig({
       output: {
         globals: {
           react: "React",
+          "react/jsx-runtime": "jsxRuntime",
+          "@emotion/react": "emotionReact",
+          "lodash": "_",
         },
         assetFileNames: "assets/[name][extname]",
         entryFileNames: "[name].js",

@@ -13,10 +13,6 @@ export * from "./common/models";
 
 //#region base
 
-export * from "./base/MinolithCssVariableStylesProvider";
-
-export * from "./base/MinolithCssVariableStylesProviderStatic";
-
 export * from "./base/Minolith";
 
 export * from "./base/MinolithStatic";
