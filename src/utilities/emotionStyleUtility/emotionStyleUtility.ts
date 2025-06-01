@@ -1,7 +1,5 @@
 "use client";
-import {
-  BaseComponentProps,
-} from "../../common/models";
+import { BaseComponentProps } from "../../common/models";
 import { css, CSSObject, Interpolation, Theme } from "@emotion/react";
 import { ColorAttributes, ColorName } from "../../react-minolith";
 import { merge } from "lodash";
@@ -479,6 +477,13 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
         ? typeof props.spacing.margin.top === "number"
           ? `${props.spacing.margin.top}rem`
           : props.spacing.margin.top
+        : props.spacing &&
+          props.spacing.margin &&
+          typeof props.spacing.margin === "object" &&
+          props.spacing.margin.y
+        ? typeof props.spacing.margin.y === "number"
+          ? `${props.spacing.margin.y}rem`
+          : props.spacing.margin.y
         : undefined,
     marginRight:
       props.spacing &&
@@ -488,6 +493,13 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
         ? typeof props.spacing.margin.right === "number"
           ? `${props.spacing.margin.right}rem`
           : props.spacing.margin.right
+        : props.spacing &&
+          props.spacing.margin &&
+          typeof props.spacing.margin === "object" &&
+          props.spacing.margin.x
+        ? typeof props.spacing.margin.x === "number"
+          ? `${props.spacing.margin.x}rem`
+          : props.spacing.margin.x
         : undefined,
     marginBottom:
       props.spacing &&
@@ -497,6 +509,13 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
         ? typeof props.spacing.margin.bottom === "number"
           ? `${props.spacing.margin.bottom}rem`
           : props.spacing.margin.bottom
+        : props.spacing &&
+          props.spacing.margin &&
+          typeof props.spacing.margin === "object" &&
+          props.spacing.margin.y
+        ? typeof props.spacing.margin.y === "number"
+          ? `${props.spacing.margin.y}rem`
+          : props.spacing.margin.y
         : undefined,
     marginLeft:
       props.spacing &&
@@ -506,6 +525,13 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
         ? typeof props.spacing.margin.left === "number"
           ? `${props.spacing.margin.left}rem`
           : props.spacing.margin.left
+        : props.spacing &&
+          props.spacing.margin &&
+          typeof props.spacing.margin === "object" &&
+          props.spacing.margin.x
+        ? typeof props.spacing.margin.x === "number"
+          ? `${props.spacing.margin.x}rem`
+          : props.spacing.margin.x
         : undefined,
     padding:
       props.spacing && props.spacing.padding
@@ -523,6 +549,13 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
         ? typeof props.spacing.padding.top === "number"
           ? `${props.spacing.padding.top}rem`
           : props.spacing.padding.top
+        : props.spacing &&
+          props.spacing.padding &&
+          typeof props.spacing.padding === "object" &&
+          props.spacing.padding.y
+        ? typeof props.spacing.padding.y === "number"
+          ? `${props.spacing.padding.y}rem`
+          : props.spacing.padding.y
         : undefined,
     paddingRight:
       props.spacing &&
@@ -532,6 +565,13 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
         ? typeof props.spacing.padding.right === "number"
           ? `${props.spacing.padding.right}rem`
           : props.spacing.padding.right
+        : props.spacing &&
+          props.spacing.padding &&
+          typeof props.spacing.padding === "object" &&
+          props.spacing.padding.x
+        ? typeof props.spacing.padding.x === "number"
+          ? `${props.spacing.padding.x}rem`
+          : props.spacing.padding.x
         : undefined,
     paddingBottom:
       props.spacing &&
@@ -541,6 +581,13 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
         ? typeof props.spacing.padding.bottom === "number"
           ? `${props.spacing.padding.bottom}rem`
           : props.spacing.padding.bottom
+        : props.spacing &&
+          props.spacing.padding &&
+          typeof props.spacing.padding === "object" &&
+          props.spacing.padding.y
+        ? typeof props.spacing.padding.y === "number"
+          ? `${props.spacing.padding.y}rem`
+          : props.spacing.padding.y
         : undefined,
     paddingLeft:
       props.spacing &&
@@ -550,6 +597,13 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
         ? typeof props.spacing.padding.left === "number"
           ? `${props.spacing.padding.left}rem`
           : props.spacing.padding.left
+        : props.spacing &&
+          props.spacing.padding &&
+          typeof props.spacing.padding === "object" &&
+          props.spacing.padding.x
+        ? typeof props.spacing.padding.x === "number"
+          ? `${props.spacing.padding.x}rem`
+          : props.spacing.padding.x
         : undefined,
     ":hover": hover,
     ":focus": focus,
