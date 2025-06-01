@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Blockquote.module.scss";
 import BlockquoteProps from "./BlockquoteProps";
 
@@ -15,6 +17,7 @@ export default function Blockquote(props: BlockquoteProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["blockquote"]];
@@ -25,14 +28,22 @@ export default function Blockquote(props: BlockquoteProps): React.ReactElement {
     if (typeof props.hasQuote === "boolean") {
       props.hasQuote && assignedClassNames.push(classNames[`has-quote`]);
     } else {
-      props.hasQuote.before && assignedClassNames.push(classNames[`has-quote-before`]);
-      props.hasQuote.after && assignedClassNames.push(classNames[`has-quote-after`]);
+      props.hasQuote.before &&
+        assignedClassNames.push(classNames[`has-quote-before`]);
+      props.hasQuote.after &&
+        assignedClassNames.push(classNames[`has-quote-after`]);
     }
   }
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = emotionStyleUtility.getEmotionCss(props);
+
   return (
-    <blockquote {...assignedProps} className={assignedClassNames.join(" ")} />
+    <blockquote
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }

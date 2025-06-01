@@ -1330,8 +1330,6 @@ function getDarkSchemeStyles(
 const minolithStyleUtility = {
   getMinolithCssVariableStyles,
   getRootStyles,
-  getLightSchemeStyles,
-  getDarkSchemeStyles,
 };
 
 export default minolithStyleUtility;

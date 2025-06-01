@@ -5,23 +5,24 @@ import { extname, relative, resolve } from "path";
 import { defineConfig } from "vite";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import dts from "vite-plugin-dts";
+import preserveDirectives from "rollup-preserve-directives";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), libInjectCss(), dts({ include: ["src"] })],
+  plugins: [
+    react({
+      jsxImportSource: "@emotion/react",
+    }),
+    libInjectCss(),
+    dts({ include: ["src"] }),
+  ],
   css: {
     modules: {
-      globalModulePaths: [
-        /.*\/src\/base\/Minolith\/.*/,
-        /.*\/src\/base\/MinolithCssVariableStylesProvider\/.*/,
-        /.*\/src\/base\/MinolithCssVariableStylesProviderStatic\/.*/,
-        /.*\/src\/base\/MinolithStatic\/.*/,
-      ],
     },
     preprocessorOptions: {
       scss: {
         api: "modern-compiler",
-      }
+      },
     },
   },
   build: {
@@ -35,7 +36,14 @@ export default defineConfig({
     },
     sourcemap: true,
     rollupOptions: {
-      external: ["react", "react/jsx-runtime"],
+      plugins: [preserveDirectives()],
+      external: [
+        "react",
+        "react/jsx-runtime",
+        "@emotion/react",
+        "@emotion/react/jsx-runtime",
+        "lodash",
+      ],
       input: Object.fromEntries(
         glob
           .sync("src/**/*!(*.d).{ts,tsx}", {
@@ -49,6 +57,9 @@ export default defineConfig({
       output: {
         globals: {
           react: "React",
+          "@emotion/react/jsx-runtime": "EmotionReactJsxRuntime",
+          "@emotion/react": "EmotionReact",
+          lodash: "_",
         },
         assetFileNames: "assets/[name][extname]",
         entryFileNames: "[name].js",

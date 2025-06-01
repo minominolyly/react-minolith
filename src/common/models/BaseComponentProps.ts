@@ -1,3 +1,4 @@
+import { Interpolation, Theme } from "@emotion/react";
 import {
   BorderCollapse,
   BorderDetailProps,
@@ -66,25 +67,26 @@ export default interface BaseComponentProps {
   spacing?: {
     margin?:
       | {
-          x?: number | "auto";
-          y?: number | "auto";
-          top?: number | "auto";
-          left?: number | "auto";
-          bottom?: number | "auto";
-          right?: number | "auto";
+          x?: number | string;
+          y?: number | string;
+          top?: number | string;
+          left?: number | string;
+          bottom?: number | string;
+          right?: number | string;
         }
       | number
-      | "auto";
+      | string;
     padding?:
       | {
-          x?: number | "auto";
-          y?: number | "auto";
-          top?: number | "auto";
-          left?: number | "auto";
-          bottom?: number | "auto";
-          right?: number | "auto";
+          x?: number | string;
+          y?: number | string;
+          top?: number | string;
+          left?: number | string;
+          bottom?: number | string;
+          right?: number | string;
         }
       | number
-      | "auto";
+      | string;
   };
+  css?: Interpolation<Theme>;
 }

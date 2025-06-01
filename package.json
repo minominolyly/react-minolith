@@ -1,6 +1,6 @@
 {
   "name": "react-minolith",
-  "version": "0.0.30",
+  "version": "1.0.11",
   "description": "react-minolith is an open-source react wrapper for minolith.",
   "type": "module",
   "main": "./dist/react-minolith.js",
@@ -42,26 +42,319 @@
     ".": {
       "types": "./dist/types/react-minolith.d.ts",
       "import": "./dist/react-minolith.js"
-    }
+    },
+    "./backgrounds": {
+      "types": "./dist/backgrounds/index.d.ts",
+      "import": "./dist/backgrounds/index.js"
+    },
+    "./backgrounds/Dot": {
+      "types": "./dist/backgrounds/Dot/index.d.ts",
+      "import": "./dist/backgrounds/Dot/index.js"
+    },
+    "./backgrounds/Gingham": {
+      "types": "./dist/backgrounds/Gingham/index.d.ts",
+      "import": "./dist/backgrounds/Gingham/index.js"
+    },
+    "./backgrounds/Rhombus": {
+      "types": "./dist/backgrounds/Rhombus/index.d.ts",
+      "import": "./dist/backgrounds/Rhombus/index.js"
+    },
+    "./backgrounds/Stripe": {
+      "types": "./dist/backgrounds/Stripe/index.d.ts",
+      "import": "./dist/backgrounds/Stripe/index.js"
+    },
+    "./backgrounds/Zigzag": {
+      "types": "./dist/backgrounds/Zigzag/index.d.ts",
+      "import": "./dist/backgrounds/Zigzag/index.js"
+    },
+    "./base": {
+      "types": "./dist/base/index.d.ts",
+      "import": "./dist/base/index.js"
+    },
+    "./base/Minolith": {
+      "types": "./dist/base/Minolith/index.d.ts",
+      "import": "./dist/base/Minolith/index.js"
+    },
+    "./base/MinolithStatic": {
+      "types": "./dist/base/MinolithStatic/index.d.ts",
+      "import": "./dist/base/MinolithStatic/index.js"
+    },
+    "./base/Tabula": {
+      "types": "./dist/base/Tabula/index.d.ts",
+      "import": "./dist/base/Tabula/index.js"
+    },
+    "./common/*": {
+      "types": "./dist/common/*.d.ts",
+      "import": "./dist/common/*.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
+    "./components/Accordion": {
+      "types": "./dist/components/Accordion/index.d.ts",
+      "import": "./dist/components/Accordion/index.js"
+    },
+    "./components/AccordionDetails": {
+      "types": "./dist/components/AccordionDetails/index.d.ts",
+      "import": "./dist/components/AccordionDetails/index.js"
+    },
+    "./components/AccordionSummary": {
+      "types": "./dist/components/AccordionSummary/index.d.ts",
+      "import": "./dist/components/AccordionSummary/index.js"
+    },
+    "./components/Badge": {
+      "types": "./dist/components/Badge/index.d.ts",
+      "import": "./dist/components/Badge/index.js"
+    },
+    "./components/Blockquote": {
+      "types": "./dist/components/Blockquote/index.d.ts",
+      "import": "./dist/components/Blockquote/index.js"
+    },
+    "./components/Breadcrumb": {
+      "types": "./dist/components/Breadcrumb/index.d.ts",
+      "import": "./dist/components/Breadcrumb/index.js"
+    },
+    "./components/Breadcrumbs": {
+      "types": "./dist/components/Breadcrumbs/index.d.ts",
+      "import": "./dist/components/Breadcrumbs/index.js"
+    },
+    "./components/BreadcrumbsNav": {
+      "types": "./dist/components/BreadcrumbsNav/index.d.ts",
+      "import": "./dist/components/BreadcrumbsNav/index.js"
+    },
+    "./components/Button": {
+      "types": "./dist/components/Button/index.d.ts",
+      "import": "./dist/components/Button/index.js"
+    },
+    "./components/Card": {
+      "types": "./dist/components/Card/index.d.ts",
+      "import": "./dist/components/Card/index.js"
+    },
+    "./components/CardBody": {
+      "types": "./dist/components/CardBody/index.d.ts",
+      "import": "./dist/components/CardBody/index.js"
+    },
+    "./components/CardFooter": {
+      "types": "./dist/components/CardFooter/index.d.ts",
+      "import": "./dist/components/CardFooter/index.js"
+    },
+    "./components/CardHeader": {
+      "types": "./dist/components/CardHeader/index.d.ts",
+      "import": "./dist/components/CardHeader/index.js"
+    },
+    "./components/Dialogue": {
+      "types": "./dist/components/Dialogue/index.d.ts",
+      "import": "./dist/components/Dialogue/index.js"
+    },
+    "./components/DialogueAvatar": {
+      "types": "./dist/components/DialogueAvatar/index.d.ts",
+      "import": "./dist/components/DialogueAvatar/index.js"
+    },
+    "./components/DialogueAvatarContainer": {
+      "types": "./dist/components/DialogueAvatarContainer/index.d.ts",
+      "import": "./dist/components/DialogueAvatarContainer/index.js"
+    },
+    "./components/DialogueContentContainer": {
+      "types": "./dist/components/DialogueContentContainer/index.d.ts",
+      "import": "./dist/components/DialogueContentContainer/index.js"
+    },
+    "./components/DialogueMessage": {
+      "types": "./dist/components/DialogueMessage/index.d.ts",
+      "import": "./dist/components/DialogueMessage/index.js"
+    },
+    "./components/DialogueMessageInner": {
+      "types": "./dist/components/DialogueMessageInner/index.d.ts",
+      "import": "./dist/components/DialogueMessageInner/index.js"
+    },
+    "./components/DialogueName": {
+      "types": "./dist/components/DialogueName/index.d.ts",
+      "import": "./dist/components/DialogueName/index.js"
+    },
+    "./components/Div": {
+      "types": "./dist/components/Div/index.d.ts",
+      "import": "./dist/components/Div/index.js"
+    },
+    "./components/Footer": {
+      "types": "./dist/components/Footer/index.d.ts",
+      "import": "./dist/components/Footer/index.js"
+    },
+    "./components/Hamburger": {
+      "types": "./dist/components/Hamburger/index.d.ts",
+      "import": "./dist/components/Hamburger/index.js"
+    },
+    "./components/Header": {
+      "types": "./dist/components/Header/index.d.ts",
+      "import": "./dist/components/Header/index.js"
+    },
+    "./components/Heading": {
+      "types": "./dist/components/Heading/index.d.ts",
+      "import": "./dist/components/Heading/index.js"
+    },
+    "./components/Input": {
+      "types": "./dist/components/Input/index.d.ts",
+      "import": "./dist/components/Input/index.js"
+    },
+    "./components/Label": {
+      "types": "./dist/components/Label/index.d.ts",
+      "import": "./dist/components/Label/index.js"
+    },
+    "./components/Link": {
+      "types": "./dist/components/Link/index.d.ts",
+      "import": "./dist/components/Link/index.js"
+    },
+    "./components/Loader": {
+      "types": "./dist/components/Loader/index.d.ts",
+      "import": "./dist/components/Loader/index.js"
+    },
+    "./components/Main": {
+      "types": "./dist/components/Main/index.d.ts",
+      "import": "./dist/components/Main/index.js"
+    },
+    "./components/Message": {
+      "types": "./dist/components/Message/index.d.ts",
+      "import": "./dist/components/Message/index.js"
+    },
+    "./components/MessageBody": {
+      "types": "./dist/components/MessageBody/index.d.ts",
+      "import": "./dist/components/MessageBody/index.js"
+    },
+    "./components/MessageHeader": {
+      "types": "./dist/components/MessageHeader/index.d.ts",
+      "import": "./dist/components/MessageHeader/index.js"
+    },
+    "./components/Modal": {
+      "types": "./dist/components/Modal/index.d.ts",
+      "import": "./dist/components/Modal/index.js"
+    },
+    "./components/ModalContent": {
+      "types": "./dist/components/ModalContent/index.d.ts",
+      "import": "./dist/components/ModalContent/index.js"
+    },
+    "./components/Nav": {
+      "types": "./dist/components/Nav/index.d.ts",
+      "import": "./dist/components/Nav/index.js"
+    },
+    "./components/NavAccordion": {
+      "types": "./dist/components/NavAccordion/index.d.ts",
+      "import": "./dist/components/NavAccordion/index.js"
+    },
+    "./components/NavBrand": {
+      "types": "./dist/components/NavBrand/index.d.ts",
+      "import": "./dist/components/NavBrand/index.js"
+    },
+    "./components/NavBrandCenter": {
+      "types": "./dist/components/NavBrandCenter/index.d.ts",
+      "import": "./dist/components/NavBrandCenter/index.js"
+    },
+    "./components/NavBrandLeft": {
+      "types": "./dist/components/NavBrandLeft/index.d.ts",
+      "import": "./dist/components/NavBrandLeft/index.js"
+    },
+    "./components/NavBrandRight": {
+      "types": "./dist/components/NavBrandRight/index.d.ts",
+      "import": "./dist/components/NavBrandRight/index.js"
+    },
+    "./components/NavMenu": {
+      "types": "./dist/components/NavMenu/index.d.ts",
+      "import": "./dist/components/NavMenu/index.js"
+    },
+    "./components/NavMenuItem": {
+      "types": "./dist/components/NavMenuItem/index.d.ts",
+      "import": "./dist/components/NavMenuItem/index.js"
+    },
+    "./components/NavStatic": {
+      "types": "./dist/components/NavStatic/index.d.ts",
+      "import": "./dist/components/NavStatic/index.js"
+    },
+    "./components/Paragraph": {
+      "types": "./dist/components/Paragraph/index.d.ts",
+      "import": "./dist/components/Paragraph/index.js"
+    },
+    "./components/Progress": {
+      "types": "./dist/components/Progress/index.d.ts",
+      "import": "./dist/components/Progress/index.js"
+    },
+    "./components/Ruby": {
+      "types": "./dist/components/Ruby/index.d.ts",
+      "import": "./dist/components/Ruby/index.js"
+    },
+    "./components/RubyText": {
+      "types": "./dist/components/RubyText/index.d.ts",
+      "import": "./dist/components/RubyText/index.js"
+    },
+    "./components/Section": {
+      "types": "./dist/components/Section/index.d.ts",
+      "import": "./dist/components/Section/index.js"
+    },
+    "./components/Span": {
+      "types": "./dist/components/Span/index.d.ts",
+      "import": "./dist/components/Span/index.js"
+    },
+    "./components/Textarea": {
+      "types": "./dist/components/Textarea/index.d.ts",
+      "import": "./dist/components/Textarea/index.js"
+    },
+    "./layouts": {
+      "types": "./dist/layouts/index.d.ts",
+      "import": "./dist/layouts/index.js"
+    },
+    "./layouts/Centering": {
+      "types": "./dist/layouts/Centering/index.d.ts",
+      "import": "./dist/layouts/Centering/index.js"
+    },
+    "./layouts/Column": {
+      "types": "./dist/layouts/Column/index.d.ts",
+      "import": "./dist/layouts/Column/index.js"
+    },
+    "./layouts/Columns": {
+      "types": "./dist/layouts/Columns/index.d.ts",
+      "import": "./dist/layouts/Columns/index.js"
+    },
+    "./layouts/Container": {
+      "types": "./dist/layouts/Container/index.d.ts",
+      "import": "./dist/layouts/Container/index.js"
+    },
+    "./utilities": {
+      "types": "./dist/utilities/index.d.ts",
+      "import": "./dist/utilities/index.js"
+    },
+    "./utilities/classNameUtility": {
+      "types": "./dist/utilities/classNameUtility/index.d.ts",
+      "import": "./dist/utilities/classNameUtility/index.js"
+    },
+    "./utilities/emotionStyleUtility": {
+      "types": "./dist/utilities/emotionStyleUtility/index.d.ts",
+      "import": "./dist/utilities/emotionStyleUtility/index.js"
+    },
+    "./utilities/minolithStyleUtility": {
+      "types": "./dist/utilities/minolithStyleUtility/index.d.ts",
+      "import": "./dist/utilities/minolithStyleUtility/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "peerDependencies": {
+    "@emotion/react": "^11.14.0",
+    "lodash": "^4.17.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "peerDependenciesMeta": {
+    "@types/lodash": {
+      "optional": true
+    },
     "@types/react": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.6",
-    "@storybook/addon-essentials": "^8.4.7",
-    "@storybook/addon-interactions": "^8.4.7",
-    "@storybook/addon-onboarding": "^8.4.7",
-    "@storybook/blocks": "^8.4.7",
-    "@storybook/react": "^8.4.7",
-    "@storybook/react-vite": "^8.4.7",
-    "@storybook/test": "^8.4.7",
+    "@chromatic-com/storybook": "^4.0.0",
+    "@emotion/babel-preset-css-prop": "^11.12.0",
+    "@emotion/react": "^11.14.0",
+    "@storybook/addon-docs": "^9.0.3",
+    "@storybook/addon-onboarding": "^9.0.3",
+    "@storybook/react-vite": "^9.0.3",
+    "@types/lodash": "^4.17.17",
     "@types/node": "^22.13.17",
     "@types/react": "^19.0.14",
     "@types/react-dom": "^19.0.6",
@@ -71,18 +364,23 @@
     "eslint": "^9.16.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
-    "eslint-plugin-storybook": "^0.11.6",
+    "eslint-plugin-storybook": "^9.0.3",
     "glob": "^11.0.1",
+    "lodash": "^4.17.21",
     "minolith": "^0.0.37",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rimraf": "^6.0.1",
+    "rollup-preserve-directives": "^1.1.3",
     "sass": "^1.82.0",
-    "storybook": "^8.4.7",
+    "storybook": "^9.0.3",
     "typescript": "^5.7.3",
     "vite": "^6.0.15",
     "vite-plugin-dts": "^4.3.0",
     "vite-plugin-lib-inject-css": "^2.1.1",
     "vitest": "^2.1.9"
+  },
+  "overrides": {
+    "storybook": "$storybook"
   }
 }

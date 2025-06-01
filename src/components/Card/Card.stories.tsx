@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { MinolithStatic } from "../../base/MinolithStatic";
+import MinolithStatic  from "../../base/MinolithStatic";
 import Card from "./Card";
-import CardBody from "./CardBody";
-import CardFooter from "./CardFooter";
-import CardHeader from "./CardHeader";
+import CardBody from "../CardBody";
+import CardFooter from "../CardFooter";
+import CardHeader from "../CardHeader";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {

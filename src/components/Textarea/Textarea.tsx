@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Textarea.module.scss";
 import TextareaProps from "./TextareaProps";
 
@@ -13,6 +15,7 @@ export default function Textarea(props: TextareaProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["input"]];
@@ -21,5 +24,13 @@ export default function Textarea(props: TextareaProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <textarea {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = emotionStyleUtility.getEmotionCss(props);
+
+  return (
+    <textarea
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

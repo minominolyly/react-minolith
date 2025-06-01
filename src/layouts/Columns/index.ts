@@ -1,5 +1,6 @@
+export { default } from "./Columns";
 export { default as Columns } from "./Columns";
-export type { default as ColumnsProps } from "./ColumnsProps";
+export * from "./Columns";
 
-export { default as Column } from "./Column";
-export type { default as ColumnProps } from "./ColumnProps";
+export type { default as ColumnsProps } from "./ColumnsProps";
+export * from "./ColumnsProps";

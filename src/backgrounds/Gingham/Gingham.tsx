@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Gingham.module.scss";
 import GinghamProps from "./GinghamProps";
 
@@ -14,6 +16,7 @@ export default function Gingham(props: GinghamProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["gingham"]];
@@ -26,7 +29,13 @@ export default function Gingham(props: GinghamProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = emotionStyleUtility.getEmotionCss(props);
+
   return (
-    <div {...assignedProps} className={assignedClassNames.join(" ")} />
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }

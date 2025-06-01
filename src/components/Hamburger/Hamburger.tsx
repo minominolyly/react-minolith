@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Hamburger.module.scss";
 import HamburgerProps from "./HamburgerProps";
 
@@ -16,6 +18,7 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["hamburger"]];
@@ -25,11 +28,14 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = emotionStyleUtility.getEmotionCss(props);
+
   return (
     <div
       {...assignedProps}
       role="button"
       className={assignedClassNames.join(" ")}
+      css={css}
     >
       <span className={classNames["crown"]}>{props.crownInner}</span>
       <span className={classNames["upperpatty"]} aria-hidden="true"></span>

@@ -1,7 +1,9 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Ruby.module.scss";
 import RubyProps from "./RubyProps";
-import RubyText from "./RubyText";
+import RubyText from "../RubyText";
 
 export default function Ruby(props: RubyProps): React.ReactElement {
   const assignedProps = { ...props };
@@ -14,11 +16,14 @@ export default function Ruby(props: RubyProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = ["ruby", classNames["element"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
+
+  const css = emotionStyleUtility.getEmotionCss(props);
 
   const assignedRubyTextClassNames: string[] = [
     "ruby-text",
@@ -33,7 +38,7 @@ export default function Ruby(props: RubyProps): React.ReactElement {
   }
 
   return (
-    <ruby {...assignedProps} className={assignedClassNames.join(" ")}>
+    <ruby {...assignedProps} className={assignedClassNames.join(" ")} css={css}>
       {props.children}
       {props.rubyText ? (
         <RubyText className={assignedRubyTextClassNames.join(" ")}>

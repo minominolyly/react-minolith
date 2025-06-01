@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import AccordionProps from "./AccordionProps";
 import classNames from "./Accordion.module.scss";
 
@@ -13,6 +15,7 @@ export default function Accordion(props: AccordionProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["accordion"]];
@@ -21,5 +24,13 @@ export default function Accordion(props: AccordionProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <details {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = emotionStyleUtility.getEmotionCss(props);
+
+  return (
+    <details
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

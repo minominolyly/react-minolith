@@ -4,13 +4,16 @@ const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-onboarding",
-    "@storybook/addon-essentials",
     "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
+    "@storybook/addon-docs"
   ],
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
+  babel: (options) => ({
+    ...options,
+    presets: [...options.presets, '@emotion/babel-preset-css-prop'],
+  }),
 };
 export default config;

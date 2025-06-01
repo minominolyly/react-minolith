@@ -1,8 +1,12 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import BreadcrumbsProps from "./BreadcrumbsProps";
 import classNames from "./Breadcrumbs.module.scss";
 
-export default function Breadcrumbs(props: BreadcrumbsProps): React.ReactElement {
+export default function Breadcrumbs(
+  props: BreadcrumbsProps
+): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps
@@ -13,6 +17,7 @@ export default function Breadcrumbs(props: BreadcrumbsProps): React.ReactElement
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["breadcrumbs"]];
@@ -21,5 +26,9 @@ export default function Breadcrumbs(props: BreadcrumbsProps): React.ReactElement
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <ul {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = emotionStyleUtility.getEmotionCss(props);
+
+  return (
+    <ul {...assignedProps} className={assignedClassNames.join(" ")} css={css} />
+  );
 }

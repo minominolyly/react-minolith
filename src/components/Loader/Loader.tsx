@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Loader.module.scss";
 import LoaderProps from "./LoaderProps";
 
@@ -14,6 +16,7 @@ export default function Loader(props: LoaderProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["loader"]];
@@ -26,5 +29,13 @@ export default function Loader(props: LoaderProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <div {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = emotionStyleUtility.getEmotionCss(props);
+
+  return (
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

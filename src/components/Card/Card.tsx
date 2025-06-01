@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Card.module.scss";
 import CardProps from "./CardProps";
 
@@ -14,6 +16,7 @@ export default function Card(props: CardProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["card"]];
@@ -22,9 +25,19 @@ export default function Card(props: CardProps): React.ReactElement {
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = emotionStyleUtility.getEmotionCss(props);
+
   return props.as ? (
-    <props.as {...assignedProps} className={assignedClassNames.join(" ")} />
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   ) : (
-    <div {...assignedProps} className={assignedClassNames.join(" ")} />
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }

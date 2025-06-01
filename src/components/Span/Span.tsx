@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Span.module.scss";
 import SpanProps from "./SpanProps";
 
@@ -12,11 +14,20 @@ export default function Span(props: SpanProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["span"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <span {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = emotionStyleUtility.getEmotionCss(props);
+
+  return (
+    <span
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

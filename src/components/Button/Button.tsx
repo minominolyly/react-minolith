@@ -1,6 +1,7 @@
+"use client";
 import ButtonProps from "./ButtonProps";
 import classNames from "./Button.module.scss";
-import { classNameUtility } from "../../utilities";
+import classNameUtility from "../../utilities/classNameUtility";
 
 export default function Button(props: ButtonProps): React.ReactElement {
   const assignedProps = { ...props };
@@ -13,6 +14,7 @@ export default function Button(props: ButtonProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["button"]];

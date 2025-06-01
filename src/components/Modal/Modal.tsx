@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Modal.module.scss";
 import ModalProps from "./ModalProps";
 
@@ -14,13 +16,23 @@ export default function Modal(props: ModalProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["modal"]];
   props.isActive && assignedClassNames.push(classNames["is-active"]);
-  props.colorName && assignedClassNames.push(classNames[`is-${props.colorName}`]);
+  props.colorName &&
+    assignedClassNames.push(classNames[`is-${props.colorName}`]);
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
-  return <div {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const css = emotionStyleUtility.getEmotionCss(props);
+
+  return (
+    <div
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

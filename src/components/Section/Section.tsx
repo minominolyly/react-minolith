@@ -1,4 +1,6 @@
-import { classNameUtility } from "../../utilities";
+"use client";
+import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Section.module.scss";
 import SectionProps from "./SectionProps";
 
@@ -12,13 +14,20 @@ export default function Section(props: SectionProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["element"]];
   assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
   props.className && assignedClassNames.push(props.className);
 
+  const css = emotionStyleUtility.getEmotionCss(props);
+
   return (
-    <section {...assignedProps} className={assignedClassNames.join(" ")} />
+    <section
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }
