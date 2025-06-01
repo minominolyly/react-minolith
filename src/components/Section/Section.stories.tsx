@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Section from "./Section";
 import MinolithStatic  from "../../base/MinolithStatic";

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Gingham from "../../backgrounds/Gingham";
 import Stripe from "../../backgrounds/Stripe";
@@ -42,6 +42,10 @@ import Column from "../../layouts/Column";
 import Columns from "../../layouts/Columns";
 import Container from "../../layouts/Container";
 import Minolith from "./Minolith";
+import ColorName from "../../common/literalTypes/ColorName";
+import Gradation from "../../common/models/Gradation";
+import Oklch from "../../common/models/Oklch";
+import { RubyText } from "../../react-minolith";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -54,9 +58,123 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const minolithCssVariable: MinolithCssVariable = {
-  color: {},
+type ColorInfo = {
+  name: ColorName;
+  hue: number;
+  chroma: number;
 };
+
+const colorChromaGray = 0.04;
+const colorChromaColorful = 0.16;
+const colorChromaColorfulOffsetLighter = 0;
+const colorChromaColorfulOffsetDarker = 0;
+
+const colorLightness50 = 60;
+const colorLightnessOffsetLighter = 4;
+const colorLightnessOffsetDarker = 4;
+
+const colorGray: ColorInfo = {
+  name: "gray",
+  hue: 260,
+  chroma: colorChromaGray,
+};
+const colorRed: ColorInfo = {
+  name: "red",
+  hue: 0,
+  chroma: colorChromaColorful,
+};
+const colorOrange: ColorInfo = {
+  name: "orange",
+  hue: 50,
+  chroma: colorChromaColorful,
+};
+
+const colorYellow: ColorInfo = {
+  name: "yellow",
+  hue: 100,
+  chroma: colorChromaColorful,
+};
+
+const colorGreen: ColorInfo = {
+  name: "green",
+  hue: 130,
+  chroma: colorChromaColorful,
+};
+
+const colorCyan: ColorInfo = {
+  name: "cyan",
+  hue: 210,
+  chroma: colorChromaColorful,
+};
+
+const colorBlue: ColorInfo = {
+  name: "blue",
+  hue: 260,
+  chroma: colorChromaColorful,
+};
+
+const colorViolet: ColorInfo = {
+  name: "violet",
+  hue: 290,
+  chroma: colorChromaColorful,
+};
+
+const colorMagenta: ColorInfo = {
+  name: "magenta",
+  hue: 310,
+  chroma: colorChromaColorful,
+};
+
+function getColorVar(color: ColorInfo): Gradation {
+  let colorVar: Gradation = {};
+  for (let i = 1; i <= 19; i++) {
+    const gradation = i * 5;
+    const chroma =
+      color.name === "gray"
+        ? color.chroma
+        : gradation < 50
+        ? color.chroma + ((10 - i) * colorChromaColorfulOffsetDarker)
+        : gradation > 50
+        ? color.chroma + ((i - 10) * colorChromaColorfulOffsetLighter)
+        : color.chroma;
+
+    const lightness =
+      gradation < 50
+        ? colorLightness50 - (10 - i) * colorLightnessOffsetDarker
+        : gradation > 50
+        ? colorLightness50 + (i - 10) * colorLightnessOffsetLighter
+        : colorLightness50;
+
+    const oklch: Oklch = {
+      hue: color.hue,
+      lightness: lightness,
+      chroma: chroma,
+    };
+    colorVar = Object.assign(colorVar, {
+      [gradation]: oklch,
+    });
+  }
+
+  return colorVar;
+}
+
+function genMinolithCssVariable(): MinolithCssVariable {
+  return {
+    color: {
+      gray: getColorVar(colorGray),
+      red: getColorVar(colorRed),
+      orange: getColorVar(colorOrange),
+      yellow: getColorVar(colorYellow),
+      green: getColorVar(colorGreen),
+      cyan: getColorVar(colorCyan),
+      blue: getColorVar(colorBlue),
+      violet: getColorVar(colorViolet),
+      magenta: getColorVar(colorMagenta),
+    },
+  };
+}
+
+const minolithCssVariable = genMinolithCssVariable();
 
 const navMenuItems = (
   <>
@@ -202,7 +320,7 @@ const elem = (
         <Div spacing={{ padding: 1 }}>
           <Accordion>
             <AccordionSummary>
-              <Ruby rubyText="カード">{"Card"}</Ruby>
+              <Ruby>{"Card"}<RubyText>{"カード"}</RubyText></Ruby>
             </AccordionSummary>
             <AccordionDetails>
               <Div spacing={{ padding: 1 }}>

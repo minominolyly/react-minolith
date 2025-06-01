@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Stripe from "./Stripe";
 import MinolithStatic  from "../../base/MinolithStatic";

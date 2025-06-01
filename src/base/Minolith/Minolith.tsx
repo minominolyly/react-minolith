@@ -31,12 +31,5 @@ export default function Minolith(props: MinolithProps): React.ReactElement {
     document.head.appendChild(style);
   }, [minolithStyles]);
 
-  return (
-    <>
-      {minolithStyles.length > 0 && (
-        <style suppressHydrationWarning={true}>{minolithStyles}</style>
-      )}
-      <Tabula {...assignedProps} />
-    </>
-  );
+  return <Tabula {...assignedProps} />;
 }
