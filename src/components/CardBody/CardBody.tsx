@@ -15,7 +15,7 @@ export default function CardBody(props: CardBodyProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["css"];
+  delete assignedProps["emotionCss"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["card-body"]];

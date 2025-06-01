@@ -13,7 +13,7 @@ export default function Main(props: MainProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["css"];
+  delete assignedProps["emotionCss"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [];

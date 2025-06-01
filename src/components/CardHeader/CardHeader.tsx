@@ -15,7 +15,7 @@ export default function CardHeader(props: CardHeaderProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["css"];
+  delete assignedProps["emotionCss"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["card-header"]];

@@ -108,7 +108,7 @@ const elem = (
                 fore={{
                   color: { default: { name: "rainbow", lightness: 80 } },
                 }}
-                css={{ fontSize: "1.5rem" }}
+                emotionCss={{ fontSize: "1.5rem" }}
               >
                 {"It uses emotion css prop to style components"}
               </Paragraph>

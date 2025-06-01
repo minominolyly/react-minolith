@@ -57,8 +57,8 @@ export default defineConfig({
       output: {
         globals: {
           react: "React",
-          "react/jsx-runtime": "jsxRuntime",
-          "@emotion/react": "emotionReact",
+          "@emotion/react/jsx-runtime": "EmotionReactJsxRuntime",
+          "@emotion/react": "EmotionReact",
           lodash: "_",
         },
         assetFileNames: "assets/[name][extname]",

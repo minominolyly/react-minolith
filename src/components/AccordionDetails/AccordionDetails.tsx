@@ -17,7 +17,7 @@ export default function AccordionDetails(
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["css"];
+  delete assignedProps["emotionCss"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["accordion-details"]];

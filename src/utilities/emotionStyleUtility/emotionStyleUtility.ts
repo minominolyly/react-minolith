@@ -210,8 +210,8 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
   );
 
   if (baseComponentPropsKeys.length === 0) {
-    if (props.css) {
-      return props.css;
+    if (props.emotionCss) {
+      return props.emotionCss;
     }
     return undefined;
   }
@@ -559,8 +559,8 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
     "@media (prefers-color-scheme: dark)": dark,
   });
 
-  if (props.css) {
-    return merge(minolithUtilityStyles, props.css);
+  if (props.emotionCss) {
+    return merge(minolithUtilityStyles, props.emotionCss);
   }
 
   return minolithUtilityStyles;

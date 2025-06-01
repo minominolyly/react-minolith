@@ -88,5 +88,5 @@ export default interface BaseComponentProps {
       | number
       | string;
   };
-  css?: Interpolation<Theme>;
+  emotionCss?: Interpolation<Theme>;
 }

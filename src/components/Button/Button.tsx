@@ -14,7 +14,7 @@ export default function Button(props: ButtonProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["css"];
+  delete assignedProps["emotionCss"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["button"]];

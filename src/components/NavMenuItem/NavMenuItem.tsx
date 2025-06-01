@@ -17,7 +17,7 @@ export default function NavMenuItem(
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["css"];
+  delete assignedProps["emotionCss"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["nav-menu-item"]];
