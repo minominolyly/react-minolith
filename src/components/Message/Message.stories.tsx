@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Message from "./Message";
-import { MinolithStatic } from "../../base/MinolithStatic";
-import MessageHeader from "./MessageHeader";
-import MessageBody from "./MessageBody";
+import MinolithStatic  from "../../base/MinolithStatic";
+import MessageHeader from "../MessageHeader";
+import MessageBody from "../MessageBody";
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction

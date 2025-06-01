@@ -1,6 +1,6 @@
 import React from "react";
 import { BorderStyle, BorderWidth, ColorName } from "../../common/literalTypes";
-import { DivProps } from "../Div";
+import DivProps from "../Div/DivProps";
 
 export default interface DialogueProps extends DivProps {
   colorName?: ColorName;

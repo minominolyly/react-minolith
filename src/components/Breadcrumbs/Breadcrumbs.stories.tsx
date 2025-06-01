@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { MinolithStatic } from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 import Breadcrumbs from "./Breadcrumbs";
-import Breadcrumb from "./Breadcrumb";
-import BreadcrumbsNav from "./BreadcrumbsNav";
+import Breadcrumb from "../Breadcrumb";
+import BreadcrumbsNav from "../BreadcrumbsNav";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {

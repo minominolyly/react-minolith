@@ -5,6 +5,7 @@ import { extname, relative, resolve } from "path";
 import { defineConfig } from "vite";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import dts from "vite-plugin-dts";
+import preserveDirectives from "rollup-preserve-directives";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -41,6 +42,7 @@ export default defineConfig({
     },
     sourcemap: true,
     rollupOptions: {
+      plugins: [preserveDirectives()],
       external: [
         "react",
         "react/jsx-runtime",
@@ -63,7 +65,7 @@ export default defineConfig({
           react: "React",
           "react/jsx-runtime": "jsxRuntime",
           "@emotion/react": "emotionReact",
-          "lodash": "_",
+          lodash: "_",
         },
         assetFileNames: "assets/[name][extname]",
         entryFileNames: "[name].js",

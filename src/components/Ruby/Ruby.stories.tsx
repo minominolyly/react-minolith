@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Ruby from "./Ruby";
-import { MinolithStatic } from "../../base/MinolithStatic";
-import RubyText from "./RubyText";
+import MinolithStatic  from "../../base/MinolithStatic";
+import RubyText from "../RubyText/RubyText";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {

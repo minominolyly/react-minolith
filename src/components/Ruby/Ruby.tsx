@@ -1,9 +1,9 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
 import classNames from "./Ruby.module.scss";
 import RubyProps from "./RubyProps";
-import RubyText from "./RubyText";
+import RubyText from "../RubyText";
 
 export default function Ruby(props: RubyProps): React.ReactElement {
   const assignedProps = { ...props };

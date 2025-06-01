@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Dialogue from "./Dialogue";
-import { MinolithStatic } from "../../base/MinolithStatic";
-import DialogueAvatarContainer from "./DialogueAvatarContainer";
-import DialogueContentContainer from "./DialogueContentContainer";
-import DialogueMessage from "./DialogueMessage";
-import DialogueName from "./DialogueName";
-import DialogueAvatar from "./DialogueAvatar";
-import DialogueMessageInner from "./DialogueMessageInner";
+import MinolithStatic  from "../../base/MinolithStatic";
+import DialogueAvatarContainer from "../DialogueAvatarContainer";
+import DialogueContentContainer from "../DialogueContentContainer";
+import DialogueMessage from "../DialogueMessage";
+import DialogueName from "../DialogueName/DialogueName";
+import DialogueAvatar from "../DialogueAvatar";
+import DialogueMessageInner from "../DialogueMessageInner";
 import { MinolithCssVariable } from "../../common/models";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction

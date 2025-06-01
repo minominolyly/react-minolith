@@ -1,7 +1,7 @@
 "use client";
-import { useMemo, useInsertionEffect } from "react";
-import { minolithStyleUtility } from "../../utilities";
-import { Tabula } from "../Tabula";
+import { useInsertionEffect, useMemo } from "react";
+import minolithStyleUtility from "../../utilities/minolithStyleUtility";
+import Tabula from "../Tabula";
 import "./MinolithStatic.scss";
 import MinolithStaticProps from "./MinolithStaticProps";
 

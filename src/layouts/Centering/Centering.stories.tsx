@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Centering from "./Centering";
-import { MinolithStatic } from "../../base/MinolithStatic";
+import MinolithStatic  from "../../base/MinolithStatic";
 import { Div } from "../../components/Div";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction

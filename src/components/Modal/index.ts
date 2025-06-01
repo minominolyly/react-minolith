@@ -1,5 +1,6 @@
+export { default } from "./Modal";
 export { default as Modal } from "./Modal";
-export type { default as ModalProps } from "./ModalProps";
+export * from "./Modal";
 
-export { default as ModalContent } from "./ModalContent";
-export type { default as ModalContentProps } from "./ModalContentProps";
+export type { default as ModalProps } from "./ModalProps";
+export * from "./ModalProps";
