@@ -1,6 +1,6 @@
 {
   "name": "react-minolith",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "react-minolith is an open-source react wrapper for minolith.",
   "type": "module",
   "main": "./dist/react-minolith.js",
