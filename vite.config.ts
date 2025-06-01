@@ -18,12 +18,6 @@ export default defineConfig({
   ],
   css: {
     modules: {
-      globalModulePaths: [
-        /.*\/src\/base\/Minolith\/.*/,
-        /.*\/src\/base\/MinolithCssVariableStylesProvider\/.*/,
-        /.*\/src\/base\/MinolithCssVariableStylesProviderStatic\/.*/,
-        /.*\/src\/base\/MinolithStatic\/.*/,
-      ],
     },
     preprocessorOptions: {
       scss: {

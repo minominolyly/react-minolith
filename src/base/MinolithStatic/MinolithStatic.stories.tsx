@@ -1,49 +1,47 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import Gingham from "../../backgrounds/Gingham";
+import Stripe from "../../backgrounds/Stripe";
+import MinolithCssVariable from "../../common/models/MinolithCssVariable";
+import Accordion from "../../components/Accordion";
+import AccordionDetails from "../../components/AccordionDetails";
+import AccordionSummary from "../../components/AccordionSummary";
+import Badge from "../../components/Badge";
+import Button from "../../components/Button";
+import Card from "../../components/Card";
+import CardBody from "../../components/CardBody";
+import CardFooter from "../../components/CardFooter";
+import CardHeader from "../../components/CardHeader";
+import Dialogue from "../../components/Dialogue";
+import DialogueAvatar from "../../components/DialogueAvatar";
+import DialogueAvatarContainer from "../../components/DialogueAvatarContainer";
+import DialogueContentContainer from "../../components/DialogueContentContainer";
+import DialogueMessage from "../../components/DialogueMessage";
+import DialogueMessageInner from "../../components/DialogueMessageInner";
+import DialogueName from "../../components/DialogueName";
+import Div from "../../components/Div";
+import Footer from "../../components/Footer";
+import Hamburger from "../../components/Hamburger";
+import Header from "../../components/Header";
+import Main from "../../components/Main";
+import Message from "../../components/Message";
+import MessageBody from "../../components/MessageBody";
+import MessageHeader from "../../components/MessageHeader";
+import Nav from "../../components/Nav";
+import NavAccordion from "../../components/NavAccordion";
+import NavBrand from "../../components/NavBrand";
+import NavBrandCenter from "../../components/NavBrandCenter";
+import NavBrandLeft from "../../components/NavBrandLeft";
+import NavBrandRight from "../../components/NavBrandRight";
+import NavMenu from "../../components/NavMenu";
+import NavMenuItem from "../../components/NavMenuItem";
+import NavStatic from "../../components/NavStatic";
+import Paragraph from "../../components/Paragraph";
+import Ruby from "../../components/Ruby";
+import Column from "../../layouts/Column";
+import Columns from "../../layouts/Columns";
+import Container from "../../layouts/Container";
 import MinolithStatic from "./MinolithStatic";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Badge,
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Column,
-  Columns,
-  Container,
-  Dialogue,
-  DialogueAvatar,
-  DialogueAvatarContainer,
-  DialogueContentContainer,
-  DialogueMessage,
-  DialogueMessageInner,
-  DialogueName,
-  Div,
-  Footer,
-  Gingham,
-  Hamburger,
-  Header,
-  Main,
-  Message,
-  MessageBody,
-  MessageHeader,
-  MinolithCssVariable,
-  Nav,
-  NavAccordion,
-  NavBrand,
-  NavBrandCenter,
-  NavBrandLeft,
-  NavBrandRight,
-  NavMenu,
-  NavMenuItem,
-  NavStatic,
-  Paragraph,
-  Ruby,
-  Stripe,
-} from "../../react-minolith";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -107,14 +105,18 @@ const elem = (
             </AccordionSummary>
             <AccordionDetails as={Gingham}>
               <Paragraph
-                fore={{ color: { default: { name: "rainbow", lightness: 80 } } }}
+                fore={{
+                  color: { default: { name: "rainbow", lightness: 80 } },
+                }}
                 css={{ fontSize: "1.5rem" }}
               >
                 {"It uses emotion css prop to style components"}
               </Paragraph>
               <Paragraph
                 fore={{ color: { default: { name: "red", lightness: 20 } } }}
-                back={{ color: { default: { name: "rainbow", lightness: 80 } } }}
+                back={{
+                  color: { default: { name: "rainbow", lightness: 80 } },
+                }}
               >
                 {"It uses emotion css prop to style components"}
               </Paragraph>
