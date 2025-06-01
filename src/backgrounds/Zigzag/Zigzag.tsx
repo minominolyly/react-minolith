@@ -16,7 +16,7 @@ export default function Zigzag(props: ZigzagProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["emotionCss"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["zigzag"]];

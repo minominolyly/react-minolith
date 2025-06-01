@@ -16,7 +16,7 @@ export default function BreadcrumbsNav(
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["emotionCss"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["breadcrumbs-nav"]];

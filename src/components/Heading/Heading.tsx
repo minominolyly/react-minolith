@@ -15,7 +15,7 @@ export default function Heading(props: HeadingProps): React.ReactElement {
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["emotionCss"];
+  delete assignedProps["css"];
   //#endregion BaseComponentProps
 
   const level = props.level;

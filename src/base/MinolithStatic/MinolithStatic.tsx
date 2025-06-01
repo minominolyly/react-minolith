@@ -5,6 +5,7 @@ import Tabula from "../Tabula";
 import "./MinolithStatic.scss";
 import MinolithStaticProps from "./MinolithStaticProps";
 
+/** @deprecated please use Minolith */
 export default function MinolithStatic(props: MinolithStaticProps): React.ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["cssVariableSetting"];
