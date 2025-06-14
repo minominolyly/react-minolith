@@ -10,4 +10,3 @@ export default interface LabelProps
     BaseComponentProps {
   colorName?: ColorName;
 }
-

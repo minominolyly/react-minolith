@@ -69,8 +69,13 @@ export default function Column(props: ColumnProps): React.ReactElement {
   props.sizeXLarge &&
     assignedClassNames.push(classNames[`is-xlarge-${props.sizeXLarge}`]);
 
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
 
   const css = emotionStyleUtility.getEmotionCss(props);
 

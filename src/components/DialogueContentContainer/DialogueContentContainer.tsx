@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./DialogueContentContainer.module.scss";
 import DialogueContentContainerProps from "./DialogueContentContainerProps";
 
@@ -19,15 +19,18 @@ export default function DialogueContentContainer(
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames: string[] = [
     classNames["dialogue-content-container"],
   ];
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
 
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   const css = emotionStyleUtility.getEmotionCss(props);
-
   return props.as ? (
     <props.as
       {...assignedProps}

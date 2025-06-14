@@ -27,8 +27,13 @@ export default function Stripe(props: StripeProps): React.ReactElement {
     assignedClassNames.push(classNames[`is-${props.degree}deg`]);
   }
 
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
 
   const css = emotionStyleUtility.getEmotionCss(props);
 

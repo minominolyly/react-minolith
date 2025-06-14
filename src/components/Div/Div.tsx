@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Div.module.scss";
 import DivProps from "./DivProps";
 
@@ -16,13 +16,16 @@ export default function Div(props: DivProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames: string[] = [classNames["div"]];
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
 
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   const css = emotionStyleUtility.getEmotionCss(props);
-
   return (
     <div
       {...assignedProps}

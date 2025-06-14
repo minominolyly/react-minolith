@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Blockquote.module.scss";
 import BlockquoteProps from "./BlockquoteProps";
 
@@ -19,23 +19,40 @@ export default function Blockquote(props: BlockquoteProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames: string[] = [classNames["blockquote"]];
-  props.colorName &&
+
+  if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  props.isItalic && assignedClassNames.push(classNames[`is-italic`]);
+  }
+
+  if (props.isItalic) {
+    assignedClassNames.push(classNames[`is-italic`]);
+  }
+
   if (props.hasQuote) {
     if (typeof props.hasQuote === "boolean") {
-      props.hasQuote && assignedClassNames.push(classNames[`has-quote`]);
+      if (props.hasQuote) {
+        assignedClassNames.push(classNames[`has-quote`]);
+      }
     } else {
-      props.hasQuote.before &&
+      if (props.hasQuote.before) {
         assignedClassNames.push(classNames[`has-quote-before`]);
-      props.hasQuote.after &&
+      }
+
+      if (props.hasQuote.after) {
         assignedClassNames.push(classNames[`has-quote-after`]);
+      }
     }
   }
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
 
   const css = emotionStyleUtility.getEmotionCss(props);
 

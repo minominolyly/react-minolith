@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-
 import Progress from "./Progress";
 import MinolithStatic  from "../../base/MinolithStatic";
-
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Progress",
@@ -11,10 +9,8 @@ const meta = {
   argTypes: {
   },
 } satisfies Meta<typeof Progress>;
-
 export default meta;
 type Story = StoryObj<typeof meta>;
-
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const LightPlain: Story = {
   args: {
@@ -38,3 +34,4 @@ export const DarkPlain: Story = {
     </MinolithStatic>
   ),
 };
+

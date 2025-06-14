@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./NavStatic.module.scss";
 import NavStaticProps from "./NavStaticProps";
 
@@ -27,30 +27,60 @@ export default function NavStatic(props: NavStaticProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames: string[] = [classNames["nav-static"]];
-  props.isXSmall && assignedClassNames.push(classNames[`is-xsmall`]);
-  props.isSmallOrLess &&
+
+  if (props.isXSmall) {
+    assignedClassNames.push(classNames[`is-xsmall`]);
+  }
+
+  if (props.isSmallOrLess) {
     assignedClassNames.push(classNames[`is-small-or-less`]);
-  props.isSmall && assignedClassNames.push(classNames[`is-small`]);
-  props.isSmallOrMore &&
+  }
+
+  if (props.isSmall) {
+    assignedClassNames.push(classNames[`is-small`]);
+  }
+
+  if (props.isSmallOrMore) {
     assignedClassNames.push(classNames[`is-small-or-more`]);
-  props.isMediumOrLess &&
+  }
+
+  if (props.isMediumOrLess) {
     assignedClassNames.push(classNames[`is-medium-or-less`]);
-  props.isMedium && assignedClassNames.push(classNames[`is-medium`]);
-  props.isMediumOrMore &&
+  }
+
+  if (props.isMedium) {
+    assignedClassNames.push(classNames[`is-medium`]);
+  }
+
+  if (props.isMediumOrMore) {
     assignedClassNames.push(classNames[`is-medium-or-more`]);
-  props.isLargeOrLess &&
+  }
+
+  if (props.isLargeOrLess) {
     assignedClassNames.push(classNames[`is-large-or-less`]);
-  props.isLarge && assignedClassNames.push(classNames[`is-large`]);
-  props.isLargeOrMore &&
+  }
+
+  if (props.isLarge) {
+    assignedClassNames.push(classNames[`is-large`]);
+  }
+
+  if (props.isLargeOrMore) {
     assignedClassNames.push(classNames[`is-large-or-more`]);
-  props.isXLarge && assignedClassNames.push(classNames[`is-xlarge`]);
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+  }
 
+  if (props.isXLarge) {
+    assignedClassNames.push(classNames[`is-xlarge`]);
+  }
+
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   const css = emotionStyleUtility.getEmotionCss(props);
-
   return (
     <div
       {...assignedProps}

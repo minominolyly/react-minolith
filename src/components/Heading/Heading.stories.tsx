@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-
 import Heading from "./Heading";
 import MinolithStatic  from "../../base/MinolithStatic";
-
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Heading",
@@ -11,10 +9,8 @@ const meta = {
   argTypes: {
   },
 } satisfies Meta<typeof Heading>;
-
 export default meta;
 type Story = StoryObj<typeof meta>;
-
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Level1: Story = {
   args: {
@@ -28,7 +24,6 @@ export const Level1: Story = {
     </MinolithStatic>
   ),
 };
-
 export const Level2: Story = {
   args: {
     level: 2,
@@ -53,7 +48,6 @@ export const Level3: Story = {
     </MinolithStatic>
   ),
 };
-
 export const Level4: Story = {
   args: {
     level: 4,
@@ -66,7 +60,6 @@ export const Level4: Story = {
     </MinolithStatic>
   ),
 };
-
 export const Level5: Story = {
   args: {
     level: 5,
@@ -79,7 +72,6 @@ export const Level5: Story = {
     </MinolithStatic>
   ),
 };
-
 export const Level6: Story = {
   args: {
     level: 6,
@@ -92,3 +84,4 @@ export const Level6: Story = {
     </MinolithStatic>
   ),
 };
+

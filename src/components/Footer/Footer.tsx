@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Footer.module.scss";
 import FooterProps from "./FooterProps";
 
@@ -17,15 +17,19 @@ export default function Footer(props: FooterProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames: string[] = [classNames["Footer"]];
-  props.colorName &&
+  if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+  }
 
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   const css = emotionStyleUtility.getEmotionCss(props);
-
   return (
     <footer
       {...assignedProps}

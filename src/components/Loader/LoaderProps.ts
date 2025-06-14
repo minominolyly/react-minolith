@@ -11,4 +11,3 @@ export default interface LoaderProps extends DivProps {
     | "xxxxlarge"
     | "xxxxxlarge";
 }
-

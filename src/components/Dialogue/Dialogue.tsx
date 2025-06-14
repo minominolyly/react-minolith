@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Dialogue.module.scss";
 import DialogueProps from "./DialogueProps";
 
@@ -23,10 +23,12 @@ export default function Dialogue(props: DialogueProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames = [classNames["dialogue"]];
-  props.colorName &&
+
+  if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
+  }
+
   if (props.isRight) {
     assignedClassNames.push(classNames[`is-right`]);
   } else {
@@ -41,13 +43,18 @@ export default function Dialogue(props: DialogueProps): React.ReactElement {
   if (props.borderWidth) {
     assignedClassNames.push(classNames[`is-border-width-${props.borderWidth}`]);
   }
-  props.isAvatarCircle &&
+  if (props.isAvatarCircle) {
     assignedClassNames.push(classNames[`is-avatar-circle`]);
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+  }
 
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   const css = emotionStyleUtility.getEmotionCss(props);
-
   return props.as ? (
     <props.as
       {...assignedProps}

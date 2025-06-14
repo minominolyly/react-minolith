@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-
 import Dialogue from "./Dialogue";
 import MinolithStatic  from "../../base/MinolithStatic";
 import DialogueAvatarContainer from "../DialogueAvatarContainer";
@@ -9,7 +8,6 @@ import DialogueName from "../DialogueName/DialogueName";
 import DialogueAvatar from "../DialogueAvatar";
 import DialogueMessageInner from "../DialogueMessageInner";
 import { MinolithCssVariable } from "../../common/models";
-
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Dialogue",
@@ -17,10 +15,8 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {},
 } satisfies Meta<typeof Dialogue>;
-
 export default meta;
 type Story = StoryObj<typeof meta>;
-
 const minolithCssVariable: MinolithCssVariable = {
   components: {
     dialogue: {
@@ -28,7 +24,6 @@ const minolithCssVariable: MinolithCssVariable = {
     }
   }
 };
-
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Plain: Story = {
   args: {},
@@ -55,7 +50,6 @@ export const Plain: Story = {
     </MinolithStatic>
   ),
 };
-
 export const IsRight: Story = {
   args: {
     isRight: true,

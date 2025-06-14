@@ -23,8 +23,13 @@ export default function Dot(props: DotProps): React.ReactElement {
   props.colorName &&
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
   props.dotSize && assignedClassNames.push(classNames[`is-${props.dotSize}`]);
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
 
   const css = emotionStyleUtility.getEmotionCss(props);
 

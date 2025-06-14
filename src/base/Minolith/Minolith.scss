@@ -118,9 +118,11 @@
 }
 
 @include colorUtilities();
+
 @include mixins.setColorScheme("light") {
   @include colorUtilities("light");
 }
+
 @include mixins.setColorScheme("dark") {
   @include colorUtilities("dark");
 }

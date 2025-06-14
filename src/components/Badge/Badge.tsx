@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Badge.module.scss";
 import BadgeProps from "./BadgeProps";
 
@@ -20,17 +20,28 @@ export default function Badge(props: BadgeProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames = [classNames["badge"]];
-  props.colorName &&
+
+  if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  props.isSmall && assignedClassNames.push(classNames[`is-small`]);
-  props.isClickable && assignedClassNames.push(classNames[`is-clickable`]);
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+  }
 
+  if (props.isSmall) {
+    assignedClassNames.push(classNames[`is-small`]);
+  }
+
+  if (props.isClickable) {
+    assignedClassNames.push(classNames[`is-clickable`]);
+  }
+
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   const css = emotionStyleUtility.getEmotionCss(props);
-
   return props.as ? (
     <props.as
       {...assignedProps}

@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Hamburger.module.scss";
 import HamburgerProps from "./HamburgerProps";
 
@@ -20,16 +20,23 @@ export default function Hamburger(props: HamburgerProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames = [classNames["hamburger"]];
-  props.colorName &&
+  if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  props.isActive && assignedClassNames.push(classNames["is-active"]);
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
+  }
 
+  if (props.colorName) {
+    assignedClassNames.push(classNames["is-active"]);
+  }
+
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   const css = emotionStyleUtility.getEmotionCss(props);
-
   return (
     <div
       {...assignedProps}

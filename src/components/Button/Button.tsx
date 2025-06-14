@@ -16,12 +16,18 @@ export default function Button(props: ButtonProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const assignedClassNames = [classNames["button"]];
-  props.colorName &&
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
 
+  if (props.colorName) {
+    assignedClassNames.push(classNames[`is-${props.colorName}`]);
+  }
+
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   return <button {...assignedProps} className={assignedClassNames.join(" ")} />;
 }

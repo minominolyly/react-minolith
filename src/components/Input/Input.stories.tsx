@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-
 import Input from "./Input";
 import MinolithStatic  from "../../base/MinolithStatic";
-
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Input",
@@ -14,10 +12,8 @@ const meta = {
     },
   },
 } satisfies Meta<typeof Input>;
-
 export default meta;
 type Story = StoryObj<typeof meta>;
-
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const PlainText: Story = {
   args: {
@@ -30,7 +26,6 @@ export const PlainText: Story = {
     </MinolithStatic>
   ),
 };
-
 export const PlainCheckbox: Story = {
   args: {
     colorName: undefined,
@@ -42,7 +37,6 @@ export const PlainCheckbox: Story = {
     </MinolithStatic>
   ),
 };
-
 export const PlainRadio: Story = {
   args: {
     colorName: undefined,
@@ -54,7 +48,6 @@ export const PlainRadio: Story = {
     </MinolithStatic>
   ),
 };
-
 export const PlainColor: Story = {
   args: {
     colorName: undefined,
@@ -66,3 +59,4 @@ export const PlainColor: Story = {
     </MinolithStatic>
   ),
 };
+

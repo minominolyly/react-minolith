@@ -1,6 +1,6 @@
 "use client";
 import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility/emotionStyleUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Heading.module.scss";
 import HeadingProps from "./HeadingProps";
 
@@ -17,14 +17,17 @@ export default function Heading(props: HeadingProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-
   const level = props.level;
   const assignedClassNames: string[] = [classNames[`heading-${props.level}`]];
-  assignedClassNames.push(...classNameUtility.getUtilityClassNames(props));
-  props.className && assignedClassNames.push(props.className);
 
+  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
   const css = emotionStyleUtility.getEmotionCss(props);
-
   if (level) {
     switch (level) {
       case 1:
@@ -77,7 +80,6 @@ export default function Heading(props: HeadingProps): React.ReactElement {
         );
     }
   }
-
   return (
     <h1 {...assignedProps} className={assignedClassNames.join(" ")} css={css} />
   );
