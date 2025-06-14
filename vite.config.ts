@@ -6,6 +6,7 @@ import { defineConfig } from "vite";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import dts from "vite-plugin-dts";
 import preserveDirectives from "rollup-preserve-directives";
+import { PreRenderedAsset } from "rollup";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -61,7 +62,7 @@ export default defineConfig({
           "@emotion/react": "EmotionReact",
           lodash: "_",
         },
-        assetFileNames: "assets/[name][extname]",
+        assetFileNames: (chunkInfo: PreRenderedAsset) => `assets/[name][extname]`,
         entryFileNames: "[name].js",
       },
     },

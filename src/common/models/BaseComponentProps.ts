@@ -10,13 +10,15 @@ import {
   FontSize,
   FontWeight,
 } from "../literalTypes";
+import { Property } from "csstype";
 
 export default interface BaseComponentProps {
   fore?: {
     color?: ColorProps<ColorName | "rainbow">;
     fontSize?: FontSize;
+    fontStyle?: Property.FontStyle;
     fontWeight?: FontWeight;
-    isItalic?: boolean;
+    textTransform?: Property.TextTransform,
   };
   back?: {
     color?: ColorProps<ColorName | "rainbow">;
@@ -36,19 +38,19 @@ export default interface BaseComponentProps {
     right?: BorderDetailProps;
   };
   positioning?: {
-    display?: "block" | "inline" | "inline-block" | "flex" | "grid";
-    position?: "relative" | "absolute" | "fixed" | "sticky";
-    top?: `0%` | `25%` | `50%` | `75%` | `100%` | "auto" | "unset";
-    right?: `0%` | `25%` | `50%` | `75%` | `100%` | "auto" | "unset";
-    bottom?: `0%` | `25%` | `50%` | `75%` | `100%` | "auto" | "unset";
-    left?: `0%` | `25%` | `50%` | `75%` | `100%` | "auto" | "unset";
+    display?: Property.Display;
+    position?: Property.Position;
+    top?: Property.Top;
+    right?: Property.Right;
+    bottom?: Property.Bottom;
+    left?: Property.Left;
     translateMiddle?: boolean;
     translateMiddleX?: boolean;
     translateMiddleY?: boolean;
   };
   sizing?: {
-    width?: number | `0%` | `25%` | `50%` | `75%` | `100%` | "auto" | "100%";
-    height?: number | `0%` | `25%` | `50%` | `75%` | `100%` | "auto" | "100%";
+    width?: Property.Width;
+    height?: Property.Height;
     aspectRatio?:
       | "square"
       | "paper-landscape"

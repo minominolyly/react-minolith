@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 "use client";
 import { BaseComponentProps } from "../../common/models";
 import { css, CSSObject, Interpolation, Theme } from "@emotion/react";
@@ -69,7 +70,7 @@ function getColorVariable<ColorNameType = ColorName>(
   }) !important`;
 }
 
-function getHighlighterBackgroundVariable<ColorNameType>(
+function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
   colorAttributes?: ColorAttributes<ColorNameType>
 ): string | undefined {
   if (!colorAttributes) {
@@ -215,169 +216,184 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
   }
 
   //#region fore
-  const foreColorBase = props.fore && getColorProps(props.fore.color);
+  const foreColorBase = props.fore
+    ? getColorProps(props.fore.color)
+    : undefined;
   const foreColorLight =
-    props.fore && props.fore.color && getColorProps(props.fore.color.light);
+    props.fore && props.fore.color
+      ? getColorProps(props.fore.color.light)
+      : undefined;
   const foreColorDark =
-    props.fore && props.fore.color && getColorProps(props.fore.color.dark);
-
+    props.fore && props.fore.color
+      ? getColorProps(props.fore.color.dark)
+      : undefined;
   const fontSize =
     props.fore && props.fore.fontSize
       ? `var(--${cssVariablePrefix}font-size-${props.fore.fontSize})`
       : undefined;
-
   const fontWeight =
     props.fore && props.fore.fontWeight
       ? `var(--${cssVariablePrefix}font-weight-${props.fore.fontWeight})`
       : undefined;
-
   //#endregion fore
 
   //#region back
-  const backColorBase = props.back && getColorProps(props.back.color);
+  const backColorBase = props.back
+    ? getColorProps(props.back.color)
+    : undefined;
   const backColorLight =
-    props.back && props.back.color && getColorProps(props.back.color.light);
+    props.back && props.back.color
+      ? getColorProps(props.back.color.light)
+      : undefined;
   const backColorDark =
-    props.back && props.back.color && getColorProps(props.back.color.dark);
-
+    props.back && props.back.color
+      ? getColorProps(props.back.color.dark)
+      : undefined;
   //#endregion back
 
   //#region highlighter
   const highlighterColorBase =
     props.highlighter && getColorProps(props.highlighter.color, "highlighter");
-
   const highlighterColorLight =
-    props.highlighter &&
-    props.highlighter.color &&
-    getColorProps(props.highlighter.color.light, "highlighter");
-
+    props.highlighter && props.highlighter.color
+      ? getColorProps(props.highlighter.color.light, "highlighter")
+      : undefined;
   const highlighterColorDark =
-    props.highlighter &&
-    props.highlighter.color &&
-    getColorProps(props.highlighter.color.dark, "highlighter");
-
+    props.highlighter && props.highlighter.color
+      ? getColorProps(props.highlighter.color.dark, "highlighter")
+      : undefined;
   //#endregion highlighter
 
   //#region border
-  const borderColorBase = props.border && getColorProps(props.border.color);
-
+  const borderColorBase = props.border
+    ? getColorProps(props.border.color)
+    : undefined;
   const borderTopColorBase =
-    props.border && props.border.top && getColorProps(props.border.top.color);
-
+    props.border && props.border.top
+      ? getColorProps(props.border.top.color)
+      : undefined;
   const borderRightColorBase =
-    props.border &&
-    props.border.right &&
-    getColorProps(props.border.right.color);
-
+    props.border && props.border.right
+      ? getColorProps(props.border.right.color)
+      : undefined;
   const borderBottomColorBase =
-    props.border &&
-    props.border.bottom &&
-    getColorProps(props.border.bottom.color);
-
+    props.border && props.border.bottom
+      ? getColorProps(props.border.bottom.color)
+      : undefined;
   const borderLeftColorBase =
     props.border && props.border.left && getColorProps(props.border.left.color);
   const borderColorLight =
-    props.border &&
-    props.border.color &&
-    getColorProps(props.border.color.light);
-
+    props.border && props.border.color
+      ? getColorProps(props.border.color.light)
+      : undefined;
   const borderTopColorLight =
-    props.border &&
-    props.border.top &&
-    props.border.top.color &&
-    getColorProps(props.border.top.color.light);
-
+    props.border && props.border.top && props.border.top.color
+      ? getColorProps(props.border.top.color.light)
+      : undefined;
   const borderRightColorLight =
-    props.border &&
-    props.border.right &&
-    props.border.right.color &&
-    getColorProps(props.border.right.color.light);
-
+    props.border && props.border.right && props.border.right.color
+      ? getColorProps(props.border.right.color.light)
+      : undefined;
   const borderBottomColorLight =
-    props.border &&
-    props.border.bottom &&
-    props.border.bottom.color &&
-    getColorProps(props.border.bottom.color.light);
-
+    props.border && props.border.bottom && props.border.bottom.color
+      ? getColorProps(props.border.bottom.color.light)
+      : undefined;
   const borderLeftColorLight =
-    props.border &&
-    props.border.left &&
-    props.border.left.color &&
-    getColorProps(props.border.left.color.light);
-
+    props.border && props.border.left && props.border.left.color
+      ? getColorProps(props.border.left.color.light)
+      : undefined;
   const borderColorDark =
-    props.border &&
-    props.border.color &&
-    getColorProps(props.border.color.dark);
-
+    props.border && props.border.color
+      ? getColorProps(props.border.color.dark)
+      : undefined;
   const borderTopColorDark =
-    props.border &&
-    props.border.top &&
-    props.border.top.color &&
-    getColorProps(props.border.top.color.dark);
-
+    props.border && props.border.top && props.border.top.color
+      ? getColorProps(props.border.top.color.dark)
+      : undefined;
   const borderRightColorDark =
-    props.border &&
-    props.border.right &&
-    props.border.right.color &&
-    getColorProps(props.border.right.color.dark);
-
+    props.border && props.border.right && props.border.right.color
+      ? getColorProps(props.border.right.color.dark)
+      : undefined;
   const borderBottomColorDark =
-    props.border &&
-    props.border.bottom &&
-    props.border.bottom.color &&
-    getColorProps(props.border.bottom.color.dark);
-
+    props.border && props.border.bottom && props.border.bottom.color
+      ? getColorProps(props.border.bottom.color.dark)
+      : undefined;
   const borderLeftColorDark =
-    props.border &&
-    props.border.left &&
-    props.border.left.color &&
-    getColorProps(props.border.left.color.dark);
-
+    props.border && props.border.left && props.border.left.color
+      ? getColorProps(props.border.left.color.dark)
+      : undefined;
   //#endregion border
 
   const hover = getCssObject({
-    foreColor: foreColorBase && foreColorBase.hover,
-    backColor: backColorBase && backColorBase.hover,
-    highlighter: highlighterColorBase && highlighterColorBase.hover,
-    borderColor: borderColorBase && borderColorBase.hover,
-    borderTopColor: borderTopColorBase && borderTopColorBase.hover,
-    borderRightColor: borderRightColorBase && borderRightColorBase.hover,
-    borderBottomColor: borderBottomColorBase && borderBottomColorBase.hover,
-    borderLeftColor: borderLeftColorBase && borderLeftColorBase.hover,
+    foreColor: foreColorBase ? foreColorBase.hover : undefined,
+    backColor: backColorBase ? backColorBase.hover : undefined,
+    highlighter: highlighterColorBase ? highlighterColorBase.hover : undefined,
+    borderColor: borderColorBase ? borderColorBase.hover : undefined,
+    borderTopColor: borderTopColorBase ? borderTopColorBase.hover : undefined,
+    borderRightColor: borderRightColorBase
+      ? borderRightColorBase.hover
+      : undefined,
+    borderBottomColor: borderBottomColorBase
+      ? borderBottomColorBase.hover
+      : undefined,
+    borderLeftColor: borderLeftColorBase
+      ? borderLeftColorBase.hover
+      : undefined,
   });
 
   const focus = getCssObject({
-    foreColor: foreColorBase && foreColorBase.focus,
-    backColor: backColorBase && backColorBase.focus,
-    highlighter: highlighterColorBase && highlighterColorBase.focus,
-    borderColor: borderColorBase && borderColorBase.focus,
-    borderTopColor: borderTopColorBase && borderTopColorBase.focus,
-    borderRightColor: borderRightColorBase && borderRightColorBase.focus,
-    borderBottomColor: borderBottomColorBase && borderBottomColorBase.focus,
-    borderLeftColor: borderLeftColorBase && borderLeftColorBase.focus,
+    foreColor: foreColorBase ? foreColorBase.focus : undefined,
+    backColor: backColorBase ? backColorBase.focus : undefined,
+    highlighter: highlighterColorBase ? highlighterColorBase.focus : undefined,
+    borderColor: borderColorBase ? borderColorBase.focus : undefined,
+    borderTopColor: borderTopColorBase ? borderTopColorBase.focus : undefined,
+    borderRightColor: borderRightColorBase
+      ? borderRightColorBase.focus
+      : undefined,
+    borderBottomColor: borderBottomColorBase
+      ? borderBottomColorBase.focus
+      : undefined,
+    borderLeftColor: borderLeftColorBase
+      ? borderLeftColorBase.focus
+      : undefined,
   });
 
   const active = getCssObject({
-    foreColor: foreColorBase && foreColorBase.active,
-    backColor: backColorBase && backColorBase.active,
-    highlighter: highlighterColorBase && highlighterColorBase.active,
-    borderColor: borderColorBase && borderColorBase.active,
-    borderTopColor: borderTopColorBase && borderTopColorBase.active,
-    borderRightColor: borderRightColorBase && borderRightColorBase.active,
-    borderBottomColor: borderBottomColorBase && borderBottomColorBase.active,
-    borderLeftColor: borderLeftColorBase && borderLeftColorBase.active,
+    foreColor: foreColorBase ? foreColorBase.active : undefined,
+    backColor: backColorBase ? backColorBase.active : undefined,
+    highlighter: highlighterColorBase ? highlighterColorBase.active : undefined,
+    borderColor: borderColorBase ? borderColorBase.active : undefined,
+    borderTopColor: borderTopColorBase ? borderTopColorBase.active : undefined,
+    borderRightColor: borderRightColorBase
+      ? borderRightColorBase.active
+      : undefined,
+    borderBottomColor: borderBottomColorBase
+      ? borderBottomColorBase.active
+      : undefined,
+    borderLeftColor: borderLeftColorBase
+      ? borderLeftColorBase.active
+      : undefined,
   });
 
   const disabled = getCssObject({
-    foreColor: foreColorBase && foreColorBase.disabled,
-    backColor: backColorBase && backColorBase.disabled,
-    highlighter: highlighterColorBase && highlighterColorBase.disabled,
-    borderColor: borderColorBase && borderColorBase.disabled,
-    borderTopColor: borderTopColorBase && borderTopColorBase.disabled,
-    borderRightColor: borderRightColorBase && borderRightColorBase.disabled,
-    borderBottomColor: borderBottomColorBase && borderBottomColorBase.disabled,
-    borderLeftColor: borderLeftColorBase && borderLeftColorBase.disabled,
+    foreColor: foreColorBase ? foreColorBase.disabled : undefined,
+    backColor: backColorBase ? backColorBase.disabled : undefined,
+    highlighter: highlighterColorBase
+      ? highlighterColorBase.disabled
+      : undefined,
+    borderColor: borderColorBase ? borderColorBase.disabled : undefined,
+    borderTopColor: borderTopColorBase
+      ? borderTopColorBase.disabled
+      : undefined,
+    borderRightColor: borderRightColorBase
+      ? borderRightColorBase.disabled
+      : undefined,
+    borderBottomColor: borderBottomColorBase
+      ? borderBottomColorBase.disabled
+      : undefined,
+    borderLeftColor: borderLeftColorBase
+      ? borderLeftColorBase.disabled
+      : undefined,
   });
 
   const light = getSchemeCssObject({
@@ -403,9 +419,11 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
   });
 
   const minolithUtilityStyles = css({
-    color: foreColorBase && foreColorBase.default,
+    color: foreColorBase ? foreColorBase.default : undefined,
     fontSize: fontSize,
     fontWeight: fontWeight,
+    fontStyle: props.fore ? props.fore.fontStyle : undefined,
+    textTransform: props.fore ? props.fore.textTransform : undefined,
     backgroundColor: backColorBase && backColorBase.default,
     backgroundImage: highlighterColorBase && highlighterColorBase.default,
     borderColor: borderColorBase && borderColorBase.default,
@@ -605,6 +623,14 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
           ? `${props.spacing.padding.x}rem`
           : props.spacing.padding.x
         : undefined,
+    display: props.positioning ? props.positioning.display : undefined,
+    position: props.positioning ? props.positioning.position : undefined,
+    top: props.positioning ? props.positioning.top : undefined,
+    left: props.positioning ? props.positioning.left : undefined,
+    bottom: props.positioning ? props.positioning.bottom : undefined,
+    right: props.positioning ? props.positioning.right : undefined,
+    width: props.sizing ? props.sizing.width : undefined,
+    height: props.sizing ? props.sizing.height : undefined,
     ":hover": hover,
     ":focus": focus,
     ":active": active,
