@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Badge from "./Badge";
-import MinolithStatic  from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Badge",
@@ -9,7 +9,7 @@ const meta = {
   argTypes: {
     isSmall: {
       type: "boolean",
-    }
+    },
   },
 } satisfies Meta<typeof Badge>;
 export default meta;
@@ -28,4 +28,3 @@ export const Plain: Story = {
     </MinolithStatic>
   ),
 };
-

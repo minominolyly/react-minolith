@@ -133,17 +133,17 @@ function getColorVar(color: ColorInfo): Gradation {
       color.name === "gray"
         ? color.chroma
         : gradation < 50
-        ? color.chroma + ((10 - i) * colorChromaColorfulOffsetDarker)
-        : gradation > 50
-        ? color.chroma + ((i - 10) * colorChromaColorfulOffsetLighter)
-        : color.chroma;
+          ? color.chroma + (10 - i) * colorChromaColorfulOffsetDarker
+          : gradation > 50
+            ? color.chroma + (i - 10) * colorChromaColorfulOffsetLighter
+            : color.chroma;
 
     const lightness =
       gradation < 50
         ? colorLightness50 - (10 - i) * colorLightnessOffsetDarker
         : gradation > 50
-        ? colorLightness50 + (i - 10) * colorLightnessOffsetLighter
-        : colorLightness50;
+          ? colorLightness50 + (i - 10) * colorLightnessOffsetLighter
+          : colorLightness50;
 
     const oklch: Oklch = {
       hue: color.hue,
@@ -320,7 +320,10 @@ const elem = (
         <Div spacing={{ padding: 1 }}>
           <Accordion>
             <AccordionSummary>
-              <Ruby>{"Card"}<RubyText>{"カード"}</RubyText></Ruby>
+              <Ruby>
+                {"Card"}
+                <RubyText>{"カード"}</RubyText>
+              </Ruby>
             </AccordionSummary>
             <AccordionDetails>
               <Div spacing={{ padding: 1 }}>

@@ -6,8 +6,23 @@ import {
 } from "../../common/models";
 import ComponentColor from "../../common/models/ComponentSchemeColor";
 import SchemeColorComponents from "../../common/models/SchemeColorComponents";
+import { ColorName } from "../../react-minolith";
 
 const cssVariablePrefix = "minolith-";
+
+const colorNames: ColorName[] = [
+  "gray",
+  "red",
+  "coral",
+  "orange",
+  "yellow",
+  "lime",
+  "green",
+  "cyan",
+  "blue",
+  "violet",
+  "magenta",
+];
 
 function getComponentColorVariables(
   colorName: string,
@@ -162,84 +177,16 @@ function getComponentColorStyles(
     }
   }
 
-  if (component.gray) {
-    const styles = getColorVariables("gray", component.gray, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.red) {
-    const styles = getColorVariables("red", component.red, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.coral) {
-    const styles = getColorVariables("coral", component.coral, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.orange) {
-    const styles = getColorVariables("orange", component.orange, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.yellow) {
-    const styles = getColorVariables("yellow", component.yellow, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.lime) {
-    const styles = getColorVariables("lime", component.lime, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.green) {
-    const styles = getColorVariables("green", component.green, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.cyan) {
-    const styles = getColorVariables("cyan", component.cyan, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.blue) {
-    const styles = getColorVariables("blue", component.blue, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.violet) {
-    const styles = getColorVariables("violet", component.violet, componentName);
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
-    }
-  }
-
-  if (component.magenta) {
-    const styles = getColorVariables(
-      "magenta",
-      component.magenta,
-      componentName
-    );
-    if (styles.length > 0) {
-      schemeStyles.push(...styles);
+  for (const colorName of colorNames) {
+    if (component[colorName]) {
+      const styles = getColorVariables(
+        colorName,
+        component[colorName],
+        componentName
+      );
+      if (styles.length > 0) {
+        schemeStyles.push(...styles);
+      }
     }
   }
 
@@ -578,268 +525,29 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
         }
       };
 
-      if (color.gray) {
-        const gradation = color.gray;
-        const colorName = "gray";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.red) {
-        const gradation = color.red;
-        const colorName = "red";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.coral) {
-        const gradation = color.coral;
-        const colorName = "coral";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.orange) {
-        const gradation = color.orange;
-        const colorName = "orange";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.yellow) {
-        const gradation = color.yellow;
-        const colorName = "yellow";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.lime) {
-        const gradation = color.lime;
-        const colorName = "lime";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.green) {
-        const gradation = color.green;
-        const colorName = "green";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.cyan) {
-        const gradation = color.cyan;
-        const colorName = "cyan";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.blue) {
-        const gradation = color.blue;
-        const colorName = "blue";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.violet) {
-        const gradation = color.violet;
-        const colorName = "violet";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
-      }
-
-      if (color.magenta) {
-        const gradation = color.magenta;
-        const colorName = "magenta";
-        setColorDetailVariable(colorName, "95", gradation[95]);
-        setColorDetailVariable(colorName, "90", gradation[90]);
-        setColorDetailVariable(colorName, "85", gradation[85]);
-        setColorDetailVariable(colorName, "80", gradation[80]);
-        setColorDetailVariable(colorName, "75", gradation[75]);
-        setColorDetailVariable(colorName, "70", gradation[70]);
-        setColorDetailVariable(colorName, "65", gradation[65]);
-        setColorDetailVariable(colorName, "60", gradation[60]);
-        setColorDetailVariable(colorName, "55", gradation[55]);
-        setColorDetailVariable(colorName, "50", gradation[50]);
-        setColorDetailVariable(colorName, "45", gradation[45]);
-        setColorDetailVariable(colorName, "40", gradation[40]);
-        setColorDetailVariable(colorName, "35", gradation[35]);
-        setColorDetailVariable(colorName, "30", gradation[30]);
-        setColorDetailVariable(colorName, "25", gradation[25]);
-        setColorDetailVariable(colorName, "20", gradation[20]);
-        setColorDetailVariable(colorName, "15", gradation[15]);
-        setColorDetailVariable(colorName, "10", gradation[10]);
-        setColorDetailVariable(colorName, "05", gradation[5]);
+      for (const colorName of colorNames) {
+        if (color[colorName]) {
+          const gradation = color[colorName];
+          setColorDetailVariable(colorName, "95", gradation[95]);
+          setColorDetailVariable(colorName, "90", gradation[90]);
+          setColorDetailVariable(colorName, "85", gradation[85]);
+          setColorDetailVariable(colorName, "80", gradation[80]);
+          setColorDetailVariable(colorName, "75", gradation[75]);
+          setColorDetailVariable(colorName, "70", gradation[70]);
+          setColorDetailVariable(colorName, "65", gradation[65]);
+          setColorDetailVariable(colorName, "60", gradation[60]);
+          setColorDetailVariable(colorName, "55", gradation[55]);
+          setColorDetailVariable(colorName, "50", gradation[50]);
+          setColorDetailVariable(colorName, "45", gradation[45]);
+          setColorDetailVariable(colorName, "40", gradation[40]);
+          setColorDetailVariable(colorName, "35", gradation[35]);
+          setColorDetailVariable(colorName, "30", gradation[30]);
+          setColorDetailVariable(colorName, "25", gradation[25]);
+          setColorDetailVariable(colorName, "20", gradation[20]);
+          setColorDetailVariable(colorName, "15", gradation[15]);
+          setColorDetailVariable(colorName, "10", gradation[10]);
+          setColorDetailVariable(colorName, "05", gradation[5]);
+        }
       }
     }
 
@@ -1136,73 +844,13 @@ function getLightSchemeStyles(
           }
         }
 
-        if (color.light.gray) {
-          const styles = getColorVariables("gray", color.light.gray);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.red) {
-          const styles = getColorVariables("red", color.light.red);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.coral) {
-          const styles = getColorVariables("coral", color.light.coral);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.orange) {
-          const styles = getColorVariables("orange", color.light.orange);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.yellow) {
-          const styles = getColorVariables("yellow", color.light.yellow);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.lime) {
-          const styles = getColorVariables("lime", color.light.lime);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.green) {
-          const styles = getColorVariables("green", color.light.green);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.cyan) {
-          const styles = getColorVariables("cyan", color.light.cyan);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.blue) {
-          const styles = getColorVariables("blue", color.light.blue);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.light.violet) {
-          const styles = getColorVariables("violet", color.light.violet);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
+        for (const colorName of colorNames) {
+          if (color.light[colorName]) {
+            const variable = color.light[colorName];
+            const styles = getColorVariables(colorName, variable);
+            if (styles.length > 0) {
+              lightSchemeStyles.push(...styles);
+            }
           }
         }
 
@@ -1236,80 +884,13 @@ function getDarkSchemeStyles(
           }
         }
 
-        if (color.dark.gray) {
-          const styles = getColorVariables("gray", color.dark.gray);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.red) {
-          const styles = getColorVariables("red", color.dark.red);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.coral) {
-          const styles = getColorVariables("coral", color.dark.coral);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.orange) {
-          const styles = getColorVariables("orange", color.dark.orange);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.yellow) {
-          const styles = getColorVariables("yellow", color.dark.yellow);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.lime) {
-          const styles = getColorVariables("lime", color.dark.lime);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.green) {
-          const styles = getColorVariables("green", color.dark.green);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.cyan) {
-          const styles = getColorVariables("cyan", color.dark.cyan);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.blue) {
-          const styles = getColorVariables("blue", color.dark.blue);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.violet) {
-          const styles = getColorVariables("violet", color.dark.violet);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        if (color.dark.magenta) {
-          const styles = getColorVariables("magenta", color.dark.magenta);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
+        for (const colorName of colorNames) {
+          if (color.dark[colorName]) {
+            const variable = color.dark[colorName];
+            const styles = getColorVariables(colorName, variable);
+            if (styles.length > 0) {
+              darkSchemeStyles.push(...styles);
+            }
           }
         }
 

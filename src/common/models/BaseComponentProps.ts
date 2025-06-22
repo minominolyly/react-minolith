@@ -18,7 +18,7 @@ export default interface BaseComponentProps {
     fontSize?: FontSize;
     fontStyle?: Property.FontStyle;
     fontWeight?: FontWeight;
-    textTransform?: Property.TextTransform,
+    textTransform?: Property.TextTransform;
   };
   back?: {
     color?: ColorProps<ColorName | "rainbow">;
@@ -50,7 +50,11 @@ export default interface BaseComponentProps {
   };
   sizing?: {
     width?: Property.Width;
+    minWidth?: Property.MinHeight;
+    maxWidth?: Property.MaxWidth;
     height?: Property.Height;
+    minHeight?: Property.MinHeight;
+    maxHeight?: Property.MaxHeight;
     aspectRatio?:
       | "square"
       | "paper-landscape"

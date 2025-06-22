@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import MinolithStatic  from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 import Card from "./Card";
 import CardBody from "../CardBody";
 import CardFooter from "../CardFooter";
@@ -28,4 +28,3 @@ export const Plain: Story = {
     </MinolithStatic>
   ),
 };
-

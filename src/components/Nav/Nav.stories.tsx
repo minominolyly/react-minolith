@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Nav from "./Nav";
-import MinolithStatic  from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 import NavBrand from "../NavBrand";
 import NavMenu from "../NavMenu";
 import NavBrandLeft from "../NavBrandLeft";
@@ -15,16 +15,21 @@ const meta = {
   title: "Components/Nav",
   component: Nav,
   tags: ["autodocs"],
-  argTypes: {
-  },
+  argTypes: {},
 } satisfies Meta<typeof Nav>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 const navMenuItems = (
   <>
-    <NavMenuItem as="a" href="/">{"NavMenuItem1"}</NavMenuItem>
-    <NavMenuItem as="a" href="/">{"NavMenuItem2"}</NavMenuItem>
-    <NavMenuItem as="a" href="/">{"NavMenuItem3"}</NavMenuItem>
+    <NavMenuItem as="a" href="/">
+      {"NavMenuItem1"}
+    </NavMenuItem>
+    <NavMenuItem as="a" href="/">
+      {"NavMenuItem2"}
+    </NavMenuItem>
+    <NavMenuItem as="a" href="/">
+      {"NavMenuItem3"}
+    </NavMenuItem>
   </>
 );
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
@@ -49,10 +54,9 @@ export const Plain: Story = {
             <NavBrandCenter>{"NavBrandCenter"}</NavBrandCenter>
             <NavBrandRight>{"NavBrandRight"}</NavBrandRight>
           </NavBrand>
-          <NavMenu >{navMenuItems}</NavMenu>
+          <NavMenu>{navMenuItems}</NavMenu>
         </NavStatic>
       </Nav>
     </MinolithStatic>
   ),
 };
-

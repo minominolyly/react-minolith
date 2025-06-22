@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Dialogue from "./Dialogue";
-import MinolithStatic  from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 import DialogueAvatarContainer from "../DialogueAvatarContainer";
 import DialogueContentContainer from "../DialogueContentContainer";
 import DialogueMessage from "../DialogueMessage";
@@ -21,8 +21,8 @@ const minolithCssVariable: MinolithCssVariable = {
   components: {
     dialogue: {
       avatarTopOffset: "0rem",
-    }
-  }
+    },
+  },
 };
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Plain: Story = {
@@ -77,4 +77,3 @@ export const IsRight: Story = {
     </MinolithStatic>
   ),
 };
-

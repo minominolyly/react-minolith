@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Message from "./Message";
-import MinolithStatic  from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 import MessageHeader from "../MessageHeader";
 import MessageBody from "../MessageBody";
 
@@ -9,8 +9,7 @@ const meta = {
   title: "Components/Message",
   component: Message,
   tags: ["autodocs"],
-  argTypes: {
-  },
+  argTypes: {},
 } satisfies Meta<typeof Message>;
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -22,12 +21,8 @@ export const Plain: Story = {
   render: (props) => (
     <MinolithStatic>
       <Message {...props}>
-        <MessageHeader>
-          {"Header"}
-        </MessageHeader>
-        <MessageBody>
-          {"Body"}
-        </MessageBody>
+        <MessageHeader>{"Header"}</MessageHeader>
+        <MessageBody>{"Body"}</MessageBody>
       </Message>
     </MinolithStatic>
   ),
@@ -39,11 +34,8 @@ export const BodyOnly: Story = {
   render: (props) => (
     <MinolithStatic>
       <Message {...props}>
-        <MessageBody>
-          {"Body"}
-        </MessageBody>
+        <MessageBody>{"Body"}</MessageBody>
       </Message>
     </MinolithStatic>
   ),
 };
-

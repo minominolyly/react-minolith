@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Modal from "./Modal";
-import MinolithStatic  from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 import ModalContent from "../ModalContent";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -25,4 +25,3 @@ export const Plain: Story = {
     </MinolithStatic>
   ),
 };
-

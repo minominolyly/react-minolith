@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Dot from "./Dot";
-import MinolithStatic  from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Backgrounds/Dot",
   component: Dot,
   tags: ["autodocs"],
-  argTypes: {
-  },
+  argTypes: {},
 } satisfies Meta<typeof Dot>;
 
 export default meta;

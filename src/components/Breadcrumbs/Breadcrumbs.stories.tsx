@@ -29,4 +29,3 @@ export const Plain: Story = {
     </MinolithStatic>
   ),
 };
-

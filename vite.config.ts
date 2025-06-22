@@ -6,20 +6,28 @@ import { defineConfig } from "vite";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import dts from "vite-plugin-dts";
 import preserveDirectives from "rollup-preserve-directives";
-import { PreRenderedAsset } from "rollup";
+import { PreRenderedAsset, PreRenderedChunk } from "rollup";
 
 // https://vitejs.dev/config/
+import path from "node:path";
+const dirname =
+  typeof __dirname !== "undefined"
+    ? __dirname
+    : path.dirname(fileURLToPath(import.meta.url));
+
+// More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
   plugins: [
     react({
       jsxImportSource: "@emotion/react",
     }),
     libInjectCss(),
-    dts({ include: ["src"] }),
+    dts({
+      include: ["src"],
+    }),
   ],
   css: {
-    modules: {
-    },
+    modules: {},
     preprocessorOptions: {
       scss: {
         api: "modern-compiler",
@@ -30,7 +38,7 @@ export default defineConfig({
     copyPublicDir: false,
     emptyOutDir: false,
     lib: {
-      entry: resolve(__dirname, "src/react-minolith.ts"),
+      entry: resolve(dirname, "src/react-minolith.ts"),
       name: "ReactMinolith",
       fileName: "react-minolith",
       formats: ["es"],
@@ -47,7 +55,7 @@ export default defineConfig({
       ],
       input: Object.fromEntries(
         glob
-          .sync("src/**/*!(*.d).{ts,tsx}", {
+          .sync(["src/**/*!(*.d).{ts,tsx}"], {
             ignore: ["src/**/*.stories.tsx", "src/**/*.test.{ts,tsx}"],
           })
           .map((file) => [
@@ -62,8 +70,12 @@ export default defineConfig({
           "@emotion/react": "EmotionReact",
           lodash: "_",
         },
-        assetFileNames: (chunkInfo: PreRenderedAsset) => `assets/[name][extname]`,
-        entryFileNames: "[name].js",
+        assetFileNames: (chunkInfo: PreRenderedAsset) => {
+          return `assets/[name][extname]`;
+        },
+        entryFileNames: (chunkInfo: PreRenderedChunk) => {
+          return "[name].js";
+        },
       },
     },
   },

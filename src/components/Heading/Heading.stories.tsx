@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Heading from "./Heading";
-import MinolithStatic  from "../../base/MinolithStatic";
+import MinolithStatic from "../../base/MinolithStatic";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Heading",
   component: Heading,
   tags: ["autodocs"],
-  argTypes: {
-  },
+  argTypes: {},
 } satisfies Meta<typeof Heading>;
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -18,9 +17,7 @@ export const Level1: Story = {
   },
   render: (props) => (
     <MinolithStatic>
-      <Heading {...props}>
-        {"Level 1"}
-      </Heading>
+      <Heading {...props}>{"Level 1"}</Heading>
     </MinolithStatic>
   ),
 };
@@ -30,9 +27,7 @@ export const Level2: Story = {
   },
   render: (props) => (
     <MinolithStatic>
-      <Heading {...props}>
-        {"Level 2"}
-      </Heading>
+      <Heading {...props}>{"Level 2"}</Heading>
     </MinolithStatic>
   ),
 };
@@ -42,9 +37,7 @@ export const Level3: Story = {
   },
   render: (props) => (
     <MinolithStatic>
-      <Heading {...props}>
-        {"Level 3"}
-      </Heading>
+      <Heading {...props}>{"Level 3"}</Heading>
     </MinolithStatic>
   ),
 };
@@ -54,9 +47,7 @@ export const Level4: Story = {
   },
   render: (props) => (
     <MinolithStatic>
-      <Heading {...props}>
-        {"Level 4"}
-      </Heading>
+      <Heading {...props}>{"Level 4"}</Heading>
     </MinolithStatic>
   ),
 };
@@ -66,9 +57,7 @@ export const Level5: Story = {
   },
   render: (props) => (
     <MinolithStatic>
-      <Heading {...props}>
-        {"Level 5"}
-      </Heading>
+      <Heading {...props}>{"Level 5"}</Heading>
     </MinolithStatic>
   ),
 };
@@ -78,10 +67,7 @@ export const Level6: Story = {
   },
   render: (props) => (
     <MinolithStatic>
-      <Heading {...props}>
-        {"Level 6"}
-      </Heading>
+      <Heading {...props}>{"Level 6"}</Heading>
     </MinolithStatic>
   ),
 };
-
