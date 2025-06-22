@@ -1,9 +1,18 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 "use client";
 import { BaseComponentProps } from "../../common/models";
-import { css, CSSObject, Interpolation, Theme } from "@emotion/react";
-import { ColorAttributes, ColorName } from "../../react-minolith";
-import { merge } from "lodash";
+import {
+  css,
+  CSSObject,
+  Interpolation,
+  Theme,
+} from "@emotion/react";
+import {
+  ColorAttributes,
+  ColorName,
+  ColorScheme,
+} from "../../common/literalTypes";
+import type { CSSInterpolation } from "@emotion/serialize";
 
 const cssVariablePrefix = "minolith-";
 
@@ -17,11 +26,11 @@ interface ComponentStateColorCssProperty {
 
 function getColorProps<ColorNameType = ColorName>(
   props?: {
-    default?: ColorAttributes<ColorNameType>;
-    hover?: ColorAttributes<ColorNameType>;
-    focus?: ColorAttributes<ColorNameType>;
-    active?: ColorAttributes<ColorNameType>;
-    disabled?: ColorAttributes<ColorNameType>;
+    default?: ColorAttributes<ColorNameType> | "transparent";
+    hover?: ColorAttributes<ColorNameType> | "transparent";
+    focus?: ColorAttributes<ColorNameType> | "transparent";
+    active?: ColorAttributes<ColorNameType> | "transparent";
+    disabled?: ColorAttributes<ColorNameType> | "transparent";
   },
   mode?: "highlighter"
 ): ComponentStateColorCssProperty {
@@ -55,14 +64,24 @@ function getColorProps<ColorNameType = ColorName>(
 }
 
 function getColorVariable<ColorNameType = ColorName>(
-  colorAttributes?: ColorAttributes<ColorNameType>
+  colorAttributes?: ColorAttributes<ColorNameType> | "transparent"
 ): string | undefined {
   if (!colorAttributes) {
     return undefined;
   }
 
+  if (typeof colorAttributes === "string") {
+    return "transparent !important";
+  }
+
   if (colorAttributes.name === "rainbow") {
     return "transparent !important";
+  }
+
+  if (colorAttributes.alpha) {
+    return `oklch(var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+      colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
+    }-oklch) / ${colorAttributes.alpha}) !important`;
   }
 
   return `var(--${cssVariablePrefix}color-${colorAttributes.name}-${
@@ -71,20 +90,33 @@ function getColorVariable<ColorNameType = ColorName>(
 }
 
 function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
-  colorAttributes?: ColorAttributes<ColorNameType>
+  colorAttributes?: ColorAttributes<ColorNameType> | "transparent"
 ): string | undefined {
   if (!colorAttributes) {
     return undefined;
+  }
+
+  if (typeof colorAttributes === "string") {
+    return "transparent";
   }
 
   if (colorAttributes.name === "rainbow") {
     return undefined;
   }
 
+  if (colorAttributes.alpha) {
+    return `linear-gradient(
+    transparent 66.66%,
+    oklch(var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+      colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
+    }-oklch) / ${colorAttributes.alpha}) 33.33%)`;
+  }
+
   return `linear-gradient(
     transparent 66.66%,
-    var(--${cssVariablePrefix}color-${colorAttributes.name}-${colorAttributes.lightness}) 33.33%
-  )`;
+    var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+    colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
+  }) 33.33%)`;
 }
 
 function getCssObject(props: {
@@ -180,7 +212,7 @@ function getSchemeCssObject({
         borderBottomColor: borderBottomColor && borderBottomColor.active,
         borderLeftColor: borderLeftColor && borderLeftColor.active,
       }),
-      "[disabled]": getCssObject({
+      "&[disabled]": getCssObject({
         foreColor: foreColor && foreColor.disabled,
         backColor: backColor && backColor.disabled,
         highlighter: highlighter && highlighter.disabled,
@@ -194,7 +226,10 @@ function getSchemeCssObject({
   );
 }
 
-function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
+function getEmotionCss(
+  props: BaseComponentProps,
+  colorScheme?: ColorScheme
+): Interpolation<Theme> {
   const keys = Object.keys(props);
 
   const baseComponentPropsKeys = keys.filter(
@@ -396,7 +431,22 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
       : undefined,
   });
 
-  const light = getSchemeCssObject({
+  const defaultColor = css({
+    color: foreColorBase ? foreColorBase.default : undefined,
+    backgroundColor: backColorBase && backColorBase.default,
+    backgroundImage: highlighterColorBase && highlighterColorBase.default,
+    borderColor: borderColorBase && borderColorBase.default,
+    borderTopColor: borderTopColorBase && borderTopColorBase.default,
+    borderRightColor: borderRightColorBase && borderRightColorBase.default,
+    borderBottomColor: borderBottomColorBase && borderBottomColorBase.default,
+    borderLeftColor: borderLeftColorBase && borderLeftColorBase.default,
+    ":hover": hover,
+    ":focus": focus,
+    ":active": active,
+    "&[disabled]": disabled,
+  });
+
+  const lightColor = getSchemeCssObject({
     foreColor: foreColorLight,
     backColor: backColorLight,
     highlighter: highlighterColorLight,
@@ -407,7 +457,7 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
     borderLeftColor: borderLeftColorLight,
   });
 
-  const dark = getSchemeCssObject({
+  const darkColor = getSchemeCssObject({
     foreColor: foreColorDark,
     backColor: backColorDark,
     highlighter: highlighterColorDark,
@@ -418,15 +468,11 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
     borderLeftColor: borderLeftColorDark,
   });
 
-  const minolithUtilityStyles = css({
-    color: foreColorBase ? foreColorBase.default : undefined,
+  const defaultCssProps: CSSInterpolation = {
     fontSize: fontSize,
     fontWeight: fontWeight,
     fontStyle: props.fore ? props.fore.fontStyle : undefined,
     textTransform: props.fore ? props.fore.textTransform : undefined,
-    backgroundColor: backColorBase && backColorBase.default,
-    backgroundImage: highlighterColorBase && highlighterColorBase.default,
-    borderColor: borderColorBase && borderColorBase.default,
     borderCollapse:
       props.border && props.border.collapse
         ? props.border.collapse === "collapted"
@@ -443,7 +489,6 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
       props.border && props.border.width
         ? `var(--${cssVariablePrefix}border-width-${props.border.width})`
         : undefined,
-    borderTopColor: borderTopColorBase && borderTopColorBase.default,
     borderTopStyle:
       props.border && props.border.top && props.border.top.style
         ? props.border.top.style
@@ -452,7 +497,6 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
       props.border && props.border.top && props.border.top.width
         ? `var(--${cssVariablePrefix}border-width-${props.border.top.width})`
         : undefined,
-    borderRightColor: borderRightColorBase && borderRightColorBase.default,
     borderRightStyle:
       props.border && props.border.right && props.border.right.style
         ? props.border.right.style
@@ -461,7 +505,6 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
       props.border && props.border.right && props.border.right.width
         ? `var(--${cssVariablePrefix}border-width-${props.border.right.width})`
         : undefined,
-    borderBottomColor: borderBottomColorBase && borderBottomColorBase.default,
     borderBottomStyle:
       props.border && props.border.bottom && props.border.bottom.style
         ? props.border.bottom.style
@@ -470,7 +513,6 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
       props.border && props.border.bottom && props.border.bottom.width
         ? `var(--${cssVariablePrefix}border-width-${props.border.bottom.width})`
         : undefined,
-    borderLeftColor: borderLeftColorBase && borderLeftColorBase.default,
     borderLeftStyle:
       props.border && props.border.left && props.border.left.style
         ? props.border.left.style
@@ -635,16 +677,25 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
     height: props.sizing ? props.sizing.height : undefined,
     minHeight: props.sizing ? props.sizing.minHeight : undefined,
     maxHeight: props.sizing ? props.sizing.maxHeight : undefined,
-    ":hover": hover,
-    ":focus": focus,
-    ":active": active,
-    "[disabled]": disabled,
-    "@media (prefers-color-scheme: light)": light,
-    "@media (prefers-color-scheme: dark)": dark,
-  });
+  };
+
+  const cssArray: CSSInterpolation[] = [];
+  cssArray.push(defaultColor);
+
+  if (colorScheme === "light" && lightColor) {
+    cssArray.push(lightColor);
+  }
+
+  if (colorScheme === "dark" && darkColor) {
+    cssArray.push(darkColor);
+  }
+
+  cssArray.push(defaultCssProps);
+
+  const minolithUtilityStyles = css(cssArray);
 
   if (props.css) {
-    return merge(minolithUtilityStyles, props.css);
+    return [minolithUtilityStyles, props.css];
   }
 
   return minolithUtilityStyles;

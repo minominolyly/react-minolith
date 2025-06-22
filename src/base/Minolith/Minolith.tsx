@@ -4,6 +4,7 @@ import minolithStyleUtility from "../../utilities/minolithStyleUtility";
 import Tabula from "../Tabula";
 import "./Minolith.scss";
 import MinolithProps from "./MinolithProps";
+import { MinolithColorSchemeContext } from "../../contexts";
 
 export default function Minolith(props: MinolithProps): React.ReactElement {
   const assignedProps = { ...props };
@@ -31,5 +32,11 @@ export default function Minolith(props: MinolithProps): React.ReactElement {
     document.head.appendChild(style);
   }, [minolithStyles]);
 
-  return <Tabula {...assignedProps} />;
+  return (
+    <MinolithColorSchemeContext.Provider
+      value={assignedProps.colorScheme ? assignedProps.colorScheme : "light"}
+    >
+      <Tabula {...assignedProps} />
+    </MinolithColorSchemeContext.Provider>
+  );
 }

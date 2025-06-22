@@ -15,7 +15,7 @@ react-minolith is an open-source react wrapper for [minolith](https://github.com
 `react-minolith` now have `lodash` and `@emotion/react` as dependencies.
 
 ```shell
-npm install @emotion/react lodash
+npm install @emotion/react
 ```
 
 ## Installation

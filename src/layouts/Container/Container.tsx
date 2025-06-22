@@ -1,4 +1,6 @@
 "use client";
+import { useContext } from "react";
+import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Container.module.scss";
@@ -502,7 +504,9 @@ export default function Container(props: ContainerProps): React.ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorScheme = useContext(MinolithColorSchemeContext);
+
+  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
 
   return (
     <div

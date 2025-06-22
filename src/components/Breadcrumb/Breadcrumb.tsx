@@ -1,4 +1,6 @@
 "use client";
+import { useContext } from "react";
+import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import BreadcrumbProps from "./BreadcrumbProps";
@@ -25,7 +27,9 @@ export default function Breadcrumb(props: BreadcrumbProps): React.ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorScheme = useContext(MinolithColorSchemeContext);
+
+  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
   return (
     <li {...assignedProps} className={assignedClassNames.join(" ")} css={css} />
   );

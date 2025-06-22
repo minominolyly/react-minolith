@@ -51,7 +51,6 @@ export default defineConfig({
         "react/jsx-runtime",
         "@emotion/react",
         "@emotion/react/jsx-runtime",
-        "lodash",
       ],
       input: Object.fromEntries(
         glob
@@ -68,7 +67,6 @@ export default defineConfig({
           react: "React",
           "@emotion/react/jsx-runtime": "EmotionReactJsxRuntime",
           "@emotion/react": "EmotionReact",
-          lodash: "_",
         },
         assetFileNames: (chunkInfo: PreRenderedAsset) => {
           return `assets/[name][extname]`;

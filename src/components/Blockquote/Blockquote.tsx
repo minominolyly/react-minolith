@@ -1,4 +1,6 @@
 "use client";
+import { useContext } from "react";
+import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Blockquote.module.scss";
@@ -54,7 +56,9 @@ export default function Blockquote(props: BlockquoteProps): React.ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorScheme = useContext(MinolithColorSchemeContext);
+
+  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
 
   return (
     <blockquote

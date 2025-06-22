@@ -2,24 +2,24 @@ import ColorAttributes from "./ColorAttributes";
 import ColorName from "./ColorName";
 
 type ColorProps<ColorNameType = ColorName> = {
-  default?: ColorAttributes<ColorNameType>;
-  hover?: ColorAttributes<ColorNameType>;
-  focus?: ColorAttributes<ColorNameType>;
-  active?: ColorAttributes<ColorNameType>;
-  disabled?: ColorAttributes<ColorNameType>;
+  default?: ColorAttributes<ColorNameType> | "transparent";
+  hover?: ColorAttributes<ColorNameType> | "transparent";
+  focus?: ColorAttributes<ColorNameType> | "transparent";
+  active?: ColorAttributes<ColorNameType> | "transparent";
+  disabled?: ColorAttributes<ColorNameType> | "transparent";
   light?: {
-    default?: ColorAttributes<ColorNameType>;
-    hover?: ColorAttributes<ColorNameType>;
-    focus?: ColorAttributes<ColorNameType>;
-    active?: ColorAttributes<ColorNameType>;
-    disabled?: ColorAttributes<ColorNameType>;
+    default?: ColorAttributes<ColorNameType> | "transparent";
+    hover?: ColorAttributes<ColorNameType> | "transparent";
+    focus?: ColorAttributes<ColorNameType> | "transparent";
+    active?: ColorAttributes<ColorNameType> | "transparent";
+    disabled?: ColorAttributes<ColorNameType> | "transparent";
   };
   dark?: {
-    default?: ColorAttributes<ColorNameType>;
-    hover?: ColorAttributes<ColorNameType>;
-    focus?: ColorAttributes<ColorNameType>;
-    active?: ColorAttributes<ColorNameType>;
-    disabled?: ColorAttributes<ColorNameType>;
+    default?: ColorAttributes<ColorNameType> | "transparent";
+    hover?: ColorAttributes<ColorNameType> | "transparent";
+    focus?: ColorAttributes<ColorNameType> | "transparent";
+    active?: ColorAttributes<ColorNameType> | "transparent";
+    disabled?: ColorAttributes<ColorNameType> | "transparent";
   };
 };
 

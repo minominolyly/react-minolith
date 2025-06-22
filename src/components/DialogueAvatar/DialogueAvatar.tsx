@@ -1,4 +1,6 @@
 "use client";
+import { useContext } from "react";
+import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import DialogueAvatarProps from "./DialogueAvatarProps";
@@ -28,7 +30,9 @@ export default function DialogueAvatar(
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorScheme = useContext(MinolithColorSchemeContext);
+
+  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
   return props.as ? (
     <props.as
       {...assignedProps}

@@ -133,17 +133,17 @@ function getColorVar(color: ColorInfo): Gradation {
       color.name === "gray"
         ? color.chroma
         : gradation < 50
-          ? color.chroma + (10 - i) * colorChromaColorfulOffsetDarker
-          : gradation > 50
-            ? color.chroma + (i - 10) * colorChromaColorfulOffsetLighter
-            : color.chroma;
+        ? color.chroma + (10 - i) * colorChromaColorfulOffsetDarker
+        : gradation > 50
+        ? color.chroma + (i - 10) * colorChromaColorfulOffsetLighter
+        : color.chroma;
 
     const lightness =
       gradation < 50
         ? colorLightness50 - (10 - i) * colorLightnessOffsetDarker
         : gradation > 50
-          ? colorLightness50 + (i - 10) * colorLightnessOffsetLighter
-          : colorLightness50;
+        ? colorLightness50 + (i - 10) * colorLightnessOffsetLighter
+        : colorLightness50;
 
     const oklch: Oklch = {
       hue: color.hue,
@@ -225,10 +225,25 @@ const elem = (
             </AccordionSummary>
             <AccordionDetails as={Gingham}>
               <Paragraph
-                fore={{ color: { default: { name: "red", lightness: 80 } } }}
-                back={{ color: { default: { name: "blue", lightness: 20 } } }}
+                fore={{
+                  color: {
+                    default: { name: "red", lightness: 80, alpha: 0.5 },
+                  },
+                }}
+                back={{
+                  color: {
+                    default: { name: "blue", lightness: 20, alpha: 0.5 },
+                  },
+                }}
                 highlighter={{
-                  color: { default: { name: "yellow", lightness: 80 } },
+                  color: {
+                    light: {
+                      default: { name: "yellow", lightness: 80, alpha: 0.5 },
+                    },
+                    dark: {
+                      default: { name: "cyan", lightness: 80, alpha: 0.5 },
+                    },
+                  },
                 }}
                 css={{ fontSize: "1.5rem" }}
               >

@@ -8,10 +8,10 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
   const assignStateColor = <ColorNameType = ColorName>(
     name: string,
     stateStr: string,
-    state?: ColorAttributes<ColorNameType>,
+    state?: ColorAttributes<ColorNameType> | "transparent",
     colorScheme?: string
   ) => {
-    if (state && state.name === "rainbow") {
+    if (state && typeof state === "object" && state.name === "rainbow") {
       assignedClassNames.push(
         `${name}${colorScheme ? `-${colorScheme}` : ""}${
           stateStr === "default" ? "" : `-${stateStr}`
