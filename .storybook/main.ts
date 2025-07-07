@@ -18,6 +18,7 @@ const config: StorybookConfig = {
       ...config,
       build: {
         ...config.build,
+        minify: false,
         sourcemap: false,
       },
     };
