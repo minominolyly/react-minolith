@@ -26,7 +26,6 @@ jobs:
     - name: install, build and deploy
       uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
       env:
-        URL_PREFIX: react-minolith
         NODE_OPTIONS: --max-old-space-size=8192
       with:
         install_command: npm install
