@@ -5,11 +5,18 @@ on:
     branches:
     - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: setup node
       uses: actions/setup-node@v4
