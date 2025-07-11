@@ -383,6 +383,9 @@
     "vitest": "^2.1.9"
   },
   "overrides": {
-    "storybook": "$storybook"
+    "storybook": "$storybook",
+    "vite": {
+      "rollup": "npm:@rollup/wasm-node"
+    }
   }
 }
