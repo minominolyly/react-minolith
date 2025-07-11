@@ -9,30 +9,20 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: setup node
       uses: actions/setup-node@v4
       with:
         node-version: 'lts/*'
 
-    - name: clean
-      run: rm -rf node_modules package-lock.json
-
-    - name: install
-      run: npm install
-
-    - name: build
+    - name: install, build and deploy
+      uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
       env:
         URL_PREFIX: react-minolith
         NODE_OPTIONS: --max-old-space-size=8192
-      run: npm run build-storybook
-
-    - name: add nojekyll
-      run: touch ./storybook-static/.nojekyll
-
-    - name: deploy
-      uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./storybook-static
+        install_command: npm install
+        build_command: npm run build-storybook
+        path: storybook-static
+        checkout: false
