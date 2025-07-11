@@ -349,10 +349,10 @@
     "@types/react": {
       "optional": true
     }
-  },,
+  },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.44.2"
-  }
+  },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^11.12.0",
     "@emotion/react": "^11.14.0",
