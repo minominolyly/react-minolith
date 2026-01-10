@@ -1,6 +1,6 @@
 {
   "name": "react-minolith",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "react-minolith is an open-source react wrapper for minolith.",
   "type": "module",
   "main": "./dist/react-minolith.js",
@@ -383,9 +383,6 @@
     "vitest": "^2.1.9"
   },
   "overrides": {
-    "storybook": "$storybook",
-    "vite": {
-      "rollup": "npm:@rollup/wasm-node"
-    }
+    "storybook": "$storybook"
   }
 }

@@ -1,10 +1,10 @@
 "use client";
 import { useInsertionEffect, useMemo } from "react";
+import { MinolithColorSchemeContext } from "../../contexts";
 import minolithStyleUtility from "../../utilities/minolithStyleUtility";
 import Tabula from "../Tabula";
 import "./Minolith.scss";
 import MinolithProps from "./MinolithProps";
-import { MinolithColorSchemeContext } from "../../contexts";
 
 export default function Minolith(props: MinolithProps): React.ReactElement {
   const assignedProps = { ...props };
@@ -21,15 +21,30 @@ export default function Minolith(props: MinolithProps): React.ReactElement {
   useInsertionEffect(() => {
     const styleId = "minolith-custom-css-variables";
 
-    const currentCustomStyle = document.head.querySelector(`#${styleId}`);
-    if (currentCustomStyle) {
-      document.head.removeChild(currentCustomStyle);
-    }
+    const createMinolithCustomStyleElement = () => {
+      const style = document.createElement("style");
+      style.id = styleId;
+      style.textContent = minolithStyles.join();
+      return style;
+    };
 
-    const style = document.createElement("style");
-    style.id = styleId;
-    style.innerText = minolithStyles.join();
-    document.head.appendChild(style);
+    const setStyle = (element: HTMLElement) => {
+      const currentCustomStyle = element.querySelector(`#${styleId}`);
+      if (currentCustomStyle) {
+        element.removeChild(currentCustomStyle);
+      }
+
+      const style = createMinolithCustomStyleElement();
+      element.append(style);
+    };
+
+    if (document.querySelector(`#${styleId}`) === null) {
+      setStyle(document.head);
+
+      if (document.querySelector(`#${styleId}`) === null) {
+        setStyle(document.body);
+      }
+    }
   }, [minolithStyles]);
 
   return (
