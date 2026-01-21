@@ -30,7 +30,6 @@ export default defineConfig({
     modules: {},
     preprocessorOptions: {
       scss: {
-        api: "modern-compiler",
       },
     },
   },
