@@ -120,9 +120,9 @@ export default function Columns(props: ColumnsProps): React.ReactElement {
   props.isLargeOrMoreDirectionRow &&
     assignedClassNames.push(classNames["is-large-or-more-direction-row"]);
   props.isXLargeOrLessDirectionRow &&
-    assignedClassNames.push(classNames["is-XLarge-or-less-direction-row"]);
+    assignedClassNames.push(classNames["is-xlarge-or-less-direction-row"]);
   props.isXLargeDirectionRow &&
-    assignedClassNames.push(classNames["is-XLarge-direction-row"]);
+    assignedClassNames.push(classNames["is-xlarge-direction-row"]);
   props.isXSmallDirectionRowReverse &&
     assignedClassNames.push(classNames["is-xsmall-direction-row-reverse"]);
   props.isXSmallOrMoreDirectionRowReverse &&
@@ -161,10 +161,10 @@ export default function Columns(props: ColumnsProps): React.ReactElement {
     );
   props.isXLargeOrLessDirectionRowReverse &&
     assignedClassNames.push(
-      classNames["is-XLarge-or-less-direction-row-reverse"]
+      classNames["is-xlarge-or-less-direction-row-reverse"]
     );
   props.isXLargeDirectionRowReverse &&
-    assignedClassNames.push(classNames["is-XLarge-direction-row-reverse"]);
+    assignedClassNames.push(classNames["is-xlarge-direction-row-reverse"]);
   props.isXSmallDirectionColumn &&
     assignedClassNames.push(classNames["is-xsmall-direction-column"]);
   props.isXSmallOrMoreDirectionColumn &&
@@ -188,9 +188,9 @@ export default function Columns(props: ColumnsProps): React.ReactElement {
   props.isLargeOrMoreDirectionColumn &&
     assignedClassNames.push(classNames["is-large-or-more-direction-column"]);
   props.isXLargeOrLessDirectionColumn &&
-    assignedClassNames.push(classNames["is-XLarge-or-less-direction-column"]);
+    assignedClassNames.push(classNames["is-xlarge-or-less-direction-column"]);
   props.isXLargeDirectionColumn &&
-    assignedClassNames.push(classNames["is-XLarge-direction-column"]);
+    assignedClassNames.push(classNames["is-xlarge-direction-column"]);
   props.isXSmallDirectionColumnReverse &&
     assignedClassNames.push(classNames["is-xsmall-direction-column-reverse"]);
   props.isXSmallOrMoreDirectionColumnReverse &&

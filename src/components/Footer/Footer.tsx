@@ -19,7 +19,7 @@ export default function Footer(props: FooterProps): React.ReactElement {
   delete assignedProps["spacing"];
   delete assignedProps["css"];
   //#endregion BaseComponentProps
-  const assignedClassNames: string[] = [classNames["Footer"]];
+  const assignedClassNames: string[] = [classNames["footer"]];
   if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
   }
