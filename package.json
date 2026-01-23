@@ -369,7 +369,7 @@
     "eslint-plugin-react-refresh": "^0.4.26",
     "eslint-plugin-storybook": "^10.2.0",
     "glob": "^13.0.0",
-    "minolith": "^0.1.0",
+    "minolith": "^0.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "rimraf": "^6.1.2",
