@@ -19,7 +19,7 @@
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "noEmitOnError": true,
-
+    "rootDir": "./src",
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

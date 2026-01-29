@@ -42,7 +42,7 @@ import Column from "../../layouts/Column";
 import Columns from "../../layouts/Columns";
 import Container from "../../layouts/Container";
 import Minolith from "./Minolith";
-import ColorName from "../../common/literalTypes/ColorName";
+import ColorName from "../../types/ColorName";
 import Gradation from "../../models/Gradation";
 import Oklch from "../../models/Oklch";
 import { RubyText } from "../../react-minolith";

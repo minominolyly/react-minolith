@@ -9,7 +9,7 @@ import {
   ColorProps,
   FontSize,
   FontWeight,
-} from "../literalTypes";
+} from "../types";
 import { Property } from "csstype";
 
 export default interface BaseComponentProps {

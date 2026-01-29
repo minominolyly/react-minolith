@@ -1,5 +1,5 @@
 import React from "react";
-import { ColorName } from "../../common/literalTypes";
+import { ColorName } from "../../types";
 import DivProps from "../Div/DivProps";
 
 export default interface CardProps extends DivProps {

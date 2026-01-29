@@ -1,4 +1,4 @@
-import { ColorName } from "../../common/literalTypes";
+import { ColorName } from "../../types";
 import { DivProps } from "../../components/Div";
 
 export default interface GinghamProps extends DivProps {

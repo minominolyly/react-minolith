@@ -1,4 +1,4 @@
-import { ColorName } from "../../common/literalTypes";
+import { ColorName } from "../../types";
 import { BaseComponentProps } from "../../models";
 
 export default interface AccordionProps

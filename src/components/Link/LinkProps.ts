@@ -1,6 +1,6 @@
 import React from "react";
 import { BaseComponentProps } from "../../models";
-import { ColorName } from "../../common/literalTypes";
+import { ColorName } from "../../types";
 
 export default interface LinkProps
   extends React.DetailedHTMLProps<

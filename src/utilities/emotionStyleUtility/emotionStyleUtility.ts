@@ -11,7 +11,7 @@ import {
   ColorAttributes,
   ColorName,
   ColorScheme,
-} from "../../common/literalTypes";
+} from "../../types";
 import type { CSSInterpolation } from "@emotion/serialize";
 
 const cssVariablePrefix = "minolith-";

@@ -1,4 +1,4 @@
-import { ColorName, Percentage } from "../../common/literalTypes";
+import { ColorName, Percentage } from "../../types";
 import DivProps from "../Div/DivProps";
 
 export default interface ProgressProps extends DivProps {
