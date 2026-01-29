@@ -1,5 +1,5 @@
 import { ColorName } from "../../common/literalTypes";
-import { BaseComponentProps } from "../../common/models";
+import { BaseComponentProps } from "../../models";
 
 export default interface AccordionProps
   extends React.DetailedHTMLProps<

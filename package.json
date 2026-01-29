@@ -82,9 +82,13 @@
       "types": "./dist/base/Tabula/index.d.ts",
       "import": "./dist/base/Tabula/index.js"
     },
-    "./common/*": {
-      "types": "./dist/common/*.d.ts",
-      "import": "./dist/common/*.js"
+    "./types/*": {
+      "types": "./dist/types/*.d.ts",
+      "import": "./dist/types/*.js"
+    },
+    "./models/*": {
+      "types": "./dist/models/*.d.ts",
+      "import": "./dist/models/*.js"
     },
     "./contexts/*": {
       "types": "./dist/contexts/*.d.ts",
@@ -369,7 +373,7 @@
     "eslint-plugin-react-refresh": "^0.4.26",
     "eslint-plugin-storybook": "^10.2.0",
     "glob": "^13.0.0",
-    "minolith": "^0.1.1",
+    "minolith": "^0.1.2",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "rimraf": "^6.1.2",

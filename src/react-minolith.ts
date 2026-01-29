@@ -1,9 +1,9 @@
 
 export * from "./utilities";
 
-export * from "./common/literalTypes";
+export * from "./types";
 
-export * from "./common/models";
+export * from "./models";
 
 export * from "./contexts";
 

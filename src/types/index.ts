@@ -11,4 +11,5 @@ export type { default as ColorProps } from "./ColorProps";
 export type { default as ColorScheme } from "./ColorScheme";
 export type { default as FontSize } from "./FontSize";
 export type { default as FontWeight } from "./FontWeight";
+export type { default as Gutter } from "./Gutter";
 export type { default as Percentage } from "./Percentage";

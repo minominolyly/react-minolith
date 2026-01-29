@@ -1,11 +1,11 @@
-import MinolithCssVariable from "../../common/models/MinolithCssVariable";
+import MinolithCssVariable from "../../models/MinolithCssVariable";
 import {
   ComponentPart,
   ComponentStatePseudoClass,
   Oklch,
-} from "../../common/models";
-import ComponentColor from "../../common/models/ComponentSchemeColor";
-import SchemeColorComponents from "../../common/models/SchemeColorComponents";
+} from "../../models";
+import ComponentColor from "../../models/ComponentSchemeColor";
+import SchemeColorComponents from "../../models/SchemeColorComponents";
 import { ColorName } from "../../react-minolith";
 
 const cssVariablePrefix = "minolith-";

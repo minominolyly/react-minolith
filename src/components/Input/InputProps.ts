@@ -1,5 +1,5 @@
 import { BorderRadius, BorderWidth, ColorName } from "../../common/literalTypes";
-import { BaseComponentProps } from "../../common/models";
+import { BaseComponentProps } from "../../models";
 
 export default interface InputProps
   extends React.DetailedHTMLProps<

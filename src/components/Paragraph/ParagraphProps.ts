@@ -1,4 +1,4 @@
-import { BaseComponentProps } from "../../common/models";
+import { BaseComponentProps } from "../../models";
 import React from "react";
 
 export default interface ParagraphProps

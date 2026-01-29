@@ -7,7 +7,7 @@ import DialogueMessage from "../DialogueMessage";
 import DialogueName from "../DialogueName/DialogueName";
 import DialogueAvatar from "../DialogueAvatar";
 import DialogueMessageInner from "../DialogueMessageInner";
-import { MinolithCssVariable } from "../../common/models";
+import { MinolithCssVariable } from "../../models";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Dialogue",

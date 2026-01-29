@@ -1,4 +1,4 @@
-import { BaseComponentProps } from "../../common/models";
+import { BaseComponentProps } from "../../models";
 
 export default interface AccordionSummaryProps
   extends React.DetailedHTMLProps<

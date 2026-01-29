@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 "use client";
-import { BaseComponentProps } from "../../common/models";
+import { BaseComponentProps } from "../../models";
 import {
   css,
   CSSObject,

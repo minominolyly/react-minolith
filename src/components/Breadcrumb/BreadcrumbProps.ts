@@ -1,4 +1,4 @@
-import { BaseComponentProps } from "../../common/models";
+import { BaseComponentProps } from "../../models";
 import { DetailedHTMLProps, LiHTMLAttributes } from "react";
 
 export default interface BreadcrumbProps

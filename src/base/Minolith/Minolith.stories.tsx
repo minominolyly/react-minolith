@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Gingham from "../../backgrounds/Gingham";
 import Stripe from "../../backgrounds/Stripe";
-import MinolithCssVariable from "../../common/models/MinolithCssVariable";
+import MinolithCssVariable from "../../models/MinolithCssVariable";
 import Accordion from "../../components/Accordion";
 import AccordionDetails from "../../components/AccordionDetails";
 import AccordionSummary from "../../components/AccordionSummary";
@@ -43,8 +43,8 @@ import Columns from "../../layouts/Columns";
 import Container from "../../layouts/Container";
 import Minolith from "./Minolith";
 import ColorName from "../../common/literalTypes/ColorName";
-import Gradation from "../../common/models/Gradation";
-import Oklch from "../../common/models/Oklch";
+import Gradation from "../../models/Gradation";
+import Oklch from "../../models/Oklch";
 import { RubyText } from "../../react-minolith";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction

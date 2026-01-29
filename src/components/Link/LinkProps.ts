@@ -1,5 +1,5 @@
 import React from "react";
-import { BaseComponentProps } from "../../common/models";
+import { BaseComponentProps } from "../../models";
 import { ColorName } from "../../common/literalTypes";
 
 export default interface LinkProps

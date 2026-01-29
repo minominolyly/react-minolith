@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Gingham from "../../backgrounds/Gingham";
 import Stripe from "../../backgrounds/Stripe";
-import MinolithCssVariable from "../../common/models/MinolithCssVariable";
+import MinolithCssVariable from "../../models/MinolithCssVariable";
 import Accordion from "../../components/Accordion";
 import AccordionDetails from "../../components/AccordionDetails";
 import AccordionSummary from "../../components/AccordionSummary";

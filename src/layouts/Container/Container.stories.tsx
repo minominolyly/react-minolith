@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Container from "./Container";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import { Div } from "../../components/Div";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Plain: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Div border={{ style: "solid" }}>
         <Container {...props}>
           <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
@@ -27,18 +27,35 @@ export const Plain: Story = {
           </Div>
         </Container>
       </Div>
-    </MinolithStatic>
+    </Minolith>
+  ),
+};
+
+export const HasGutter: Story = {
+  args: {
+    gutter: 1,
+  },
+  render: (props) => (
+    <Minolith>
+      <Div border={{ style: "solid" }}>
+        <Container {...props}>
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Container"}
+          </Div>
+        </Container>
+      </Div>
+    </Minolith>
   ),
 };
 
 export const HasGutterX: Story = {
   args: {
     gutter: {
-      x: "1rem",
+      x: 1,
     },
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Div border={{ style: "solid" }}>
         <Container {...props}>
           <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
@@ -46,7 +63,26 @@ export const HasGutterX: Story = {
           </Div>
         </Container>
       </Div>
-    </MinolithStatic>
+    </Minolith>
+  ),
+};
+
+export const HasGutterY: Story = {
+  args: {
+    gutter: {
+      y: 1,
+    },
+  },
+  render: (props) => (
+    <Minolith>
+      <Div border={{ style: "solid" }}>
+        <Container {...props}>
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Container"}
+          </Div>
+        </Container>
+      </Div>
+    </Minolith>
   ),
 };
 
@@ -55,7 +91,7 @@ export const IsFluid: Story = {
     isFluid: true,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Div border={{ style: "solid" }}>
         <Container {...props}>
           <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
@@ -63,7 +99,25 @@ export const IsFluid: Story = {
           </Div>
         </Container>
       </Div>
-    </MinolithStatic>
+    </Minolith>
+  ),
+};
+
+export const IsFluidHasGutter: Story = {
+  args: {
+    isFluid: true,
+    gutter: 1,
+  },
+  render: (props) => (
+    <Minolith>
+      <Div border={{ style: "solid" }}>
+        <Container {...props}>
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Container"}
+          </Div>
+        </Container>
+      </Div>
+    </Minolith>
   ),
 };
 
@@ -71,11 +125,11 @@ export const IsFluidHasGutterX: Story = {
   args: {
     isFluid: true,
     gutter: {
-      x: "1rem",
+      x: 1,
     },
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Div border={{ style: "solid" }}>
         <Container {...props}>
           <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
@@ -83,6 +137,26 @@ export const IsFluidHasGutterX: Story = {
           </Div>
         </Container>
       </Div>
-    </MinolithStatic>
+    </Minolith>
+  ),
+};
+
+export const IsFluidHasGutterY: Story = {
+  args: {
+    isFluid: true,
+    gutter: {
+      y: 1,
+    },
+  },
+  render: (props) => (
+    <Minolith>
+      <Div border={{ style: "solid" }}>
+        <Container {...props}>
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Container"}
+          </Div>
+        </Container>
+      </Div>
+    </Minolith>
   ),
 };

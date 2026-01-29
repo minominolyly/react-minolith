@@ -1,6 +1,109 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import BaseComponentProps from "../../common/models/BaseComponentProps";
-import { ColorAttributes, ColorName } from "../../common/literalTypes";
+import BaseComponentProps from "../../models/BaseComponentProps";
+import { ColorAttributes, ColorName, Gutter } from "../../types";
+import { Property } from "csstype";
+
+function setFlexDirectionClassNames(
+  classNames: CSSModuleClasses,
+  flexDirection?: Property.FlexDirection,
+  sizeString?: string,
+): string[] {
+  if (!flexDirection) {
+    return [];
+  }
+
+  const flexDirectionClassNames: string[] = [];
+  if (
+    flexDirection === "row" ||
+    flexDirection === "row-reverse" ||
+    flexDirection === "column" ||
+    flexDirection === "column-reverse"
+  ) {
+    if (sizeString) {
+      flexDirectionClassNames.push(
+        classNames[`is-${sizeString}-direction-${flexDirection}`],
+      );
+    } else {
+      flexDirectionClassNames.push(classNames[`is-direction-${flexDirection}`]);
+    }
+  }
+
+  return flexDirectionClassNames;
+}
+
+function getGutterClassNames(
+  classNames: CSSModuleClasses,
+  gutter?: Gutter,
+  sizeString?: string,
+): string[] {
+  if (!gutter) {
+    return [];
+  }
+
+  const gutterClassNames: string[] = [];
+
+  if (typeof gutter === "string") {
+    if (sizeString) {
+      gutterClassNames.push(classNames[`has-gutter-${sizeString}-${gutter}`]);
+    } else {
+      gutterClassNames.push(classNames[`has-gutter-${gutter}`]);
+    }
+    return gutterClassNames;
+  }
+
+  if (typeof gutter === "number") {
+    if (sizeString) {
+      gutterClassNames.push(
+        classNames[`has-gutter-${sizeString}-${gutter}rem`],
+      );
+    } else {
+      gutterClassNames.push(classNames[`has-gutter-${gutter}rem`]);
+    }
+    return gutterClassNames;
+  }
+
+  if ("x" in gutter) {
+    if (typeof gutter.x === "string") {
+      if (sizeString) {
+        gutterClassNames.push(
+          classNames[`has-gutter-x-${sizeString}-${gutter.x}`],
+        );
+      } else {
+        gutterClassNames.push(classNames[`has-gutter-x-${gutter.x}`]);
+      }
+    } else if (typeof gutter.x === "number") {
+      if (sizeString) {
+        gutterClassNames.push(
+          classNames[`has-gutter-x-${sizeString}-${gutter.x}rem`],
+        );
+      } else {
+        gutterClassNames.push(classNames[`has-gutter-x-${gutter.x}rem`]);
+      }
+    }
+  }
+
+  if ("y" in gutter) {
+    if (typeof gutter.y === "string") {
+      if (sizeString) {
+        gutterClassNames.push(
+          classNames[`has-gutter-y-${sizeString}-${gutter.y}`],
+        );
+      } else {
+        gutterClassNames.push(classNames[`has-gutter-y-${gutter.y}`]);
+      }
+    } else if (typeof gutter.y === "number") {
+      if (sizeString) {
+        gutterClassNames.push(
+          classNames[`has-gutter-y-${sizeString}-${gutter.y}rem`],
+        );
+      } else {
+        gutterClassNames.push(classNames[`has-gutter-y-${gutter.y}rem`]);
+      }
+    }
+  }
+
+  return gutterClassNames;
+}
 
 function getUtilityClassNames(props: BaseComponentProps): string[] {
   const assignedClassNames: string[] = [];
@@ -9,13 +112,13 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
     name: string,
     stateStr: string,
     state?: ColorAttributes<ColorNameType> | "transparent",
-    colorScheme?: string
+    colorScheme?: string,
   ) => {
     if (state && typeof state === "object" && state.name === "rainbow") {
       assignedClassNames.push(
         `${name}${colorScheme ? `-${colorScheme}` : ""}${
           stateStr === "default" ? "" : `-${stateStr}`
-        }-${state.name}-${state.lightness === 5 ? `05` : state.lightness}`
+        }-${state.name}-${state.lightness === 5 ? `05` : state.lightness}`,
       );
     }
   };
@@ -33,7 +136,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           "forecolor",
           "default",
           foreColorLight.default,
-          "light"
+          "light",
         );
         assignStateColor("forecolor", "hover", foreColorLight.hover, "light");
         assignStateColor("forecolor", "focus", foreColorLight.focus, "light");
@@ -42,7 +145,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           "forecolor",
           "disabled",
           foreColorLight.disabled,
-          "light"
+          "light",
         );
       }
       if (props.fore.color.dark) {
@@ -55,7 +158,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           "forecolor",
           "disabled",
           foreColorDark.disabled,
-          "dark"
+          "dark",
         );
       }
     }
@@ -74,7 +177,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           "backcolor",
           "default",
           backColorLight.default,
-          "light"
+          "light",
         );
         assignStateColor("backcolor", "hover", backColorLight.hover, "light");
         assignStateColor("backcolor", "focus", backColorLight.focus, "light");
@@ -83,7 +186,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           "backcolor",
           "disabled",
           backColorLight.disabled,
-          "light"
+          "light",
         );
       }
       if (props.back.color.dark) {
@@ -96,7 +199,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
           "backcolor",
           "disabled",
           backColorDark.disabled,
-          "dark"
+          "dark",
         );
       }
     }
@@ -118,7 +221,7 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
     if (props.sizing.aspectRatio) {
       if (props.sizing.aspectRatio.includes(":")) {
         assignedClassNames.push(
-          `aspect-ratio-${props.sizing.aspectRatio.replace(":", "-")}`
+          `aspect-ratio-${props.sizing.aspectRatio.replace(":", "-")}`,
         );
       } else {
         assignedClassNames.push(`aspect-ratio-${props.sizing.aspectRatio}`);
@@ -130,6 +233,8 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
 }
 
 const classNameUtility = {
+  setFlexDirectionClassNames,
+  getGutterClassNames,
   getUtilityClassNames,
 };
 

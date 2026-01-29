@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Columns from "./Columns";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import Column from "../Column";
 import Div from "../../components/Div";
 
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export const AllAuto: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Columns {...props}>
         <Column>
           <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
@@ -83,15 +83,16 @@ export const AllAuto: Story = {
           </Div>
         </Column>
       </Columns>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
+
 export const HasGutter: Story = {
   args: {
     gutter: 1,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Columns {...props}>
         <Column
           size={1}
@@ -226,7 +227,7 @@ export const HasGutter: Story = {
           </Div>
         </Column>
       </Columns>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 
@@ -237,7 +238,7 @@ export const HasGutterX: Story = {
     },
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Columns {...props}>
         <Column
           size={1}
@@ -372,14 +373,456 @@ export const HasGutterX: Story = {
           </Div>
         </Column>
       </Columns>
-    </MinolithStatic>
+    </Minolith>
+  ),
+};
+
+export const HasGutterY: Story = {
+  args: {
+    gutter: {
+      y: 1,
+    },
+  },
+  render: (props) => (
+    <Minolith>
+      <Columns {...props}>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column1"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column2"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column3"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column4"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column5"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column6"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column7"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column8"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column9"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column10"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column11"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column12"}
+          </Div>
+        </Column>
+      </Columns>
+    </Minolith>
+  ),
+};
+
+export const HasGutterXMediumOrLess: Story = {
+  args: {
+    gutter: {
+      mediumOrLess: {
+        x: 1,
+      },
+    },
+  },
+  render: (props) => (
+    <Minolith>
+      <Columns {...props}>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column1"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column2"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column3"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column4"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column5"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column6"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column7"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column8"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column9"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column10"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column11"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column12"}
+          </Div>
+        </Column>
+      </Columns>
+    </Minolith>
+  ),
+};
+
+export const HasGutterYMediumOrLess: Story = {
+  args: {
+    gutter: {
+      mediumOrLess: {
+        y: 1,
+      },
+    },
+  },
+  render: (props) => (
+    <Minolith>
+      <Columns {...props}>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column1"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column2"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column3"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column4"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column5"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column6"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column7"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column8"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column9"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column10"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column11"}
+          </Div>
+        </Column>
+        <Column
+          size={1}
+          sizeXSmall={12}
+          sizeSmall={6}
+          sizeMedium={4}
+          sizeLarge={3}
+        >
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Column12"}
+          </Div>
+        </Column>
+      </Columns>
+    </Minolith>
   ),
 };
 
 export const SmallOrLess: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Columns {...props}>
         <Column sizeSmallOrLess={12}>
           <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
@@ -442,14 +885,14 @@ export const SmallOrLess: Story = {
           </Div>
         </Column>
       </Columns>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 
 export const Small6XSmall12: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Columns {...props}>
         <Column sizeSmall={6} sizeXSmall={12}>
           {"Column1"}
@@ -488,6 +931,6 @@ export const Small6XSmall12: Story = {
           {"Column12"}
         </Column>
       </Columns>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

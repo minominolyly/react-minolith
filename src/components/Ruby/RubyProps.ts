@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
-import { BaseComponentProps } from "../../common/models";
+import { BaseComponentProps } from "../../models";
 
 export default interface RubyProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>,
