@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Textarea from "./Textarea";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Textarea",
@@ -20,8 +20,8 @@ export const Plain: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Textarea {...props} />
-    </MinolithStatic>
+    </Minolith>
   ),
 };

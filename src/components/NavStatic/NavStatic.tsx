@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./NavStatic.module.scss";
 import NavStaticProps from "./NavStaticProps";
 
-export default function NavStatic(props: NavStaticProps): React.ReactElement {
+export default function NavStatic(props: NavStaticProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isXSmall"];
   delete assignedProps["isSmallOrLess"];
@@ -85,7 +85,14 @@ export default function NavStatic(props: NavStaticProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
-  return (
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <div
       {...assignedProps}
       className={assignedClassNames.join(" ")}

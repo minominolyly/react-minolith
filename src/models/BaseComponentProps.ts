@@ -1,4 +1,5 @@
 import { Interpolation, Theme } from "@emotion/react";
+import { ElementType } from "react";
 import BackProps from "./BackProps";
 import BorderProps from "./BorderProps";
 import ForeProps from "./ForeProps";
@@ -16,4 +17,9 @@ export default interface BaseComponentProps {
   sizing?: SizingProps;
   spacing?: SpacingProps;
   css?: Interpolation<Theme>;
+  as?:
+    | ElementType
+    | undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
 }

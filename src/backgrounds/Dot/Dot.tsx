@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Dot.module.scss";
 import DotProps from "./DotProps";
 
-export default function Dot(props: DotProps): React.ReactElement {
+export default function Dot(props: DotProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["dotSize"];

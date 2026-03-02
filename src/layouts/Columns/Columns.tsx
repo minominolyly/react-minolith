@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Columns.module.scss";
 import ColumnsProps from "./ColumnsProps";
 
-export default function Columns(props: ColumnsProps): React.ReactElement {
+export default function Columns(props: ColumnsProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["flexDirection"];
   delete assignedProps["gutter"];

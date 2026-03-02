@@ -1,4 +1,4 @@
-import MinolithCssVariable from "../../models/MinolithCssVariable";
+import MinolithCssVariables from "../../models/MinolithCssVariables";
 import {
   ComponentPart,
   ComponentStatePseudoClass,
@@ -396,7 +396,7 @@ function getSchemeColorComponentsStyles(
 }
 
 function getMinolithCssVariableStyles(
-  cssVariableSetting?: MinolithCssVariable
+  cssVariableSetting?: MinolithCssVariables
 ): string[] {
   const minolithStyles: string[] = [];
 
@@ -419,7 +419,7 @@ function getMinolithCssVariableStyles(
   return minolithStyles;
 }
 
-function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
+function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
   const rootStyles: string[] = [];
 
   if (cssVariableSetting) {
@@ -829,7 +829,7 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariable): string[] {
 }
 
 function getLightSchemeStyles(
-  cssVariableSetting?: MinolithCssVariable
+  cssVariableSetting?: MinolithCssVariables
 ): string[] {
   const lightSchemeStyles: string[] = [];
 
@@ -869,7 +869,7 @@ function getLightSchemeStyles(
 }
 
 function getDarkSchemeStyles(
-  cssVariableSetting?: MinolithCssVariable
+  cssVariableSetting?: MinolithCssVariables
 ): string[] {
   const darkSchemeStyles: string[] = [];
 

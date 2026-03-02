@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import react from "@vitejs/plugin-react-swc";
 import { glob } from "glob";
 import { fileURLToPath } from "node:url";
@@ -10,28 +11,22 @@ import { PreRenderedAsset, PreRenderedChunk } from "rollup";
 
 // https://vitejs.dev/config/
 import path from "node:path";
-const dirname =
-  typeof __dirname !== "undefined"
-    ? __dirname
-    : path.dirname(fileURLToPath(import.meta.url));
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import { playwright } from '@vitest/browser-playwright';
+const dirname = typeof __dirname !== "undefined" ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [
-    react({
-      jsxImportSource: "@emotion/react",
-    }),
-    libInjectCss(),
-    dts({
-      include: ["src"],
-    }),
-  ],
+  plugins: [react({
+    jsxImportSource: "@emotion/react"
+  }), libInjectCss(), dts({
+    include: ["src"]
+  })],
   css: {
     modules: {},
     preprocessorOptions: {
-      scss: {
-      },
-    },
+      scss: {}
+    }
   },
   build: {
     copyPublicDir: false,
@@ -40,40 +35,51 @@ export default defineConfig({
       entry: resolve(dirname, "src/react-minolith.ts"),
       name: "ReactMinolith",
       fileName: "react-minolith",
-      formats: ["es"],
+      formats: ["es"]
     },
     sourcemap: true,
     rollupOptions: {
       plugins: [preserveDirectives()],
-      external: [
-        "react",
-        "react/jsx-runtime",
-        "@emotion/react",
-        "@emotion/react/jsx-runtime",
-      ],
-      input: Object.fromEntries(
-        glob
-          .sync(["src/**/*!(*.d).{ts,tsx}"], {
-            ignore: ["src/**/*.stories.tsx", "src/**/*.test.{ts,tsx}"],
-          })
-          .map((file) => [
-            relative("src", file.slice(0, file.length - extname(file).length)),
-            fileURLToPath(new URL(file, import.meta.url)),
-          ])
-      ),
+      external: ["react", "react/jsx-runtime", "@emotion/react", "@emotion/react/jsx-runtime"],
+      input: Object.fromEntries(glob.sync(["src/**/*!(*.d).{ts,tsx}"], {
+        ignore: ["src/**/*.stories.tsx", "src/**/*.test.{ts,tsx}"]
+      }).map(file => [relative("src", file.slice(0, file.length - extname(file).length)), fileURLToPath(new URL(file, import.meta.url))])),
       output: {
         globals: {
           react: "React",
           "@emotion/react/jsx-runtime": "EmotionReactJsxRuntime",
-          "@emotion/react": "EmotionReact",
+          "@emotion/react": "EmotionReact"
         },
         assetFileNames: (chunkInfo: PreRenderedAsset) => {
           return `assets/[name][extname]`;
         },
         entryFileNames: (chunkInfo: PreRenderedChunk) => {
           return "[name].js";
-        },
-      },
-    },
+        }
+      }
+    }
   },
+  test: {
+    projects: [{
+      extends: true,
+      plugins: [
+      // The plugin will run tests for the stories defined in your Storybook config
+      // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+      storybookTest({
+        configDir: path.join(dirname, '.storybook')
+      })],
+      test: {
+        name: 'storybook',
+        browser: {
+          enabled: true,
+          headless: true,
+          provider: playwright({}),
+          instances: [{
+            browser: 'chromium'
+          }]
+        },
+        setupFiles: ['.storybook/vitest.setup.ts']
+      }
+    }]
+  }
 });

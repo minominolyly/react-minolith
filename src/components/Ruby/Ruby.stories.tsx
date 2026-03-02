@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Ruby from "./Ruby";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import RubyText from "../RubyText/RubyText";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -15,11 +15,11 @@ type Story = StoryObj<typeof meta>;
 export const Plain: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Ruby {...props}>
         {"試験"}
         <RubyText>{"しけん"}</RubyText>
       </Ruby>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

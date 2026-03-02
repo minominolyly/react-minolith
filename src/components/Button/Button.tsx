@@ -1,9 +1,12 @@
 "use client";
-import ButtonProps from "./ButtonProps";
-import classNames from "./Button.module.scss";
+import { ReactElement, useContext } from "react";
+import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
+import emotionStyleUtility from "../../utilities/emotionStyleUtility";
+import classNames from "./Button.module.scss";
+import ButtonProps from "./ButtonProps";
 
-export default function Button(props: ButtonProps): React.ReactElement {
+export default function Button(props: ButtonProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps
@@ -29,5 +32,21 @@ export default function Button(props: ButtonProps): React.ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  return <button {...assignedProps} className={assignedClassNames.join(" ")} />;
+  const colorScheme = useContext(MinolithColorSchemeContext);
+
+  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
+    <button
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
 }

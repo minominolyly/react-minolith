@@ -1,9 +1,7 @@
 import { BaseComponentProps } from "../../models";
-import React from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export default interface SpanProps
-  extends React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLSpanElement>,
-      HTMLSpanElement
-    >,
+  extends
+    DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>,
     BaseComponentProps {}

@@ -12,8 +12,8 @@ export * from "./contexts";
 export { default as Minolith } from "./base/Minolith";
 export * from "./base/Minolith";
 
-export { default as MinolithStatic } from "./base/MinolithStatic";
-export * from "./base/MinolithStatic";
+export { default as MinolithClientCustomCssVariablesProvider } from "./base/MinolithClientCustomCssVariablesProvider";
+export * from "./base/MinolithClientCustomCssVariablesProvider";
 
 export { default as Tabula } from "./base/Tabula";
 export * from "./base/Tabula";

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Link from "./Link";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Link",
@@ -16,8 +16,8 @@ export const Plain: Story = {
     as: "a",
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Link {...props}>{"Link"}</Link>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
@@ -8,7 +8,7 @@ import ModalContentProps from "./ModalContentProps";
 
 export default function ModalContent(
   props: ModalContentProps
-): React.ReactElement {
+): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -32,8 +32,15 @@ export default function ModalContent(
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
-  return (
-    <div
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
+    <nav
       {...assignedProps}
       className={assignedClassNames.join(" ")}
       css={css}

@@ -1,12 +1,10 @@
 import { ColorName } from "../../types";
 import { BaseComponentProps } from "../../models";
-import React from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export default interface HeaderProps
-  extends React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLElement>,
-      HTMLElement
-    >,
+  extends
+    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>,
     BaseComponentProps {
   colorName?: ColorName;
   isSticky?: boolean | undefined;

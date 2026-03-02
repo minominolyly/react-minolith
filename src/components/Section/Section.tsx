@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Section.module.scss";
 import SectionProps from "./SectionProps";
 
-export default function Section(props: SectionProps): React.ReactElement {
+export default function Section(props: SectionProps): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -30,7 +30,14 @@ export default function Section(props: SectionProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
-  return (
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <section
       {...assignedProps}
       className={assignedClassNames.join(" ")}

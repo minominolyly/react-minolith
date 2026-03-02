@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Modal.module.scss";
 import ModalProps from "./ModalProps";
 
-export default function Modal(props: ModalProps): React.ReactElement {
+export default function Modal(props: ModalProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isActive"];
   delete assignedProps["colorName"];
@@ -41,8 +41,14 @@ export default function Modal(props: ModalProps): React.ReactElement {
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
 
-  return (
-    <div
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
+    <dialog
       {...assignedProps}
       className={assignedClassNames.join(" ")}
       css={css}

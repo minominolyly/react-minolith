@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import Gingham from "../../backgrounds/Gingham";
 import Stripe from "../../backgrounds/Stripe";
-import MinolithCssVariable from "../../models/MinolithCssVariable";
+import MinolithCssVariables from "../../models/MinolithCssVariables";
 import Accordion from "../../components/Accordion";
 import AccordionDetails from "../../components/AccordionDetails";
 import AccordionSummary from "../../components/AccordionSummary";
@@ -41,20 +41,146 @@ import Ruby from "../../components/Ruby";
 import Column from "../../layouts/Column";
 import Columns from "../../layouts/Columns";
 import Container from "../../layouts/Container";
-import MinolithStatic from "./MinolithStatic";
+import Minolith from "../Minolith";
+import ColorName from "../../types/ColorName";
+import Gradation from "../../models/Gradation";
+import Oklch from "../../models/Oklch";
+import { RubyText } from "../../react-minolith";
+import MinolithClientCustomCssVariablesProvider from ".";
+import { useEffect } from "react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: "Base/MinolithStatic",
-  component: MinolithStatic,
+  title: "Base/MinolithClientCustomCssVariablesProvider",
+  component: MinolithClientCustomCssVariablesProvider,
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof MinolithStatic>;
+} satisfies Meta<typeof MinolithClientCustomCssVariablesProvider>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-const minolithCssVariable: MinolithCssVariable = {};
+type ColorInfo = {
+  name: ColorName;
+  hue: number;
+  chroma: number;
+};
+
+const colorChromaGray = 0.04;
+const colorChromaColorful = 0.16;
+const colorChromaColorfulOffsetLighter = 0;
+const colorChromaColorfulOffsetDarker = 0;
+
+const colorLightness50 = 60;
+const colorLightnessOffsetLighter = 4;
+const colorLightnessOffsetDarker = 4;
+
+const colorGray: ColorInfo = {
+  name: "gray",
+  hue: 0,
+  chroma: colorChromaGray,
+};
+const colorRed: ColorInfo = {
+  name: "red",
+  hue: 0,
+  chroma: colorChromaColorful,
+};
+const colorOrange: ColorInfo = {
+  name: "orange",
+  hue: 50,
+  chroma: colorChromaColorful,
+};
+
+const colorYellow: ColorInfo = {
+  name: "yellow",
+  hue: 100,
+  chroma: colorChromaColorful,
+};
+
+const colorGreen: ColorInfo = {
+  name: "green",
+  hue: 130,
+  chroma: colorChromaColorful,
+};
+
+const colorCyan: ColorInfo = {
+  name: "cyan",
+  hue: 210,
+  chroma: colorChromaColorful,
+};
+
+const colorBlue: ColorInfo = {
+  name: "blue",
+  hue: 260,
+  chroma: colorChromaColorful,
+};
+
+const colorViolet: ColorInfo = {
+  name: "violet",
+  hue: 290,
+  chroma: colorChromaColorful,
+};
+
+const colorMagenta: ColorInfo = {
+  name: "magenta",
+  hue: 310,
+  chroma: colorChromaColorful,
+};
+
+function getColorVar(color: ColorInfo): Gradation {
+  let colorVar: Gradation = {};
+  for (let i = 1; i <= 19; i++) {
+    const gradation = i * 5;
+    const chroma =
+      color.name === "gray"
+        ? color.chroma
+        : gradation < 50
+          ? color.chroma + (10 - i) * colorChromaColorfulOffsetDarker
+          : gradation > 50
+            ? color.chroma + (i - 10) * colorChromaColorfulOffsetLighter
+            : color.chroma;
+
+    const lightness =
+      gradation < 50
+        ? colorLightness50 - (10 - i) * colorLightnessOffsetDarker
+        : gradation > 50
+          ? colorLightness50 + (i - 10) * colorLightnessOffsetLighter
+          : colorLightness50;
+
+    const oklch: Oklch = {
+      hue: color.hue,
+      lightness: lightness,
+      chroma: chroma,
+    };
+    colorVar = Object.assign(colorVar, {
+      [gradation]: oklch,
+    });
+  }
+
+  return colorVar;
+}
+
+function genMinolithCssVariables(): MinolithCssVariables {
+  return {
+    typography: {
+      fontFamily: {
+        main: `游明朝, Yu Mincho, YuMincho, Hiragino Mincho Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol`,
+      },
+    },
+    color: {
+      gray: getColorVar(colorGray),
+      red: getColorVar(colorRed),
+      orange: getColorVar(colorOrange),
+      yellow: getColorVar(colorYellow),
+      green: getColorVar(colorGreen),
+      cyan: getColorVar(colorCyan),
+      blue: getColorVar(colorBlue),
+      violet: getColorVar(colorViolet),
+      magenta: getColorVar(colorMagenta),
+    },
+  };
+}
+
+const minolithCssVariables = genMinolithCssVariables();
 
 const navMenuItems = (
   <>
@@ -106,17 +232,26 @@ const elem = (
             <AccordionDetails as={Gingham}>
               <Paragraph
                 fore={{
-                  color: { default: { name: "rainbow", lightness: 80 } },
+                  color: {
+                    default: { name: "red", lightness: 80, alpha: 0.5 },
+                  },
+                }}
+                back={{
+                  color: {
+                    default: { name: "blue", lightness: 20, alpha: 0.5 },
+                  },
+                }}
+                highlighter={{
+                  color: {
+                    light: {
+                      default: { name: "yellow", lightness: 80, alpha: 0.5 },
+                    },
+                    dark: {
+                      default: { name: "cyan", lightness: 80, alpha: 0.5 },
+                    },
+                  },
                 }}
                 css={{ fontSize: "1.5rem" }}
-              >
-                {"It uses emotion css prop to style components"}
-              </Paragraph>
-              <Paragraph
-                fore={{ color: { default: { name: "red", lightness: 20 } } }}
-                back={{
-                  color: { default: { name: "rainbow", lightness: 80 } },
-                }}
               >
                 {"It uses emotion css prop to style components"}
               </Paragraph>
@@ -206,7 +341,10 @@ const elem = (
         <Div spacing={{ padding: 1 }}>
           <Accordion>
             <AccordionSummary>
-              <Ruby rubyText="カード">{"Card"}</Ruby>
+              <Ruby>
+                {"Card"}
+                <RubyText>{"カード"}</RubyText>
+              </Ruby>
             </AccordionSummary>
             <AccordionDetails>
               <Div spacing={{ padding: 1 }}>
@@ -717,32 +855,48 @@ const elem = (
   </>
 );
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const LightTheme: Story = {
-  args: {
-    colorScheme: "light",
-  },
-  render: (props) => (
-    <MinolithStatic
-      as={Gingham}
-      cssVariableSetting={minolithCssVariable}
-      {...props}
-    >
-      {elem}
-    </MinolithStatic>
-  ),
+const removeCustomStyle = (element: HTMLElement) => {
+  const currentCustomStyle = element.querySelector(
+    `#minolith-custom-css-variables`,
+  );
+  if (currentCustomStyle) {
+    element.removeChild(currentCustomStyle);
+  }
 };
-export const DarkTheme: Story = {
-  args: {
-    colorScheme: "dark",
-  },
-  render: (props) => (
-    <MinolithStatic
-      as={Gingham}
-      cssVariableSetting={minolithCssVariable}
-      {...props}
+
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const CustomFontAndLightTheme: StoryFn = (props) => {
+  useEffect(() => {
+    return () => {
+      removeCustomStyle(document.head);
+      removeCustomStyle(document.body);
+    };
+  }, []);
+  return (
+    <MinolithClientCustomCssVariablesProvider
+      minolithCssVariables={minolithCssVariables}
     >
-      {elem}
-    </MinolithStatic>
-  ),
+      <Minolith {...props} colorScheme="light">
+        <Gingham>{elem}</Gingham>
+      </Minolith>
+    </MinolithClientCustomCssVariablesProvider>
+  );
+};
+
+export const CustomFontAndDarkTheme: StoryFn = (props) => {
+  useEffect(() => {
+    return () => {
+      removeCustomStyle(document.head);
+      removeCustomStyle(document.body);
+    };
+  }, []);
+  return (
+    <MinolithClientCustomCssVariablesProvider
+      minolithCssVariables={minolithCssVariables}
+    >
+      <Minolith {...props} colorScheme="dark">
+        <Gingham>{elem}</Gingham>
+      </Minolith>
+    </MinolithClientCustomCssVariablesProvider>
+  );
 };

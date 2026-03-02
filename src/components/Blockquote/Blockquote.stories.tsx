@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Blockquote from "./Blockquote";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import Paragraph from "../Paragraph";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -15,11 +15,11 @@ type Story = StoryObj<typeof meta>;
 export const Plain: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Blockquote {...props}>
         <Paragraph>{"Plain"}</Paragraph>
       </Blockquote>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const IsItalic: Story = {
@@ -27,11 +27,11 @@ export const IsItalic: Story = {
     isItalic: true,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Blockquote {...props}>
         <Paragraph>{"Is Italic"}</Paragraph>
       </Blockquote>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const HasQuote: Story = {
@@ -39,11 +39,11 @@ export const HasQuote: Story = {
     hasQuote: true,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Blockquote {...props}>
         <Paragraph>{"Has Quote"}</Paragraph>
       </Blockquote>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const HasQuoteBefore: Story = {
@@ -53,11 +53,11 @@ export const HasQuoteBefore: Story = {
     },
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Blockquote {...props}>
         <Paragraph>{"Has Quote Before"}</Paragraph>
       </Blockquote>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const HasQuoteAfter: Story = {
@@ -67,10 +67,10 @@ export const HasQuoteAfter: Story = {
     },
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Blockquote {...props}>
         <Paragraph>{"Has Quote After"}</Paragraph>
       </Blockquote>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

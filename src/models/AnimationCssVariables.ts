@@ -1,4 +1,4 @@
-export default interface AnimationCssVariable {
+export default interface AnimationCssVariables {
   speedHeavey?: number | undefined;
   speedSlower?: number | undefined;
   speedSlow?: number | undefined;

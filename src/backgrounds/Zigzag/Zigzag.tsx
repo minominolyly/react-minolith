@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Zigzag.module.scss";
 import ZigzagProps from "./ZigzagProps";
 
-export default function Zigzag(props: ZigzagProps): React.ReactElement {
+export default function Zigzag(props: ZigzagProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["size"];

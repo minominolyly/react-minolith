@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Container.module.scss";
 import ContainerProps from "./ContainerProps";
 
-export default function Container(props: ContainerProps): React.ReactElement {
+export default function Container(props: ContainerProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isFluid"];
   delete assignedProps["gutter"];

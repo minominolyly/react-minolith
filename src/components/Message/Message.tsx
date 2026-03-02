@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Message.module.scss";
 import MessageProps from "./MessageProps";
 
-export default function Message(props: MessageProps): React.ReactElement {
+export default function Message(props: MessageProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["as"];
@@ -35,6 +35,7 @@ export default function Message(props: MessageProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+
   return props.as ? (
     <props.as
       {...assignedProps}

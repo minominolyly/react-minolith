@@ -1,23 +1,18 @@
 "use client";
-import { useInsertionEffect, useMemo } from "react";
+
+import { ReactElement, useInsertionEffect, useMemo } from "react";
 import minolithStyleUtility from "../../utilities/minolithStyleUtility";
-import Tabula from "../Tabula";
-import "./MinolithStatic.scss";
-import MinolithStaticProps from "./MinolithStaticProps";
+import MinolithClientCustomCssVariablesProviderProps from "./MinolithClientCustomCssVariablesProviderProps";
 
-/** @deprecated please use Minolith */
-export default function MinolithStatic(
-  props: MinolithStaticProps
-): React.ReactElement {
-  const assignedProps = { ...props };
-  delete assignedProps["cssVariableSetting"];
-
+export default function MinolithClientCustomCssVariablesProvider(
+  props: MinolithClientCustomCssVariablesProviderProps,
+): ReactElement {
   const minolithStyles = useMemo(
     () =>
       minolithStyleUtility.getMinolithCssVariableStyles(
-        props.cssVariableSetting
+        props.minolithCssVariables,
       ),
-    [props.cssVariableSetting]
+    [props.minolithCssVariables],
   );
 
   useInsertionEffect(() => {
@@ -49,5 +44,5 @@ export default function MinolithStatic(
     }
   }, [minolithStyles]);
 
-  return <Tabula {...assignedProps} />;
+  return <>{props.children}</>;
 }

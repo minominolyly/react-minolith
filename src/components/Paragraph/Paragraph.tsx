@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Paragraph.module.scss";
 import ParagraphProps from "./ParagraphProps";
 
-export default function Paragraph(props: ParagraphProps): React.ReactElement {
+export default function Paragraph(props: ParagraphProps): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -30,7 +30,14 @@ export default function Paragraph(props: ParagraphProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
-  return (
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <p {...assignedProps} className={assignedClassNames.join(" ")} css={css} />
   );
 }

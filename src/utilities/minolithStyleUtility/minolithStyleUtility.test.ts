@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import minolithStyleUtility from "./minolithStyleUtility";
-import { MinolithCssVariable } from "../../react-minolith";
+import { MinolithCssVariables } from "../../react-minolith";
 
 const colors: string[] = [
   "gray",
@@ -20,7 +20,7 @@ colors.forEach((color) => {
   for (let i = 19; i >= 1; i--) {
     const gradation = i * 5;
     test(`change color ${color}[${gradation}]`, () => {
-      const cssVariables: MinolithCssVariable = {
+      const cssVariables: MinolithCssVariables = {
         color: {
           [color]: {
             [gradation]: {
@@ -42,7 +42,7 @@ colors.forEach((color) => {
 });
 
 test("change color light accordion-summary fore.", () => {
-  const cssVariables: MinolithCssVariable = {
+  const cssVariables: MinolithCssVariables = {
     color: {
       light: {
         components: {
@@ -69,7 +69,7 @@ test("change color light accordion-summary fore.", () => {
 });
 
 test("change color dark accordion-summary fore.", () => {
-  const cssVariables: MinolithCssVariable = {
+  const cssVariables: MinolithCssVariables = {
     color: {
       dark: {
         components: {
@@ -95,7 +95,7 @@ test("change color dark accordion-summary fore.", () => {
 });
 
 test("change color light loader fore.", () => {
-  const cssVariables: MinolithCssVariable = {
+  const cssVariables: MinolithCssVariables = {
     color: {
       light: {
         components: {
@@ -120,7 +120,7 @@ test("change color light loader fore.", () => {
 });
 
 test("change color dark loader fore.", () => {
-  const cssVariables: MinolithCssVariable = {
+  const cssVariables: MinolithCssVariables = {
     color: {
       dark: {
         components: {

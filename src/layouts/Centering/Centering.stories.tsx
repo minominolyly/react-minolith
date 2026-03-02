@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Centering from "./Centering";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import { Div } from "../../components/Div";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
@@ -19,10 +19,10 @@ type Story = StoryObj<typeof meta>;
 export const Plain: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Centering {...props}>
         <Div>{"Centering"}</Div>
       </Centering>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

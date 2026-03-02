@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
@@ -7,8 +7,8 @@ import classNames from "./AccordionDetails.module.scss";
 import AccordionDetailsProps from "./AccordionDetailsProps";
 
 export default function AccordionDetails(
-  props: AccordionDetailsProps
-): React.ReactElement {
+  props: AccordionDetailsProps,
+): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps

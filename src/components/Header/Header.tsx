@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Header.module.scss";
 import HeaderProps from "./HeaderProps";
 
-export default function Header(props: HeaderProps): React.ReactElement {
+export default function Header(props: HeaderProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["isSticky"];
@@ -42,7 +42,14 @@ export default function Header(props: HeaderProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
-  return (
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <header
       {...assignedProps}
       className={assignedClassNames.join(" ")}

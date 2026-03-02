@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Message from "./Message";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import MessageHeader from "../MessageHeader";
 import MessageBody from "../MessageBody";
 
@@ -19,12 +19,12 @@ export const Plain: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Message {...props}>
         <MessageHeader>{"Header"}</MessageHeader>
         <MessageBody>{"Body"}</MessageBody>
       </Message>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const BodyOnly: Story = {
@@ -32,10 +32,10 @@ export const BodyOnly: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Message {...props}>
         <MessageBody>{"Body"}</MessageBody>
       </Message>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

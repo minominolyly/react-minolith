@@ -1,12 +1,8 @@
-import React from "react";
 import { BorderStyle, BorderWidth, ColorName } from "../../types";
 import DivProps from "../Div/DivProps";
 
 export default interface DialogueProps extends DivProps {
   colorName?: ColorName;
-  as?: React.ElementType | undefined;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
   avatarSize?: "large" | "small";
   borderStyle?: BorderStyle;
   borderWidth?: BorderWidth;

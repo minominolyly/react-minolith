@@ -1,10 +1,12 @@
 import ComponentSchemeColor from "./ComponentSchemeColor";
 
 export default interface SchemeColorComponents {
-  accordion?: ComponentSchemeColor & {
-    accordionSummary?: ComponentSchemeColor | undefined;
-    accordionDetails?: ComponentSchemeColor | undefined;
-  } | undefined;
+  accordion?:
+    | (ComponentSchemeColor & {
+        accordionSummary?: ComponentSchemeColor | undefined;
+        accordionDetails?: ComponentSchemeColor | undefined;
+      })
+    | undefined;
   badge?: ComponentSchemeColor | undefined;
   button?: ComponentSchemeColor | undefined;
   card?: ComponentSchemeColor & {

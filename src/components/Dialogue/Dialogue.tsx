@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Dialogue.module.scss";
 import DialogueProps from "./DialogueProps";
 
-export default function Dialogue(props: DialogueProps): React.ReactElement {
+export default function Dialogue(props: DialogueProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   delete assignedProps["colorName"];
@@ -59,6 +59,7 @@ export default function Dialogue(props: DialogueProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+
   return props.as ? (
     <props.as
       {...assignedProps}

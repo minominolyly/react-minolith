@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Heading.module.scss";
 import HeadingProps from "./HeadingProps";
 
-export default function Heading(props: HeadingProps): React.ReactElement {
+export default function Heading(props: HeadingProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["level"];
   //#region BaseComponentProps
@@ -32,6 +32,15 @@ export default function Heading(props: HeadingProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+
+  if (props.as) {
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />;
+  }
+
   if (level) {
     switch (level) {
       case 1:
@@ -84,6 +93,7 @@ export default function Heading(props: HeadingProps): React.ReactElement {
         );
     }
   }
+
   return (
     <h1 {...assignedProps} className={assignedClassNames.join(" ")} css={css} />
   );

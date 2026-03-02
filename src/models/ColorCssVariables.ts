@@ -1,7 +1,7 @@
 import Gradation from "./Gradation";
 import SchemeColor from "./SchemeColor";
 
-export default interface ColorCssVariable {
+export default interface ColorCssVariables {
   gray?: Gradation | undefined;
   red?: Gradation | undefined;
   coral?: Gradation | undefined;

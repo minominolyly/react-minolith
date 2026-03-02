@@ -1,6 +1,6 @@
-import { FontSize } from "../literalTypes";
+import { FontSize } from "../types";
 
-export default interface ComponentsCssVariable {
+export default interface ComponentCssVariables {
   breadcrumbs?: {
     breadcrumbDivider?: string;
   };

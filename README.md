@@ -40,7 +40,7 @@ import {
   Header,
   Heading,
   Main,
-  MinolithStatic,
+  Minolith,
   Nav,
   NavAccordion,
   NavBrand,
@@ -57,7 +57,7 @@ export default function HelloWorldPage() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
   const [isActive, setIsActive] = useState<boolean>(false);
   return (
-    <MinolithStatic colorScheme={colorScheme}>
+    <Minolith colorScheme={colorScheme}>
       <Header>
         <Nav>
           <NavAccordion>
@@ -110,7 +110,7 @@ export default function HelloWorldPage() {
       <Footer>
         <Container>{"©anonymous"}</Container>
       </Footer>
-    </MinolithStatic>
+    </Minolith>
   );
 }
 ```

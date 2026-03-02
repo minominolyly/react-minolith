@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Input from "./Input";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Input",
@@ -21,9 +21,9 @@ export const PlainText: Story = {
     type: "text",
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Input {...props} />
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const PlainCheckbox: Story = {
@@ -32,9 +32,9 @@ export const PlainCheckbox: Story = {
     type: "checkbox",
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Input {...props} />
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const PlainRadio: Story = {
@@ -43,9 +43,9 @@ export const PlainRadio: Story = {
     type: "radio",
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Input {...props} />
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const PlainColor: Story = {
@@ -54,8 +54,8 @@ export const PlainColor: Story = {
     type: "color",
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Input {...props} />
-    </MinolithStatic>
+    </Minolith>
   ),
 };

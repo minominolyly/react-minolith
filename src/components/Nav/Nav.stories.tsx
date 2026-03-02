@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Nav from "./Nav";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import NavBrand from "../NavBrand";
 import NavMenu from "../NavMenu";
 import NavBrandLeft from "../NavBrandLeft";
@@ -36,7 +36,7 @@ const navMenuItems = (
 export const Plain: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Nav {...props}>
         <NavAccordion isSmallOrLess>
           <NavBrand>
@@ -57,6 +57,6 @@ export const Plain: Story = {
           <NavMenu>{navMenuItems}</NavMenu>
         </NavStatic>
       </Nav>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

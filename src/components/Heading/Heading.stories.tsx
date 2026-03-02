@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Heading from "./Heading";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Heading",
@@ -16,9 +16,9 @@ export const Level1: Story = {
     level: 1,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Heading {...props}>{"Level 1"}</Heading>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const Level2: Story = {
@@ -26,9 +26,9 @@ export const Level2: Story = {
     level: 2,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Heading {...props}>{"Level 2"}</Heading>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const Level3: Story = {
@@ -36,9 +36,9 @@ export const Level3: Story = {
     level: 3,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Heading {...props}>{"Level 3"}</Heading>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const Level4: Story = {
@@ -46,9 +46,9 @@ export const Level4: Story = {
     level: 4,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Heading {...props}>{"Level 4"}</Heading>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const Level5: Story = {
@@ -56,9 +56,9 @@ export const Level5: Story = {
     level: 5,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Heading {...props}>{"Level 5"}</Heading>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const Level6: Story = {
@@ -66,8 +66,8 @@ export const Level6: Story = {
     level: 6,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Heading {...props}>{"Level 6"}</Heading>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./CardHeader.module.scss";
 import CardHeaderProps from "./CardHeaderProps";
 
-export default function CardHeader(props: CardHeaderProps): React.ReactElement {
+export default function CardHeader(props: CardHeaderProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["as"];
   //#region BaseComponentProps
@@ -31,6 +31,7 @@ export default function CardHeader(props: CardHeaderProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+
   return props.as ? (
     <props.as
       {...assignedProps}

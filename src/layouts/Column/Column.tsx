@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import ColumnProps from "./ColumnProps";
 import classNames from "./Column.module.scss";
 
-export default function Column(props: ColumnProps): React.ReactElement {
+export default function Column(props: ColumnProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isFull"];
   delete assignedProps["size"];

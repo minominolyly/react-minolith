@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Dot from "./Dot";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -20,11 +20,11 @@ export const LightPlain: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic colorScheme="light">
+    <Minolith colorScheme="light">
       <Dot {...props} sizing={{ aspectRatio: "16:9" }}>
         <span>{"Plain"}</span>
       </Dot>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 
@@ -33,10 +33,10 @@ export const DarkPlain: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic colorScheme="dark">
+    <Minolith colorScheme="dark">
       <Dot {...props} sizing={{ aspectRatio: "16:9" }}>
         <span>{"Plain"}</span>
       </Dot>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

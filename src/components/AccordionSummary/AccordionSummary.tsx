@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
@@ -7,8 +7,8 @@ import AccordionSummaryProps from "./AccordionSummaryProps";
 import classNames from "./AccordionSummary.module.scss";
 
 export default function AccordionSummary(
-  props: AccordionSummaryProps
-): React.ReactElement {
+  props: AccordionSummaryProps,
+): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -32,7 +32,14 @@ export default function AccordionSummary(
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
-  return (
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <summary
       {...assignedProps}
       className={assignedClassNames.join(" ")}

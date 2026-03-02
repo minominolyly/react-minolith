@@ -1,16 +1,17 @@
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { BaseComponentProps } from "../../models";
-import React from "react";
-import { ColorName } from "../../react-minolith";
+import { ColorName } from "../../types";
 
 export default interface BlockquoteProps
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLQuoteElement>,
-    HTMLQuoteElement
-  >, BaseComponentProps {
+  extends
+    DetailedHTMLProps<HTMLAttributes<HTMLQuoteElement>, HTMLQuoteElement>,
+    BaseComponentProps {
   colorName?: ColorName;
   isItalic?: boolean;
-  hasQuote?: boolean | {
-    before?: boolean;
-    after?: boolean;
-  };
+  hasQuote?:
+    | boolean
+    | {
+        before?: boolean;
+        after?: boolean;
+      };
 }

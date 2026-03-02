@@ -1,11 +1,9 @@
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { BaseComponentProps } from "../../models";
-import React from "react";
 
 export default interface HeadingProps
-  extends React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLHeadingElement>,
-      HTMLHeadingElement
-    >,
+  extends
+    DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>,
     BaseComponentProps {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
 }

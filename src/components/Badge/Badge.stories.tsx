@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Badge from "./Badge";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Badge",
@@ -21,10 +21,10 @@ export const Plain: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Badge {...props}>
         <span>{"Plain"}</span>
       </Badge>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

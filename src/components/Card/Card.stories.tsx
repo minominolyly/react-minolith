@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import Card from "./Card";
 import CardBody from "../CardBody";
 import CardFooter from "../CardFooter";
@@ -19,12 +19,12 @@ export const Plain: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Card {...props}>
         <CardHeader>{"Title"}</CardHeader>
         <CardBody>{"Body"}</CardBody>
         <CardFooter>{"Footer"}</CardFooter>
       </Card>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

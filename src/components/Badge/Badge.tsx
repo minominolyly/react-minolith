@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Badge.module.scss";
 import BadgeProps from "./BadgeProps";
 
-export default function Badge(props: BadgeProps): React.ReactElement {
+export default function Badge(props: BadgeProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["isSmall"];
@@ -46,6 +46,7 @@ export default function Badge(props: BadgeProps): React.ReactElement {
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+
   return props.as ? (
     <props.as
       {...assignedProps}

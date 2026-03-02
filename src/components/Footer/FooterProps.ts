@@ -1,12 +1,10 @@
-import { ColorName } from "../../types";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { BaseComponentProps } from "../../models";
-import React from "react";
+import { ColorName } from "../../types";
 
 export default interface FooterProps
-  extends React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLElement>,
-      HTMLElement
-    >,
+  extends
+    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>,
     BaseComponentProps {
   colorName?: ColorName;
 }

@@ -74,9 +74,9 @@
       "types": "./dist/base/Minolith/index.d.ts",
       "import": "./dist/base/Minolith/index.js"
     },
-    "./base/MinolithStatic": {
-      "types": "./dist/base/MinolithStatic/index.d.ts",
-      "import": "./dist/base/MinolithStatic/index.js"
+    "./base/MinolithClientCustomCssVariablesProvider": {
+      "types": "./dist/base/MinolithClientCustomCssVariablesProvider/index.d.ts",
+      "import": "./dist/base/MinolithClientCustomCssVariablesProvider/index.js"
     },
     "./base/Tabula": {
       "types": "./dist/base/Tabula/index.d.ts",
@@ -361,6 +361,7 @@
     "@emotion/babel-preset-css-prop": "^11.12.0",
     "@emotion/react": "^11.14.0",
     "@storybook/addon-docs": "^10.2.0",
+    "@storybook/addon-vitest": "^10.2.13",
     "@storybook/react-vite": "^10.2.0",
     "@types/node": "^25.0.9",
     "@types/react": "^19.2.9",
@@ -384,7 +385,10 @@
     "vite": "^7.3.1",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.17",
+    "playwright": "^1.58.2",
+    "@vitest/browser-playwright": "^4.0.17",
+    "@vitest/coverage-v8": "^4.0.17"
   },
   "overrides": {
     "storybook": "$storybook"

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Progress from "./Progress";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Progress",
@@ -17,9 +17,9 @@ export const LightPlain: Story = {
     percentage: 50,
   },
   render: (props) => (
-    <MinolithStatic colorScheme="light">
+    <Minolith colorScheme="light">
       <Progress {...props} />
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const DarkPlain: Story = {
@@ -28,8 +28,8 @@ export const DarkPlain: Story = {
     percentage: 50,
   },
   render: (props) => (
-    <MinolithStatic colorScheme="dark">
+    <Minolith colorScheme="dark">
       <Progress {...props} />
-    </MinolithStatic>
+    </Minolith>
   ),
 };

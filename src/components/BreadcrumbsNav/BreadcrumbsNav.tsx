@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
@@ -7,8 +7,8 @@ import classNames from "./BreadcrumbsNav.module.scss";
 import BreadcrumbsNavProps from "./BreadcrumbsNavProps";
 
 export default function BreadcrumbsNav(
-  props: BreadcrumbsNavProps
-): React.ReactElement {
+  props: BreadcrumbsNavProps,
+): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -32,7 +32,15 @@ export default function BreadcrumbsNav(
   const colorScheme = useContext(MinolithColorSchemeContext);
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
-  return (
+
+  return props.as ? (
+    <props.as
+      aria-label="breadcrumb"
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <nav
       aria-label="breadcrumb"
       {...assignedProps}

@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Dialogue from "./Dialogue";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import DialogueAvatarContainer from "../DialogueAvatarContainer";
 import DialogueContentContainer from "../DialogueContentContainer";
 import DialogueMessage from "../DialogueMessage";
 import DialogueName from "../DialogueName/DialogueName";
 import DialogueAvatar from "../DialogueAvatar";
 import DialogueMessageInner from "../DialogueMessageInner";
-import { MinolithCssVariable } from "../../models";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
   title: "Components/Dialogue",
@@ -17,18 +16,12 @@ const meta = {
 } satisfies Meta<typeof Dialogue>;
 export default meta;
 type Story = StoryObj<typeof meta>;
-const minolithCssVariable: MinolithCssVariable = {
-  components: {
-    dialogue: {
-      avatarTopOffset: "0rem",
-    },
-  },
-};
+
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Plain: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic cssVariableSetting={minolithCssVariable}>
+    <Minolith>
       <Dialogue {...props}>
         <DialogueAvatarContainer>
           <DialogueAvatar
@@ -47,7 +40,7 @@ export const Plain: Story = {
           </DialogueMessage>
         </DialogueContentContainer>
       </Dialogue>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 export const IsRight: Story = {
@@ -55,7 +48,7 @@ export const IsRight: Story = {
     isRight: true,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Dialogue {...props}>
         <DialogueContentContainer>
           <DialogueName>{"Name"}</DialogueName>
@@ -74,6 +67,6 @@ export const IsRight: Story = {
           />
         </DialogueAvatarContainer>
       </Dialogue>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

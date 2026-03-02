@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import Breadcrumbs from "./Breadcrumbs";
 import Breadcrumb from "../Breadcrumb";
 import BreadcrumbsNav from "../BreadcrumbsNav";
@@ -18,7 +18,7 @@ export const Plain: Story = {
     colorName: undefined,
   },
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <BreadcrumbsNav>
         <Breadcrumbs {...props}>
           <Breadcrumb>{"Item 1"}</Breadcrumb>
@@ -26,6 +26,6 @@ export const Plain: Story = {
           <Breadcrumb>{"Item 3"}</Breadcrumb>
         </Breadcrumbs>
       </BreadcrumbsNav>
-    </MinolithStatic>
+    </Minolith>
   ),
 };

@@ -1,10 +1,11 @@
-import { ColorName } from "../../types";
+import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import { BaseComponentProps } from "../../models";
-import React from "react";
+import { ColorName } from "../../types";
 
 export default interface ButtonProps
-  extends React.DetailedHTMLProps<
-      React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    DetailedHTMLProps<
+      ButtonHTMLAttributes<HTMLButtonElement>,
       HTMLButtonElement
     >,
     BaseComponentProps {

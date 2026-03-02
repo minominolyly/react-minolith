@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Accordion from "./Accordion";
-import MinolithStatic from "../../base/MinolithStatic";
+import Minolith from "../../base/Minolith";
 import AccordionSummary from "../AccordionSummary";
 import AccordionDetails from "../AccordionDetails";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
@@ -16,12 +16,12 @@ type Story = StoryObj<typeof meta>;
 export const Plain: Story = {
   args: {},
   render: (props) => (
-    <MinolithStatic>
+    <Minolith>
       <Accordion {...props}>
         <AccordionSummary>{"AccordionSummary"}</AccordionSummary>
         <AccordionDetails>{"AccordionDetails"}</AccordionDetails>
       </Accordion>
-    </MinolithStatic>
+    </Minolith>
   ),
 };
 

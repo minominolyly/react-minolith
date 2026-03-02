@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { ReactElement, useContext } from "react";
 import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
@@ -7,7 +7,7 @@ import classNames from "./Ruby.module.scss";
 import RubyProps from "./RubyProps";
 import RubyText from "../RubyText";
 
-export default function Ruby(props: RubyProps): React.ReactElement {
+export default function Ruby(props: RubyProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["rubyText"];
   //#region BaseComponentProps
@@ -39,14 +39,29 @@ export default function Ruby(props: RubyProps): React.ReactElement {
 
   if (props.rubyText) {
     assignedRubyTextClassNames.push(
-      ...classNameUtility.getUtilityClassNames(props)
+      ...classNameUtility.getUtilityClassNames(props),
     );
     if (props.className) {
       assignedRubyTextClassNames.push(props.className);
     }
   }
 
-  return (
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    >
+      {props.children}
+      {props.rubyText ? (
+        <RubyText className={assignedRubyTextClassNames.join(" ")}>
+          {props.rubyText}
+        </RubyText>
+      ) : (
+        <></>
+      )}
+    </props.as>
+  ) : (
     <ruby {...assignedProps} className={assignedClassNames.join(" ")} css={css}>
       {props.children}
       {props.rubyText ? (
