@@ -19,6 +19,7 @@ export default function Gingham(props: GinghamProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["gingham"]];

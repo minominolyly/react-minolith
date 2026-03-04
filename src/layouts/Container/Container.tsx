@@ -19,6 +19,7 @@ export default function Container(props: ContainerProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
 
   const assignedClassNames: string[] = [classNames["container"]];

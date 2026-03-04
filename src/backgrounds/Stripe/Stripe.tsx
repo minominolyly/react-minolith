@@ -19,6 +19,7 @@ export default function Stripe(props: StripeProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["stripe"]];

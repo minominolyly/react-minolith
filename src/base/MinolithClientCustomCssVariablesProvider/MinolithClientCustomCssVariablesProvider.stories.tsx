@@ -84,6 +84,13 @@ const colorRed: ColorInfo = {
   hue: 0,
   chroma: colorChromaColorful,
 };
+
+const colorCoral: ColorInfo = {
+  name: "coral",
+  hue: 25,
+  chroma: colorChromaColorful,
+};
+
 const colorOrange: ColorInfo = {
   name: "orange",
   hue: 50,
@@ -93,6 +100,12 @@ const colorOrange: ColorInfo = {
 const colorYellow: ColorInfo = {
   name: "yellow",
   hue: 100,
+  chroma: colorChromaColorful,
+};
+
+const colorLime: ColorInfo = {
+  name: "lime",
+  hue: 115,
   chroma: colorChromaColorful,
 };
 
@@ -169,13 +182,28 @@ function genMinolithCssVariables(): MinolithCssVariables {
     color: {
       gray: getColorVar(colorGray),
       red: getColorVar(colorRed),
+      coral: getColorVar(colorCoral),
       orange: getColorVar(colorOrange),
       yellow: getColorVar(colorYellow),
+      lime: getColorVar(colorLime),
       green: getColorVar(colorGreen),
       cyan: getColorVar(colorCyan),
       blue: getColorVar(colorBlue),
       violet: getColorVar(colorViolet),
       magenta: getColorVar(colorMagenta),
+      schemeColor: {
+        default: {
+          default: {
+            fore: {
+              light: "var(--minolith-color-cyan-50)",
+              dark: {
+                name: "red",
+                lightness: 50,
+              },
+            }
+          }
+        }
+      }
     },
   };
 }

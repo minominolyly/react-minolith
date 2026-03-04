@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
-  babel: (options) => {
+  babel: (options: any) => {
     return {
       ...options,
       presets: [...options.presets, "@emotion/babel-preset-css-prop"],

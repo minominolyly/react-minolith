@@ -7,6 +7,7 @@ export type { default as ComponentSchemeColor } from "./ComponentSchemeColor";
 export type { default as ComponentsCssVariables } from "./ComponentCssVariables";
 export type { default as ComponentStatePseudoClass } from "./ComponentStatePseudoClass";
 export type { default as Gradation } from "./Gradation";
+export type { default as LightDarkColor } from "./LightDarkColor";
 export type { default as MinolithCssVariables } from "./MinolithCssVariables";
 export type { default as MiscellaneousCssVariables } from "./MiscellaneousCssVariables";
 export type { default as Oklch } from "./Oklch";

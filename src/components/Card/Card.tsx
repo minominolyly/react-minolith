@@ -8,7 +8,6 @@ import CardProps from "./CardProps";
 
 export default function Card(props: CardProps): ReactElement {
   const assignedProps = { ...props };
-  delete assignedProps["as"];
   delete assignedProps["colorName"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -19,6 +18,7 @@ export default function Card(props: CardProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["card"]];
 

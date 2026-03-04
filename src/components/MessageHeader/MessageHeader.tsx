@@ -10,7 +10,6 @@ export default function MessageHeader(
   props: MessageHeaderProps
 ): ReactElement {
   const assignedProps = { ...props };
-  delete assignedProps["as"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -20,6 +19,7 @@ export default function MessageHeader(
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["message-header"]];
 

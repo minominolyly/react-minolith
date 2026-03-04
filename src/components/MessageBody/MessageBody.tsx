@@ -10,7 +10,6 @@ export default function MessageBody(
   props: MessageBodyProps
 ): ReactElement {
   const assignedProps = { ...props };
-  delete assignedProps["as"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -20,6 +19,7 @@ export default function MessageBody(
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["message-body"]];
 

@@ -18,6 +18,7 @@ export default function Heading(props: HeadingProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const level = props.level;
   const assignedClassNames: string[] = [classNames[`heading-${props.level}`]];

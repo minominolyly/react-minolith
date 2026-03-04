@@ -8,7 +8,6 @@ import DialogueProps from "./DialogueProps";
 
 export default function Dialogue(props: DialogueProps): ReactElement {
   const assignedProps = { ...props };
-  delete assignedProps["as"];
   delete assignedProps["colorName"];
   delete assignedProps["avatarSize"];
   delete assignedProps["borderStyle"];
@@ -24,6 +23,7 @@ export default function Dialogue(props: DialogueProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["dialogue"]];
 

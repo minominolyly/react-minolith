@@ -8,7 +8,6 @@ import CardFooterProps from "./CardFooterProps";
 
 export default function CardFooter(props: CardFooterProps): ReactElement {
   const assignedProps = { ...props };
-  delete assignedProps["as"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -18,6 +17,7 @@ export default function CardFooter(props: CardFooterProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["card-footer"]];
 

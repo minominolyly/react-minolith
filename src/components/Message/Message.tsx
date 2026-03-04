@@ -9,7 +9,6 @@ import MessageProps from "./MessageProps";
 export default function Message(props: MessageProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
-  delete assignedProps["as"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -19,6 +18,7 @@ export default function Message(props: MessageProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["message"]];
   if (props.colorName) {

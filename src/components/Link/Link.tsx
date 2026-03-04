@@ -8,7 +8,6 @@ import LinkProps from "./LinkProps";
 
 export default function Link(props: LinkProps): ReactElement {
   const assignedProps = { ...props };
-  delete assignedProps["as"];
   delete assignedProps["colorName"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -19,6 +18,7 @@ export default function Link(props: LinkProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["link"]];
 

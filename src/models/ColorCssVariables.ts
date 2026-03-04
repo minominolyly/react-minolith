@@ -13,6 +13,5 @@ export default interface ColorCssVariables {
   blue?: Gradation | undefined;
   violet?: Gradation | undefined;
   magenta?: Gradation | undefined;
-  light?: SchemeColor | undefined;
-  dark?: SchemeColor | undefined;
+  schemeColor?: SchemeColor | undefined;
 }

@@ -1,7 +1,9 @@
+import LightDarkColor from "./LightDarkColor";
+
 export default interface ComponentPart {
-  fore?: string | undefined;
-  back?: string | undefined;
-  border?: string | undefined;
-  shadow?: string | undefined;
-  placeholder?: string | undefined;
+  fore?: LightDarkColor | undefined;
+  back?: LightDarkColor | undefined;
+  border?: LightDarkColor | undefined;
+  shadow?: LightDarkColor | undefined;
+  placeholder?: LightDarkColor | undefined;
 }

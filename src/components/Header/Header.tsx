@@ -20,6 +20,7 @@ export default function Header(props: HeaderProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["header"]];
   if (props.colorName) {

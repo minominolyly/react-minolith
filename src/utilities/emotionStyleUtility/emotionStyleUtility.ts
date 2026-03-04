@@ -79,9 +79,9 @@ function getColorVariable<ColorNameType = ColorName>(
   }
 
   if (colorAttributes.alpha) {
-    return `oklch(var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+    return `oklch(from var(--${cssVariablePrefix}color-${colorAttributes.name}-${
       colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
-    }-oklch) / ${colorAttributes.alpha}) !important`;
+    }) l c h / ${colorAttributes.alpha}) !important`;
   }
 
   return `var(--${cssVariablePrefix}color-${colorAttributes.name}-${
@@ -107,9 +107,9 @@ function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
   if (colorAttributes.alpha) {
     return `linear-gradient(
     transparent 66.66%,
-    oklch(var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+    oklch(from var(--${cssVariablePrefix}color-${colorAttributes.name}-${
       colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
-    }-oklch) / ${colorAttributes.alpha}) 33.33%)`;
+    }) l c h / ${colorAttributes.alpha}) 33.33%)`;
   }
 
   return `linear-gradient(

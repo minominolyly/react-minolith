@@ -9,7 +9,6 @@ import TabulaProps from "./TabulaProps";
 export default function Tabula(props: TabulaProps): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorScheme"];
-  delete assignedProps["as"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -19,6 +18,7 @@ export default function Tabula(props: TabulaProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["tabula"]];

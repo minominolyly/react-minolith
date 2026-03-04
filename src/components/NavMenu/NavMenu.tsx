@@ -18,6 +18,7 @@ export default function NavMenu(props: NavMenuProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["nav-menu"]];
 

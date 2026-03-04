@@ -2,6 +2,7 @@ import MinolithCssVariables from "../../models/MinolithCssVariables";
 import {
   ComponentPart,
   ComponentStatePseudoClass,
+  LightDarkColor,
   Oklch,
 } from "../../models";
 import ComponentColor from "../../models/ComponentSchemeColor";
@@ -28,66 +29,61 @@ function getComponentColorVariables(
   colorName: string,
   componentPart?: ComponentPart,
   componentStateName?: string,
-  elementName?: string
+  elementName?: string,
 ): string[] {
   const styles: string[] = [];
 
   if (componentPart) {
-    if (componentPart.fore) {
-      styles.push(
-        `--${cssVariablePrefix}color-${colorName}${
+    const addStyle = (
+      elementPart: LightDarkColor | undefined,
+      elementPartName: string,
+    ) => {
+      if (elementPart) {
+        const cssVariable = `--${cssVariablePrefix}color-${colorName}${
           componentStateName ? `-${componentStateName}` : ""
-        }${elementName ? `-${elementName}` : ""}-fore: ${
-          componentPart.fore.startsWith("--")
-            ? `var(${componentPart.fore});`
-            : `${componentPart.fore};`
-        }`
-      );
-    }
-    if (componentPart.back) {
-      styles.push(
-        `--${cssVariablePrefix}color-${colorName}${
-          componentStateName ? `-${componentStateName}` : ""
-        }${elementName ? `-${elementName}` : ""}-back: ${
-          componentPart.back.startsWith("--")
-            ? `var(${componentPart.back});`
-            : `${componentPart.back};`
-        }`
-      );
-    }
-    if (componentPart.border) {
-      styles.push(
-        `--${cssVariablePrefix}color-${colorName}${
-          componentStateName ? `-${componentStateName}` : ""
-        }${elementName ? `-${elementName}` : ""}-border: ${
-          componentPart.border.startsWith("--")
-            ? `var(${componentPart.border});`
-            : `${componentPart.border};`
-        }`
-      );
-    }
-    if (componentPart.shadow) {
-      styles.push(
-        `--${cssVariablePrefix}color-${colorName}${
-          componentStateName ? `-${componentStateName}` : ""
-        }${elementName ? `-${elementName}` : ""}-shadow: ${
-          componentPart.shadow.startsWith("--")
-            ? `var(${componentPart.shadow});`
-            : `${componentPart.shadow};`
-        }`
-      );
-    }
-    if (componentPart.placeholder) {
-      styles.push(
-        `--${cssVariablePrefix}color-${colorName}${
-          componentStateName ? `-${componentStateName}` : ""
-        }${elementName ? `-${elementName}` : ""}-placeholder: ${
-          componentPart.placeholder.startsWith("--")
-            ? `var(${componentPart.placeholder});`
-            : `${componentPart.placeholder};`
-        }`
-      );
-    }
+        }${elementName ? `-${elementName}` : ""}-${elementPartName}`;
+
+        let light: string = "";
+        if (typeof elementPart.light === "string") {
+          light = `${
+            elementPart.light.startsWith("--")
+              ? `var(${elementPart.light})`
+              : `${elementPart.light}`
+          }`;
+        } else {
+          const lightCssVariable = `var(--${cssVariablePrefix}color-${elementPart.light.name}-${elementPart.light.lightness === 5 ? "05" : elementPart.light.lightness})`;
+          if (elementPart.light.alpha) {
+            light = `oklch(from ${lightCssVariable} l c h / ${elementPart.light.alpha})`;
+          } else {
+            light = lightCssVariable;
+          }
+        }
+
+        let dark: string = "";
+        if (typeof elementPart.dark === "string") {
+          dark = `${
+            elementPart.dark.startsWith("--")
+              ? `var(${elementPart.dark})`
+              : `${elementPart.dark}`
+          }`;
+        } else {
+          const darkCssVariable = `var(--${cssVariablePrefix}color-${elementPart.dark.name}-${elementPart.dark.lightness === 5 ? "05" : elementPart.dark.lightness})`;
+          if (elementPart.dark.alpha) {
+            dark = `oklch(from ${darkCssVariable} l c h / ${elementPart.dark.alpha})`;
+          } else {
+            dark = darkCssVariable;
+          }
+        }
+
+        styles.push(`${cssVariable}: light-dark(${light}, ${dark});`);
+      }
+    };
+
+    addStyle(componentPart.fore, "fore");
+    addStyle(componentPart.back, "back");
+    addStyle(componentPart.border, "border");
+    addStyle(componentPart.shadow, "shadow");
+    addStyle(componentPart.placeholder, "placeholder");
   }
   return styles;
 }
@@ -95,7 +91,7 @@ function getComponentColorVariables(
 function getColorVariables(
   colorName: string,
   componentState: ComponentStatePseudoClass,
-  elementName?: string
+  elementName?: string,
 ) {
   const derives: string[] = [];
   if (componentState.default) {
@@ -103,7 +99,7 @@ function getColorVariables(
       colorName,
       componentState.default,
       undefined,
-      elementName
+      elementName,
     );
     if (styles.length > 0) {
       derives.push(...styles);
@@ -115,7 +111,7 @@ function getColorVariables(
       colorName,
       componentState.hover,
       "hover",
-      elementName
+      elementName,
     );
     if (styles.length > 0) {
       derives.push(...styles);
@@ -127,7 +123,7 @@ function getColorVariables(
       colorName,
       componentState.focus,
       "focus",
-      elementName
+      elementName,
     );
     if (styles.length > 0) {
       derives.push(...styles);
@@ -139,7 +135,7 @@ function getColorVariables(
       colorName,
       componentState.active,
       "active",
-      elementName
+      elementName,
     );
     if (styles.length > 0) {
       derives.push(...styles);
@@ -151,7 +147,7 @@ function getColorVariables(
       colorName,
       componentState.disabled,
       "disabled",
-      elementName
+      elementName,
     );
     if (styles.length > 0) {
       derives.push(...styles);
@@ -163,14 +159,14 @@ function getColorVariables(
 
 function getComponentColorStyles(
   component: ComponentColor,
-  componentName: string
+  componentName: string,
 ): string[] {
   const schemeStyles: string[] = [];
   if (component.default) {
     const styles = getColorVariables(
       "default",
       component.default,
-      componentName
+      componentName,
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -182,7 +178,7 @@ function getComponentColorStyles(
       const styles = getColorVariables(
         colorName,
         component[colorName],
-        componentName
+        componentName,
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -194,14 +190,14 @@ function getComponentColorStyles(
 }
 
 function getSchemeColorComponentsStyles(
-  schemeColorComponents: SchemeColorComponents
+  schemeColorComponents: SchemeColorComponents,
 ) {
   const schemeStyles: string[] = [];
 
   if (schemeColorComponents.badge) {
     const styles = getComponentColorStyles(
       schemeColorComponents.badge,
-      "badge"
+      "badge",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -211,7 +207,7 @@ function getSchemeColorComponentsStyles(
   if (schemeColorComponents.accordion) {
     const styles = getComponentColorStyles(
       schemeColorComponents.accordion,
-      "accordion"
+      "accordion",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -219,7 +215,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.accordion.accordionSummary) {
       const styles = getComponentColorStyles(
         schemeColorComponents.accordion.accordionSummary,
-        "accordion-summary"
+        "accordion-summary",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -228,7 +224,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.accordion.accordionDetails) {
       const styles = getComponentColorStyles(
         schemeColorComponents.accordion.accordionDetails,
-        "accordion-details"
+        "accordion-details",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -239,7 +235,7 @@ function getSchemeColorComponentsStyles(
   if (schemeColorComponents.button) {
     const styles = getComponentColorStyles(
       schemeColorComponents.button,
-      "button"
+      "button",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -254,7 +250,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.card.cardHeader) {
       const styles = getComponentColorStyles(
         schemeColorComponents.card.cardHeader,
-        "card-header"
+        "card-header",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -263,7 +259,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.card.cardBody) {
       const styles = getComponentColorStyles(
         schemeColorComponents.card.cardBody,
-        "card-body"
+        "card-body",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -272,7 +268,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.card.cardFooter) {
       const styles = getComponentColorStyles(
         schemeColorComponents.card.cardFooter,
-        "card-footer"
+        "card-footer",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -283,7 +279,7 @@ function getSchemeColorComponentsStyles(
   if (schemeColorComponents.dialogue) {
     const styles = getComponentColorStyles(
       schemeColorComponents.dialogue,
-      "dialogue"
+      "dialogue",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -291,7 +287,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.dialogue.dialogueAvatar) {
       const styles = getComponentColorStyles(
         schemeColorComponents.dialogue.dialogueAvatar,
-        "dialogue-avatar"
+        "dialogue-avatar",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -300,7 +296,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.dialogue.dialogueName) {
       const styles = getComponentColorStyles(
         schemeColorComponents.dialogue.dialogueName,
-        "dialogue-name"
+        "dialogue-name",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -309,7 +305,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.dialogue.dialogueMessage) {
       const styles = getComponentColorStyles(
         schemeColorComponents.dialogue.dialogueMessage,
-        "dialogue-message"
+        "dialogue-message",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -320,7 +316,7 @@ function getSchemeColorComponentsStyles(
   if (schemeColorComponents.header) {
     const styles = getComponentColorStyles(
       schemeColorComponents.header,
-      "header"
+      "header",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -330,7 +326,7 @@ function getSchemeColorComponentsStyles(
   if (schemeColorComponents.label) {
     const styles = getComponentColorStyles(
       schemeColorComponents.label,
-      "label"
+      "label",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -347,7 +343,7 @@ function getSchemeColorComponentsStyles(
   if (schemeColorComponents.loader) {
     const styles = getComponentColorStyles(
       schemeColorComponents.loader,
-      "loader"
+      "loader",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -357,7 +353,7 @@ function getSchemeColorComponentsStyles(
   if (schemeColorComponents.message) {
     const styles = getComponentColorStyles(
       schemeColorComponents.message,
-      "message"
+      "message",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -365,7 +361,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.message.messageHeader) {
       const styles = getComponentColorStyles(
         schemeColorComponents.message.messageHeader,
-        "message-header"
+        "message-header",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -374,7 +370,7 @@ function getSchemeColorComponentsStyles(
     if (schemeColorComponents.message.messageBody) {
       const styles = getComponentColorStyles(
         schemeColorComponents.message.messageBody,
-        "message-body"
+        "message-body",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
@@ -385,7 +381,7 @@ function getSchemeColorComponentsStyles(
   if (schemeColorComponents.progress) {
     const styles = getComponentColorStyles(
       schemeColorComponents.progress,
-      "progress"
+      "progress",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
@@ -396,25 +392,14 @@ function getSchemeColorComponentsStyles(
 }
 
 function getMinolithCssVariableStyles(
-  cssVariableSetting?: MinolithCssVariables
+  cssVariableSetting?: MinolithCssVariables,
 ): string[] {
   const minolithStyles: string[] = [];
 
   const rootStyles = getRootStyles(cssVariableSetting);
-  const lightSchemeStyles = getLightSchemeStyles(cssVariableSetting);
-  const darkSchemeStyles = getDarkSchemeStyles(cssVariableSetting);
-
-  rootStyles.length > 0 && minolithStyles.push(`:root{${rootStyles.join("")}}`);
-  lightSchemeStyles.length > 0 &&
-    minolithStyles.push(`:root{${lightSchemeStyles.join("")}}`);
-  lightSchemeStyles.length > 0 &&
-    minolithStyles.push(
-      `[data-color-scheme="light"]{${lightSchemeStyles.join("")}}`
-    );
-  darkSchemeStyles.length > 0 &&
-    minolithStyles.push(
-      `[data-color-scheme="dark"]{${darkSchemeStyles.join("")}}`
-    );
+  if (rootStyles.length > 0) {
+    minolithStyles.push(`:root{${rootStyles.join("")}}`);
+  }
 
   return minolithStyles;
 }
@@ -427,37 +412,37 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
       const animation = cssVariableSetting.animation;
       if (animation.speedHeavey) {
         rootStyles.push(
-          `--${cssVariablePrefix}animation-speed-heavy: ${animation.speedHeavey};`
+          `--${cssVariablePrefix}animation-speed-heavy: ${animation.speedHeavey};`,
         );
       }
       if (animation.speedSlower) {
         rootStyles.push(
-          `--${cssVariablePrefix}animation-speed-slower: ${animation.speedSlower};`
+          `--${cssVariablePrefix}animation-speed-slower: ${animation.speedSlower};`,
         );
       }
       if (animation.speedSlow) {
         rootStyles.push(
-          `--${cssVariablePrefix}animation-speed-slow: ${animation.speedSlow};`
+          `--${cssVariablePrefix}animation-speed-slow: ${animation.speedSlow};`,
         );
       }
       if (animation.speedNormal) {
         rootStyles.push(
-          `--${cssVariablePrefix}animation-speed-normal: ${animation.speedNormal};`
+          `--${cssVariablePrefix}animation-speed-normal: ${animation.speedNormal};`,
         );
       }
       if (animation.speedfFast) {
         rootStyles.push(
-          `--${cssVariablePrefix}animation-speed-fast: ${animation.speedfFast};`
+          `--${cssVariablePrefix}animation-speed-fast: ${animation.speedfFast};`,
         );
       }
       if (animation.speedfFaster) {
         rootStyles.push(
-          `--${cssVariablePrefix}animation-speed-faster: ${animation.speedfFaster};`
+          `--${cssVariablePrefix}animation-speed-faster: ${animation.speedfFaster};`,
         );
       }
       if (animation.speedfFlash) {
         rootStyles.push(
-          `--${cssVariablePrefix}animation-speed-flash: ${animation.speedfFlash};`
+          `--${cssVariablePrefix}animation-speed-flash: ${animation.speedfFlash};`,
         );
       }
     }
@@ -466,43 +451,43 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
       const border = cssVariableSetting.border;
       if (border.borderWidthXThin) {
         rootStyles.push(
-          `--${cssVariablePrefix}border-width-xthin: ${border.borderWidthXThin};`
+          `--${cssVariablePrefix}border-width-xthin: ${border.borderWidthXThin};`,
         );
       }
       if (border.borderWidthThin) {
         rootStyles.push(
-          `--${cssVariablePrefix}border-width-thin: ${border.borderWidthThin};`
+          `--${cssVariablePrefix}border-width-thin: ${border.borderWidthThin};`,
         );
       }
       if (border.borderWidthMedium) {
         rootStyles.push(
-          `--${cssVariablePrefix}border-width-medium: ${border.borderWidthMedium};`
+          `--${cssVariablePrefix}border-width-medium: ${border.borderWidthMedium};`,
         );
       }
       if (border.borderWidthThick) {
         rootStyles.push(
-          `--${cssVariablePrefix}border-width-thick: ${border.borderWidthThick};`
+          `--${cssVariablePrefix}border-width-thick: ${border.borderWidthThick};`,
         );
       }
       if (border.borderWidthXThick) {
         rootStyles.push(
-          `--${cssVariablePrefix}border-width-xthick: ${border.borderWidthXThick};`
+          `--${cssVariablePrefix}border-width-xthick: ${border.borderWidthXThick};`,
         );
       }
 
       if (border.borderRadiusSmall) {
         rootStyles.push(
-          `--${cssVariablePrefix}border-radius-small: ${border.borderRadiusSmall};`
+          `--${cssVariablePrefix}border-radius-small: ${border.borderRadiusSmall};`,
         );
       }
       if (border.borderRadiusMedium) {
         rootStyles.push(
-          `--${cssVariablePrefix}border-radius-medium: ${border.borderRadiusMedium};`
+          `--${cssVariablePrefix}border-radius-medium: ${border.borderRadiusMedium};`,
         );
       }
       if (border.borderRadiusLarge) {
         rootStyles.push(
-          `--${cssVariablePrefix}border-radius-large: ${border.borderRadiusLarge};`
+          `--${cssVariablePrefix}border-radius-large: ${border.borderRadiusLarge};`,
         );
       }
     }
@@ -512,15 +497,12 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
       const setColorDetailVariable = (
         colorName: string,
         lightness: string,
-        oklch?: Oklch
+        oklch?: Oklch,
       ) => {
         if (oklch) {
           const oklchString = `${oklch.lightness}% ${oklch.chroma} ${oklch.hue}`;
           rootStyles.push(
-            `--${cssVariablePrefix}color-${colorName}-${lightness}-oklch: ${oklchString};`
-          );
-          rootStyles.push(
-            `--${cssVariablePrefix}color-${colorName}-${lightness}: oklch(${oklchString});`
+            `--${cssVariablePrefix}color-${colorName}-${lightness}: oklch(${oklchString});`,
           );
         }
       };
@@ -549,28 +531,58 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
           setColorDetailVariable(colorName, "05", gradation[5]);
         }
       }
+
+      if (color.schemeColor) {
+        if (color.schemeColor.default) {
+          const styles = getColorVariables(
+            "default",
+            color.schemeColor.default,
+          );
+          if (styles.length > 0) {
+            rootStyles.push(...styles);
+          }
+        }
+
+        for (const colorName of colorNames) {
+          if (color.schemeColor[colorName]) {
+            const variable = color.schemeColor[colorName];
+            const styles = getColorVariables(colorName, variable);
+            if (styles.length > 0) {
+              rootStyles.push(...styles);
+            }
+          }
+        }
+
+        if (color.schemeColor.components) {
+          const components = color.schemeColor.components;
+          const styles = getSchemeColorComponentsStyles(components);
+          if (styles.length > 0) {
+            rootStyles.push(...styles);
+          }
+        }
+      }
     }
 
     if (cssVariableSetting.miscellaneous) {
       const miscellaneous = cssVariableSetting.miscellaneous;
       if (miscellaneous.zIndexTabula) {
         rootStyles.push(
-          `--${cssVariablePrefix}z-index-tabula: ${miscellaneous.zIndexTabula};`
+          `--${cssVariablePrefix}z-index-tabula: ${miscellaneous.zIndexTabula};`,
         );
       }
       if (miscellaneous.zIndexModal) {
         rootStyles.push(
-          `--${cssVariablePrefix}z-index-modal: ${miscellaneous.zIndexModal};`
+          `--${cssVariablePrefix}z-index-modal: ${miscellaneous.zIndexModal};`,
         );
       }
       if (miscellaneous.zIndexModalContent) {
         rootStyles.push(
-          `--${cssVariablePrefix}z-index-tabula-content: ${miscellaneous.zIndexModalContent};`
+          `--${cssVariablePrefix}z-index-tabula-content: ${miscellaneous.zIndexModalContent};`,
         );
       }
       if (miscellaneous.zIndexHeaderIsSticky) {
         rootStyles.push(
-          `--${cssVariablePrefix}z-index-header-is-sticky: ${miscellaneous.zIndexHeaderIsSticky};`
+          `--${cssVariablePrefix}z-index-header-is-sticky: ${miscellaneous.zIndexHeaderIsSticky};`,
         );
       }
     }
@@ -580,111 +592,111 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
       if (typography.fontFamily) {
         if (typography.fontFamily.sansSerif) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-family-sans-serif: ${typography.fontFamily.sansSerif};`
+            `--${cssVariablePrefix}font-family-sans-serif: ${typography.fontFamily.sansSerif};`,
           );
         }
         if (typography.fontFamily.serif) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-family-serif: ${typography.fontFamily.serif};`
+            `--${cssVariablePrefix}font-family-serif: ${typography.fontFamily.serif};`,
           );
         }
         if (typography.fontFamily.monospace) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-family-monospace: ${typography.fontFamily.monospace};`
+            `--${cssVariablePrefix}font-family-monospace: ${typography.fontFamily.monospace};`,
           );
         }
         if (typography.fontFamily.main) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-family-main: ${typography.fontFamily.main};`
+            `--${cssVariablePrefix}font-family-main: ${typography.fontFamily.main};`,
           );
         }
         if (typography.fontFamily.heading) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-family-heading: ${typography.fontFamily.heading};`
+            `--${cssVariablePrefix}font-family-heading: ${typography.fontFamily.heading};`,
           );
         }
         if (typography.fontFamily.code) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-family-code: ${typography.fontFamily.code};`
+            `--${cssVariablePrefix}font-family-code: ${typography.fontFamily.code};`,
           );
         }
       }
       if (typography.fontSize) {
         if (typography.fontSize.xsmall) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-xsmall: ${typography.fontSize.xsmall};`
+            `--${cssVariablePrefix}font-size-xsmall: ${typography.fontSize.xsmall};`,
           );
         }
         if (typography.fontSize.small) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-small: ${typography.fontSize.small};`
+            `--${cssVariablePrefix}font-size-small: ${typography.fontSize.small};`,
           );
         }
         if (typography.fontSize.normal) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-normal: ${typography.fontSize.normal};`
+            `--${cssVariablePrefix}font-size-normal: ${typography.fontSize.normal};`,
           );
         }
         if (typography.fontSize.medium) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-medium: ${typography.fontSize.medium};`
+            `--${cssVariablePrefix}font-size-medium: ${typography.fontSize.medium};`,
           );
         }
         if (typography.fontSize.large) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-large: ${typography.fontSize.large};`
+            `--${cssVariablePrefix}font-size-large: ${typography.fontSize.large};`,
           );
         }
         if (typography.fontSize.xlarge) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-xlarge: ${typography.fontSize.xlarge};`
+            `--${cssVariablePrefix}font-size-xlarge: ${typography.fontSize.xlarge};`,
           );
         }
         if (typography.fontSize.xxlarge) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-xxlarge: ${typography.fontSize.xxlarge};`
+            `--${cssVariablePrefix}font-size-xxlarge: ${typography.fontSize.xxlarge};`,
           );
         }
         if (typography.fontSize.xxxlarge) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-xxxlarge: ${typography.fontSize.xxxlarge};`
+            `--${cssVariablePrefix}font-size-xxxlarge: ${typography.fontSize.xxxlarge};`,
           );
         }
         if (typography.fontSize.xxxxlarge) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-xxxxlarge: ${typography.fontSize.xxxxlarge};`
+            `--${cssVariablePrefix}font-size-xxxxlarge: ${typography.fontSize.xxxxlarge};`,
           );
         }
         if (typography.fontSize.xxxxxlarge) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-size-xxxxxlarge: ${typography.fontSize.xxxxxlarge};`
+            `--${cssVariablePrefix}font-size-xxxxxlarge: ${typography.fontSize.xxxxxlarge};`,
           );
         }
       }
       if (typography.fontWeight) {
         if (typography.fontWeight.light) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-weight-light: ${typography.fontWeight.light};`
+            `--${cssVariablePrefix}font-weight-light: ${typography.fontWeight.light};`,
           );
         }
         if (typography.fontWeight.normal) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-weight-normal: ${typography.fontWeight.normal};`
+            `--${cssVariablePrefix}font-weight-normal: ${typography.fontWeight.normal};`,
           );
         }
         if (typography.fontWeight.medium) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-weight-medium: ${typography.fontWeight.medium};`
+            `--${cssVariablePrefix}font-weight-medium: ${typography.fontWeight.medium};`,
           );
         }
         if (typography.fontWeight.semibold) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-weight-semibold: ${typography.fontWeight.semibold};`
+            `--${cssVariablePrefix}font-weight-semibold: ${typography.fontWeight.semibold};`,
           );
         }
         if (typography.fontWeight.bold) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-weight-bold: ${typography.fontWeight.bold};`
+            `--${cssVariablePrefix}font-weight-bold: ${typography.fontWeight.bold};`,
           );
         }
       }
@@ -697,7 +709,7 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         const breadcrumbs = components.breadcrumbs;
         if (breadcrumbs.breadcrumbDivider) {
           rootStyles.push(
-            `--${cssVariablePrefix}breadcrumb-divider: ${breadcrumbs.breadcrumbDivider};`
+            `--${cssVariablePrefix}breadcrumb-divider: ${breadcrumbs.breadcrumbDivider};`,
           );
         }
       }
@@ -706,12 +718,12 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         const button = components.button;
         if (button.paddingX) {
           rootStyles.push(
-            `--${cssVariablePrefix}button-padding-x: ${button.paddingX};`
+            `--${cssVariablePrefix}button-padding-x: ${button.paddingX};`,
           );
         }
         if (button.paddingY) {
           rootStyles.push(
-            `--${cssVariablePrefix}button-padding-y: ${button.paddingY};`
+            `--${cssVariablePrefix}button-padding-y: ${button.paddingY};`,
           );
         }
       }
@@ -720,63 +732,63 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         const dialogue = components.dialogue;
         if (dialogue.avatarSizeDefault) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-avatar-size-default: ${dialogue.avatarSizeDefault};`
+            `--${cssVariablePrefix}dialogue-avatar-size-default: ${dialogue.avatarSizeDefault};`,
           );
         }
         if (dialogue.avatarSizeSmall) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-avatar-size-small: ${dialogue.avatarSizeSmall};`
+            `--${cssVariablePrefix}dialogue-avatar-size-small: ${dialogue.avatarSizeSmall};`,
           );
         }
         if (dialogue.avatarSizeLarge) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-avatar-size-large: ${dialogue.avatarSizeLarge};`
+            `--${cssVariablePrefix}dialogue-avatar-size-large: ${dialogue.avatarSizeLarge};`,
           );
         }
         if (dialogue.avatarTopOffset) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-avatar-top-offset: ${dialogue.avatarTopOffset};`
+            `--${cssVariablePrefix}dialogue-avatar-top-offset: ${dialogue.avatarTopOffset};`,
           );
         }
         if (dialogue.nameFontSize) {
           if (typeof dialogue.nameFontSize.includes("rem")) {
             rootStyles.push(
-              `--${cssVariablePrefix}dialogue-name-font-size: ${dialogue.nameFontSize};`
+              `--${cssVariablePrefix}dialogue-name-font-size: ${dialogue.nameFontSize};`,
             );
           } else {
             rootStyles.push(
-              `--${cssVariablePrefix}dialogue-name-font-size: var(--${cssVariablePrefix}font-size-${dialogue.nameFontSize});`
+              `--${cssVariablePrefix}dialogue-name-font-size: var(--${cssVariablePrefix}font-size-${dialogue.nameFontSize});`,
             );
           }
         }
         if (dialogue.namePaddingX) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-name-padding-x: ${dialogue.namePaddingX};`
+            `--${cssVariablePrefix}dialogue-name-padding-x: ${dialogue.namePaddingX};`,
           );
         }
         if (dialogue.namePaddingY) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-name-padding-y: ${dialogue.namePaddingY};`
+            `--${cssVariablePrefix}dialogue-name-padding-y: ${dialogue.namePaddingY};`,
           );
         }
         if (dialogue.messageArrowHeight) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-messege-arrow-height: ${dialogue.messageArrowHeight};`
+            `--${cssVariablePrefix}dialogue-messege-arrow-height: ${dialogue.messageArrowHeight};`,
           );
         }
         if (dialogue.messageArrowWidth) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-messege-arrow-width: ${dialogue.messageArrowWidth};`
+            `--${cssVariablePrefix}dialogue-messege-arrow-width: ${dialogue.messageArrowWidth};`,
           );
         }
         if (dialogue.messageInnerPaddingX) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-message-inner-padding-x: ${dialogue.messageInnerPaddingX};`
+            `--${cssVariablePrefix}dialogue-message-inner-padding-x: ${dialogue.messageInnerPaddingX};`,
           );
         }
         if (dialogue.messageInnerPaddingY) {
           rootStyles.push(
-            `--${cssVariablePrefix}dialogue-message-inner-padding-y: ${dialogue.messageInnerPaddingY};`
+            `--${cssVariablePrefix}dialogue-message-inner-padding-y: ${dialogue.messageInnerPaddingY};`,
           );
         }
       }
@@ -785,18 +797,18 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         const header = components.header;
         if (header.backdropFilter) {
           rootStyles.push(
-            `--${cssVariablePrefix}header-backdrop-filter: ${header.backdropFilter};`
+            `--${cssVariablePrefix}header-backdrop-filter: ${header.backdropFilter};`,
           );
         }
 
         if (header.zIndexIsSticky) {
           if (header.zIndexIsSticky === "auto") {
             rootStyles.push(
-              `--${cssVariablePrefix}header-z-index-is-sticky: "auto";`
+              `--${cssVariablePrefix}header-z-index-is-sticky: "auto";`,
             );
           } else {
             rootStyles.push(
-              `--${cssVariablePrefix}header-z-index-is-sticky: ${header.zIndexIsSticky};`
+              `--${cssVariablePrefix}header-z-index-is-sticky: ${header.zIndexIsSticky};`,
             );
           }
         }
@@ -804,11 +816,11 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         if (header.zIndexIsFixed) {
           if (header.zIndexIsFixed === "auto") {
             rootStyles.push(
-              `--${cssVariablePrefix}header-z-index-is-fixed: "auto";`
+              `--${cssVariablePrefix}header-z-index-is-fixed: "auto";`,
             );
           } else {
             rootStyles.push(
-              `--${cssVariablePrefix}header-z-index-is-fixed: ${header.zIndexIsFixed};`
+              `--${cssVariablePrefix}header-z-index-is-fixed: ${header.zIndexIsFixed};`,
             );
           }
         }
@@ -818,7 +830,7 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         const heading = components.heading;
         if (heading.fontFamily) {
           rootStyles.push(
-            `--${cssVariablePrefix}font-family-heading: ${heading.fontFamily};`
+            `--${cssVariablePrefix}font-family-heading: ${heading.fontFamily};`,
           );
         }
       }
@@ -826,86 +838,6 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
   }
 
   return rootStyles;
-}
-
-function getLightSchemeStyles(
-  cssVariableSetting?: MinolithCssVariables
-): string[] {
-  const lightSchemeStyles: string[] = [];
-
-  if (cssVariableSetting) {
-    if (cssVariableSetting.color) {
-      const color = cssVariableSetting.color;
-      if (color.light) {
-        if (color.light.default) {
-          const styles = getColorVariables("default", color.light.default);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-
-        for (const colorName of colorNames) {
-          if (color.light[colorName]) {
-            const variable = color.light[colorName];
-            const styles = getColorVariables(colorName, variable);
-            if (styles.length > 0) {
-              lightSchemeStyles.push(...styles);
-            }
-          }
-        }
-
-        if (color.light.components) {
-          const components = color.light.components;
-          const styles = getSchemeColorComponentsStyles(components);
-          if (styles.length > 0) {
-            lightSchemeStyles.push(...styles);
-          }
-        }
-      }
-    }
-  }
-
-  return lightSchemeStyles;
-}
-
-function getDarkSchemeStyles(
-  cssVariableSetting?: MinolithCssVariables
-): string[] {
-  const darkSchemeStyles: string[] = [];
-
-  if (cssVariableSetting) {
-    if (cssVariableSetting.color) {
-      const color = cssVariableSetting.color;
-      if (color.dark) {
-        if (color.dark.default) {
-          const styles = getColorVariables("default", color.dark.default);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-
-        for (const colorName of colorNames) {
-          if (color.dark[colorName]) {
-            const variable = color.dark[colorName];
-            const styles = getColorVariables(colorName, variable);
-            if (styles.length > 0) {
-              darkSchemeStyles.push(...styles);
-            }
-          }
-        }
-
-        if (color.dark.components) {
-          const components = color.dark.components;
-          const styles = getSchemeColorComponentsStyles(components);
-          if (styles.length > 0) {
-            darkSchemeStyles.push(...styles);
-          }
-        }
-      }
-    }
-  }
-
-  return darkSchemeStyles;
 }
 
 const minolithStyleUtility = {

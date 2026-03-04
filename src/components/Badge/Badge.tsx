@@ -11,7 +11,6 @@ export default function Badge(props: BadgeProps): ReactElement {
   delete assignedProps["colorName"];
   delete assignedProps["isSmall"];
   delete assignedProps["isClickable"];
-  delete assignedProps["as"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -21,6 +20,7 @@ export default function Badge(props: BadgeProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["badge"]];
 

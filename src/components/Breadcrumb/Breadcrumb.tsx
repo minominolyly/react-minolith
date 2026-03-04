@@ -17,6 +17,7 @@ export default function Breadcrumb(props: BreadcrumbProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["breadcrumb"]];
 

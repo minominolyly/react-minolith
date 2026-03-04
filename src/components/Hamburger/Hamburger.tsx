@@ -21,6 +21,7 @@ export default function Hamburger(props: HamburgerProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["hamburger"]];
   if (props.colorName) {

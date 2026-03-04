@@ -18,6 +18,7 @@ export default function Progress(props: ProgressProps): ReactElement {
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["progress"]];
   assignedClassNames.push(classNames[`is-${props.colorName}`]);
