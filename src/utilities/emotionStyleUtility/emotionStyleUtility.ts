@@ -2,7 +2,7 @@
 "use client";
 import { BaseComponentProps } from "../../models";
 import { css, CSSObject, Interpolation, Theme } from "@emotion/react";
-import { ColorAttributes, ColorName, ColorScheme } from "../../types";
+import { ColorAttributes, ColorName } from "../../types";
 import type { CSSInterpolation } from "@emotion/serialize";
 
 const cssVariablePrefix = "minolith-";
@@ -236,9 +236,7 @@ function getSchemeColorHighlighterBackgroundVariable<ColorNameType = ColorName>(
   const light = getColor(lightColorAttributes);
   const dark = getColor(darkColorAttributes);
 
-  return `linear-gradient(
-    transparent 66.66%,
-    light-dark(${light}, ${dark}) 33.33%)`;
+  return `linear-gradient(transparent 66.66%, light-dark(${light}, ${dark}) 33.33%)`;
 }
 
 function getCssObject(props: {
@@ -268,9 +266,7 @@ function getCssObject(props: {
     : undefined;
 }
 
-function getEmotionCss(
-  props: BaseComponentProps
-): Interpolation<Theme> {
+function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
   const keys = Object.keys(props);
 
   const baseComponentPropsKeys = keys.filter(

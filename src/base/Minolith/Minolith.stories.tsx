@@ -190,7 +190,7 @@ const elem = (
                           default: { name: "rainbow", lightness: 20 },
                         },
                         dark: {
-                          default: { name: "red", lightness: 80 },
+                          default: { name: "rainbow", lightness: 80 },
                         },
                       },
                     },

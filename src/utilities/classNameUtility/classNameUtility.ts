@@ -130,36 +130,48 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
       assignStateColor("forecolor", "focus", props.fore.color.focus);
       assignStateColor("forecolor", "active", props.fore.color.active);
       assignStateColor("forecolor", "disabled", props.fore.color.disabled);
-      if (props.fore.color.light) {
-        const foreColorLight = props.fore.color.light;
-        assignStateColor(
-          "forecolor",
-          "default",
-          foreColorLight.default,
-          "light",
-        );
-        assignStateColor("forecolor", "hover", foreColorLight.hover, "light");
-        assignStateColor("forecolor", "focus", foreColorLight.focus, "light");
-        assignStateColor("forecolor", "active", foreColorLight.active, "light");
-        assignStateColor(
-          "forecolor",
-          "disabled",
-          foreColorLight.disabled,
-          "light",
-        );
-      }
-      if (props.fore.color.dark) {
-        const foreColorDark = props.fore.color.dark;
-        assignStateColor("forecolor", "default", foreColorDark.default, "dark");
-        assignStateColor("forecolor", "hover", foreColorDark.hover, "dark");
-        assignStateColor("forecolor", "focus", foreColorDark.focus, "dark");
-        assignStateColor("forecolor", "active", foreColorDark.active, "dark");
-        assignStateColor(
-          "forecolor",
-          "disabled",
-          foreColorDark.disabled,
-          "dark",
-        );
+      if (props.fore.color.colorScheme) {
+        if (props.fore.color.colorScheme.light) {
+          const foreColorLight = props.fore.color.colorScheme.light;
+          assignStateColor(
+            "forecolor",
+            "default",
+            foreColorLight.default,
+            "light",
+          );
+          assignStateColor("forecolor", "hover", foreColorLight.hover, "light");
+          assignStateColor("forecolor", "focus", foreColorLight.focus, "light");
+          assignStateColor(
+            "forecolor",
+            "active",
+            foreColorLight.active,
+            "light",
+          );
+          assignStateColor(
+            "forecolor",
+            "disabled",
+            foreColorLight.disabled,
+            "light",
+          );
+        }
+        if (props.fore.color.colorScheme.dark) {
+          const foreColorDark = props.fore.color.colorScheme.dark;
+          assignStateColor(
+            "forecolor",
+            "default",
+            foreColorDark.default,
+            "dark",
+          );
+          assignStateColor("forecolor", "hover", foreColorDark.hover, "dark");
+          assignStateColor("forecolor", "focus", foreColorDark.focus, "dark");
+          assignStateColor("forecolor", "active", foreColorDark.active, "dark");
+          assignStateColor(
+            "forecolor",
+            "disabled",
+            foreColorDark.disabled,
+            "dark",
+          );
+        }
       }
     }
   }
@@ -171,36 +183,48 @@ function getUtilityClassNames(props: BaseComponentProps): string[] {
       assignStateColor("backcolor", "focus", props.back.color.focus);
       assignStateColor("backcolor", "active", props.back.color.active);
       assignStateColor("backcolor", "disabled", props.back.color.disabled);
-      if (props.back.color.light) {
-        const backColorLight = props.back.color.light;
-        assignStateColor(
-          "backcolor",
-          "default",
-          backColorLight.default,
-          "light",
-        );
-        assignStateColor("backcolor", "hover", backColorLight.hover, "light");
-        assignStateColor("backcolor", "focus", backColorLight.focus, "light");
-        assignStateColor("backcolor", "active", backColorLight.active, "light");
-        assignStateColor(
-          "backcolor",
-          "disabled",
-          backColorLight.disabled,
-          "light",
-        );
-      }
-      if (props.back.color.dark) {
-        const backColorDark = props.back.color.dark;
-        assignStateColor("backcolor", "default", backColorDark.default, "dark");
-        assignStateColor("backcolor", "hover", backColorDark.hover, "dark");
-        assignStateColor("backcolor", "focus", backColorDark.focus, "dark");
-        assignStateColor("backcolor", "active", backColorDark.active, "dark");
-        assignStateColor(
-          "backcolor",
-          "disabled",
-          backColorDark.disabled,
-          "dark",
-        );
+      if (props.back.color.colorScheme) {
+        if (props.back.color.colorScheme.light) {
+          const backColorLight = props.back.color.colorScheme.light;
+          assignStateColor(
+            "backcolor",
+            "default",
+            backColorLight.default,
+            "light",
+          );
+          assignStateColor("backcolor", "hover", backColorLight.hover, "light");
+          assignStateColor("backcolor", "focus", backColorLight.focus, "light");
+          assignStateColor(
+            "backcolor",
+            "active",
+            backColorLight.active,
+            "light",
+          );
+          assignStateColor(
+            "backcolor",
+            "disabled",
+            backColorLight.disabled,
+            "light",
+          );
+        }
+        if (props.back.color.colorScheme.dark) {
+          const backColorDark = props.back.color.colorScheme.dark;
+          assignStateColor(
+            "backcolor",
+            "default",
+            backColorDark.default,
+            "dark",
+          );
+          assignStateColor("backcolor", "hover", backColorDark.hover, "dark");
+          assignStateColor("backcolor", "focus", backColorDark.focus, "dark");
+          assignStateColor("backcolor", "active", backColorDark.active, "dark");
+          assignStateColor(
+            "backcolor",
+            "disabled",
+            backColorDark.disabled,
+            "dark",
+          );
+        }
       }
     }
   }

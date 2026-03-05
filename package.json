@@ -22,8 +22,10 @@
   },
   "keywords": [
     "minolith",
+    "scss",
     "css",
-    "react"
+    "react",
+    "emotion"
   ],
   "author": "minominolyly",
   "license": "MIT",
