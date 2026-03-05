@@ -33,7 +33,7 @@ colors.forEach((color) => {
       };
       const gradStr = gradation < 10 ? "05" : `${gradation}`;
       expect(
-        minolithStyleUtility.getMinolithCssVariableStyles(cssVariables)
+        minolithStyleUtility.getMinolithCssVariableStyles(cssVariables),
       ).toStrictEqual([
         `:root{--minolith-color-${color}-${gradStr}-oklch: 98% 0.11 0;--minolith-color-${color}-${gradStr}: oklch(98% 0.11 0);}`,
       ]);
@@ -41,16 +41,19 @@ colors.forEach((color) => {
   }
 });
 
-test("change color light accordion-summary fore.", () => {
+test("change color accordion-summary fore.", () => {
   const cssVariables: MinolithCssVariables = {
     color: {
-      light: {
+      colorScheme: {
         components: {
           accordion: {
             accordionSummary: {
               default: {
                 default: {
-                  fore: "--minolith-color-gray-50",
+                  fore: {
+                    light: "--minolith-color-gray-50",
+                    dark: "--minolith-color-gray-50",
+                  },
                 },
               },
             },
@@ -61,23 +64,23 @@ test("change color light accordion-summary fore.", () => {
   };
 
   expect(
-    minolithStyleUtility.getMinolithCssVariableStyles(cssVariables)
+    minolithStyleUtility.getMinolithCssVariableStyles(cssVariables),
   ).toStrictEqual([
-    ":root{--minolith-color-default-accordion-summary-fore: var(--minolith-color-gray-50);}",
-    '[data-color-scheme="light"]{--minolith-color-default-accordion-summary-fore: var(--minolith-color-gray-50);}',
+    ":root{--minolith-color-default-accordion-summary-fore: light-dark(var(--minolith-color-gray-50), var(--minolith-color-gray-50));}",
   ]);
 });
 
-test("change color dark accordion-summary fore.", () => {
+test("change color loader fore.", () => {
   const cssVariables: MinolithCssVariables = {
     color: {
-      dark: {
+      colorScheme: {
         components: {
-          accordion: {
-            accordionSummary: {
+          loader: {
+            default: {
               default: {
-                default: {
-                  fore: "--minolith-color-gray-50",
+                fore: {
+                  light: "--minolith-color-gray-50",
+                  dark: "--minolith-color-gray-50",
                 },
               },
             },
@@ -88,57 +91,8 @@ test("change color dark accordion-summary fore.", () => {
   };
 
   expect(
-    minolithStyleUtility.getMinolithCssVariableStyles(cssVariables)
+    minolithStyleUtility.getMinolithCssVariableStyles(cssVariables),
   ).toStrictEqual([
-    '[data-color-scheme="dark"]{--minolith-color-default-accordion-summary-fore: var(--minolith-color-gray-50);}',
-  ]);
-});
-
-test("change color light loader fore.", () => {
-  const cssVariables: MinolithCssVariables = {
-    color: {
-      light: {
-        components: {
-          loader: {
-            default: {
-              default: {
-                fore: "--minolith-color-gray-50",
-              },
-            },
-          },
-        },
-      },
-    },
-  };
-
-  expect(
-    minolithStyleUtility.getMinolithCssVariableStyles(cssVariables)
-  ).toStrictEqual([
-    ":root{--minolith-color-default-loader-fore: var(--minolith-color-gray-50);}",
-    '[data-color-scheme="light"]{--minolith-color-default-loader-fore: var(--minolith-color-gray-50);}',
-  ]);
-});
-
-test("change color dark loader fore.", () => {
-  const cssVariables: MinolithCssVariables = {
-    color: {
-      dark: {
-        components: {
-          loader: {
-            default: {
-              default: {
-                fore: "--minolith-color-gray-50",
-              },
-            },
-          },
-        },
-      },
-    },
-  };
-
-  expect(
-    minolithStyleUtility.getMinolithCssVariableStyles(cssVariables)
-  ).toStrictEqual([
-    '[data-color-scheme="dark"]{--minolith-color-default-loader-fore: var(--minolith-color-gray-50);}',
+    ":root{--minolith-color-default-loader-fore: light-dark(var(--minolith-color-gray-50), var(--minolith-color-gray-50));}",
   ]);
 });

@@ -45,7 +45,8 @@ import Minolith from "../Minolith";
 import ColorName from "../../types/ColorName";
 import Gradation from "../../models/Gradation";
 import Oklch from "../../models/Oklch";
-import { RubyText } from "../../react-minolith";
+import Span from "../../components/Span";
+import RubyText from "../../components/RubyText";
 import MinolithClientCustomCssVariablesProvider from ".";
 import { useEffect } from "react";
 

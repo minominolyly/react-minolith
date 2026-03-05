@@ -185,7 +185,7 @@ function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
   }
 
   if (colorAttributes.name === "rainbow") {
-    return "none";
+    return "transparent";
   }
 
   if (colorAttributes.alpha) {
@@ -218,7 +218,7 @@ function getSchemeColorHighlighterBackgroundVariable<ColorNameType = ColorName>(
       return "transparent";
     } else {
       if (colorAttributes.name === "rainbow") {
-        return "none";
+        return "transparent";
       }
 
       if (colorAttributes.alpha) {

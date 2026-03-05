@@ -37,7 +37,8 @@ import NavMenuItem from "../../components/NavMenuItem";
 import NavStatic from "../../components/NavStatic";
 import Paragraph from "../../components/Paragraph";
 import Ruby from "../../components/Ruby";
-import { RubyText } from "../../components/RubyText";
+import Span from "../../components/Span";
+import RubyText from "../../components/RubyText";
 import Column from "../../layouts/Column";
 import Columns from "../../layouts/Columns";
 import Container from "../../layouts/Container";
@@ -159,6 +160,44 @@ const elem = (
                 css={{ fontSize: "1.5rem" }}
               >
                 {"It uses emotion css prop to style components"}
+              </Paragraph>
+              <Paragraph css={{ fontSize: "1.5rem" }}>
+                <Span
+                  fore={{
+                    color: {
+                      default: { name: "rainbow", lightness: 80 },
+                      colorScheme: {
+                        light: {
+                          default: { name: "rainbow", lightness: 20 },
+                        },
+                        dark: {
+                          default: { name: "red", lightness: 80 },
+                        },
+                      },
+                    },
+                  }}
+                >
+                  {"rainbow fore"}
+                </Span>
+              </Paragraph>
+              <Paragraph css={{ fontSize: "1.5rem" }}>
+                <Div
+                  back={{
+                    color: {
+                      default: { name: "rainbow", lightness: 80 },
+                      colorScheme: {
+                        light: {
+                          default: { name: "rainbow", lightness: 20 },
+                        },
+                        dark: {
+                          default: { name: "red", lightness: 80 },
+                        },
+                      },
+                    },
+                  }}
+                >
+                  {"rainbow back"}
+                </Div>
               </Paragraph>
             </AccordionDetails>
           </Accordion>
