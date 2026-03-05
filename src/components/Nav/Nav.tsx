@@ -1,6 +1,5 @@
 "use client";
-import { ReactElement, useContext } from "react";
-import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
+import { ReactElement } from "react";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Nav.module.scss";
@@ -33,9 +32,7 @@ export default function Nav(props: NavProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const colorScheme = useContext(MinolithColorSchemeContext);
-
-  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+  const css = emotionStyleUtility.getEmotionCss(props);
 
   return props.as ? (
     <props.as

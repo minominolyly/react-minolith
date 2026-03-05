@@ -1,6 +1,5 @@
 "use client";
-import { ReactElement, useContext } from "react";
-import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
+import { ReactElement } from "react";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import ColumnProps from "./ColumnProps";
@@ -80,9 +79,7 @@ export default function Column(props: ColumnProps): ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const colorScheme = useContext(MinolithColorSchemeContext);
-
-  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+  const css = emotionStyleUtility.getEmotionCss(props);
 
   return (
     <div

@@ -1,6 +1,5 @@
 "use client";
-import { ReactElement, useContext } from "react";
-import MinolithColorSchemeContext from "../../contexts/MinolithColorSchemeContext";
+import { ReactElement } from "react";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Ruby.module.scss";
@@ -30,9 +29,7 @@ export default function Ruby(props: RubyProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const colorScheme = useContext(MinolithColorSchemeContext);
-
-  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+  const css = emotionStyleUtility.getEmotionCss(props);
   const assignedRubyTextClassNames: string[] = [
     "ruby-text",
     classNames["element"],

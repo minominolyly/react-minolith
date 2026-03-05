@@ -1,17 +1,8 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 "use client";
 import { BaseComponentProps } from "../../models";
-import {
-  css,
-  CSSObject,
-  Interpolation,
-  Theme,
-} from "@emotion/react";
-import {
-  ColorAttributes,
-  ColorName,
-  ColorScheme,
-} from "../../types";
+import { css, CSSObject, Interpolation, Theme } from "@emotion/react";
+import { ColorAttributes, ColorName, ColorScheme } from "../../types";
 import type { CSSInterpolation } from "@emotion/serialize";
 
 const cssVariablePrefix = "minolith-";
@@ -32,7 +23,7 @@ function getColorProps<ColorNameType = ColorName>(
     active?: ColorAttributes<ColorNameType> | "transparent";
     disabled?: ColorAttributes<ColorNameType> | "transparent";
   },
-  mode?: "highlighter"
+  mode?: "highlighter",
 ): ComponentStateColorCssProperty {
   if (!props) {
     return {
@@ -63,34 +54,101 @@ function getColorProps<ColorNameType = ColorName>(
   };
 }
 
-function getColorVariable<ColorNameType = ColorName>(
-  colorAttributes?: ColorAttributes<ColorNameType> | "transparent"
-): string | undefined {
-  if (!colorAttributes) {
-    return undefined;
+function getSchemeColorProps<ColorNameType = ColorName>(
+  props?: {
+    light: {
+      default?: ColorAttributes<ColorNameType> | "transparent";
+      hover?: ColorAttributes<ColorNameType> | "transparent";
+      focus?: ColorAttributes<ColorNameType> | "transparent";
+      active?: ColorAttributes<ColorNameType> | "transparent";
+      disabled?: ColorAttributes<ColorNameType> | "transparent";
+    };
+    dark: {
+      default?: ColorAttributes<ColorNameType> | "transparent";
+      hover?: ColorAttributes<ColorNameType> | "transparent";
+      focus?: ColorAttributes<ColorNameType> | "transparent";
+      active?: ColorAttributes<ColorNameType> | "transparent";
+      disabled?: ColorAttributes<ColorNameType> | "transparent";
+    };
+  },
+  mode?: "highlighter",
+): ComponentStateColorCssProperty {
+  if (!props) {
+    return {
+      default: undefined,
+      hover: undefined,
+      focus: undefined,
+      active: undefined,
+      disabled: undefined,
+    };
   }
 
-  if (typeof colorAttributes === "string") {
-    return "transparent !important";
+  if (mode === "highlighter") {
+    return {
+      default:
+        props.light.default && props.dark.default
+          ? getSchemeColorHighlighterBackgroundVariable(
+              props.light.default,
+              props.dark.default,
+            )
+          : undefined,
+      hover:
+        props.light.hover && props.dark.hover
+          ? getSchemeColorHighlighterBackgroundVariable(
+              props.light.hover,
+              props.dark.hover,
+            )
+          : undefined,
+      focus:
+        props.light.focus && props.dark.focus
+          ? getSchemeColorHighlighterBackgroundVariable(
+              props.light.focus,
+              props.dark.focus,
+            )
+          : undefined,
+      active:
+        props.light.active && props.dark.active
+          ? getSchemeColorHighlighterBackgroundVariable(
+              props.light.active,
+              props.dark.active,
+            )
+          : undefined,
+      disabled:
+        props.light.disabled && props.dark.disabled
+          ? getSchemeColorHighlighterBackgroundVariable(
+              props.light.disabled,
+              props.dark.disabled,
+            )
+          : undefined,
+    };
   }
 
-  if (colorAttributes.name === "rainbow") {
-    return "transparent !important";
-  }
-
-  if (colorAttributes.alpha) {
-    return `oklch(from var(--${cssVariablePrefix}color-${colorAttributes.name}-${
-      colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
-    }) l c h / ${colorAttributes.alpha}) !important`;
-  }
-
-  return `var(--${cssVariablePrefix}color-${colorAttributes.name}-${
-    colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
-  }) !important`;
+  return {
+    default:
+      props.light.default && props.dark.default
+        ? `light-dark(${getColorVariable(props.light.default)}, ${getColorVariable(props.dark.default)})`
+        : undefined,
+    hover:
+      props.light.hover && props.dark.hover
+        ? `light-dark(${getColorVariable(props.light.hover)}, ${getColorVariable(props.dark.hover)})`
+        : undefined,
+    focus:
+      props.light.focus && props.dark.focus
+        ? `light-dark(${getColorVariable(props.light.focus)}, ${getColorVariable(props.dark.focus)})`
+        : undefined,
+    active:
+      props.light.active && props.dark.active
+        ? `light-dark(${getColorVariable(props.light.active)}, ${getColorVariable(props.dark.active)})`
+        : undefined,
+    disabled:
+      props.light.disabled && props.dark.disabled
+        ? `light-dark(${getColorVariable(props.light.disabled)}, ${getColorVariable(props.dark.disabled)})`
+        : undefined,
+  };
 }
 
-function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
-  colorAttributes?: ColorAttributes<ColorNameType> | "transparent"
+function getColorVariable<ColorNameType = ColorName>(
+  colorAttributes?: ColorAttributes<ColorNameType> | "transparent",
 ): string | undefined {
   if (!colorAttributes) {
     return undefined;
@@ -101,7 +159,33 @@ function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
   }
 
   if (colorAttributes.name === "rainbow") {
+    return "transparent";
+  }
+
+  if (colorAttributes.alpha) {
+    return `oklch(from var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+      colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
+    }) l c h / ${colorAttributes.alpha})`;
+  }
+
+  return `var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+    colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
+  })`;
+}
+
+function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
+  colorAttributes?: ColorAttributes<ColorNameType> | "transparent",
+): string | undefined {
+  if (!colorAttributes) {
     return undefined;
+  }
+
+  if (typeof colorAttributes === "string") {
+    return "transparent";
+  }
+
+  if (colorAttributes.name === "rainbow") {
+    return "none";
   }
 
   if (colorAttributes.alpha) {
@@ -115,8 +199,46 @@ function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
   return `linear-gradient(
     transparent 66.66%,
     var(--${cssVariablePrefix}color-${colorAttributes.name}-${
-    colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
-  }) 33.33%)`;
+      colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
+    }) 33.33%)`;
+}
+
+function getSchemeColorHighlighterBackgroundVariable<ColorNameType = ColorName>(
+  lightColorAttributes?: ColorAttributes<ColorNameType> | "transparent",
+  darkColorAttributes?: ColorAttributes<ColorNameType> | "transparent",
+): string | undefined {
+  if (!lightColorAttributes || !darkColorAttributes) {
+    return undefined;
+  }
+
+  const getColor = (
+    colorAttributes: ColorAttributes<ColorNameType> | "transparent",
+  ) => {
+    if (typeof colorAttributes === "string") {
+      return "transparent";
+    } else {
+      if (colorAttributes.name === "rainbow") {
+        return "none";
+      }
+
+      if (colorAttributes.alpha) {
+        return `oklch(from var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+          colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
+        }) l c h / ${colorAttributes.alpha})`;
+      } else {
+        return `var(--${cssVariablePrefix}color-${colorAttributes.name}-${
+          colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
+        })`;
+      }
+    }
+  };
+
+  const light = getColor(lightColorAttributes);
+  const dark = getColor(darkColorAttributes);
+
+  return `linear-gradient(
+    transparent 66.66%,
+    light-dark(${light}, ${dark}) 33.33%)`;
 }
 
 function getCssObject(props: {
@@ -146,89 +268,8 @@ function getCssObject(props: {
     : undefined;
 }
 
-function getSchemeCssObject({
-  foreColor,
-  backColor,
-  highlighter,
-  borderColor,
-  borderTopColor,
-  borderRightColor,
-  borderBottomColor,
-  borderLeftColor,
-}: {
-  foreColor?: ComponentStateColorCssProperty;
-  backColor?: ComponentStateColorCssProperty;
-  highlighter?: ComponentStateColorCssProperty;
-  borderColor?: ComponentStateColorCssProperty;
-  borderTopColor?: ComponentStateColorCssProperty;
-  borderRightColor?: ComponentStateColorCssProperty;
-  borderBottomColor?: ComponentStateColorCssProperty;
-  borderLeftColor?: ComponentStateColorCssProperty;
-}) {
-  return (
-    (foreColor ||
-      backColor ||
-      highlighter ||
-      borderColor ||
-      borderTopColor ||
-      borderRightColor ||
-      borderBottomColor ||
-      borderLeftColor) && {
-      color: foreColor && foreColor.default,
-      backgroundColor: backColor && backColor.default,
-      backgroundImage: highlighter && highlighter.default,
-      borderColor: borderColor && borderColor.default,
-      borderTopColor: borderTopColor && borderTopColor.default,
-      borderRightColor: borderRightColor && borderRightColor.default,
-      borderBottomColor: borderBottomColor && borderBottomColor.default,
-      borderLeftColor: borderLeftColor && borderLeftColor.default,
-      ":hover": getCssObject({
-        foreColor: foreColor && foreColor.hover,
-        backColor: backColor && backColor.hover,
-        highlighter: highlighter && highlighter.hover,
-        borderColor: borderColor && borderColor.hover,
-        borderTopColor: borderTopColor && borderTopColor.hover,
-        borderRightColor: borderRightColor && borderRightColor.hover,
-        borderBottomColor: borderBottomColor && borderBottomColor.hover,
-        borderLeftColor: borderLeftColor && borderLeftColor.hover,
-      }),
-      ":focus": getCssObject({
-        foreColor: foreColor && foreColor.focus,
-        backColor: backColor && backColor.focus,
-        highlighter: highlighter && highlighter.focus,
-        borderColor: borderColor && borderColor.focus,
-        borderTopColor: borderTopColor && borderTopColor.focus,
-        borderRightColor: borderRightColor && borderRightColor.focus,
-        borderBottomColor: borderBottomColor && borderBottomColor.focus,
-        borderLeftColor: borderLeftColor && borderLeftColor.focus,
-      }),
-      ":active": getCssObject({
-        foreColor: foreColor && foreColor.active,
-        backColor: backColor && backColor.active,
-        highlighter: highlighter && highlighter.active,
-        borderColor: borderColor && borderColor.active,
-        borderTopColor: borderTopColor && borderTopColor.active,
-        borderRightColor: borderRightColor && borderRightColor.active,
-        borderBottomColor: borderBottomColor && borderBottomColor.active,
-        borderLeftColor: borderLeftColor && borderLeftColor.active,
-      }),
-      "&[disabled]": getCssObject({
-        foreColor: foreColor && foreColor.disabled,
-        backColor: backColor && backColor.disabled,
-        highlighter: highlighter && highlighter.disabled,
-        borderColor: borderColor && borderColor.disabled,
-        borderTopColor: borderTopColor && borderTopColor.disabled,
-        borderRightColor: borderRightColor && borderRightColor.disabled,
-        borderBottomColor: borderBottomColor && borderBottomColor.disabled,
-        borderLeftColor: borderLeftColor && borderLeftColor.disabled,
-      }),
-    }
-  );
-}
-
 function getEmotionCss(
-  props: BaseComponentProps,
-  colorScheme?: ColorScheme
+  props: BaseComponentProps
 ): Interpolation<Theme> {
   const keys = Object.keys(props);
 
@@ -240,7 +281,7 @@ function getEmotionCss(
       key === "border" ||
       key === "positioning" ||
       key === "sizing" ||
-      key === "spacing"
+      key === "spacing",
   );
 
   if (baseComponentPropsKeys.length === 0) {
@@ -254,14 +295,12 @@ function getEmotionCss(
   const foreColorBase = props.fore
     ? getColorProps(props.fore.color)
     : undefined;
-  const foreColorLight =
+
+  const foreColorScheme =
     props.fore && props.fore.color
-      ? getColorProps(props.fore.color.light)
+      ? getSchemeColorProps(props.fore.color.colorScheme)
       : undefined;
-  const foreColorDark =
-    props.fore && props.fore.color
-      ? getColorProps(props.fore.color.dark)
-      : undefined;
+
   const fontSize =
     props.fore && props.fore.fontSize
       ? `var(--${cssVariablePrefix}font-size-${props.fore.fontSize})`
@@ -276,87 +315,69 @@ function getEmotionCss(
   const backColorBase = props.back
     ? getColorProps(props.back.color)
     : undefined;
-  const backColorLight =
+
+  const backColorScheme =
     props.back && props.back.color
-      ? getColorProps(props.back.color.light)
+      ? getSchemeColorProps(props.back.color.colorScheme)
       : undefined;
-  const backColorDark =
-    props.back && props.back.color
-      ? getColorProps(props.back.color.dark)
-      : undefined;
+
   //#endregion back
 
   //#region highlighter
   const highlighterColorBase =
     props.highlighter && getColorProps(props.highlighter.color, "highlighter");
-  const highlighterColorLight =
+
+  const highlighterColorScheme =
     props.highlighter && props.highlighter.color
-      ? getColorProps(props.highlighter.color.light, "highlighter")
+      ? getSchemeColorProps(props.highlighter.color.colorScheme, "highlighter")
       : undefined;
-  const highlighterColorDark =
-    props.highlighter && props.highlighter.color
-      ? getColorProps(props.highlighter.color.dark, "highlighter")
-      : undefined;
+
   //#endregion highlighter
 
   //#region border
   const borderColorBase = props.border
     ? getColorProps(props.border.color)
     : undefined;
+
+  const borderColorScheme =
+    props.border && props.border.color
+      ? getSchemeColorProps(props.border.color.colorScheme)
+      : undefined;
+
   const borderTopColorBase =
     props.border && props.border.top
       ? getColorProps(props.border.top.color)
       : undefined;
+  const borderTopColorScheme =
+    props.border && props.border.top && props.border.top.color
+      ? getSchemeColorProps(props.border.top.color.colorScheme)
+      : undefined;
+
   const borderRightColorBase =
     props.border && props.border.right
       ? getColorProps(props.border.right.color)
       : undefined;
+  const borderRightColorScheme =
+    props.border && props.border.right && props.border.right.color
+      ? getSchemeColorProps(props.border.right.color.colorScheme)
+      : undefined;
+
   const borderBottomColorBase =
     props.border && props.border.bottom
       ? getColorProps(props.border.bottom.color)
       : undefined;
+  const borderBottomColorScheme =
+    props.border && props.border.bottom && props.border.bottom.color
+      ? getSchemeColorProps(props.border.bottom.color.colorScheme)
+      : undefined;
+
   const borderLeftColorBase =
     props.border && props.border.left && getColorProps(props.border.left.color);
-  const borderColorLight =
-    props.border && props.border.color
-      ? getColorProps(props.border.color.light)
-      : undefined;
-  const borderTopColorLight =
-    props.border && props.border.top && props.border.top.color
-      ? getColorProps(props.border.top.color.light)
-      : undefined;
-  const borderRightColorLight =
-    props.border && props.border.right && props.border.right.color
-      ? getColorProps(props.border.right.color.light)
-      : undefined;
-  const borderBottomColorLight =
-    props.border && props.border.bottom && props.border.bottom.color
-      ? getColorProps(props.border.bottom.color.light)
-      : undefined;
-  const borderLeftColorLight =
+  const borderLeftColorScheme =
     props.border && props.border.left && props.border.left.color
-      ? getColorProps(props.border.left.color.light)
+      ? getSchemeColorProps(props.border.left.color.colorScheme)
       : undefined;
-  const borderColorDark =
-    props.border && props.border.color
-      ? getColorProps(props.border.color.dark)
-      : undefined;
-  const borderTopColorDark =
-    props.border && props.border.top && props.border.top.color
-      ? getColorProps(props.border.top.color.dark)
-      : undefined;
-  const borderRightColorDark =
-    props.border && props.border.right && props.border.right.color
-      ? getColorProps(props.border.right.color.dark)
-      : undefined;
-  const borderBottomColorDark =
-    props.border && props.border.bottom && props.border.bottom.color
-      ? getColorProps(props.border.bottom.color.dark)
-      : undefined;
-  const borderLeftColorDark =
-    props.border && props.border.left && props.border.left.color
-      ? getColorProps(props.border.left.color.dark)
-      : undefined;
+
   //#endregion border
 
   const hover = getCssObject({
@@ -446,26 +467,113 @@ function getEmotionCss(
     "&[disabled]": disabled,
   });
 
-  const lightColor = getSchemeCssObject({
-    foreColor: foreColorLight,
-    backColor: backColorLight,
-    highlighter: highlighterColorLight,
-    borderColor: borderColorLight,
-    borderTopColor: borderTopColorLight,
-    borderRightColor: borderRightColorLight,
-    borderBottomColor: borderBottomColorLight,
-    borderLeftColor: borderLeftColorLight,
+  const hoverSchemeColor = getCssObject({
+    foreColor: foreColorScheme ? foreColorScheme.hover : undefined,
+    backColor: backColorScheme ? backColorScheme.hover : undefined,
+    highlighter: highlighterColorScheme
+      ? highlighterColorScheme.hover
+      : undefined,
+    borderColor: borderColorScheme ? borderColorScheme.hover : undefined,
+    borderTopColor: borderTopColorScheme
+      ? borderTopColorScheme.hover
+      : undefined,
+    borderRightColor: borderRightColorScheme
+      ? borderRightColorScheme.hover
+      : undefined,
+    borderBottomColor: borderBottomColorScheme
+      ? borderBottomColorScheme.hover
+      : undefined,
+    borderLeftColor: borderLeftColorScheme
+      ? borderLeftColorScheme.hover
+      : undefined,
   });
 
-  const darkColor = getSchemeCssObject({
-    foreColor: foreColorDark,
-    backColor: backColorDark,
-    highlighter: highlighterColorDark,
-    borderColor: borderColorDark,
-    borderTopColor: borderTopColorDark,
-    borderRightColor: borderRightColorDark,
-    borderBottomColor: borderBottomColorDark,
-    borderLeftColor: borderLeftColorDark,
+  const focusSchemeColor = getCssObject({
+    foreColor: foreColorScheme ? foreColorScheme.focus : undefined,
+    backColor: backColorScheme ? backColorScheme.focus : undefined,
+    highlighter: highlighterColorScheme
+      ? highlighterColorScheme.focus
+      : undefined,
+    borderColor: borderColorScheme ? borderColorScheme.focus : undefined,
+    borderTopColor: borderTopColorScheme
+      ? borderTopColorScheme.focus
+      : undefined,
+    borderRightColor: borderRightColorScheme
+      ? borderRightColorScheme.focus
+      : undefined,
+    borderBottomColor: borderBottomColorScheme
+      ? borderBottomColorScheme.focus
+      : undefined,
+    borderLeftColor: borderLeftColorScheme
+      ? borderLeftColorScheme.focus
+      : undefined,
+  });
+
+  const activeSchemeColor = getCssObject({
+    foreColor: foreColorScheme ? foreColorScheme.active : undefined,
+    backColor: backColorScheme ? backColorScheme.active : undefined,
+    highlighter: highlighterColorScheme
+      ? highlighterColorScheme.active
+      : undefined,
+    borderColor: borderColorScheme ? borderColorScheme.active : undefined,
+    borderTopColor: borderTopColorScheme
+      ? borderTopColorScheme.active
+      : undefined,
+    borderRightColor: borderRightColorScheme
+      ? borderRightColorScheme.active
+      : undefined,
+    borderBottomColor: borderBottomColorScheme
+      ? borderBottomColorScheme.active
+      : undefined,
+    borderLeftColor: borderLeftColorScheme
+      ? borderLeftColorScheme.active
+      : undefined,
+  });
+
+  const disabledSchemeColor = getCssObject({
+    foreColor: foreColorScheme ? foreColorScheme.disabled : undefined,
+    backColor: backColorScheme ? backColorScheme.disabled : undefined,
+    highlighter: highlighterColorScheme
+      ? highlighterColorScheme.disabled
+      : undefined,
+    borderColor: borderColorScheme ? borderColorScheme.disabled : undefined,
+    borderTopColor: borderTopColorScheme
+      ? borderTopColorScheme.disabled
+      : undefined,
+    borderRightColor: borderRightColorScheme
+      ? borderRightColorScheme.disabled
+      : undefined,
+    borderBottomColor: borderBottomColorScheme
+      ? borderBottomColorScheme.disabled
+      : undefined,
+    borderLeftColor: borderLeftColorScheme
+      ? borderLeftColorScheme.disabled
+      : undefined,
+  });
+
+  const schemeColor = css({
+    color: foreColorScheme ? foreColorScheme.default : undefined,
+    backgroundColor: backColorScheme ? backColorScheme.default : undefined,
+    backgroundImage: highlighterColorScheme
+      ? highlighterColorScheme.default
+      : undefined,
+    borderColor: borderColorScheme ? borderColorScheme.default : undefined,
+    borderTopColor: borderTopColorScheme
+      ? borderTopColorScheme.default
+      : undefined,
+    borderRightColor: borderRightColorScheme
+      ? borderRightColorScheme.default
+      : undefined,
+    borderBottomColor: borderBottomColorScheme
+      ? borderBottomColorScheme.default
+      : undefined,
+    borderLeftColor: borderLeftColorScheme
+      ? borderLeftColorScheme.default
+      : undefined,
+    ":hover": hoverSchemeColor,
+    ":focus": focusSchemeColor,
+    ":active": activeSchemeColor,
+    "&[disabled]": disabledSchemeColor,
   });
 
   const defaultCssProps: CSSInterpolation = {
@@ -526,8 +634,8 @@ function getEmotionCss(
         ? typeof props.spacing.margin === "number"
           ? `${props.spacing.margin}rem`
           : typeof props.spacing.margin === "string"
-          ? props.spacing.margin
-          : undefined
+            ? props.spacing.margin
+            : undefined
         : undefined,
     marginTop:
       props.spacing &&
@@ -538,13 +646,13 @@ function getEmotionCss(
           ? `${props.spacing.margin.top}rem`
           : props.spacing.margin.top
         : props.spacing &&
-          props.spacing.margin &&
-          typeof props.spacing.margin === "object" &&
-          props.spacing.margin.y
-        ? typeof props.spacing.margin.y === "number"
-          ? `${props.spacing.margin.y}rem`
-          : props.spacing.margin.y
-        : undefined,
+            props.spacing.margin &&
+            typeof props.spacing.margin === "object" &&
+            props.spacing.margin.y
+          ? typeof props.spacing.margin.y === "number"
+            ? `${props.spacing.margin.y}rem`
+            : props.spacing.margin.y
+          : undefined,
     marginRight:
       props.spacing &&
       props.spacing.margin &&
@@ -554,13 +662,13 @@ function getEmotionCss(
           ? `${props.spacing.margin.right}rem`
           : props.spacing.margin.right
         : props.spacing &&
-          props.spacing.margin &&
-          typeof props.spacing.margin === "object" &&
-          props.spacing.margin.x
-        ? typeof props.spacing.margin.x === "number"
-          ? `${props.spacing.margin.x}rem`
-          : props.spacing.margin.x
-        : undefined,
+            props.spacing.margin &&
+            typeof props.spacing.margin === "object" &&
+            props.spacing.margin.x
+          ? typeof props.spacing.margin.x === "number"
+            ? `${props.spacing.margin.x}rem`
+            : props.spacing.margin.x
+          : undefined,
     marginBottom:
       props.spacing &&
       props.spacing.margin &&
@@ -570,13 +678,13 @@ function getEmotionCss(
           ? `${props.spacing.margin.bottom}rem`
           : props.spacing.margin.bottom
         : props.spacing &&
-          props.spacing.margin &&
-          typeof props.spacing.margin === "object" &&
-          props.spacing.margin.y
-        ? typeof props.spacing.margin.y === "number"
-          ? `${props.spacing.margin.y}rem`
-          : props.spacing.margin.y
-        : undefined,
+            props.spacing.margin &&
+            typeof props.spacing.margin === "object" &&
+            props.spacing.margin.y
+          ? typeof props.spacing.margin.y === "number"
+            ? `${props.spacing.margin.y}rem`
+            : props.spacing.margin.y
+          : undefined,
     marginLeft:
       props.spacing &&
       props.spacing.margin &&
@@ -586,20 +694,20 @@ function getEmotionCss(
           ? `${props.spacing.margin.left}rem`
           : props.spacing.margin.left
         : props.spacing &&
-          props.spacing.margin &&
-          typeof props.spacing.margin === "object" &&
-          props.spacing.margin.x
-        ? typeof props.spacing.margin.x === "number"
-          ? `${props.spacing.margin.x}rem`
-          : props.spacing.margin.x
-        : undefined,
+            props.spacing.margin &&
+            typeof props.spacing.margin === "object" &&
+            props.spacing.margin.x
+          ? typeof props.spacing.margin.x === "number"
+            ? `${props.spacing.margin.x}rem`
+            : props.spacing.margin.x
+          : undefined,
     padding:
       props.spacing && props.spacing.padding
         ? typeof props.spacing.padding === "number"
           ? `${props.spacing.padding}rem`
           : typeof props.spacing.padding === "string"
-          ? props.spacing.padding
-          : undefined
+            ? props.spacing.padding
+            : undefined
         : undefined,
     paddingTop:
       props.spacing &&
@@ -610,13 +718,13 @@ function getEmotionCss(
           ? `${props.spacing.padding.top}rem`
           : props.spacing.padding.top
         : props.spacing &&
-          props.spacing.padding &&
-          typeof props.spacing.padding === "object" &&
-          props.spacing.padding.y
-        ? typeof props.spacing.padding.y === "number"
-          ? `${props.spacing.padding.y}rem`
-          : props.spacing.padding.y
-        : undefined,
+            props.spacing.padding &&
+            typeof props.spacing.padding === "object" &&
+            props.spacing.padding.y
+          ? typeof props.spacing.padding.y === "number"
+            ? `${props.spacing.padding.y}rem`
+            : props.spacing.padding.y
+          : undefined,
     paddingRight:
       props.spacing &&
       props.spacing.padding &&
@@ -626,13 +734,13 @@ function getEmotionCss(
           ? `${props.spacing.padding.right}rem`
           : props.spacing.padding.right
         : props.spacing &&
-          props.spacing.padding &&
-          typeof props.spacing.padding === "object" &&
-          props.spacing.padding.x
-        ? typeof props.spacing.padding.x === "number"
-          ? `${props.spacing.padding.x}rem`
-          : props.spacing.padding.x
-        : undefined,
+            props.spacing.padding &&
+            typeof props.spacing.padding === "object" &&
+            props.spacing.padding.x
+          ? typeof props.spacing.padding.x === "number"
+            ? `${props.spacing.padding.x}rem`
+            : props.spacing.padding.x
+          : undefined,
     paddingBottom:
       props.spacing &&
       props.spacing.padding &&
@@ -642,13 +750,13 @@ function getEmotionCss(
           ? `${props.spacing.padding.bottom}rem`
           : props.spacing.padding.bottom
         : props.spacing &&
-          props.spacing.padding &&
-          typeof props.spacing.padding === "object" &&
-          props.spacing.padding.y
-        ? typeof props.spacing.padding.y === "number"
-          ? `${props.spacing.padding.y}rem`
-          : props.spacing.padding.y
-        : undefined,
+            props.spacing.padding &&
+            typeof props.spacing.padding === "object" &&
+            props.spacing.padding.y
+          ? typeof props.spacing.padding.y === "number"
+            ? `${props.spacing.padding.y}rem`
+            : props.spacing.padding.y
+          : undefined,
     paddingLeft:
       props.spacing &&
       props.spacing.padding &&
@@ -658,13 +766,13 @@ function getEmotionCss(
           ? `${props.spacing.padding.left}rem`
           : props.spacing.padding.left
         : props.spacing &&
-          props.spacing.padding &&
-          typeof props.spacing.padding === "object" &&
-          props.spacing.padding.x
-        ? typeof props.spacing.padding.x === "number"
-          ? `${props.spacing.padding.x}rem`
-          : props.spacing.padding.x
-        : undefined,
+            props.spacing.padding &&
+            typeof props.spacing.padding === "object" &&
+            props.spacing.padding.x
+          ? typeof props.spacing.padding.x === "number"
+            ? `${props.spacing.padding.x}rem`
+            : props.spacing.padding.x
+          : undefined,
     display: props.positioning ? props.positioning.display : undefined,
     position: props.positioning ? props.positioning.position : undefined,
     top: props.positioning ? props.positioning.top : undefined,
@@ -682,12 +790,8 @@ function getEmotionCss(
   const cssArray: CSSInterpolation[] = [];
   cssArray.push(defaultColor);
 
-  if (colorScheme === "light" && lightColor) {
-    cssArray.push(lightColor);
-  }
-
-  if (colorScheme === "dark" && darkColor) {
-    cssArray.push(darkColor);
+  if (schemeColor) {
+    cssArray.push(schemeColor);
   }
 
   cssArray.push(defaultCssProps);

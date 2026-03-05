@@ -11,7 +11,7 @@ export default interface BorderProps {
   color?: ColorProps;
   collapse?: BorderCollapse;
   radius?: BorderRadius;
-  style: BorderStyle;
+  style?: BorderStyle;
   width?: BorderWidth;
   top?: BorderDetailProps;
   bottom?: BorderDetailProps;

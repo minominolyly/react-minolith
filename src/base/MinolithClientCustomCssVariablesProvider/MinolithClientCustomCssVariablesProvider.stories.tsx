@@ -191,7 +191,7 @@ function genMinolithCssVariables(): MinolithCssVariables {
       blue: getColorVar(colorBlue),
       violet: getColorVar(colorViolet),
       magenta: getColorVar(colorMagenta),
-      schemeColor: {
+      colorScheme: {
         default: {
           default: {
             fore: {
@@ -200,10 +200,10 @@ function genMinolithCssVariables(): MinolithCssVariables {
                 name: "red",
                 lightness: 50,
               },
-            }
-          }
-        }
-      }
+            },
+          },
+        },
+      },
     },
   };
 }
@@ -262,20 +262,53 @@ const elem = (
                 fore={{
                   color: {
                     default: { name: "red", lightness: 80, alpha: 0.5 },
+                    colorScheme: {
+                      light: {
+                        default: { name: "red", lightness: 20, alpha: 0.5 },
+                      },
+                      dark: {
+                        default: { name: "red", lightness: 80, alpha: 0.5 },
+                      },
+                    },
                   },
                 }}
                 back={{
                   color: {
                     default: { name: "blue", lightness: 20, alpha: 0.5 },
+                    colorScheme: {
+                      light: {
+                        default: { name: "blue", lightness: 80, alpha: 0.5 },
+                      },
+                      dark: {
+                        default: { name: "blue", lightness: 20, alpha: 0.5 },
+                      },
+                    },
                   },
                 }}
                 highlighter={{
                   color: {
-                    light: {
-                      default: { name: "yellow", lightness: 80, alpha: 0.5 },
+                    colorScheme: {
+                      light: {
+                        default: { name: "yellow", lightness: 80, alpha: 0.5 },
+                      },
+                      dark: {
+                        default: { name: "cyan", lightness: 80, alpha: 0.5 },
+                      },
                     },
-                    dark: {
-                      default: { name: "cyan", lightness: 80, alpha: 0.5 },
+                  },
+                }}
+                border={{
+                  style: "solid",
+                  width: "thick",
+                  color: {
+                    default: { name: "blue", lightness: 20 },
+                    colorScheme: {
+                      light: {
+                        default: { name: "blue", lightness: 20 },
+                      },
+                      dark: {
+                        default: { name: "blue", lightness: 80 },
+                      },
                     },
                   },
                 }}

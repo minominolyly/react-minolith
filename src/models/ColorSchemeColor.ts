@@ -1,6 +1,7 @@
 import ComponentStatePseudoClass from "./ComponentStatePseudoClass";
+import ColorSchemeColorComponents from "./ColorSchemeColorComponents";
 
-export default interface ComponentSchemeColor {
+export default interface ColorSchemeColor {
   default?: ComponentStatePseudoClass | undefined;
   gray?: ComponentStatePseudoClass | undefined;
   red?: ComponentStatePseudoClass | undefined;
@@ -13,4 +14,5 @@ export default interface ComponentSchemeColor {
   blue?: ComponentStatePseudoClass | undefined;
   violet?: ComponentStatePseudoClass | undefined;
   magenta?: ComponentStatePseudoClass | undefined;
+  components?: ColorSchemeColorComponents | undefined;
 }

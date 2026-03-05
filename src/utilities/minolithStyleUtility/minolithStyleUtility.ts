@@ -5,8 +5,8 @@ import {
   LightDarkColor,
   Oklch,
 } from "../../models";
-import ComponentColor from "../../models/ComponentSchemeColor";
-import SchemeColorComponents from "../../models/SchemeColorComponents";
+import ComponentColorSchemeColor from "../../models/ComponentColorSchemeColor";
+import ColorSchemeColorComponents from "../../models/ColorSchemeColorComponents";
 import { ColorName } from "../../react-minolith";
 
 const cssVariablePrefix = "minolith-";
@@ -158,7 +158,7 @@ function getColorVariables(
 }
 
 function getComponentColorStyles(
-  component: ComponentColor,
+  component: ComponentColorSchemeColor,
   componentName: string,
 ): string[] {
   const schemeStyles: string[] = [];
@@ -189,14 +189,14 @@ function getComponentColorStyles(
   return schemeStyles;
 }
 
-function getSchemeColorComponentsStyles(
-  schemeColorComponents: SchemeColorComponents,
+function getColorSchemeColorComponentsStyles(
+  colorSchemeColorComponents: ColorSchemeColorComponents,
 ) {
   const schemeStyles: string[] = [];
 
-  if (schemeColorComponents.badge) {
+  if (colorSchemeColorComponents.badge) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.badge,
+      colorSchemeColorComponents.badge,
       "badge",
     );
     if (styles.length > 0) {
@@ -204,26 +204,26 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.accordion) {
+  if (colorSchemeColorComponents.accordion) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.accordion,
+      colorSchemeColorComponents.accordion,
       "accordion",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
-    if (schemeColorComponents.accordion.accordionSummary) {
+    if (colorSchemeColorComponents.accordion.accordionSummary) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.accordion.accordionSummary,
+        colorSchemeColorComponents.accordion.accordionSummary,
         "accordion-summary",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
       }
     }
-    if (schemeColorComponents.accordion.accordionDetails) {
+    if (colorSchemeColorComponents.accordion.accordionDetails) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.accordion.accordionDetails,
+        colorSchemeColorComponents.accordion.accordionDetails,
         "accordion-details",
       );
       if (styles.length > 0) {
@@ -232,9 +232,9 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.button) {
+  if (colorSchemeColorComponents.button) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.button,
+      colorSchemeColorComponents.button,
       "button",
     );
     if (styles.length > 0) {
@@ -242,32 +242,32 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.card) {
-    const styles = getComponentColorStyles(schemeColorComponents.card, "card");
+  if (colorSchemeColorComponents.card) {
+    const styles = getComponentColorStyles(colorSchemeColorComponents.card, "card");
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
-    if (schemeColorComponents.card.cardHeader) {
+    if (colorSchemeColorComponents.card.cardHeader) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.card.cardHeader,
+        colorSchemeColorComponents.card.cardHeader,
         "card-header",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
       }
     }
-    if (schemeColorComponents.card.cardBody) {
+    if (colorSchemeColorComponents.card.cardBody) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.card.cardBody,
+        colorSchemeColorComponents.card.cardBody,
         "card-body",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
       }
     }
-    if (schemeColorComponents.card.cardFooter) {
+    if (colorSchemeColorComponents.card.cardFooter) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.card.cardFooter,
+        colorSchemeColorComponents.card.cardFooter,
         "card-footer",
       );
       if (styles.length > 0) {
@@ -276,35 +276,35 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.dialogue) {
+  if (colorSchemeColorComponents.dialogue) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.dialogue,
+      colorSchemeColorComponents.dialogue,
       "dialogue",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
-    if (schemeColorComponents.dialogue.dialogueAvatar) {
+    if (colorSchemeColorComponents.dialogue.dialogueAvatar) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.dialogue.dialogueAvatar,
+        colorSchemeColorComponents.dialogue.dialogueAvatar,
         "dialogue-avatar",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
       }
     }
-    if (schemeColorComponents.dialogue.dialogueName) {
+    if (colorSchemeColorComponents.dialogue.dialogueName) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.dialogue.dialogueName,
+        colorSchemeColorComponents.dialogue.dialogueName,
         "dialogue-name",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
       }
     }
-    if (schemeColorComponents.dialogue.dialogueMessage) {
+    if (colorSchemeColorComponents.dialogue.dialogueMessage) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.dialogue.dialogueMessage,
+        colorSchemeColorComponents.dialogue.dialogueMessage,
         "dialogue-message",
       );
       if (styles.length > 0) {
@@ -313,9 +313,9 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.header) {
+  if (colorSchemeColorComponents.header) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.header,
+      colorSchemeColorComponents.header,
       "header",
     );
     if (styles.length > 0) {
@@ -323,9 +323,9 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.label) {
+  if (colorSchemeColorComponents.label) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.label,
+      colorSchemeColorComponents.label,
       "label",
     );
     if (styles.length > 0) {
@@ -333,16 +333,16 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.link) {
-    const styles = getComponentColorStyles(schemeColorComponents.link, "link");
+  if (colorSchemeColorComponents.link) {
+    const styles = getComponentColorStyles(colorSchemeColorComponents.link, "link");
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
   }
 
-  if (schemeColorComponents.loader) {
+  if (colorSchemeColorComponents.loader) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.loader,
+      colorSchemeColorComponents.loader,
       "loader",
     );
     if (styles.length > 0) {
@@ -350,26 +350,26 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.message) {
+  if (colorSchemeColorComponents.message) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.message,
+      colorSchemeColorComponents.message,
       "message",
     );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
-    if (schemeColorComponents.message.messageHeader) {
+    if (colorSchemeColorComponents.message.messageHeader) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.message.messageHeader,
+        colorSchemeColorComponents.message.messageHeader,
         "message-header",
       );
       if (styles.length > 0) {
         schemeStyles.push(...styles);
       }
     }
-    if (schemeColorComponents.message.messageBody) {
+    if (colorSchemeColorComponents.message.messageBody) {
       const styles = getComponentColorStyles(
-        schemeColorComponents.message.messageBody,
+        colorSchemeColorComponents.message.messageBody,
         "message-body",
       );
       if (styles.length > 0) {
@@ -378,9 +378,9 @@ function getSchemeColorComponentsStyles(
     }
   }
 
-  if (schemeColorComponents.progress) {
+  if (colorSchemeColorComponents.progress) {
     const styles = getComponentColorStyles(
-      schemeColorComponents.progress,
+      colorSchemeColorComponents.progress,
       "progress",
     );
     if (styles.length > 0) {
@@ -532,11 +532,11 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         }
       }
 
-      if (color.schemeColor) {
-        if (color.schemeColor.default) {
+      if (color.colorScheme) {
+        if (color.colorScheme.default) {
           const styles = getColorVariables(
             "default",
-            color.schemeColor.default,
+            color.colorScheme.default,
           );
           if (styles.length > 0) {
             rootStyles.push(...styles);
@@ -544,8 +544,8 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         }
 
         for (const colorName of colorNames) {
-          if (color.schemeColor[colorName]) {
-            const variable = color.schemeColor[colorName];
+          if (color.colorScheme[colorName]) {
+            const variable = color.colorScheme[colorName];
             const styles = getColorVariables(colorName, variable);
             if (styles.length > 0) {
               rootStyles.push(...styles);
@@ -553,9 +553,9 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
           }
         }
 
-        if (color.schemeColor.components) {
-          const components = color.schemeColor.components;
-          const styles = getSchemeColorComponentsStyles(components);
+        if (color.colorScheme.components) {
+          const components = color.colorScheme.components;
+          const styles = getColorSchemeColorComponentsStyles(components);
           if (styles.length > 0) {
             rootStyles.push(...styles);
           }

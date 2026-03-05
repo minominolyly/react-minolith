@@ -106,20 +106,53 @@ const elem = (
                 fore={{
                   color: {
                     default: { name: "red", lightness: 80, alpha: 0.5 },
+                    colorScheme: {
+                      light: {
+                        default: { name: "red", lightness: 20, alpha: 0.5 },
+                      },
+                      dark: {
+                        default: { name: "red", lightness: 80, alpha: 0.5 },
+                      },
+                    },
                   },
                 }}
                 back={{
                   color: {
                     default: { name: "blue", lightness: 20, alpha: 0.5 },
+                    colorScheme: {
+                      light: {
+                        default: { name: "blue", lightness: 80, alpha: 0.5 },
+                      },
+                      dark: {
+                        default: { name: "blue", lightness: 20, alpha: 0.5 },
+                      },
+                    },
                   },
                 }}
                 highlighter={{
                   color: {
-                    light: {
-                      default: { name: "yellow", lightness: 80, alpha: 0.5 },
+                    colorScheme: {
+                      light: {
+                        default: { name: "yellow", lightness: 80, alpha: 0.5 },
+                      },
+                      dark: {
+                        default: { name: "cyan", lightness: 80, alpha: 0.5 },
+                      },
                     },
-                    dark: {
-                      default: { name: "cyan", lightness: 80, alpha: 0.5 },
+                  },
+                }}
+                border={{
+                  style: "solid",
+                  width: "medium",
+                  color: {
+                    default: { name: "blue", lightness: 20 },
+                    colorScheme: {
+                      light: {
+                        default: { name: "blue", lightness: 20 },
+                      },
+                      dark: {
+                        default: { name: "blue", lightness: 80 },
+                      },
                     },
                   },
                 }}
