@@ -108,7 +108,7 @@ function getGutterClassNames(
 function getUtilityClassNames(props: BaseComponentProps): string[] {
   const assignedClassNames: string[] = [];
 
-  const assignStateColor = <ColorNameType = ColorName>(
+  const assignStateColor = <ColorNameType extends string = ColorName>(
     name: string,
     stateStr: string,
     state?: ColorAttributes<ColorNameType> | "transparent",

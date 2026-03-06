@@ -21,16 +21,18 @@ const columnsWrapperBorder: BorderProps = {
   style: "solid",
   width: "xthick",
   color: {
-    light: {
-      default: {
-        name: "violet",
-        lightness: 70,
+    colorScheme: {
+      light: {
+        default: {
+          name: "violet",
+          lightness: 70,
+        },
       },
-    },
-    dark: {
-      default: {
-        name: "violet",
-        lightness: 30,
+      dark: {
+        default: {
+          name: "violet",
+          lightness: 30,
+        },
       },
     },
   },

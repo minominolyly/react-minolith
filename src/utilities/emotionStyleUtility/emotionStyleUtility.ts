@@ -15,7 +15,7 @@ interface ComponentStateColorCssProperty {
   disabled?: string;
 }
 
-function getColorProps<ColorNameType = ColorName>(
+function getColorProps<ColorNameType extends string = ColorName>(
   props?: {
     default?: ColorAttributes<ColorNameType> | "transparent";
     hover?: ColorAttributes<ColorNameType> | "transparent";
@@ -54,7 +54,7 @@ function getColorProps<ColorNameType = ColorName>(
   };
 }
 
-function getSchemeColorProps<ColorNameType = ColorName>(
+function getSchemeColorProps<ColorNameType extends string = ColorName>(
   props?: {
     light: {
       default?: ColorAttributes<ColorNameType> | "transparent";
@@ -147,7 +147,7 @@ function getSchemeColorProps<ColorNameType = ColorName>(
   };
 }
 
-function getColorVariable<ColorNameType = ColorName>(
+function getColorVariable<ColorNameType extends string = ColorName>(
   colorAttributes?: ColorAttributes<ColorNameType> | "transparent",
 ): string | undefined {
   if (!colorAttributes) {
@@ -173,7 +173,7 @@ function getColorVariable<ColorNameType = ColorName>(
   })`;
 }
 
-function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
+function getHighlighterBackgroundVariable<ColorNameType extends string = ColorName>(
   colorAttributes?: ColorAttributes<ColorNameType> | "transparent",
 ): string | undefined {
   if (!colorAttributes) {
@@ -203,7 +203,7 @@ function getHighlighterBackgroundVariable<ColorNameType = ColorName>(
     }) 33.33%)`;
 }
 
-function getSchemeColorHighlighterBackgroundVariable<ColorNameType = ColorName>(
+function getSchemeColorHighlighterBackgroundVariable<ColorNameType extends string = ColorName>(
   lightColorAttributes?: ColorAttributes<ColorNameType> | "transparent",
   darkColorAttributes?: ColorAttributes<ColorNameType> | "transparent",
 ): string | undefined {

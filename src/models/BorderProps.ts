@@ -4,11 +4,12 @@ import {
   BorderRadius,
   BorderStyle,
   BorderWidth,
+  ColorName,
   ColorProps,
 } from "../types";
 
-export default interface BorderProps {
-  color?: ColorProps;
+export default interface BorderProps<ColorNameType extends string = ColorName> {
+  color?: ColorProps<ColorNameType>;
   collapse?: BorderCollapse;
   radius?: BorderRadius;
   style?: BorderStyle;

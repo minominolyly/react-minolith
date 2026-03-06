@@ -1,7 +1,7 @@
 import ColorAttributes from "./ColorAttributes";
 import ColorName from "./ColorName";
 
-type ColorProps<ColorNameType = ColorName> = {
+type ColorProps<ColorNameType extends string = ColorName> = {
   default?: ColorAttributes<ColorNameType> | "transparent";
   hover?: ColorAttributes<ColorNameType> | "transparent";
   focus?: ColorAttributes<ColorNameType> | "transparent";

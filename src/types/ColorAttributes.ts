@@ -1,7 +1,7 @@
 import ColorLightness from "./ColorLightness";
 import ColorName from "./ColorName";
 
-type ColorAttributes<ColorNameType = ColorName> = {
+type ColorAttributes<ColorNameType extends string = ColorName> = {
   name: ColorNameType;
   lightness: ColorLightness;
   alpha?: number;

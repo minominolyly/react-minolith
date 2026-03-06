@@ -10,14 +10,6 @@
 
 react-minolith is an open-source react wrapper for [minolith](https://github.com/minominolyly/minolith).
 
-## ⚠️Breaking Changes version 1.0
-
-`react-minolith` now have `@emotion/react` as dependencies.
-
-```shell
-npm install @emotion/react
-```
-
 ## Installation
 
 ```shell
@@ -54,7 +46,7 @@ import {
 import { useState } from "react";
 
 export default function HelloWorldPage() {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+  const [colorScheme, setColorScheme] = useState<ColorScheme | undefined>(undefined);
   const [isActive, setIsActive] = useState<boolean>(false);
   return (
     <Minolith colorScheme={colorScheme}>
