@@ -35,12 +35,10 @@ export default function MinolithClientCustomCssVariablesProvider(
       element.append(style);
     };
 
-    if (document.querySelector(`#${styleId}`) === null) {
-      setStyle(document.head);
+    setStyle(document.head);
 
-      if (document.querySelector(`#${styleId}`) === null) {
-        setStyle(document.body);
-      }
+    if (document.querySelector(`#${styleId}`) === null) {
+      setStyle(document.body);
     }
   }, [minolithStyles]);
 
