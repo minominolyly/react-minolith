@@ -9,6 +9,7 @@ export default function DialogueAvatar(
   props: DialogueAvatarProps,
 ): ReactElement {
   const assignedProps = { ...props };
+  delete assignedProps["hasBorder"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -20,6 +21,7 @@ export default function DialogueAvatar(
   delete assignedProps["css"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames: string[] = [classNames["dialogue-avatar"]];
 
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
