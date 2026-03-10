@@ -173,7 +173,9 @@ function getColorVariable<ColorNameType extends string = ColorName>(
   })`;
 }
 
-function getHighlighterBackgroundVariable<ColorNameType extends string = ColorName>(
+function getHighlighterBackgroundVariable<
+  ColorNameType extends string = ColorName,
+>(
   colorAttributes?: ColorAttributes<ColorNameType> | "transparent",
 ): string | undefined {
   if (!colorAttributes) {
@@ -203,7 +205,9 @@ function getHighlighterBackgroundVariable<ColorNameType extends string = ColorNa
     }) 33.33%)`;
 }
 
-function getSchemeColorHighlighterBackgroundVariable<ColorNameType extends string = ColorName>(
+function getSchemeColorHighlighterBackgroundVariable<
+  ColorNameType extends string = ColorName,
+>(
   lightColorAttributes?: ColorAttributes<ColorNameType> | "transparent",
   darkColorAttributes?: ColorAttributes<ColorNameType> | "transparent",
 ): string | undefined {
@@ -266,7 +270,7 @@ function getCssObject(props: {
     : undefined;
 }
 
-function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
+function getEmotionCss(props: BaseComponentProps, optionalCss?: Interpolation<Theme>): Interpolation<Theme> {
   const keys = Object.keys(props);
 
   const baseComponentPropsKeys = keys.filter(
@@ -281,10 +285,15 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
   );
 
   if (baseComponentPropsKeys.length === 0) {
-    if (props.css) {
-      return props.css;
+    const arry = [];
+    if (optionalCss) {
+      arry.push(optionalCss);
     }
-    return undefined;
+
+    if (props.css) {
+      arry.push(props.css);
+    }
+    return arry;
   }
 
   //#region fore
@@ -794,11 +803,21 @@ function getEmotionCss(props: BaseComponentProps): Interpolation<Theme> {
 
   const minolithUtilityStyles = css(cssArray);
 
-  if (props.css) {
-    return [minolithUtilityStyles, props.css];
+  const derived = [];
+
+  if (minolithUtilityStyles) {
+    derived.push(minolithUtilityStyles);
   }
 
-  return minolithUtilityStyles;
+  if (optionalCss) {
+    derived.push(optionalCss);
+  }
+
+  if (props.css) {
+    derived.push(props.css);
+  }
+
+  return derived;
 }
 
 const emotionStyleUtility = {

@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Hamburger.module.scss";
 import HamburgerProps from "./HamburgerProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Hamburger(props: HamburgerProps): ReactElement {
   const assignedProps = { ...props };
@@ -23,11 +24,8 @@ export default function Hamburger(props: HamburgerProps): ReactElement {
   delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["hamburger"]];
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
 
-  if (props.colorName) {
+  if (props.isActive) {
     assignedClassNames.push(classNames["is-active"]);
   }
 
@@ -38,7 +36,19 @@ export default function Hamburger(props: HamburgerProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-hamburger-color-fore"]: `var(--minolith-color-${props.colorName}-hamburger-fore)`,
+        ["--minolith-hamburger-line-color-back"]: `var(--minolith-color-${props.colorName}-hamburger-line-back, var(--minolith-color-${props.colorName}-border))`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

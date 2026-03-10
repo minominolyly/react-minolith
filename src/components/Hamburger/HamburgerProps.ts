@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
-import { ColorName } from "../../types";
+import { ColorName, SemanticColorName } from "../../types";
 import DivProps from "../Div/DivProps";
 
 export default interface HamburgerProps
   extends DivProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
   isActive?: boolean | undefined;
   crownInner?: ReactNode | string | undefined;
   heelInner?: ReactNode | string | undefined;

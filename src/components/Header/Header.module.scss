@@ -1,2 +1,5 @@
+@use "../../../node_modules/minolith/src/variables/index.scss" as variables with (
+  $is-skelton: true,
+);
 @forward "../../../node_modules/minolith/src/components/header.scss";
 

@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Footer.module.scss";
 import FooterProps from "./FooterProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Footer(props: FooterProps): ReactElement {
   const assignedProps = { ...props };
@@ -20,9 +21,6 @@ export default function Footer(props: FooterProps): ReactElement {
   delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["footer"]];
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
 
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
@@ -31,7 +29,19 @@ export default function Footer(props: FooterProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-footer-color-fore"]: `var(--minolith-color-${props.colorName}-footer-fore)`,
+        ["--minolith-footer-color-back"]: `var(--minolith-color-${props.colorName}-footer-back)`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

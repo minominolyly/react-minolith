@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Stripe.module.scss";
 import StripeProps from "./StripeProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Stripe(props: StripeProps): ReactElement {
   const assignedProps = { ...props };
@@ -22,12 +23,6 @@ export default function Stripe(props: StripeProps): ReactElement {
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["stripe"]];
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
-  if (props.degree) {
-    assignedClassNames.push(classNames[`is-${props.degree}deg`]);
-  }
 
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
@@ -37,9 +32,33 @@ export default function Stripe(props: StripeProps): ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-stripe-color-fore"]: `oklch(from var(--minolith-color-${props.colorName}-stripe-fore) l c h / 0.5)`,
+        ["--minolith-stripe-color-back"]: `var(--minolith-color-${props.colorName}-stripe-back)`,
+      }
+    : undefined;
 
-  return (
+  const degreeCss: Interpolation<Theme> = props.degree
+    ? {
+        ["--minolith-stripe-degree"]: `${props.degree}deg`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+    ...degreeCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <div
       {...assignedProps}
       className={assignedClassNames.join(" ")}

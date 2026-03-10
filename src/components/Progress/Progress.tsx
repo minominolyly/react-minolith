@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Progress.module.scss";
 import ProgressProps from "./ProgressProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Progress(props: ProgressProps): ReactElement {
   const assignedProps = { ...props };
@@ -20,8 +21,6 @@ export default function Progress(props: ProgressProps): ReactElement {
   delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["progress"]];
-  assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  assignedClassNames.push(classNames[`is-${props.percentage}percent`]);
 
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
@@ -30,7 +29,25 @@ export default function Progress(props: ProgressProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-progress-color-fore"]: `var(--minolith-color-${props.colorName}-progress-fore, var(--minolith-color-${props.colorName}-fore))`,
+        ["--minolith-progress-color-back"]: `var(--minolith-color-${props.colorName}-progress-back, var(--minolith-color-${props.colorName}-back))`,
+        ["--minolith-progress-color-border"]: `var(--minolith-color-${props.colorName}-progress-border, var(--minolith-color-${props.colorName}-border))`,
+      }
+    : undefined;
+
+  const percentageCss: Interpolation<Theme> = {
+    ["--minolith-progress-percentage"]: props.percentage,
+  };
+
+  const optionalCss = {
+    ...colorNameCss,
+    ...percentageCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

@@ -34,19 +34,19 @@ export default function Tabula(props: TabulaProps): ReactElement {
     colorScheme: props.colorScheme,
   } : undefined;
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
 
   return props.as ? (
     <props.as
       {...assignedProps}
       className={assignedClassNames.join(" ")}
-      css={colorScheme ? [colorScheme, css] : css}
+      css={css}
     />
   ) : (
     <div
       {...assignedProps}
       className={assignedClassNames.join(" ")}
-      css={colorScheme ? [colorScheme, css] : css}
+      css={css}
     />
   );
 }

@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, DetailsHTMLAttributes } from "react";
 import { BaseComponentProps } from "../../models";
-import { ColorName } from "../../types";
+import { ColorName, SemanticColorName } from "../../types";
 
 export default interface AccordionProps
   extends
@@ -9,5 +9,5 @@ export default interface AccordionProps
       HTMLDetailsElement
     >,
     BaseComponentProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
 }

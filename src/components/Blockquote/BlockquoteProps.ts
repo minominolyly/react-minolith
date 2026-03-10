@@ -1,12 +1,12 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { BaseComponentProps } from "../../models";
-import { ColorName } from "../../types";
+import { ColorName, SemanticColorName } from "../../types";
 
 export default interface BlockquoteProps
   extends
     DetailedHTMLProps<HTMLAttributes<HTMLQuoteElement>, HTMLQuoteElement>,
     BaseComponentProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
   isItalic?: boolean;
   hasQuote?:
     | boolean

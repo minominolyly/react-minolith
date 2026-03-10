@@ -6,7 +6,7 @@ import DialogueAvatarProps from "./DialogueAvatarProps";
 import classNames from "./DialogueAvatar.module.scss";
 
 export default function DialogueAvatar(
-  props: DialogueAvatarProps
+  props: DialogueAvatarProps,
 ): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
@@ -28,6 +28,9 @@ export default function DialogueAvatar(
   }
   if (props.className) {
     assignedClassNames.push(props.className);
+  }
+  if (props.hasBorder) {
+    assignedClassNames.push(classNames["has-border"]);
   }
   const css = emotionStyleUtility.getEmotionCss(props);
 

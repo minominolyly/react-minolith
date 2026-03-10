@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Badge.module.scss";
 import BadgeProps from "./BadgeProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Badge(props: BadgeProps): ReactElement {
   const assignedProps = { ...props };
@@ -23,10 +24,6 @@ export default function Badge(props: BadgeProps): ReactElement {
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["badge"]];
 
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
-
   if (props.isSmall) {
     assignedClassNames.push(classNames[`is-small`]);
   }
@@ -42,7 +39,33 @@ export default function Badge(props: BadgeProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-badge-color-fore"]: `var(--minolith-color-${props.colorName}-badge-fore)`,
+        ["--minolith-badge-color-back"]: `var(--minolith-color-${props.colorName}-badge-back)`,
+        ["--minolith-badge-color-border"]: `var(--minolith-color-${props.colorName}-badge-border)`,
+        ["--minolith-badge-color-focus-fore"]: `var(--minolith-color-${props.colorName}-badge-focus-fore)`,
+        ["--minolith-badge-color-focus-back"]: `var(--minolith-color-${props.colorName}-badge-focus-back)`,
+        ["--minolith-badge-color-focus-border"]: `var(--minolith-color-${props.colorName}-badge-focus-border)`,
+        ["--minolith-badge-color-hover-fore"]: `var(--minolith-color-${props.colorName}-badge-hover-fore)`,
+        ["--minolith-badge-color-hover-back"]: `var(--minolith-color-${props.colorName}-badge-hover-back)`,
+        ["--minolith-badge-color-hover-border"]: `var(--minolith-color-${props.colorName}-badge-hover-border)`,
+        ["--minolith-badge-color-active-fore"]: `var(--minolith-color-${props.colorName}-badge-active-fore)`,
+        ["--minolith-badge-color-active-back"]: `var(--minolith-color-${props.colorName}-badge-active-back)`,
+        ["--minolith-badge-color-active-border"]: `var(--minolith-color-${props.colorName}-badge-active-border)`,
+        ["--minolith-badge-color-disabled-fore"]: `var(--minolith-color-${props.colorName}-badge-disabled-fore)`,
+        ["--minolith-badge-color-disabled-back"]: `var(--minolith-color-${props.colorName}-badge-disabled-back)`,
+        ["--minolith-badge-color-disabled-border"]: `var(--minolith-color-${props.colorName}-badge-disabled-border)`,
+      }
+    : undefined;
+
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

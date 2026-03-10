@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Gingham.module.scss";
 import GinghamProps from "./GinghamProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Gingham(props: GinghamProps): ReactElement {
   const assignedProps = { ...props };
@@ -22,12 +23,25 @@ export default function Gingham(props: GinghamProps): ReactElement {
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["gingham"]];
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
-  if (props.degree) {
-    assignedClassNames.push(classNames[`is-${props.degree}deg`]);
-  }
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-gingham-color-fore"]: `oklch(from var(--minolith-color-${props.colorName}-gingham-fore) l c h / 0.5)`,
+        ["--minolith-gingham-color-back"]: `var(--minolith-color-${props.colorName}-gingham-back)`,
+      }
+    : undefined;
+
+  const degreeCss: Interpolation<Theme> = props.degree
+    ? {
+        ["--minolith-gingham-degree"]: `${props.degree}deg`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+    ...degreeCss,
+  };
+
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
@@ -36,9 +50,15 @@ export default function Gingham(props: GinghamProps): ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
-  return (
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <div
       {...assignedProps}
       className={assignedClassNames.join(" ")}

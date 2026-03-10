@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, DialogHTMLAttributes } from "react";
 import { BaseComponentProps } from "../../models";
-import ColorName from "../../types/ColorName";
+import { ColorName, SemanticColorName } from "../../types";
 
 export default interface ModalProps
   extends
@@ -9,6 +9,6 @@ export default interface ModalProps
       HTMLDialogElement
     >,
     BaseComponentProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
   isActive?: boolean | undefined;
 }

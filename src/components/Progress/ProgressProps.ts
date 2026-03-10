@@ -1,7 +1,7 @@
-import { ColorName, Percentage } from "../../types";
+import { ColorName, Percentage, SemanticColorName } from "../../types";
 import DivProps from "../Div/DivProps";
 
 export default interface ProgressProps extends DivProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
   percentage: Percentage;
 }

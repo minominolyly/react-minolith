@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import BreadcrumbsProps from "./BreadcrumbsProps";
 import classNames from "./Breadcrumbs.module.scss";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Breadcrumbs(props: BreadcrumbsProps): ReactElement {
   const assignedProps = { ...props };
@@ -21,10 +22,6 @@ export default function Breadcrumbs(props: BreadcrumbsProps): ReactElement {
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["breadcrumbs"]];
 
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
-
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
@@ -34,7 +31,20 @@ export default function Breadcrumbs(props: BreadcrumbsProps): ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-breadcrumb-color-fore"]: `var(--minolith-color-${props.colorName}-breadcrumb-fore)`,
+        ["--minolith-breadcrumb-color-selection-fore"]: `var(--minolith-color-${props.colorName}-breadcrumb-selection-fore)`,
+        ["--minolith-breadcrumb-color-selection-back"]: `var(--minolith-color-${props.colorName}-breadcrumb-selection-back)`,
+        ["--minolith-breadcrumb-divider-color-fore"]: `var(--minolith-color-${props.colorName}-breadcrumb-divider-fore)`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

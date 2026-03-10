@@ -2,6 +2,7 @@
 import { ReactElement } from "react";
 import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
+import classNames from "./Main.module.scss";
 import MainProps from "./MainProps";
 
 export default function Main(props: MainProps): ReactElement {
@@ -17,7 +18,7 @@ export default function Main(props: MainProps): ReactElement {
   delete assignedProps["css"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
-  const assignedClassNames: string[] = [];
+  const assignedClassNames = [classNames["main"]];
 
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {

@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Link.module.scss";
 import LinkProps from "./LinkProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Link(props: LinkProps): ReactElement {
   const assignedProps = { ...props };
@@ -21,10 +22,6 @@ export default function Link(props: LinkProps): ReactElement {
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["link"]];
 
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
-
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
@@ -32,7 +29,22 @@ export default function Link(props: LinkProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-link-color-fore"]: `var(--minolith-color-${props.colorName}-link-fore)`,
+        ["--minolith-link-color-visited-fore"]: `var(--minolith-color-${props.colorName}-link-visited-fore)`,
+        // ["--minolith-link-disabled-color-fore"]: `var(--minolith-color-${props.colorName}-link-disabled-fore)`,
+        ["--minolith-link-color-selection-fore"]: `var(--minolith-color-${props.colorName}-link-selection-fore)`,
+        ["--minolith-link-color-selection-back"]: `var(--minolith-color-${props.colorName}-link-selection-back)`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Zigzag.module.scss";
 import ZigzagProps from "./ZigzagProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Zigzag(props: ZigzagProps): ReactElement {
   const assignedProps = { ...props };
@@ -22,12 +23,6 @@ export default function Zigzag(props: ZigzagProps): ReactElement {
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["zigzag"]];
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
-  if (props.size) {
-    assignedClassNames.push(classNames[`is-${props.size}`]);
-  }
 
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
@@ -37,9 +32,41 @@ export default function Zigzag(props: ZigzagProps): ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-zigzag-color-fore"]: `oklch(from var(--minolith-color-${props.colorName}-zigzag-fore) l c h / 0.5)`,
+        ["--minolith-zigzag-color-back"]: `var(--minolith-color-${props.colorName}-zigzag-back)`,
+      }
+    : undefined;
 
-  return (
+  const sizeCss = props.size
+    ? props.size === "small"
+      ? {
+          ["--minolith-zigzag-size"]: `0.5rem`,
+        }
+      : props.size === "large"
+        ? {
+            ["--minolith-zigzag-size"]: `4rem`,
+          }
+        : {
+            ["--minolith-zigzag-size"]: props.size,
+          }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+    ...sizeCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
     <div
       {...assignedProps}
       className={assignedClassNames.join(" ")}

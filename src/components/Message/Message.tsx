@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Message.module.scss";
 import MessageProps from "./MessageProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Message(props: MessageProps): ReactElement {
   const assignedProps = { ...props };
@@ -20,9 +21,6 @@ export default function Message(props: MessageProps): ReactElement {
   delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["message"]];
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
 
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
@@ -31,7 +29,28 @@ export default function Message(props: MessageProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-message-color-fore"]: `var(--minolith-color-${props.colorName}-message-fore)`,
+        ["--minolith-message-color-back"]: `var(--minolith-color-${props.colorName}-message-back)`,
+        ["--minolith-message-color-border"]: `var(--minolith-color-${props.colorName}-message-border)`,
+        ["--minolith-message-color-selection-fore"]: `var(--minolith-color-${props.colorName}-message-selection-fore)`,
+        ["--minolith-message-color-selection-back"]: `var(--minolith-color-${props.colorName}-message-selection-back)`,
+        ["--minolith-message-header-color-fore"]: `var(--minolith-color-${props.colorName}-message-header-fore)`,
+        ["--minolith-message-header-color-back"]: `var(--minolith-color-${props.colorName}-message-header-back)`,
+        ["--minolith-message-header-color-border"]: `var(--minolith-color-${props.colorName}-message-header-border)`,
+        ["--minolith-message-body-color-fore"]: `var(--minolith-color-${props.colorName}-message-body-fore)`,
+        ["--minolith-message-body-color-back"]: `var(--minolith-color-${props.colorName}-message-body-back)`,
+        ["--minolith-message-body-color-border"]: `var(--minolith-color-${props.colorName}-message-body-border)`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

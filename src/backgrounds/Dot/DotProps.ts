@@ -1,7 +1,7 @@
-import { ColorName } from "../../types";
+import { ColorName, SemanticColorName } from "../../types";
 import { DivProps } from "../../components/Div";
 
 export default interface DotProps extends DivProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
   dotSize?: "pin" | "polka" | "coin";
 }

@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import { BaseComponentProps } from "../../models";
-import { ColorName } from "../../types";
+import { ColorName, SemanticColorName } from "../../types";
 
 export default interface ButtonProps
   extends
@@ -9,5 +9,5 @@ export default interface ButtonProps
       HTMLButtonElement
     >,
     BaseComponentProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
 }

@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Button.module.scss";
 import ButtonProps from "./ButtonProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Button(props: ButtonProps): ReactElement {
   const assignedProps = { ...props };
@@ -21,10 +22,6 @@ export default function Button(props: ButtonProps): ReactElement {
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["button"]];
 
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
-
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
@@ -32,7 +29,32 @@ export default function Button(props: ButtonProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-button-color-fore"]: `var(--minolith-color-${props.colorName}-button-fore)`,
+        ["--minolith-button-color-back"]: `var(--minolith-color-${props.colorName}-button-back)`,
+        ["--minolith-button-color-border"]: `var(--minolith-color-${props.colorName}-button-border)`,
+        ["--minolith-button-focus-color-fore"]: `var(--minolith-color-${props.colorName}-button-focus-fore)`,
+        ["--minolith-button-focus-color-back"]: `var(--minolith-color-${props.colorName}-button-focus-back)`,
+        ["--minolith-button-focus-color-border"]: `var(--minolith-color-${props.colorName}-button-focus-border)`,
+        ["--minolith-button-hover-color-fore"]: `var(--minolith-color-${props.colorName}-button-hover-fore)`,
+        ["--minolith-button-hover-color-back"]: `var(--minolith-color-${props.colorName}-button-hover-back)`,
+        ["--minolith-button-hover-color-border"]: `var(--minolith-color-${props.colorName}-button-hover-border)`,
+        ["--minolith-button-active-color-fore"]: `var(--minolith-color-${props.colorName}-button-active-fore)`,
+        ["--minolith-button-active-color-back"]: `var(--minolith-color-${props.colorName}-button-active-back)`,
+        ["--minolith-button-active-color-border"]: `var(--minolith-color-${props.colorName}-button-active-border)`,
+        ["--minolith-button-disabled-color-fore"]: `var(--minolith-color-${props.colorName}-button-disabled-fore)`,
+        ["--minolith-button-disabled-color-back"]: `var(--minolith-color-${props.colorName}-button-disabled-back)`,
+        ["--minolith-button-disabled-color-border"]: `var(--minolith-color-${props.colorName}-button-disabled-border)`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

@@ -18,6 +18,7 @@ type Story = StoryObj<typeof meta>;
 export const LightPlain: Story = {
   args: {
     colorName: undefined,
+    size: undefined,
   },
   render: (props) => (
     <Minolith colorScheme="light">
@@ -31,6 +32,7 @@ export const LightPlain: Story = {
 export const DarkPlain: Story = {
   args: {
     colorName: undefined,
+    size: undefined,
   },
   render: (props) => (
     <Minolith colorScheme="dark">

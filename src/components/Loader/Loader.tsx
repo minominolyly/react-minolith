@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Loader.module.scss";
 import LoaderProps from "./LoaderProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Loader(props: LoaderProps): ReactElement {
   const assignedProps = { ...props };
@@ -21,9 +22,7 @@ export default function Loader(props: LoaderProps): ReactElement {
   delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["loader"]];
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
+
   if (props.size) {
     assignedClassNames.push(classNames[`is-${props.size}`]);
   }
@@ -34,7 +33,18 @@ export default function Loader(props: LoaderProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-loader-color-fore"]: `var(--minolith-color-${props.colorName}-loader-fore)`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

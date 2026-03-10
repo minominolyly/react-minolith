@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, TextareaHTMLAttributes } from "react";
 import { BaseComponentProps } from "../../models";
-import { ColorName } from "../../types";
+import { ColorName, SemanticColorName } from "../../types";
 
 export default interface TextareaProps
   extends
@@ -9,5 +9,5 @@ export default interface TextareaProps
       HTMLTextAreaElement
     >,
     BaseComponentProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
 }

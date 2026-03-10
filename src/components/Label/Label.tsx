@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Label.module.scss";
 import LabelProps from "./LabelProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Label(props: LabelProps): ReactElement {
   const assignedProps = { ...props };
@@ -21,10 +22,6 @@ export default function Label(props: LabelProps): ReactElement {
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["label"]];
 
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
-
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
@@ -32,7 +29,20 @@ export default function Label(props: LabelProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-label-color-fore"]: `var(--minolith-color-${props.colorName}-label-fore)`,
+        ["--minolith-label-color-selection-fore"]: `var(--minolith-color-${props.colorName}-label-selection-fore)`,
+        ["--minolith-label-color-selection-back"]: `var(--minolith-color-${props.colorName}-label-selection-back)`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

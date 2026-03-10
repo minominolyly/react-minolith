@@ -1,6 +1,6 @@
 import { AnchorHTMLAttributes, DetailedHTMLProps } from "react";
 import { BaseComponentProps } from "../../models";
-import { ColorName } from "../../types";
+import { ColorName, SemanticColorName } from "../../types";
 
 export default interface LinkProps
   extends
@@ -9,5 +9,5 @@ export default interface LinkProps
       HTMLAnchorElement
     >,
     BaseComponentProps {
-  colorName?: ColorName;
+  colorName?: ColorName | SemanticColorName;
 }

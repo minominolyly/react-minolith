@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Textarea.module.scss";
 import TextareaProps from "./TextareaProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Textarea(props: TextareaProps): ReactElement {
   const assignedProps = { ...props };
@@ -32,7 +33,26 @@ export default function Textarea(props: TextareaProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-input-color-fore"]: `var(--minolith-color-${props.colorName}-input-fore)`,
+        ["--minolith-input-color-back"]: `var(--minolith-color-${props.colorName}-input-back)`,
+        ["--minolith-input-color-border"]: `var(--minolith-color-${props.colorName}-input-border)`,
+        ["--minolith-input-color-placeholder"]: `var(--minolith-color-${props.colorName}-input-placeholder)`,
+        ["--minolith-input-focus-color-back"]: `var(--minolith-color-${props.colorName}-input-focus-back)`,
+        ["--minolith-input-focus-color-border"]: `var(--minolith-color-${props.colorName}-input-focus-border)`,
+        ["--minolith-input-disabled-color-back"]: `var(--minolith-color-${props.colorName}-input-disabled-back)`,
+        ["--minolith-input-disabled-color-border"]: `var(--minolith-color-${props.colorName}-input-disabled-border)`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+
   return (
     <textarea
       {...assignedProps}

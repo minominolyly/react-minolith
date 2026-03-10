@@ -1,7 +1,7 @@
-import { ColorName } from "../../types";
+import { ColorName, SemanticColorName } from "../../types";
 import { DivProps } from "../../components/Div";
 
 export default interface RhombusProps extends DivProps {
-  colorName?: ColorName;
-  size?: "small" | "large";
+  colorName?: ColorName | SemanticColorName;
+  size?: "small" | "large" | `${number}rem`;
 }

@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Header.module.scss";
 import HeaderProps from "./HeaderProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Header(props: HeaderProps): ReactElement {
   const assignedProps = { ...props };
@@ -22,9 +23,6 @@ export default function Header(props: HeaderProps): ReactElement {
   delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["header"]];
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
   if (props.isSticky) {
     assignedClassNames.push(classNames[`is-sticky`]);
   }
@@ -39,7 +37,20 @@ export default function Header(props: HeaderProps): ReactElement {
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-header-color-fore"]: `var(--minolith-color-${props.colorName}-header-fore, var(--minolith-color-${props.colorName}-fore))`,
+        ["--minolith-header-color-back"]: `var(--minolith-color-${props.colorName}-header-back, var(--minolith-color-${props.colorName}-back))`,
+        ["--minolith-header-color-shadow"]: `var(--minolith-color-${props.colorName}-header-shadow, var(--minolith-color-${props.colorName}-shadow))`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

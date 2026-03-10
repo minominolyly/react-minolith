@@ -1,31 +1,8 @@
-import { ColorName } from "../../types";
+import { IntRange } from "type-fest";
 import { DivProps } from "../../components/Div";
+import { ColorName, SemanticColorName } from "../../types";
 
 export default interface StripeProps extends DivProps {
-  colorName?: ColorName;
-  degree?:
-    | 0
-    | 15
-    | 30
-    | 45
-    | 60
-    | 75
-    | 90
-    | 115
-    | 135
-    | 150
-    | 165
-    | 180
-    | 195
-    | 210
-    | 225
-    | 240
-    | 255
-    | 270
-    | 285
-    | 300
-    | 315
-    | 330
-    | 345
-    | 360;
+  colorName?: ColorName | SemanticColorName;
+  degree?: IntRange<0, 360>;
 }

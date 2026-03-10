@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Blockquote.module.scss";
 import BlockquoteProps from "./BlockquoteProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Blockquote(props: BlockquoteProps): ReactElement {
   const assignedProps = { ...props };
@@ -22,10 +23,6 @@ export default function Blockquote(props: BlockquoteProps): ReactElement {
   delete assignedProps["as"];
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["blockquote"]];
-
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
 
   if (props.isItalic) {
     assignedClassNames.push(classNames[`is-italic`]);
@@ -56,7 +53,20 @@ export default function Blockquote(props: BlockquoteProps): ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-blockquote-color-fore"]: `var(--minolith-color-${props.colorName}-blockquote-fore)`,
+        ["--minolith-blockquote-color-back"]: `var(--minolith-color-${props.colorName}-blockquote-back)`,
+        ["--minolith-blockquote-color-border"]: `var(--minolith-color-${props.colorName}-blockquote-border)`,
+      }
+    : undefined;
+
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as

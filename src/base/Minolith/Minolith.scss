@@ -1,8 +1,8 @@
 @use "sass:string";
+@use "../../../node_modules/minolith/src/variables/index.scss" as variables;
 @forward "../../../node_modules/minolith/src/css-variables/index.scss";
 @forward "../../../node_modules/minolith/src/base/normalize.scss";
 @forward "../../../node_modules/minolith/src/utilities/decoration.scss";
-@use "../../../node_modules/minolith/src/variables/index.scss" as variables;
 
 .translate-middle-x {
   transform: translateX(-50%) !important;

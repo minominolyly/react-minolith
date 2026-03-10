@@ -4,6 +4,7 @@ import classNameUtility from "../../utilities/classNameUtility";
 import emotionStyleUtility from "../../utilities/emotionStyleUtility";
 import classNames from "./Modal.module.scss";
 import ModalProps from "./ModalProps";
+import { Interpolation, Theme } from "@emotion/react";
 
 export default function Modal(props: ModalProps): ReactElement {
   const assignedProps = { ...props };
@@ -24,9 +25,6 @@ export default function Modal(props: ModalProps): ReactElement {
   if (props.isActive) {
     assignedClassNames.push(classNames["is-active"]);
   }
-  if (props.colorName) {
-    assignedClassNames.push(classNames[`is-${props.colorName}`]);
-  }
 
   const utilityClassNames = classNameUtility.getUtilityClassNames(props);
   if (utilityClassNames) {
@@ -37,7 +35,17 @@ export default function Modal(props: ModalProps): ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const colorNameCss: Interpolation<Theme> = props.colorName
+    ? {
+        ["--minolith-modal-color-back"]: `var(--minolith-color-${props.colorName}-modal-back, var(--minolith-color-${props.colorName}-back))`,
+      }
+    : undefined;
+
+  const optionalCss = {
+    ...colorNameCss,
+  };
+
+  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
 
   return props.as ? (
     <props.as
