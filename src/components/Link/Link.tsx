@@ -32,11 +32,11 @@ export default function Link(props: LinkProps): ReactElement {
 
   const colorNameCss: Interpolation<Theme> = props.colorName
     ? {
-        ["--minolith-link-color-fore"]: `var(--minolith-color-${props.colorName}-link-fore)`,
-        ["--minolith-link-color-visited-fore"]: `var(--minolith-color-${props.colorName}-link-visited-fore)`,
+        ["--minolith-link-color-fore"]: `var(--minolith-color-${props.colorName}-link-fore, var(--minolith-color-${props.colorName}-fore))`,
+        ["--minolith-link-color-visited-fore"]: `var(--minolith-color-${props.colorName}-link-visited-fore, var(--minolith-color-${props.colorName}-visited-fore))`,
         // ["--minolith-link-disabled-color-fore"]: `var(--minolith-color-${props.colorName}-link-disabled-fore)`,
-        ["--minolith-link-color-selection-fore"]: `var(--minolith-color-${props.colorName}-link-selection-fore)`,
-        ["--minolith-link-color-selection-back"]: `var(--minolith-color-${props.colorName}-link-selection-back)`,
+        ["--minolith-link-color-selection-fore"]: `var(--minolith-color-${props.colorName}-link-selection-fore, var(--minolith-color-${props.colorName}-link-selection-fore))`,
+        ["--minolith-link-color-selection-back"]: `var(--minolith-color-${props.colorName}-link-selection-back, var(--minolith-color-${props.colorName}-link-selection-back))`,
       }
     : undefined;
 
