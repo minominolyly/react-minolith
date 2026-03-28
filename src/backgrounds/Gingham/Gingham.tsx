@@ -26,7 +26,7 @@ export default function Gingham(props: GinghamProps): ReactElement {
 
   const colorNameCss: Interpolation<Theme> = props.colorName
     ? {
-        ["--minolith-gingham-color-fore"]: `oklch(from var(--minolith-color-${props.colorName}-gingham-fore) l c h / 0.5)`,
+        ["--minolith-gingham-color-line"]: `oklch(from var(--minolith-color-${props.colorName}-gingham-fore) l c h / 0.5)`,
         ["--minolith-gingham-color-back"]: `var(--minolith-color-${props.colorName}-gingham-back)`,
       }
     : undefined;

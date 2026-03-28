@@ -34,7 +34,7 @@ export default function Dot(props: DotProps): ReactElement {
 
   const colorNameCss: Interpolation<Theme> = props.colorName
     ? {
-        ["--minolith-dot-color-fore"]: `oklch(from var(--minolith-color-${props.colorName}-dot-fore) l c h / 0.5)`,
+        ["--minolith-dot-color-dot"]: `oklch(from var(--minolith-color-${props.colorName}-dot-fore) l c h / 0.5)`,
         ["--minolith-dot-color-back"]: `var(--minolith-color-${props.colorName}-dot-back)`,
       }
     : undefined;

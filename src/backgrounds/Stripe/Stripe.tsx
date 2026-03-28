@@ -34,7 +34,7 @@ export default function Stripe(props: StripeProps): ReactElement {
 
   const colorNameCss: Interpolation<Theme> = props.colorName
     ? {
-        ["--minolith-stripe-color-fore"]: `oklch(from var(--minolith-color-${props.colorName}-stripe-fore) l c h / 0.5)`,
+        ["--minolith-stripe-color-line"]: `oklch(from var(--minolith-color-${props.colorName}-stripe-fore) l c h / 0.5)`,
         ["--minolith-stripe-color-back"]: `var(--minolith-color-${props.colorName}-stripe-back)`,
       }
     : undefined;

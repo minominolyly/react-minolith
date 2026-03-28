@@ -34,7 +34,7 @@ export default function Zigzag(props: ZigzagProps): ReactElement {
 
   const colorNameCss: Interpolation<Theme> = props.colorName
     ? {
-        ["--minolith-zigzag-color-fore"]: `oklch(from var(--minolith-color-${props.colorName}-zigzag-fore) l c h / 0.5)`,
+        ["--minolith-zigzag-color-line"]: `oklch(from var(--minolith-color-${props.colorName}-zigzag-fore) l c h / 0.5)`,
         ["--minolith-zigzag-color-back"]: `var(--minolith-color-${props.colorName}-zigzag-back)`,
       }
     : undefined;

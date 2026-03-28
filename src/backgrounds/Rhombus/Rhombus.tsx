@@ -34,7 +34,7 @@ export default function Rhombus(props: RhombusProps): ReactElement {
 
   const colorNameCss: Interpolation<Theme> = props.colorName
     ? {
-        ["--minolith-rhombus-color-fore"]: `oklch(from var(--minolith-color-${props.colorName}-rhombus-fore) l c h / 0.5)`,
+        ["--minolith-rhombus-color-line"]: `oklch(from var(--minolith-color-${props.colorName}-rhombus-fore) l c h / 0.5)`,
         ["--minolith-rhombus-color-back"]: `var(--minolith-color-${props.colorName}-rhombus-back)`,
       }
     : undefined;
