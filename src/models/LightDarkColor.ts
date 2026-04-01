@@ -1,8 +1,9 @@
 import type { Property } from "csstype";
 import type ColorAttributes from "./ColorAttributes";
-import type { ColorName } from "../types";
 
-export default interface LightDarkColor<BaseComponentColorNameType extends string = ColorName> {
+export default interface LightDarkColor<
+  BaseComponentColorNameType extends string,
+> {
   light: Property.Color | ColorAttributes<BaseComponentColorNameType>;
   dark: Property.Color | ColorAttributes<BaseComponentColorNameType>;
 }
