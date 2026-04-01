@@ -1,6 +1,8 @@
-import DivProps from "../Div/DivProps";
+import type { DivProps } from "../Div";
 
-export default interface NavAccordionProps extends DivProps {
+export default interface NavAccordionProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   isXSmall?: boolean | undefined;
   isSmallOrLess?: boolean | undefined;
   isSmall?: boolean | undefined;

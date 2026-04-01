@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
-import { ColorName, SemanticColorName } from "../../types";
-import DivProps from "../Div/DivProps";
+import type { ColorName, SemanticColorName } from "../../types";
+import type { DivProps } from "../Div";
 
-export default interface HamburgerProps
-  extends DivProps {
+export default interface HamburgerProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   colorName?: ColorName | SemanticColorName;
   isActive?: boolean | undefined;
   crownInner?: ReactNode | string | undefined;

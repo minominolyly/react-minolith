@@ -1,13 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./MessageBody.module.scss";
-import MessageBodyProps from "./MessageBodyProps";
 
-export default function MessageBody(
-  props: MessageBodyProps
-): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./MessageBody.module.scss";
+import type MessageBodyProps from "./MessageBodyProps";
+
+export default function MessageBody<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: MessageBodyProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

@@ -1,12 +1,18 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./Rhombus.module.scss";
-import RhombusProps from "./RhombusProps";
-import { Interpolation, Theme } from "@emotion/react";
 
-export default function Rhombus(props: RhombusProps): ReactElement {
+import type { Interpolation, Theme } from "@emotion/react";
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Rhombus.module.scss";
+import type RhombusProps from "./RhombusProps";
+
+export default function Rhombus<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: RhombusProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["size"];

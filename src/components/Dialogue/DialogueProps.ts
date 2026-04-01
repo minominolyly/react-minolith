@@ -1,12 +1,10 @@
-import {
-  BorderWidth,
-  ColorName,
-  SemanticColorName,
-} from "../../types";
-import DivProps from "../Div/DivProps";
-import { Property } from "csstype";
+import { BorderWidth, ColorName, SemanticColorName } from "../../types";
+import type { DivProps } from "../Div";
+import type { Property } from "csstype";
 
-export default interface DialogueProps extends DivProps {
+export default interface DialogueProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   colorName?: ColorName | SemanticColorName;
   avatarSize?: Property.Width;
   borderStyle?: Property.BorderStyle;

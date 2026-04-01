@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-import BaseComponentProps from "../../models/BaseComponentProps";
-import { ColorAttributes, ColorName, Gutter } from "../../types";
-import { Property } from "csstype";
+import type { BaseComponentProps } from "../../models";
+import type { ColorAttributes, ColorName, Gutter } from "../../types";
+import type { Property } from "csstype";
 
 function setFlexDirectionClassNames(
   classNames: CSSModuleClasses,
@@ -105,13 +105,17 @@ function getGutterClassNames(
   return gutterClassNames;
 }
 
-function getUtilityClassNames(props: BaseComponentProps): string[] {
+function getUtilityClassNames<ColorNameType extends string>(
+  props: BaseComponentProps<ColorNameType>,
+): string[] {
   const assignedClassNames: string[] = [];
 
-  const assignStateColor = <ColorNameType extends string = ColorName>(
+  const assignStateColor = <
+    BaseComponentColorNameType extends string = ColorName,
+  >(
     name: string,
     stateStr: string,
-    state?: ColorAttributes<ColorNameType> | "transparent",
+    state?: ColorAttributes<BaseComponentColorNameType> | "transparent",
     colorScheme?: string,
   ) => {
     if (state && typeof state === "object" && state.name === "rainbow") {

@@ -1,12 +1,18 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./Textarea.module.scss";
-import TextareaProps from "./TextareaProps";
-import { Interpolation, Theme } from "@emotion/react";
 
-export default function Textarea(props: TextareaProps): ReactElement {
+import type { Interpolation, Theme } from "@emotion/react";
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Textarea.module.scss";
+import type TextareaProps from "./TextareaProps";
+
+export default function Textarea<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: TextareaProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

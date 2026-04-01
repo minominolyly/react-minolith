@@ -1,11 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./RubyText.module.scss";
-import RubyTextProps from "./RubyTextProps";
 
-export default function RubyText(props: RubyTextProps): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./RubyText.module.scss";
+import type RubyTextProps from "./RubyTextProps";
+
+export default function RubyText<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: RubyTextProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

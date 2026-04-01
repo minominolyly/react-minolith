@@ -1,4 +1,4 @@
-import ComponentColorSchemeColor from "./ComponentColorSchemeColor";
+import type ComponentColorSchemeColor from "./ComponentColorSchemeColor";
 
 export default interface ColorSchemeColorComponents {
   accordion?:

@@ -1,11 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./CardFooter.module.scss";
-import CardFooterProps from "./CardFooterProps";
 
-export default function CardFooter(props: CardFooterProps): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./CardFooter.module.scss";
+import type CardFooterProps from "./CardFooterProps";
+
+export default function CardFooter<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: CardFooterProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

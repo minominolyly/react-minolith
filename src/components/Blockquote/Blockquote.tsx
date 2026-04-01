@@ -1,12 +1,18 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./Blockquote.module.scss";
-import BlockquoteProps from "./BlockquoteProps";
-import { Interpolation, Theme } from "@emotion/react";
 
-export default function Blockquote(props: BlockquoteProps): ReactElement {
+import type { Interpolation, Theme } from "@emotion/react";
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Blockquote.module.scss";
+import type BlockquoteProps from "./BlockquoteProps";
+
+export default function Blockquote<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: BlockquoteProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["isItalic"];
@@ -60,7 +66,6 @@ export default function Blockquote(props: BlockquoteProps): ReactElement {
         ["--minolith-blockquote-color-border"]: `var(--minolith-color-${props.colorName}-blockquote-border)`,
       }
     : undefined;
-
 
   const optionalCss = {
     ...colorNameCss,

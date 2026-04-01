@@ -1,5 +1,5 @@
-import Gradation from "./Gradation";
-import ColorSchemeColor from "./ColorSchemeColor";
+import type Gradation from "./Gradation";
+import type ColorSchemeColor from "./ColorSchemeColor";
 
 export default interface ColorCssVariables {
   gray?: Gradation | undefined;

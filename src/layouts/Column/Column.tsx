@@ -1,11 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import ColumnProps from "./ColumnProps";
-import classNames from "./Column.module.scss";
 
-export default function Column(props: ColumnProps): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Column.module.scss";
+import type ColumnProps from "./ColumnProps";
+
+export default function Column<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: ColumnProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isFull"];
   delete assignedProps["size"];
@@ -40,33 +46,33 @@ export default function Column(props: ColumnProps): ReactElement {
     assignedClassNames.push(classNames[`is-xsmall-${props.sizeXSmall}`]);
   props.sizeSmallOrLess &&
     assignedClassNames.push(
-      classNames[`is-small-or-less-${props.sizeSmallOrLess}`]
+      classNames[`is-small-or-less-${props.sizeSmallOrLess}`],
     );
   props.sizeSmall &&
     assignedClassNames.push(classNames[`is-small-${props.sizeSmall}`]);
   props.sizeSmallOrMore &&
     assignedClassNames.push(
-      classNames[`is-small-or-more-${props.sizeSmallOrMore}`]
+      classNames[`is-small-or-more-${props.sizeSmallOrMore}`],
     );
   props.sizeMediumOrLess &&
     assignedClassNames.push(
-      classNames[`is-medium-or-less-${props.sizeMediumOrLess}`]
+      classNames[`is-medium-or-less-${props.sizeMediumOrLess}`],
     );
   props.sizeMedium &&
     assignedClassNames.push(classNames[`is-medium-${props.sizeMedium}`]);
   props.sizeMediumOrMore &&
     assignedClassNames.push(
-      classNames[`is-medium-or-more-${props.sizeMediumOrMore}`]
+      classNames[`is-medium-or-more-${props.sizeMediumOrMore}`],
     );
   props.sizeLargeOrLess &&
     assignedClassNames.push(
-      classNames[`is-large-or-less-${props.sizeLargeOrLess}`]
+      classNames[`is-large-or-less-${props.sizeLargeOrLess}`],
     );
   props.sizeLarge &&
     assignedClassNames.push(classNames[`is-large-${props.sizeLarge}`]);
   props.sizeLargeOrMore &&
     assignedClassNames.push(
-      classNames[`is-large-or-more-${props.sizeLargeOrMore}`]
+      classNames[`is-large-or-more-${props.sizeLargeOrMore}`],
     );
   props.sizeXLarge &&
     assignedClassNames.push(classNames[`is-xlarge-${props.sizeXLarge}`]);

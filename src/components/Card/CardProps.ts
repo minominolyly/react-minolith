@@ -1,6 +1,8 @@
-import { ColorName, SemanticColorName } from "../../types";
-import DivProps from "../Div/DivProps";
+import type { ColorName, SemanticColorName } from "../../types";
+import type { DivProps } from "../Div";
 
-export default interface CardProps extends DivProps {
+export default interface CardProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   colorName?: ColorName | SemanticColorName;
 }

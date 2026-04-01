@@ -103,6 +103,15 @@ export * from "./components/DialogueName";
 export { default as Div } from "./components/Div";
 export * from "./components/Div";
 
+export { default as Figure } from "./components/Figure";
+export * from "./components/Figure";
+
+export { default as FigureCaption } from "./components/FigureCaption";
+export * from "./components/FigureCaption";
+
+export { default as FigureContent } from "./components/FigureContent";
+export * from "./components/FigureContent";
+
 export { default as Footer } from "./components/Footer";
 export * from "./components/Footer";
 

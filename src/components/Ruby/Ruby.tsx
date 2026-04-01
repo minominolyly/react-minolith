@@ -1,12 +1,18 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./Ruby.module.scss";
-import RubyProps from "./RubyProps";
-import RubyText from "../RubyText";
 
-export default function Ruby(props: RubyProps): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import RubyText from "../RubyText";
+import classNames from "./Ruby.module.scss";
+import type RubyProps from "./RubyProps";
+
+export default function Ruby<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: RubyProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["rubyText"];
   //#region BaseComponentProps

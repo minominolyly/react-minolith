@@ -1,13 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./NavAccordion.module.scss";
-import NavAccordionProps from "./NavAccordionProps";
 
-export default function NavAccordion(
-  props: NavAccordionProps
-): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./NavAccordion.module.scss";
+import type NavAccordionProps from "./NavAccordionProps";
+
+export default function NavAccordion<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: NavAccordionProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isXSmall"];
   delete assignedProps["isSmallOrLess"];

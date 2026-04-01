@@ -1,13 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./BreadcrumbsNav.module.scss";
-import BreadcrumbsNavProps from "./BreadcrumbsNavProps";
 
-export default function BreadcrumbsNav(
-  props: BreadcrumbsNavProps,
-): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./BreadcrumbsNav.module.scss";
+import type BreadcrumbsNavProps from "./BreadcrumbsNavProps";
+
+export default function BreadcrumbsNav<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: BreadcrumbsNavProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

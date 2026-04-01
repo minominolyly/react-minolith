@@ -1,5 +1,7 @@
-import DivProps from "../Div/DivProps";
+import type { DivProps } from "../Div";
 
-export default interface NavMenuProps extends DivProps {
+export default interface NavMenuProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   isActive?: boolean | undefined;
 }

@@ -1,7 +1,8 @@
-import { BaseComponentProps } from "../../models";
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type { BaseComponentProps } from "../../models";
 
-export default interface SpanProps
+export default interface SpanProps<BaseComponentColorNameType extends string>
   extends
-    DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>,
-    BaseComponentProps {}
+    ClassAttributes<HTMLSpanElement>,
+    HTMLAttributes<HTMLSpanElement>,
+    BaseComponentProps<BaseComponentColorNameType> {}

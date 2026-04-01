@@ -1,12 +1,18 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./Label.module.scss";
-import LabelProps from "./LabelProps";
-import { Interpolation, Theme } from "@emotion/react";
 
-export default function Label(props: LabelProps): ReactElement {
+import type { Interpolation, Theme } from "@emotion/react";
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Label.module.scss";
+import type LabelProps from "./LabelProps";
+
+export default function Label<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: LabelProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

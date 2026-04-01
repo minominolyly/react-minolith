@@ -1,12 +1,18 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./Zigzag.module.scss";
-import ZigzagProps from "./ZigzagProps";
-import { Interpolation, Theme } from "@emotion/react";
 
-export default function Zigzag(props: ZigzagProps): ReactElement {
+import type { Interpolation, Theme } from "@emotion/react";
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Zigzag.module.scss";
+import type ZigzagProps from "./ZigzagProps";
+
+export default function Zigzag<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: ZigzagProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["size"];

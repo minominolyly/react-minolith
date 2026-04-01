@@ -3,4 +3,4 @@ type BorderStyle =
   | "dotted"
   | "solid";
 
-export default BorderStyle;
+export type { BorderStyle as default };

@@ -1,5 +1,5 @@
-import { ColorProps } from "../types";
+import type { ColorProps } from "../types";
 
-export default interface HighlighterProps {
-  color?: ColorProps;
+export default interface HighlighterProps<ColorNameType extends string> {
+  color?: ColorProps<ColorNameType>;
 }

@@ -1,5 +1,5 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from "react";
-import { BaseComponentProps } from "../../models";
+import { ClassAttributes, InputHTMLAttributes } from "react";
+import type { BaseComponentProps } from "../../models";
 import {
   BorderRadius,
   BorderWidth,
@@ -7,10 +7,11 @@ import {
   SemanticColorName,
 } from "../../types";
 
-export default interface InputProps
+export default interface InputProps<BaseComponentColorNameType extends string>
   extends
-    DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-    BaseComponentProps {
+    ClassAttributes<HTMLInputElement>,
+    InputHTMLAttributes<HTMLInputElement>,
+    BaseComponentProps<BaseComponentColorNameType> {
   colorName?: ColorName | SemanticColorName;
   borderRadius?: BorderRadius;
   borderWidth?: BorderWidth;

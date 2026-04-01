@@ -1,4 +1,4 @@
-import { FontSize } from "../types";
+import type { FontSize } from "../types";
 
 export default interface ComponentCssVariables {
   breadcrumbs?: {

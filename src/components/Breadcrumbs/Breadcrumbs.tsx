@@ -1,12 +1,18 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import BreadcrumbsProps from "./BreadcrumbsProps";
-import classNames from "./Breadcrumbs.module.scss";
-import { Interpolation, Theme } from "@emotion/react";
 
-export default function Breadcrumbs(props: BreadcrumbsProps): ReactElement {
+import type { Interpolation, Theme } from "@emotion/react";
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Breadcrumbs.module.scss";
+import type BreadcrumbsProps from "./BreadcrumbsProps";
+
+export default function Breadcrumbs<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: BreadcrumbsProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   //#region BaseComponentProps

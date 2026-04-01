@@ -61,6 +61,15 @@ export * from "./DialogueName";
 export { default as Div } from "./Div";
 export * from "./Div";
 
+export { default as Figure } from "./Figure";
+export * from "./Figure";
+
+export { default as FigureCaption } from "./FigureCaption";
+export * from "./FigureCaption";
+
+export { default as FigureContent } from "./FigureContent";
+export * from "./FigureContent";
+
 export { default as Footer } from "./Footer";
 export * from "./Footer";
 

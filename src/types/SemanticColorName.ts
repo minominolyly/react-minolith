@@ -7,4 +7,4 @@ type SemanticColorName =
   | "warning"
   | "danger";
 
-export default SemanticColorName;
+export type { SemanticColorName as default };

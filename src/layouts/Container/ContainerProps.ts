@@ -1,7 +1,9 @@
-import { DivProps } from "../../components/Div";
+import type { DivProps } from "../../components/Div";
 import Gutter from "../../types/Gutter";
 
-export default interface ContainerProps extends DivProps {
+export default interface ContainerProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   isFluid?: boolean;
   gutter?:
     | Gutter

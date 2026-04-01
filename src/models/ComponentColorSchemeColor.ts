@@ -1,4 +1,4 @@
-import ComponentStatePseudoClass from "./ComponentStatePseudoClass";
+import type ComponentStatePseudoClass from "./ComponentStatePseudoClass";
 
 export default interface ComponentColorSchemeColor {
   default?: ComponentStatePseudoClass | undefined;

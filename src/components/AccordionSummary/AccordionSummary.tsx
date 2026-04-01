@@ -1,13 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import AccordionSummaryProps from "./AccordionSummaryProps";
-import classNames from "./AccordionSummary.module.scss";
 
-export default function AccordionSummary(
-  props: AccordionSummaryProps,
-): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./AccordionSummary.module.scss";
+import type AccordionSummaryProps from "./AccordionSummaryProps";
+
+export default function AccordionSummary<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: AccordionSummaryProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

@@ -6,4 +6,4 @@ type Gutter =
       y?: `${number}rem` | number;
     };
 
-export default Gutter;
+export type { Gutter as default };

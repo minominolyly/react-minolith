@@ -1,4 +1,4 @@
-import LightDarkColor from "./LightDarkColor";
+import type LightDarkColor from "./LightDarkColor";
 
 export default interface ComponentPart {
   fore?: LightDarkColor | undefined;

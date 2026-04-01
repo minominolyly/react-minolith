@@ -1,8 +1,10 @@
-import { IntRange } from "type-fest";
-import { DivProps } from "../../components/Div";
-import { ColorName, SemanticColorName } from "../../types";
+import type { DivProps } from "../../components/Div";
+import type { ColorName, SemanticColorName } from "../../types";
+import type { Degree } from "../../types";
 
-export default interface StripeProps extends DivProps {
+export default interface StripeProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   colorName?: ColorName | SemanticColorName;
-  degree?: IntRange<0, 360>;
+  degree?: Degree;
 }

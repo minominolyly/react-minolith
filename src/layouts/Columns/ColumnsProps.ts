@@ -1,8 +1,10 @@
-import { DivProps } from "../../components/Div";
-import { Property } from "csstype";
+import type { Property } from "csstype";
+import type { DivProps } from "../../components/Div";
 import Gutter from "../../types/Gutter";
 
-export default interface ColumnsProps extends DivProps {
+export default interface ColumnsProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   flexDirection?:
     | Property.FlexDirection
     | {

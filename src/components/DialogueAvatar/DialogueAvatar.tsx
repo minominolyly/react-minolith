@@ -1,13 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import DialogueAvatarProps from "./DialogueAvatarProps";
-import classNames from "./DialogueAvatar.module.scss";
 
-export default function DialogueAvatar(
-  props: DialogueAvatarProps,
-): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./DialogueAvatar.module.scss";
+import type DialogueAvatarProps from "./DialogueAvatarProps";
+
+export default function DialogueAvatar<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: DialogueAvatarProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["hasBorder"];
   //#region BaseComponentProps

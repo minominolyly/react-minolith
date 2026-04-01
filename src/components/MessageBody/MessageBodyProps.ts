@@ -1,3 +1,5 @@
-import DivProps from "../Div/DivProps";
+import type { DivProps } from "../Div";
 
-export default interface MessageBodyProps extends DivProps {}
+export default interface MessageBodyProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {}

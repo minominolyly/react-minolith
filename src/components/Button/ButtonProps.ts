@@ -1,13 +1,11 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
-import { BaseComponentProps } from "../../models";
-import { ColorName, SemanticColorName } from "../../types";
+import { ButtonHTMLAttributes, ClassAttributes } from "react";
+import type { BaseComponentProps } from "../../models";
+import type { ColorName, SemanticColorName } from "../../types";
 
-export default interface ButtonProps
+export default interface ButtonProps<BaseComponentColorNameType extends string>
   extends
-    DetailedHTMLProps<
-      ButtonHTMLAttributes<HTMLButtonElement>,
-      HTMLButtonElement
-    >,
-    BaseComponentProps {
+    ClassAttributes<HTMLButtonElement>,
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    BaseComponentProps<BaseComponentColorNameType> {
   colorName?: ColorName | SemanticColorName;
 }

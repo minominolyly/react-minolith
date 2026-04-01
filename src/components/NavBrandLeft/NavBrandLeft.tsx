@@ -1,13 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./NavBrandLeft.module.scss";
-import NavBrandLeftProps from "./NavBrandLeftProps";
 
-export default function NavBrandLeft(
-  props: NavBrandLeftProps
-): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./NavBrandLeft.module.scss";
+import type NavBrandLeftProps from "./NavBrandLeftProps";
+
+export default function NavBrandLeft<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: NavBrandLeftProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

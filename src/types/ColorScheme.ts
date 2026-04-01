@@ -1,3 +1,3 @@
 type ColorScheme = "light" | "dark";
 
-export default ColorScheme;
+export type { ColorScheme as default };

@@ -1,6 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
-import { BaseComponentProps } from "../../react-minolith";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type { BaseComponentProps } from "../../models";
 
-export default interface MainProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>,
-    BaseComponentProps {}
+export default interface MainProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLElement>,
+    HTMLAttributes<HTMLElement>,
+    BaseComponentProps<BaseComponentColorNameType> {}

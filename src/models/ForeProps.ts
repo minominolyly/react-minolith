@@ -1,8 +1,8 @@
-import { Property } from "csstype";
-import { ColorProps, ColorName, FontSize, FontWeight } from "../types";
+import type { Property } from "csstype";
+import type { ColorProps, FontSize, FontWeight } from "../types";
 
-export default interface ForeProps {
-  color?: ColorProps<ColorName | "rainbow">;
+export default interface ForeProps<ColorNameType extends string> {
+  color?: ColorProps<ColorNameType>;
   fontSize?: FontSize;
   fontStyle?: Property.FontStyle;
   fontWeight?: FontWeight;

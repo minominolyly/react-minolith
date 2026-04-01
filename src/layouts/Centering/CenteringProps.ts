@@ -1,3 +1,5 @@
-import { DivProps } from "../../components/Div";
+import type { DivProps } from "../../components/Div";
 
-export default interface CenteringProps extends DivProps {}
+export default interface CenteringProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {}

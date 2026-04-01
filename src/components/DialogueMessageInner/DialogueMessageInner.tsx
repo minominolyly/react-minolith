@@ -1,13 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import DialogueMessageInnerProps from "./DialogueMessageInnerProps";
-import classNames from "./DialogueMessageInner.module.scss";
 
-export default function DialogueMessageInner(
-  props: DialogueMessageInnerProps
-): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./DialogueMessageInner.module.scss";
+import type DialogueMessageInnerProps from "./DialogueMessageInnerProps";
+
+export default function DialogueMessageInner<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: DialogueMessageInnerProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps
   delete assignedProps["fore"];

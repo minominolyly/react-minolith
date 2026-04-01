@@ -1,5 +1,5 @@
-import { ColorName, SemanticColorName } from "../../types";
-import DivProps from "../Div/DivProps";
+import type { ColorName, SemanticColorName } from "../../types";
+import type { DivProps } from "../Div";
 
 type LoaderSize =
   | "large"
@@ -9,7 +9,9 @@ type LoaderSize =
   | "xxxxlarge"
   | "xxxxxlarge";
 
-export default interface LoaderProps extends DivProps {
+export default interface LoaderProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   colorName?: ColorName | SemanticColorName;
   size?: LoaderSize;
 }

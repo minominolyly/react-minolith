@@ -1,6 +1,8 @@
-import { ColorScheme } from "../../types";
-import { DivProps } from "../../react-minolith";
+import type { DivProps } from "../../components/Div";
+import type { ColorScheme } from "../../types";
 
-export default interface TabulaProps extends DivProps {
+export default interface TabulaProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   colorScheme?: ColorScheme;
 }

@@ -1,3 +1,5 @@
-import { TabulaProps } from "../Tabula";
+import type { TabulaProps } from "../Tabula";
 
-export default interface MinolithProps extends TabulaProps {}
+export default interface MinolithProps<
+  BaseComponentColorNameType extends string,
+> extends TabulaProps<BaseComponentColorNameType> {}

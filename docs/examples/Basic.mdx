@@ -1,0 +1,137 @@
+import { Canvas, Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="examples/Basic" />
+
+import {
+  Button,
+  Container,
+  Footer,
+  Hamburger,
+  Header,
+  Heading,
+  Main,
+  Minolith,
+  Nav,
+  NavAccordion,
+  NavBrand,
+  NavBrandCenter,
+  NavBrandLeft,
+  NavBrandRight,
+  NavMenu,
+  NavMenuItem,
+  Section,
+} from "../../src/react-minolith";
+
+# Basic
+
+```tsx
+import {
+  Button,
+  Container,
+  Footer,
+  Hamburger,
+  Header,
+  Heading,
+  Main,
+  Minolith,
+  Nav,
+  NavAccordion,
+  NavBrand,
+  NavBrandCenter,
+  NavBrandLeft,
+  NavBrandRight,
+  NavMenu,
+  NavMenuItem,
+  Section,
+} from "react-minolith";
+
+export default function HelloWorldPage() {
+  return (
+    <Minolith>
+      <Header>
+        <Nav>
+          <NavAccordion>
+            <NavBrand>
+              <NavBrandLeft>
+                <Hamburger
+                  isActive={true}
+                  aria-label="menu"
+                  aria-expanded="false"
+                  data-target="navbar-menu"
+                />
+              </NavBrandLeft>
+              <NavBrandCenter>{"Hello world"}</NavBrandCenter>
+              <NavBrandRight>
+              </NavBrandRight>
+            </NavBrand>
+            <NavMenu isActive={true}>
+              <NavMenuItem as="a" href="/about/">
+                {"About"}
+              </NavMenuItem>
+              <NavMenuItem as="a" href="/products/">
+                {"Products"}
+              </NavMenuItem>
+              <NavMenuItem as="a" href="/contact/">
+                {"Contact"}
+              </NavMenuItem>
+            </NavMenu>
+          </NavAccordion>
+        </Nav>
+      </Header>
+      <Main>
+        <Container>
+          <Section spacing={{ padding: { y: 1 } }}>
+            <Heading level={1}>{"Hello world"}</Heading>
+          </Section>
+        </Container>
+      </Main>
+      <Footer>
+        <Container>{"©anonymous"}</Container>
+      </Footer>
+    </Minolith>
+  );
+}
+```
+
+<Minolith>
+  <Header>
+    <Nav>
+      <NavAccordion>
+        <NavBrand>
+          <NavBrandLeft>
+            <Hamburger
+              isActive={true}
+              aria-label="menu"
+              aria-expanded="true"
+              data-target="navbar-menu"
+            />
+          </NavBrandLeft>
+          <NavBrandCenter>{"Hello world"}</NavBrandCenter>
+          <NavBrandRight>
+          </NavBrandRight>
+        </NavBrand>
+        <NavMenu isActive={true}>
+          <NavMenuItem as="a" href="/about/">
+            {"About"}
+          </NavMenuItem>
+          <NavMenuItem as="a" href="/products/">
+            {"Products"}
+          </NavMenuItem>
+          <NavMenuItem as="a" href="/contact/">
+            {"Contact"}
+          </NavMenuItem>
+        </NavMenu>
+      </NavAccordion>
+    </Nav>
+  </Header>
+  <Main>
+    <Container>
+      <Section spacing={{ padding: { y: 1 } }}>
+        <Heading level={1}>{"Hello world"}</Heading>
+      </Section>
+    </Container>
+  </Main>
+  <Footer>
+    <Container>{"©anonymous"}</Container>
+  </Footer>
+</Minolith>

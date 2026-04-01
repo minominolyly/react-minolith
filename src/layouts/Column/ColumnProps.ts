@@ -1,6 +1,8 @@
-import { DivProps } from "../../components/Div";
+import type { DivProps } from "../../components/Div";
 
-export default interface ColumnProps extends DivProps {
+export default interface ColumnProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   isFull?: boolean;
   size?: number | undefined;
   sizeXSmall?: number | undefined;

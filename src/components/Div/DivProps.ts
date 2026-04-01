@@ -1,7 +1,8 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
-import { BaseComponentProps } from "../../models";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type { BaseComponentProps } from "../../models";
 
-export default interface DivProps
+export default interface DivProps<BaseComponentColorNameType extends string>
   extends
-    DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-    BaseComponentProps {}
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseComponentProps<BaseComponentColorNameType> {}

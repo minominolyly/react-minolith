@@ -1,25 +1,23 @@
-import { Interpolation, Theme } from "@emotion/react";
-import { ElementType } from "react";
-import BackProps from "./BackProps";
-import BorderProps from "./BorderProps";
-import ForeProps from "./ForeProps";
-import HighlighterProps from "./HighlighterProps";
-import PositioningProps from "./PositioningProps";
-import SizingProps from "./SizingProps";
-import SpacingProps from "./SpacingProps";
+import type { Interpolation, Theme } from "@emotion/react";
+import type { ElementType } from "react";
+import type BackProps from "./BackProps";
+import type BorderProps from "./BorderProps";
+import type ForeProps from "./ForeProps";
+import type HighlighterProps from "./HighlighterProps";
+import type PositioningProps from "./PositioningProps";
+import type SizingProps from "./SizingProps";
+import type SpacingProps from "./SpacingProps";
 
-export default interface BaseComponentProps {
-  fore?: ForeProps;
-  back?: BackProps;
-  highlighter?: HighlighterProps;
-  border?: BorderProps;
+export default interface BaseComponentProps<ColorNameType extends string> {
+  fore?: ForeProps<ColorNameType>;
+  back?: BackProps<ColorNameType>;
+  highlighter?: HighlighterProps<ColorNameType>;
+  border?: BorderProps<ColorNameType>;
   positioning?: PositioningProps;
   sizing?: SizingProps;
   spacing?: SpacingProps;
   css?: Interpolation<Theme>;
-  as?:
-    | ElementType
-    | undefined;
+  as?: ElementType | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }

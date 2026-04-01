@@ -1,11 +1,17 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./NavStatic.module.scss";
-import NavStaticProps from "./NavStaticProps";
 
-export default function NavStatic(props: NavStaticProps): ReactElement {
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./NavStatic.module.scss";
+import type NavStaticProps from "./NavStaticProps";
+
+export default function NavStatic<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: NavStaticProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isXSmall"];
   delete assignedProps["isSmallOrLess"];

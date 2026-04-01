@@ -1,3 +1,5 @@
-import DivProps from "../Div/DivProps";
+import type { DivProps } from "../Div";
 
-export default interface CardHeaderProps extends DivProps {}
+export default interface CardHeaderProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {}

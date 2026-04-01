@@ -9,4 +9,4 @@ type FontSize =
   | "xxxxlarge"
   | "xxxxxlarge";
 
-export default FontSize;
+export type { FontSize as default };

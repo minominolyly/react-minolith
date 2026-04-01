@@ -1,4 +1,4 @@
-import Oklch from "./Oklch";
+import type Oklch from "./Oklch";
 
 export default interface Gradation {
   95?: Oklch | undefined;

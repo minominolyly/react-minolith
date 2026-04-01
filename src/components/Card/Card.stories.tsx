@@ -9,7 +9,11 @@ const meta = {
   title: "Components/Card",
   component: Card,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    colorName: {
+      control: "text",
+    },
+  },
 } satisfies Meta<typeof Card>;
 export default meta;
 type Story = StoryObj<typeof meta>;

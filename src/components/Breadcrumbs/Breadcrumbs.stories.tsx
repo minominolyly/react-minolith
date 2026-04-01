@@ -8,7 +8,11 @@ const meta = {
   title: "Components/Breadcrumbs",
   component: Breadcrumbs,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    colorName: {
+      control: "text",
+    },
+  },
 } satisfies Meta<typeof Breadcrumbs>;
 export default meta;
 type Story = StoryObj<typeof meta>;

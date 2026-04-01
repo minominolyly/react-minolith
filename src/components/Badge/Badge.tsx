@@ -1,12 +1,18 @@
 "use client";
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
-import classNames from "./Badge.module.scss";
-import BadgeProps from "./BadgeProps";
-import { Interpolation, Theme } from "@emotion/react";
 
-export default function Badge(props: BadgeProps): ReactElement {
+import type { Interpolation, Theme } from "@emotion/react";
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Badge.module.scss";
+import type BadgeProps from "./BadgeProps";
+
+export default function Badge<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: BadgeProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];
   delete assignedProps["isSmall"];
@@ -59,7 +65,6 @@ export default function Badge(props: BadgeProps): ReactElement {
         ["--minolith-badge-color-disabled-border"]: `var(--minolith-color-${props.colorName}-badge-disabled-border)`,
       }
     : undefined;
-
 
   const optionalCss = {
     ...colorNameCss,

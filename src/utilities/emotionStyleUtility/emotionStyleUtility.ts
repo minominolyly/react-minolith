@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 "use client";
-import { BaseComponentProps } from "../../models";
-import { css, CSSObject, Interpolation, Theme } from "@emotion/react";
-import { ColorAttributes, ColorName } from "../../types";
+
+import type { BaseComponentProps } from "../../models";
+import { css } from "@emotion/react";
+import type { CSSObject, Interpolation, Theme } from "@emotion/react";
+import type { ColorAttributes, ColorName } from "../../types";
 import type { CSSInterpolation } from "@emotion/serialize";
 
 const cssVariablePrefix = "minolith-";
@@ -15,13 +17,13 @@ interface ComponentStateColorCssProperty {
   disabled?: string;
 }
 
-function getColorProps<ColorNameType extends string = ColorName>(
+function getColorProps<BaseComponentColorNameType extends string = ColorName>(
   props?: {
-    default?: ColorAttributes<ColorNameType> | "transparent";
-    hover?: ColorAttributes<ColorNameType> | "transparent";
-    focus?: ColorAttributes<ColorNameType> | "transparent";
-    active?: ColorAttributes<ColorNameType> | "transparent";
-    disabled?: ColorAttributes<ColorNameType> | "transparent";
+    default?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+    hover?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+    focus?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+    active?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+    disabled?: ColorAttributes<BaseComponentColorNameType> | "transparent";
   },
   mode?: "highlighter",
 ): ComponentStateColorCssProperty {
@@ -54,21 +56,23 @@ function getColorProps<ColorNameType extends string = ColorName>(
   };
 }
 
-function getSchemeColorProps<ColorNameType extends string = ColorName>(
+function getSchemeColorProps<
+  BaseComponentColorNameType extends string = ColorName,
+>(
   props?: {
     light: {
-      default?: ColorAttributes<ColorNameType> | "transparent";
-      hover?: ColorAttributes<ColorNameType> | "transparent";
-      focus?: ColorAttributes<ColorNameType> | "transparent";
-      active?: ColorAttributes<ColorNameType> | "transparent";
-      disabled?: ColorAttributes<ColorNameType> | "transparent";
+      default?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+      hover?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+      focus?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+      active?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+      disabled?: ColorAttributes<BaseComponentColorNameType> | "transparent";
     };
     dark: {
-      default?: ColorAttributes<ColorNameType> | "transparent";
-      hover?: ColorAttributes<ColorNameType> | "transparent";
-      focus?: ColorAttributes<ColorNameType> | "transparent";
-      active?: ColorAttributes<ColorNameType> | "transparent";
-      disabled?: ColorAttributes<ColorNameType> | "transparent";
+      default?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+      hover?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+      focus?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+      active?: ColorAttributes<BaseComponentColorNameType> | "transparent";
+      disabled?: ColorAttributes<BaseComponentColorNameType> | "transparent";
     };
   },
   mode?: "highlighter",
@@ -147,8 +151,10 @@ function getSchemeColorProps<ColorNameType extends string = ColorName>(
   };
 }
 
-function getColorVariable<ColorNameType extends string = ColorName>(
-  colorAttributes?: ColorAttributes<ColorNameType> | "transparent",
+function getColorVariable<
+  BaseComponentColorNameType extends string = ColorName,
+>(
+  colorAttributes?: ColorAttributes<BaseComponentColorNameType> | "transparent",
 ): string | undefined {
   if (!colorAttributes) {
     return undefined;
@@ -174,9 +180,9 @@ function getColorVariable<ColorNameType extends string = ColorName>(
 }
 
 function getHighlighterBackgroundVariable<
-  ColorNameType extends string = ColorName,
+  BaseComponentColorNameType extends string = ColorName,
 >(
-  colorAttributes?: ColorAttributes<ColorNameType> | "transparent",
+  colorAttributes?: ColorAttributes<BaseComponentColorNameType> | "transparent",
 ): string | undefined {
   if (!colorAttributes) {
     return undefined;
@@ -206,17 +212,23 @@ function getHighlighterBackgroundVariable<
 }
 
 function getSchemeColorHighlighterBackgroundVariable<
-  ColorNameType extends string = ColorName,
+  BaseComponentColorNameType extends string = ColorName,
 >(
-  lightColorAttributes?: ColorAttributes<ColorNameType> | "transparent",
-  darkColorAttributes?: ColorAttributes<ColorNameType> | "transparent",
+  lightColorAttributes?:
+    | ColorAttributes<BaseComponentColorNameType>
+    | "transparent",
+  darkColorAttributes?:
+    | ColorAttributes<BaseComponentColorNameType>
+    | "transparent",
 ): string | undefined {
   if (!lightColorAttributes || !darkColorAttributes) {
     return undefined;
   }
 
   const getColor = (
-    colorAttributes: ColorAttributes<ColorNameType> | "transparent",
+    colorAttributes:
+      | ColorAttributes<BaseComponentColorNameType>
+      | "transparent",
   ) => {
     if (typeof colorAttributes === "string") {
       return "transparent";
@@ -270,7 +282,10 @@ function getCssObject(props: {
     : undefined;
 }
 
-function getEmotionCss(props: BaseComponentProps, optionalCss?: Interpolation<Theme>): Interpolation<Theme> {
+function getEmotionCss<ColorNameType extends string>(
+  props: BaseComponentProps<ColorNameType>,
+  optionalCss?: Interpolation<Theme>,
+): Interpolation<Theme> {
   const keys = Object.keys(props);
 
   const baseComponentPropsKeys = keys.filter(

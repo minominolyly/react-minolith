@@ -1,9 +1,10 @@
-import { DetailedHTMLProps, ImgHTMLAttributes } from "react";
+import { ClassAttributes, ImgHTMLAttributes } from "react";
 import { BaseComponentProps } from "../../react-minolith";
 
-export default interface DialogueAvatarProps
+export default interface DialogueAvatarProps<BaseComponentColorNameType extends string>
   extends
-    DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
-    BaseComponentProps {
+    ClassAttributes<HTMLImageElement>,
+    ImgHTMLAttributes<HTMLImageElement>,
+    BaseComponentProps<BaseComponentColorNameType> {
   hasBorder?: boolean;
 }

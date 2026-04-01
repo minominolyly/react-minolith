@@ -12,7 +12,11 @@ const meta = {
   title: "Components/Dialogue",
   component: Dialogue,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    colorName: {
+      control: "text",
+    },
+  },
 } satisfies Meta<typeof Dialogue>;
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -73,8 +77,7 @@ export const IsRight: Story = {
 };
 
 export const AvatarHasBorder: Story = {
-  args: {
-  },
+  args: {},
   render: (props) => (
     <Minolith>
       <Dialogue {...props}>

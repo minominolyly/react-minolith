@@ -1,12 +1,18 @@
 "use client";
 
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { MinolithColorSchemeContext } from "../../contexts";
+import type { ColorName, SemanticColorName } from "../../types";
 import Tabula from "../Tabula";
 import "./Minolith.scss";
-import MinolithProps from "./MinolithProps";
+import type MinolithProps from "./MinolithProps";
 
-export default function Minolith(props: MinolithProps): ReactElement {
+export default function Minolith<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: MinolithProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
 
   return (

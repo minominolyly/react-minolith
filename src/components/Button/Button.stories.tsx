@@ -6,7 +6,11 @@ const meta = {
   title: "Components/Button",
   component: Button,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    colorName: {
+      control: "text",
+    },
+  },
 } satisfies Meta<typeof Button>;
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -188,6 +188,18 @@
       "types": "./dist/components/Div/index.d.ts",
       "import": "./dist/components/Div/index.js"
     },
+    "./components/Figure": {
+      "types": "./dist/components/Figure/index.d.ts",
+      "import": "./dist/components/Figure/index.js"
+    },
+    "./components/FigureCaption": {
+      "types": "./dist/components/FigureCaption/index.d.ts",
+      "import": "./dist/components/FigureCaption/index.js"
+    },
+    "./components/FigureContent": {
+      "types": "./dist/components/FigureContent/index.d.ts",
+      "import": "./dist/components/FigureContent/index.js"
+    },
     "./components/Footer": {
       "types": "./dist/components/Footer/index.d.ts",
       "import": "./dist/components/Footer/index.js"
@@ -378,7 +390,7 @@
     "eslint-plugin-react-refresh": "^0.4.26",
     "eslint-plugin-storybook": "^10.2.16",
     "glob": "^13.0.6",
-    "minolith": "^1.1.8",
+    "minolith": "^1.2.0",
     "playwright": "^1.58.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

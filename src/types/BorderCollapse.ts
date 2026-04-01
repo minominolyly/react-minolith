@@ -1,3 +1,3 @@
 type BorderCollapse = "collapted" | "sepalated";
 
-export default BorderCollapse;
+export type { BorderCollapse as default };

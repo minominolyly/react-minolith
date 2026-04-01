@@ -1,4 +1,4 @@
-import {
+import type {
   BorderCollapse,
   BorderDetailProps,
   BorderRadius,
@@ -14,8 +14,8 @@ export default interface BorderProps<ColorNameType extends string = ColorName> {
   radius?: BorderRadius;
   style?: BorderStyle;
   width?: BorderWidth;
-  top?: BorderDetailProps;
-  bottom?: BorderDetailProps;
-  left?: BorderDetailProps;
-  right?: BorderDetailProps;
+  top?: BorderDetailProps<ColorNameType>;
+  bottom?: BorderDetailProps<ColorNameType>;
+  left?: BorderDetailProps<ColorNameType>;
+  right?: BorderDetailProps<ColorNameType>;
 }

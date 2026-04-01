@@ -1,7 +1,6 @@
-import ColorAttributes from "./ColorAttributes";
-import ColorName from "./ColorName";
+import type ColorAttributes from "./ColorAttributes";
 
-type ColorProps<ColorNameType extends string = ColorName> = {
+export default interface ColorProps<ColorNameType extends string> {
   default?: ColorAttributes<ColorNameType> | "transparent";
   hover?: ColorAttributes<ColorNameType> | "transparent";
   focus?: ColorAttributes<ColorNameType> | "transparent";
@@ -23,6 +22,4 @@ type ColorProps<ColorNameType extends string = ColorName> = {
       disabled?: ColorAttributes<ColorNameType> | "transparent";
     };
   };
-};
-
-export default ColorProps;
+}

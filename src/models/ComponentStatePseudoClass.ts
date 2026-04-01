@@ -1,4 +1,4 @@
-import ComponentPart from "./ComponentPart";
+import type ComponentPart from "./ComponentPart";
 
 export default interface ComponentStatePseudoClass {
   default?: ComponentPart | undefined;

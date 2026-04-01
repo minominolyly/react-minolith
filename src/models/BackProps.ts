@@ -1,5 +1,5 @@
-import { ColorProps, ColorName } from "../types";
+import type { ColorProps } from "../types";
 
-export default interface BackProps {
-  color?: ColorProps<ColorName | "rainbow">;
+export default interface BackProps<ColorNameType extends string> {
+  color?: ColorProps<ColorNameType>;
 }

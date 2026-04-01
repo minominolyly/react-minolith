@@ -11,4 +11,4 @@ type ColorName =
   | "violet"
   | "magenta";
 
-export default ColorName;
+export type { ColorName as default };

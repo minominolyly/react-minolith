@@ -1,12 +1,17 @@
 "use client";
 
-import { ReactElement } from "react";
-import classNameUtility from "../../utilities/classNameUtility";
-import emotionStyleUtility from "../../utilities/emotionStyleUtility";
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Tabula.module.scss";
-import TabulaProps from "./TabulaProps";
+import type TabulaProps from "./TabulaProps";
 
-export default function Tabula(props: TabulaProps): ReactElement {
+export default function Tabula<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: TabulaProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorScheme"];
   //#region BaseComponentProps
@@ -30,9 +35,11 @@ export default function Tabula(props: TabulaProps): ReactElement {
     assignedClassNames.push(props.className);
   }
 
-  const colorScheme = props.colorScheme ? {
-    colorScheme: props.colorScheme,
-  } : undefined;
+  const colorScheme = props.colorScheme
+    ? {
+        colorScheme: props.colorScheme,
+      }
+    : undefined;
 
   const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
 

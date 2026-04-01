@@ -1,7 +1,9 @@
-import { ColorName, SemanticColorName } from "../../types";
-import { DivProps } from "../../components/Div";
+import type { ColorName, SemanticColorName } from "../../types";
+import type { DivProps } from "../../components/Div";
 
-export default interface DotProps extends DivProps {
+export default interface DotProps<
+  BaseComponentColorNameType extends string,
+> extends DivProps<BaseComponentColorNameType> {
   colorName?: ColorName | SemanticColorName;
   dotSize?: "pin" | "polka" | "coin";
 }
