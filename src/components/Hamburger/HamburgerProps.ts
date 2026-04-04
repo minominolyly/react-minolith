@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { ColorName, SemanticColorName } from "../../types";
 import type { DivProps } from "../Div";
 

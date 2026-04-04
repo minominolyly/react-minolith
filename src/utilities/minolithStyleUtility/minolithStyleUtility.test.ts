@@ -1,12 +1,15 @@
 import { expect, test } from "vitest";
 import minolithStyleUtility from "./minolithStyleUtility";
-import { MinolithCssVariables } from "../../react-minolith";
+import type { MinolithCssVariables } from "../../models";
+import type { ColorName, SemanticColorName } from "../../types";
 
 const colors: string[] = [
   "gray",
   "red",
+  "coral",
   "orange",
   "yellow",
+  "lime",
   "green",
   "cyan",
   "blue",
@@ -20,17 +23,18 @@ colors.forEach((color) => {
   for (let i = 19; i >= 1; i--) {
     const gradation = i * 5;
     test(`change color ${color}[${gradation}]`, () => {
-      const cssVariables: MinolithCssVariables = {
-        color: {
-          [color]: {
-            [gradation]: {
-              hue: 0,
-              lightness: 98,
-              chroma: colorchromaColorful,
+      const cssVariables: MinolithCssVariables<ColorName | SemanticColorName> =
+        {
+          color: {
+            [color]: {
+              [gradation]: {
+                hue: 0,
+                lightness: 98,
+                chroma: colorchromaColorful,
+              },
             },
           },
-        },
-      };
+        };
       const gradStr = gradation < 10 ? "05" : `${gradation}`;
       expect(
         minolithStyleUtility.getMinolithCssVariableStyles(cssVariables),
@@ -42,7 +46,7 @@ colors.forEach((color) => {
 });
 
 test("change color accordion-summary fore.", () => {
-  const cssVariables: MinolithCssVariables = {
+  const cssVariables: MinolithCssVariables<ColorName | SemanticColorName> = {
     color: {
       colorScheme: {
         components: {
@@ -71,7 +75,7 @@ test("change color accordion-summary fore.", () => {
 });
 
 test("change color loader fore.", () => {
-  const cssVariables: MinolithCssVariables = {
+  const cssVariables: MinolithCssVariables<ColorName | SemanticColorName> = {
     color: {
       colorScheme: {
         components: {

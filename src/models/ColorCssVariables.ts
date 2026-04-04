@@ -1,7 +1,9 @@
 import type Gradation from "./Gradation";
 import type ColorSchemeColor from "./ColorSchemeColor";
 
-export default interface ColorCssVariables {
+export default interface ColorCssVariables<
+  ColorNameType extends string,
+> {
   gray?: Gradation | undefined;
   red?: Gradation | undefined;
   coral?: Gradation | undefined;
@@ -13,5 +15,5 @@ export default interface ColorCssVariables {
   blue?: Gradation | undefined;
   violet?: Gradation | undefined;
   magenta?: Gradation | undefined;
-  colorScheme?: ColorSchemeColor | undefined;
+  colorScheme?: ColorSchemeColor<ColorNameType> | undefined;
 }

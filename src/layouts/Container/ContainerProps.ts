@@ -1,5 +1,5 @@
 import type { DivProps } from "../../components/Div";
-import Gutter from "../../types/Gutter";
+import type { Gutter } from "../../types";
 
 export default interface ContainerProps<
   BaseComponentColorNameType extends string,

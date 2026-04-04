@@ -1,12 +1,9 @@
-import {
-  ClassAttributes,
-  TextareaHTMLAttributes
-} from "react";
+import type { ClassAttributes, TextareaHTMLAttributes } from "react";
 import type { BaseComponentProps } from "../../models";
 import type { ColorName, SemanticColorName } from "../../types";
 
 export default interface TextareaProps<
-  BaseComponentColorNameType extends string
+  BaseComponentColorNameType extends string,
 >
   extends
     ClassAttributes<HTMLTextAreaElement>,

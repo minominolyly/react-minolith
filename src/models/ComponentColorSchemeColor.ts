@@ -1,16 +1,18 @@
 import type ComponentStatePseudoClass from "./ComponentStatePseudoClass";
 
-export default interface ComponentColorSchemeColor {
-  default?: ComponentStatePseudoClass | undefined;
-  gray?: ComponentStatePseudoClass | undefined;
-  red?: ComponentStatePseudoClass | undefined;
-  coral?: ComponentStatePseudoClass | undefined;
-  orange?: ComponentStatePseudoClass | undefined;
-  yellow?: ComponentStatePseudoClass | undefined;
-  lime?: ComponentStatePseudoClass | undefined;
-  green?: ComponentStatePseudoClass | undefined;
-  cyan?: ComponentStatePseudoClass | undefined;
-  blue?: ComponentStatePseudoClass | undefined;
-  violet?: ComponentStatePseudoClass | undefined;
-  magenta?: ComponentStatePseudoClass | undefined;
+export default interface ComponentColorSchemeColor<
+  ColorNameType extends string,
+> {
+  default?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  gray?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  red?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  coral?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  orange?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  yellow?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  lime?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  green?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  cyan?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  blue?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  violet?: ComponentStatePseudoClass<ColorNameType> | undefined;
+  magenta?: ComponentStatePseudoClass<ColorNameType> | undefined;
 }

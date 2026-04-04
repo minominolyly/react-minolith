@@ -1,4 +1,4 @@
-import { ClassAttributes, LabelHTMLAttributes } from "react";
+import type { ClassAttributes, LabelHTMLAttributes } from "react";
 import type { BaseComponentProps } from "../../models";
 import type { ColorName, SemanticColorName } from "../../types";
 

@@ -17,7 +17,7 @@ interface ComponentStateColorCssProperty {
   disabled?: string;
 }
 
-function getColorProps<BaseComponentColorNameType extends string = ColorName>(
+function getColorProps<BaseComponentColorNameType extends string>(
   props?: {
     default?: ColorAttributes<BaseComponentColorNameType> | "transparent";
     hover?: ColorAttributes<BaseComponentColorNameType> | "transparent";

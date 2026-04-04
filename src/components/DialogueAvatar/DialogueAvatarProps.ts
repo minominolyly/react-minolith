@@ -1,5 +1,5 @@
-import { ClassAttributes, ImgHTMLAttributes } from "react";
-import { BaseComponentProps } from "../../react-minolith";
+import type { ClassAttributes, ImgHTMLAttributes } from "react";
+import type { BaseComponentProps } from "../../react-minolith";
 
 export default interface DialogueAvatarProps<BaseComponentColorNameType extends string>
   extends

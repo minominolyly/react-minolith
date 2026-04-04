@@ -1,31 +1,33 @@
 import type ComponentColorSchemeColor from "./ComponentColorSchemeColor";
 
-export default interface ColorSchemeColorComponents {
+export default interface ColorSchemeColorComponents<
+  ColorNameType extends string,
+> {
   accordion?:
-    | (ComponentColorSchemeColor & {
-        accordionSummary?: ComponentColorSchemeColor | undefined;
-        accordionDetails?: ComponentColorSchemeColor | undefined;
+    | (ComponentColorSchemeColor<ColorNameType> & {
+        accordionSummary?: ComponentColorSchemeColor<ColorNameType> | undefined;
+        accordionDetails?: ComponentColorSchemeColor<ColorNameType> | undefined;
       })
     | undefined;
-  badge?: ComponentColorSchemeColor | undefined;
-  button?: ComponentColorSchemeColor | undefined;
-  card?: ComponentColorSchemeColor & {
-    cardHeader?: ComponentColorSchemeColor | undefined;
-    cardBody?: ComponentColorSchemeColor | undefined;
-    cardFooter?: ComponentColorSchemeColor | undefined;
+  badge?: ComponentColorSchemeColor<ColorNameType> | undefined;
+  button?: ComponentColorSchemeColor<ColorNameType> | undefined;
+  card?: ComponentColorSchemeColor<ColorNameType> & {
+    cardHeader?: ComponentColorSchemeColor<ColorNameType> | undefined;
+    cardBody?: ComponentColorSchemeColor<ColorNameType> | undefined;
+    cardFooter?: ComponentColorSchemeColor<ColorNameType> | undefined;
   };
-  dialogue?: ComponentColorSchemeColor & {
-    dialogueAvatar?: ComponentColorSchemeColor | undefined;
-    dialogueName?: ComponentColorSchemeColor | undefined;
-    dialogueMessage?: ComponentColorSchemeColor | undefined;
+  dialogue?: ComponentColorSchemeColor<ColorNameType> & {
+    dialogueAvatar?: ComponentColorSchemeColor<ColorNameType> | undefined;
+    dialogueName?: ComponentColorSchemeColor<ColorNameType> | undefined;
+    dialogueMessage?: ComponentColorSchemeColor<ColorNameType> | undefined;
   };
-  header?: ComponentColorSchemeColor | undefined;
-  label?: ComponentColorSchemeColor | undefined;
-  link?: ComponentColorSchemeColor | undefined;
-  loader?: ComponentColorSchemeColor | undefined;
-  message?: ComponentColorSchemeColor & {
-    messageHeader?: ComponentColorSchemeColor | undefined;
-    messageBody?: ComponentColorSchemeColor | undefined;
+  header?: ComponentColorSchemeColor<ColorNameType> | undefined;
+  label?: ComponentColorSchemeColor<ColorNameType> | undefined;
+  link?: ComponentColorSchemeColor<ColorNameType> | undefined;
+  loader?: ComponentColorSchemeColor<ColorNameType> | undefined;
+  message?: ComponentColorSchemeColor<ColorNameType> & {
+    messageHeader?: ComponentColorSchemeColor<ColorNameType> | undefined;
+    messageBody?: ComponentColorSchemeColor<ColorNameType> | undefined;
   };
-  progress?: ComponentColorSchemeColor | undefined;
+  progress?: ComponentColorSchemeColor<ColorNameType> | undefined;
 }

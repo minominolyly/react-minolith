@@ -40,6 +40,9 @@ export * from "./backgrounds/Zigzag";
 //#endregion backgrounds
 
 //#region components
+export { default as Abbreviation } from "./components/Abbreviation";
+export * from "./components/Abbreviation";
+
 export { default as Accordion } from "./components/Accordion";
 export * from "./components/Accordion";
 
@@ -78,6 +81,21 @@ export * from "./components/CardFooter";
 
 export { default as CardHeader } from "./components/CardHeader";
 export * from "./components/CardHeader";
+
+export { default as Definition } from "./components/Definition";
+export * from "./components/Definition";
+
+export { default as DescriptionDetails } from "./components/DescriptionDetails";
+export * from "./components/DescriptionDetails";
+
+export { default as DescriptionList } from "./components/DescriptionList";
+export * from "./components/DescriptionList";
+
+export { default as DescriptionListItem } from "./components/DescriptionListItem";
+export * from "./components/DescriptionListItem";
+
+export { default as DescriptionTerm } from "./components/DescriptionTerm";
+export * from "./components/DescriptionTerm";
 
 export { default as Dialogue } from "./components/Dialogue";
 export * from "./components/Dialogue";

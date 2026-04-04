@@ -1,13 +1,13 @@
-import MinolithCssVariables from "../../models/MinolithCssVariables";
-import {
+import type {
   ComponentPart,
   ComponentStatePseudoClass,
   LightDarkColor,
   Oklch,
 } from "../../models";
-import ComponentColorSchemeColor from "../../models/ComponentColorSchemeColor";
-import ColorSchemeColorComponents from "../../models/ColorSchemeColorComponents";
-import { ColorName } from "../../react-minolith";
+import type ColorSchemeColorComponents from "../../models/ColorSchemeColorComponents";
+import type ComponentColorSchemeColor from "../../models/ComponentColorSchemeColor";
+import type MinolithCssVariables from "../../models/MinolithCssVariables";
+import type { ColorName } from "../../types";
 
 const cssVariablePrefix = "minolith-";
 
@@ -25,9 +25,9 @@ const colorNames: ColorName[] = [
   "magenta",
 ];
 
-function getComponentColorVariables(
+function getComponentColorVariables<BaseComponentColorNameType extends string>(
   colorName: string,
-  componentPart?: ComponentPart,
+  componentPart?: ComponentPart<BaseComponentColorNameType>,
   componentStateName?: string,
   elementName?: string,
 ): string[] {
@@ -35,7 +35,7 @@ function getComponentColorVariables(
 
   if (componentPart) {
     const addStyle = (
-      elementPart: LightDarkColor | undefined,
+      elementPart: LightDarkColor<BaseComponentColorNameType> | undefined,
       elementPartName: string,
     ) => {
       if (elementPart) {
@@ -88,14 +88,14 @@ function getComponentColorVariables(
   return styles;
 }
 
-function getColorVariables(
+function getColorVariables<BaseComponentColorNameType extends string>(
   colorName: string,
-  componentState: ComponentStatePseudoClass,
+  componentState: ComponentStatePseudoClass<BaseComponentColorNameType>,
   elementName?: string,
 ) {
   const derives: string[] = [];
   if (componentState.default) {
-    const styles = getComponentColorVariables(
+    const styles = getComponentColorVariables<BaseComponentColorNameType>(
       colorName,
       componentState.default,
       undefined,
@@ -107,7 +107,7 @@ function getColorVariables(
   }
 
   if (componentState.hover) {
-    const styles = getComponentColorVariables(
+    const styles = getComponentColorVariables<BaseComponentColorNameType>(
       colorName,
       componentState.hover,
       "hover",
@@ -119,7 +119,7 @@ function getColorVariables(
   }
 
   if (componentState.focus) {
-    const styles = getComponentColorVariables(
+    const styles = getComponentColorVariables<BaseComponentColorNameType>(
       colorName,
       componentState.focus,
       "focus",
@@ -131,7 +131,7 @@ function getColorVariables(
   }
 
   if (componentState.active) {
-    const styles = getComponentColorVariables(
+    const styles = getComponentColorVariables<BaseComponentColorNameType>(
       colorName,
       componentState.active,
       "active",
@@ -143,7 +143,7 @@ function getColorVariables(
   }
 
   if (componentState.disabled) {
-    const styles = getComponentColorVariables(
+    const styles = getComponentColorVariables<BaseComponentColorNameType>(
       colorName,
       componentState.disabled,
       "disabled",
@@ -157,13 +157,13 @@ function getColorVariables(
   return derives;
 }
 
-function getComponentColorStyles(
-  component: ComponentColorSchemeColor,
+function getComponentColorStyles<BaseComponentColorNameType extends string>(
+  component: ComponentColorSchemeColor<BaseComponentColorNameType>,
   componentName: string,
 ): string[] {
   const schemeStyles: string[] = [];
   if (component.default) {
-    const styles = getColorVariables(
+    const styles = getColorVariables<BaseComponentColorNameType>(
       "default",
       component.default,
       componentName,
@@ -189,13 +189,15 @@ function getComponentColorStyles(
   return schemeStyles;
 }
 
-function getColorSchemeColorComponentsStyles(
-  colorSchemeColorComponents: ColorSchemeColorComponents,
+function getColorSchemeColorComponentsStyles<
+  BaseComponentColorNameType extends string,
+>(
+  colorSchemeColorComponents: ColorSchemeColorComponents<BaseComponentColorNameType>,
 ) {
   const schemeStyles: string[] = [];
 
   if (colorSchemeColorComponents.badge) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.badge,
       "badge",
     );
@@ -205,7 +207,7 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.accordion) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.accordion,
       "accordion",
     );
@@ -213,7 +215,7 @@ function getColorSchemeColorComponentsStyles(
       schemeStyles.push(...styles);
     }
     if (colorSchemeColorComponents.accordion.accordionSummary) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.accordion.accordionSummary,
         "accordion-summary",
       );
@@ -222,7 +224,7 @@ function getColorSchemeColorComponentsStyles(
       }
     }
     if (colorSchemeColorComponents.accordion.accordionDetails) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.accordion.accordionDetails,
         "accordion-details",
       );
@@ -233,7 +235,7 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.button) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.button,
       "button",
     );
@@ -243,12 +245,15 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.card) {
-    const styles = getComponentColorStyles(colorSchemeColorComponents.card, "card");
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
+      colorSchemeColorComponents.card,
+      "card",
+    );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
     if (colorSchemeColorComponents.card.cardHeader) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.card.cardHeader,
         "card-header",
       );
@@ -257,7 +262,7 @@ function getColorSchemeColorComponentsStyles(
       }
     }
     if (colorSchemeColorComponents.card.cardBody) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.card.cardBody,
         "card-body",
       );
@@ -266,7 +271,7 @@ function getColorSchemeColorComponentsStyles(
       }
     }
     if (colorSchemeColorComponents.card.cardFooter) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.card.cardFooter,
         "card-footer",
       );
@@ -277,7 +282,7 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.dialogue) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.dialogue,
       "dialogue",
     );
@@ -285,7 +290,7 @@ function getColorSchemeColorComponentsStyles(
       schemeStyles.push(...styles);
     }
     if (colorSchemeColorComponents.dialogue.dialogueAvatar) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.dialogue.dialogueAvatar,
         "dialogue-avatar",
       );
@@ -294,7 +299,7 @@ function getColorSchemeColorComponentsStyles(
       }
     }
     if (colorSchemeColorComponents.dialogue.dialogueName) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.dialogue.dialogueName,
         "dialogue-name",
       );
@@ -303,7 +308,7 @@ function getColorSchemeColorComponentsStyles(
       }
     }
     if (colorSchemeColorComponents.dialogue.dialogueMessage) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.dialogue.dialogueMessage,
         "dialogue-message",
       );
@@ -314,7 +319,7 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.header) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.header,
       "header",
     );
@@ -324,7 +329,7 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.label) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.label,
       "label",
     );
@@ -334,14 +339,17 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.link) {
-    const styles = getComponentColorStyles(colorSchemeColorComponents.link, "link");
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
+      colorSchemeColorComponents.link,
+      "link",
+    );
     if (styles.length > 0) {
       schemeStyles.push(...styles);
     }
   }
 
   if (colorSchemeColorComponents.loader) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.loader,
       "loader",
     );
@@ -351,7 +359,7 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.message) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.message,
       "message",
     );
@@ -359,7 +367,7 @@ function getColorSchemeColorComponentsStyles(
       schemeStyles.push(...styles);
     }
     if (colorSchemeColorComponents.message.messageHeader) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.message.messageHeader,
         "message-header",
       );
@@ -368,7 +376,7 @@ function getColorSchemeColorComponentsStyles(
       }
     }
     if (colorSchemeColorComponents.message.messageBody) {
-      const styles = getComponentColorStyles(
+      const styles = getComponentColorStyles<BaseComponentColorNameType>(
         colorSchemeColorComponents.message.messageBody,
         "message-body",
       );
@@ -379,7 +387,7 @@ function getColorSchemeColorComponentsStyles(
   }
 
   if (colorSchemeColorComponents.progress) {
-    const styles = getComponentColorStyles(
+    const styles = getComponentColorStyles<BaseComponentColorNameType>(
       colorSchemeColorComponents.progress,
       "progress",
     );
@@ -391,12 +399,15 @@ function getColorSchemeColorComponentsStyles(
   return schemeStyles;
 }
 
-function getMinolithCssVariableStyles(
-  cssVariableSetting?: MinolithCssVariables,
+function getMinolithCssVariableStyles<
+  BaseComponentColorNameType extends string,
+>(
+  cssVariableSetting?: MinolithCssVariables<BaseComponentColorNameType>,
 ): string[] {
   const minolithStyles: string[] = [];
 
-  const rootStyles = getRootStyles(cssVariableSetting);
+  const rootStyles =
+    getRootStyles<BaseComponentColorNameType>(cssVariableSetting);
   if (rootStyles.length > 0) {
     minolithStyles.push(`:root{${rootStyles.join("")}}`);
   }
@@ -404,7 +415,9 @@ function getMinolithCssVariableStyles(
   return minolithStyles;
 }
 
-function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
+function getRootStyles<BaseComponentColorNameType extends string>(
+  cssVariableSetting?: MinolithCssVariables<BaseComponentColorNameType>,
+): string[] {
   const rootStyles: string[] = [];
 
   if (cssVariableSetting) {
@@ -508,27 +521,32 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
       };
 
       for (const colorName of colorNames) {
-        if (color[colorName]) {
-          const gradation = color[colorName];
-          setColorDetailVariable(colorName, "95", gradation[95]);
-          setColorDetailVariable(colorName, "90", gradation[90]);
-          setColorDetailVariable(colorName, "85", gradation[85]);
-          setColorDetailVariable(colorName, "80", gradation[80]);
-          setColorDetailVariable(colorName, "75", gradation[75]);
-          setColorDetailVariable(colorName, "70", gradation[70]);
-          setColorDetailVariable(colorName, "65", gradation[65]);
-          setColorDetailVariable(colorName, "60", gradation[60]);
-          setColorDetailVariable(colorName, "55", gradation[55]);
-          setColorDetailVariable(colorName, "50", gradation[50]);
-          setColorDetailVariable(colorName, "45", gradation[45]);
-          setColorDetailVariable(colorName, "40", gradation[40]);
-          setColorDetailVariable(colorName, "35", gradation[35]);
-          setColorDetailVariable(colorName, "30", gradation[30]);
-          setColorDetailVariable(colorName, "25", gradation[25]);
-          setColorDetailVariable(colorName, "20", gradation[20]);
-          setColorDetailVariable(colorName, "15", gradation[15]);
-          setColorDetailVariable(colorName, "10", gradation[10]);
-          setColorDetailVariable(colorName, "05", gradation[5]);
+        if (color[colorName as keyof typeof color]) {
+          const gradation = color[colorName as keyof typeof color] as Record<
+            number,
+            Oklch | undefined
+          >;
+          if (gradation) {
+            setColorDetailVariable(colorName, "95", gradation[95]);
+            setColorDetailVariable(colorName, "90", gradation[90]);
+            setColorDetailVariable(colorName, "85", gradation[85]);
+            setColorDetailVariable(colorName, "80", gradation[80]);
+            setColorDetailVariable(colorName, "75", gradation[75]);
+            setColorDetailVariable(colorName, "70", gradation[70]);
+            setColorDetailVariable(colorName, "65", gradation[65]);
+            setColorDetailVariable(colorName, "60", gradation[60]);
+            setColorDetailVariable(colorName, "55", gradation[55]);
+            setColorDetailVariable(colorName, "50", gradation[50]);
+            setColorDetailVariable(colorName, "45", gradation[45]);
+            setColorDetailVariable(colorName, "40", gradation[40]);
+            setColorDetailVariable(colorName, "35", gradation[35]);
+            setColorDetailVariable(colorName, "30", gradation[30]);
+            setColorDetailVariable(colorName, "25", gradation[25]);
+            setColorDetailVariable(colorName, "20", gradation[20]);
+            setColorDetailVariable(colorName, "15", gradation[15]);
+            setColorDetailVariable(colorName, "10", gradation[10]);
+            setColorDetailVariable(colorName, "05", gradation[5]);
+          }
         }
       }
 
@@ -544,18 +562,27 @@ function getRootStyles(cssVariableSetting?: MinolithCssVariables): string[] {
         }
 
         for (const colorName of colorNames) {
-          if (color.colorScheme[colorName]) {
-            const variable = color.colorScheme[colorName];
-            const styles = getColorVariables(colorName, variable);
-            if (styles.length > 0) {
-              rootStyles.push(...styles);
+          if (color.colorScheme[colorName as keyof typeof color.colorScheme]) {
+            const variable = color.colorScheme[
+              colorName as keyof typeof color.colorScheme
+            ] as
+              | ComponentStatePseudoClass<BaseComponentColorNameType>
+              | undefined;
+            if (variable) {
+              const styles = getColorVariables(colorName, variable);
+              if (styles.length > 0) {
+                rootStyles.push(...styles);
+              }
             }
           }
         }
 
         if (color.colorScheme.components) {
           const components = color.colorScheme.components;
-          const styles = getColorSchemeColorComponentsStyles(components);
+          const styles =
+            getColorSchemeColorComponentsStyles<BaseComponentColorNameType>(
+              components,
+            );
           if (styles.length > 0) {
             rootStyles.push(...styles);
           }

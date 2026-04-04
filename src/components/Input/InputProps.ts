@@ -1,6 +1,6 @@
-import { ClassAttributes, InputHTMLAttributes } from "react";
+import type { ClassAttributes, InputHTMLAttributes } from "react";
 import type { BaseComponentProps } from "../../models";
-import {
+import type {
   BorderRadius,
   BorderWidth,
   ColorName,

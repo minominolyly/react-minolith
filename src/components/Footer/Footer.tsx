@@ -5,7 +5,7 @@ import type { ReactElement } from "react";
 import type { ColorName, SemanticColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Footer.module.scss";
-import FooterProps from "./FooterProps";
+import type FooterProps from "./FooterProps";
 
 export default function Footer<
   BaseComponentColorNameType extends string =
@@ -28,7 +28,8 @@ export default function Footer<
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["footer"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -47,7 +48,10 @@ export default function Footer<
     ...colorNameCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    optionalCss,
+  );
 
   return props.as ? (
     <props.as

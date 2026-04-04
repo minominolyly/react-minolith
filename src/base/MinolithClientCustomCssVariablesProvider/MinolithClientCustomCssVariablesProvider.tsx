@@ -1,11 +1,17 @@
 "use client";
 
-import { ReactElement, useInsertionEffect, useMemo } from "react";
+import { type ReactElement, useInsertionEffect, useMemo } from "react";
 import minolithStyleUtility from "../../utilities/minolithStyleUtility";
-import MinolithClientCustomCssVariablesProviderProps from "./MinolithClientCustomCssVariablesProviderProps";
+import type MinolithClientCustomCssVariablesProviderProps from "./MinolithClientCustomCssVariablesProviderProps";
+import type { ColorName, SemanticColorName } from "../../types";
 
-export default function MinolithClientCustomCssVariablesProvider(
-  props: MinolithClientCustomCssVariablesProviderProps,
+export default function MinolithClientCustomCssVariablesProviderh<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(
+  props: MinolithClientCustomCssVariablesProviderProps<BaseComponentColorNameType>,
 ): ReactElement {
   const minolithStyles = useMemo(
     () =>

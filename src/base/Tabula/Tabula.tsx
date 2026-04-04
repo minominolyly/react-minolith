@@ -27,7 +27,8 @@ export default function Tabula<
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["tabula"]];
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -41,7 +42,10 @@ export default function Tabula<
       }
     : undefined;
 
-  const css = emotionStyleUtility.getEmotionCss(props, colorScheme);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    colorScheme,
+  );
 
   return props.as ? (
     <props.as

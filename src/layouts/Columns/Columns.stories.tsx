@@ -2,9 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import Minolith from "../../base/Minolith";
 import Div from "../../components/Div";
-import BorderProps from "../../models/BorderProps";
+import type BorderProps from "../../models/BorderProps";
 import Column from "../Column";
 import Columns from "./Columns";
+import type { ColorName, SemanticColorName } from "../../types";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
@@ -17,7 +18,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const columnsWrapperBorder: BorderProps = {
+const columnsWrapperBorder: BorderProps<ColorName | SemanticColorName> = {
   style: "solid",
   width: "xthick",
   color: {

@@ -51,7 +51,7 @@ export default function Accordion<
       }
     : undefined;
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -59,7 +59,7 @@ export default function Accordion<
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props, colorNameCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, colorNameCss);
 
   return props.as ? (
     <props.as

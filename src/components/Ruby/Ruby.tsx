@@ -28,14 +28,14 @@ export default function Ruby<
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = ["ruby", classNames["element"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
   const assignedRubyTextClassNames: string[] = [
     "ruby-text",
     classNames["element"],
@@ -43,7 +43,7 @@ export default function Ruby<
 
   if (props.rubyText) {
     assignedRubyTextClassNames.push(
-      ...classNameUtility.getUtilityClassNames(props),
+      ...classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props),
     );
     if (props.className) {
       assignedRubyTextClassNames.push(props.className);

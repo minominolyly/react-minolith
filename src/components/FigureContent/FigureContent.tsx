@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName, SemanticColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./FigureContent.module.scss";
-import FigureContentProps from "./FigureContentProps";
+import type FigureContentProps from "./FigureContentProps";
 
 export default function FigureContent<
   BaseComponentColorNameType extends string =
@@ -26,14 +26,16 @@ export default function FigureContent<
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["figure-content"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css =
+    emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return props.as ? (
     <props.as

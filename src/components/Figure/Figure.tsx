@@ -28,7 +28,7 @@ export default function Figure<
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["figure"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -60,7 +60,7 @@ export default function Figure<
     ...colorNameCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
 
   return props.as ? (
     <props.as

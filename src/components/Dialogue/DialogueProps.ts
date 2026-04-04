@@ -1,4 +1,4 @@
-import { BorderWidth, ColorName, SemanticColorName } from "../../types";
+import type { BorderWidth, ColorName, SemanticColorName } from "../../types";
 import type { DivProps } from "../Div";
 import type { Property } from "csstype";
 

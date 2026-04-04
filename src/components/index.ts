@@ -1,3 +1,7 @@
+
+export { default as Abbreviation } from "./Abbreviation";
+export * from "./Abbreviation";
+
 export { default as Accordion } from "./Accordion";
 export * from "./Accordion";
 
@@ -36,6 +40,21 @@ export * from "./CardFooter";
 
 export { default as CardHeader } from "./CardHeader";
 export * from "./CardHeader";
+
+export { default as Definition } from "./Definition";
+export * from "./Definition";
+
+export { default as DescriptionDetails } from "./DescriptionDetails";
+export * from "./DescriptionDetails";
+
+export { default as DescriptionList } from "./DescriptionList";
+export * from "./DescriptionList";
+
+export { default as DescriptionListItem } from "./DescriptionListItem";
+export * from "./DescriptionListItem";
+
+export { default as DescriptionTerm } from "./DescriptionTerm";
+export * from "./DescriptionTerm";
 
 export { default as Dialogue } from "./Dialogue";
 export * from "./Dialogue";

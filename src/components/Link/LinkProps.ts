@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, ClassAttributes } from "react";
+import type { AnchorHTMLAttributes, ClassAttributes } from "react";
 import type { BaseComponentProps } from "../../models";
 import type { ColorName, SemanticColorName } from "../../types";
 

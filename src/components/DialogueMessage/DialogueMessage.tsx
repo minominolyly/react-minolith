@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName, SemanticColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./DialogueMessage.module.scss";
-import DialogueMessageProps from "./DialogueMessageProps";
+import type DialogueMessageProps from "./DialogueMessageProps";
 
 export default function DialogueMessage<
   BaseComponentColorNameType extends string =
@@ -26,14 +26,14 @@ export default function DialogueMessage<
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["dialogue-message"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return props.as ? (
     <props.as

@@ -28,7 +28,7 @@ export default function Card<
   //#endregion BaseComponentProps
   const assignedClassNames = [classNames["card"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -60,7 +60,7 @@ export default function Card<
     ...colorNameCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
 
   return props.as ? (
     <props.as

@@ -1,0 +1,51 @@
+"use client";
+
+import type { ReactElement } from "react";
+import type { ColorName, SemanticColorName } from "../../types";
+import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import classNames from "./Abbreviation.module.scss";
+import type AbbreviationProps from "./AbbreviationProps";
+
+export default function Abbreviation<
+  BaseComponentColorNameType extends string =
+    | ColorName
+    | SemanticColorName
+    | "rainbow",
+>(props: AbbreviationProps<BaseComponentColorNameType>): ReactElement {
+  const assignedProps = { ...props };
+  //#region BaseComponentProps
+  delete assignedProps["fore"];
+  delete assignedProps["back"];
+  delete assignedProps["highlighter"];
+  delete assignedProps["border"];
+  delete assignedProps["positioning"];
+  delete assignedProps["sizing"];
+  delete assignedProps["spacing"];
+  delete assignedProps["css"];
+  delete assignedProps["as"];
+  //#endregion BaseComponentProps
+  const assignedClassNames: string[] = [classNames["abbreviation"]];
+
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  if (utilityClassNames) {
+    assignedClassNames.push(...utilityClassNames);
+  }
+  if (props.className) {
+    assignedClassNames.push(props.className);
+  }
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
+
+  return props.as ? (
+    <props.as
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  ) : (
+    <abbr
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
+  );
+}

@@ -26,7 +26,7 @@ export default function Centering<
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["centering"]];
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -34,7 +34,7 @@ export default function Centering<
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return (
     <div

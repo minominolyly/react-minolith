@@ -77,7 +77,7 @@ export default function Column<
   props.sizeXLarge &&
     assignedClassNames.push(classNames[`is-xlarge-${props.sizeXLarge}`]);
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -85,7 +85,7 @@ export default function Column<
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return (
     <div

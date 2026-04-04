@@ -28,7 +28,7 @@ export default function Breadcrumbs<
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["breadcrumbs"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -50,7 +50,7 @@ export default function Breadcrumbs<
     ...colorNameCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
 
   return props.as ? (
     <props.as

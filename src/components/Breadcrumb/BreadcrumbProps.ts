@@ -1,4 +1,4 @@
-import { ClassAttributes, LiHTMLAttributes } from "react";
+import type { ClassAttributes, LiHTMLAttributes } from "react";
 import type { BaseComponentProps } from "../../models";
 
 export default interface BreadcrumbProps<BaseComponentColorNameType extends string>

@@ -1,5 +1,5 @@
 import type { ColorName, SemanticColorName } from "../../types";
-import { SpanProps } from "../Span";
+import type { SpanProps } from "../Span";
 
 export default interface BadgeProps<
   BaseComponentColorNameType extends string,

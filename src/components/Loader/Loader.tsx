@@ -32,7 +32,7 @@ export default function Loader<
   if (props.size) {
     assignedClassNames.push(classNames[`is-${props.size}`]);
   }
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -50,7 +50,7 @@ export default function Loader<
     ...colorNameCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
 
   return props.as ? (
     <props.as

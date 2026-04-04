@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ClassAttributes } from "react";
+import type { ButtonHTMLAttributes, ClassAttributes } from "react";
 import type { BaseComponentProps } from "../../models";
 import type { ColorName, SemanticColorName } from "../../types";
 

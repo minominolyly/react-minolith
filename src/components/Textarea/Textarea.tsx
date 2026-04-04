@@ -32,7 +32,7 @@ export default function Textarea<
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
   }
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -57,7 +57,7 @@ export default function Textarea<
     ...colorNameCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
 
   return (
     <textarea

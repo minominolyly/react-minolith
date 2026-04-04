@@ -28,14 +28,14 @@ export default function Heading<
   const level = props.level;
   const assignedClassNames: string[] = [classNames[`heading-${props.level}`]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   if (props.as) {
     <props.as

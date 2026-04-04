@@ -1,4 +1,4 @@
-import { ClassAttributes, DialogHTMLAttributes } from "react";
+import type { ClassAttributes, DialogHTMLAttributes } from "react";
 import type { BaseComponentProps } from "../../models";
 import type { ColorName, SemanticColorName } from "../../types";
 

@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from "@storybook/react-vite";
 
 import Gingham from "../../backgrounds/Gingham";
 import Stripe from "../../backgrounds/Stripe";
-import MinolithCssVariables from "../../models/MinolithCssVariables";
+import type MinolithCssVariables from "../../models/MinolithCssVariables";
 import Accordion from "../../components/Accordion";
 import AccordionDetails from "../../components/AccordionDetails";
 import AccordionSummary from "../../components/AccordionSummary";
@@ -42,9 +42,9 @@ import Column from "../../layouts/Column";
 import Columns from "../../layouts/Columns";
 import Container from "../../layouts/Container";
 import Minolith from "../Minolith";
-import ColorName from "../../types/ColorName";
-import Gradation from "../../models/Gradation";
-import Oklch from "../../models/Oklch";
+import type ColorName from "../../types/ColorName";
+import type Gradation from "../../models/Gradation";
+import type Oklch from "../../models/Oklch";
 import Span from "../../components/Span";
 import RubyText from "../../components/RubyText";
 import MinolithClientCustomCssVariablesProvider from ".";
@@ -173,7 +173,9 @@ function getColorVar(color: ColorInfo): Gradation {
   return colorVar;
 }
 
-function genMinolithCssVariables(): MinolithCssVariables {
+function genMinolithCssVariables<
+  BaseComponentColorNameType extends string,
+>(): MinolithCssVariables<BaseComponentColorNameType> {
   return {
     typography: {
       fontFamily: {
@@ -198,7 +200,7 @@ function genMinolithCssVariables(): MinolithCssVariables {
             fore: {
               light: "var(--minolith-color-cyan-50)",
               dark: {
-                name: "red",
+                name: "red" as BaseComponentColorNameType,
                 lightness: 50,
               },
             },

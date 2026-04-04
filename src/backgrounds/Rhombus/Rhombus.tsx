@@ -30,7 +30,7 @@ export default function Rhombus<
 
   const assignedClassNames = [classNames["rhombus"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -64,7 +64,7 @@ export default function Rhombus<
     ...rhombusSizeCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
 
   return props.as ? (
     <props.as

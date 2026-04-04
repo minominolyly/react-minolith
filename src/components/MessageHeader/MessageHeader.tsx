@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName, SemanticColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./MessageHeader.module.scss";
-import MessageHeaderProps from "./MessageHeaderProps";
+import type MessageHeaderProps from "./MessageHeaderProps";
 
 export default function MessageHeader<
   BaseComponentColorNameType extends string =
@@ -26,14 +26,14 @@ export default function MessageHeader<
   //#endregion BaseComponentProps
   const assignedClassNames: string[] = [classNames["message-header"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames(props);
+  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss(props);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return props.as ? (
     <props.as
