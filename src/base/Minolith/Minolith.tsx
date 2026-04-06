@@ -2,16 +2,13 @@
 
 import type { ReactElement } from "react";
 import { MinolithColorSchemeContext } from "../../contexts";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 import Tabula from "../Tabula";
 import "./Minolith.scss";
 import type MinolithProps from "./MinolithProps";
 
 export default function Minolith<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(props: MinolithProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
 

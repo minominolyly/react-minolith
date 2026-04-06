@@ -1,16 +1,13 @@
 "use client";
 
 import type { ReactElement } from "react";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Div.module.scss";
 import type DivProps from "./DivProps";
 
 export default function Div<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(props: DivProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps

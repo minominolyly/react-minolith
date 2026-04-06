@@ -2,16 +2,13 @@
 
 import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Nav.module.scss";
 import type NavProps from "./NavProps";
 
 export default function Nav<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(props: NavProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];

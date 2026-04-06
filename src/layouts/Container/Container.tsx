@@ -1,17 +1,13 @@
 "use client";
 
 import type { ReactElement } from "react";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Container.module.scss";
 import type ContainerProps from "./ContainerProps";
-import type { Interpolation, Theme } from "@emotion/react";
 
 export default function Container<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(props: ContainerProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isFluid"];

@@ -2,16 +2,13 @@
 
 import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Zigzag.module.scss";
 import type ZigzagProps from "./ZigzagProps";
 
 export default function Zigzag<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(props: ZigzagProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["colorName"];

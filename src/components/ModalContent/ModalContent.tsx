@@ -1,16 +1,13 @@
 "use client";
 
 import type { ReactElement } from "react";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./ModalContent.module.scss";
 import type ModalContentProps from "./ModalContentProps";
 
 export default function ModalContent<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(props: ModalContentProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   //#region BaseComponentProps

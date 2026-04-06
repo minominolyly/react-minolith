@@ -1,16 +1,13 @@
 "use client";
 
 import type { ReactElement } from "react";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Column.module.scss";
 import type ColumnProps from "./ColumnProps";
 
 export default function Column<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(props: ColumnProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["isFull"];
@@ -77,7 +74,8 @@ export default function Column<
   props.sizeXLarge &&
     assignedClassNames.push(classNames[`is-xlarge-${props.sizeXLarge}`]);
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -85,7 +83,8 @@ export default function Column<
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
+  const css =
+    emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return (
     <div

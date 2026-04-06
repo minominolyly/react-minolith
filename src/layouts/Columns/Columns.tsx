@@ -1,13 +1,13 @@
 "use client";
 
 import type { ReactElement } from "react";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Columns.module.scss";
 import type ColumnsProps from "./ColumnsProps";
 
 export default function Columns<
-  BaseComponentColorNameType extends string = ColorName | SemanticColorName,
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(props: ColumnsProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["flexDirection"];

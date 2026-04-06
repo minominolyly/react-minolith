@@ -13,7 +13,6 @@ import type {
   ResponsiveGutter,
 } from "../../types";
 import type { CSSInterpolation } from "@emotion/serialize";
-import { Exception } from "sass";
 
 const cssVariablePrefix = "minolith-";
 

@@ -3,13 +3,10 @@
 import { type ReactElement, useInsertionEffect, useMemo } from "react";
 import minolithStyleUtility from "../../utilities/minolithStyleUtility";
 import type MinolithClientCustomCssVariablesProviderProps from "./MinolithClientCustomCssVariablesProviderProps";
-import type { ColorName, SemanticColorName } from "../../types";
+import type { ColorName } from "../../types";
 
 export default function MinolithClientCustomCssVariablesProviderh<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | "rainbow",
 >(
   props: MinolithClientCustomCssVariablesProviderProps<BaseComponentColorNameType>,
 ): ReactElement {
