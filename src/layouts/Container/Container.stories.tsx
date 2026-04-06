@@ -48,10 +48,50 @@ export const HasGutter: Story = {
   ),
 };
 
+export const HasGutterXsmall: Story = {
+  args: {
+    gutter: {
+      xsmall: 1,
+    },
+  },
+  render: (props) => (
+    <Minolith>
+      <Div border={{ style: "solid" }}>
+        <Container {...props}>
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Container"}
+          </Div>
+        </Container>
+      </Div>
+    </Minolith>
+  ),
+};
+
 export const HasGutterX: Story = {
   args: {
     gutter: {
       x: 1,
+    },
+  },
+  render: (props) => (
+    <Minolith>
+      <Div border={{ style: "solid" }}>
+        <Container {...props}>
+          <Div border={{ style: "solid" }} spacing={{ padding: 1 }}>
+            {"Container"}
+          </Div>
+        </Container>
+      </Div>
+    </Minolith>
+  ),
+};
+
+export const HasGutterXXsmall: Story = {
+  args: {
+    gutter: {
+      xsmall: {
+        x: 1,
+      }
     },
   },
   render: (props) => (

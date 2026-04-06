@@ -1,35 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import type { BaseComponentProps } from "../../models";
 import type { ColorAttributes, ColorName, Gutter } from "../../types";
-import type { Property } from "csstype";
-
-function setFlexDirectionClassNames(
-  classNames: CSSModuleClasses,
-  flexDirection?: Property.FlexDirection,
-  sizeString?: string,
-): string[] {
-  if (!flexDirection) {
-    return [];
-  }
-
-  const flexDirectionClassNames: string[] = [];
-  if (
-    flexDirection === "row" ||
-    flexDirection === "row-reverse" ||
-    flexDirection === "column" ||
-    flexDirection === "column-reverse"
-  ) {
-    if (sizeString) {
-      flexDirectionClassNames.push(
-        classNames[`is-${sizeString}-direction-${flexDirection}`],
-      );
-    } else {
-      flexDirectionClassNames.push(classNames[`is-direction-${flexDirection}`]);
-    }
-  }
-
-  return flexDirectionClassNames;
-}
 
 function getGutterClassNames(
   classNames: CSSModuleClasses,
@@ -261,7 +232,6 @@ function getUtilityClassNames<ColorNameType extends string>(
 }
 
 const classNameUtility = {
-  setFlexDirectionClassNames,
   getGutterClassNames,
   getUtilityClassNames,
 };

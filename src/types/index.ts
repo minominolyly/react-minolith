@@ -9,9 +9,12 @@ export type { default as ColorLightness } from "./ColorLightness";
 export type { default as ColorName } from "./ColorName";
 export type { default as ColorScheme } from "./ColorScheme";
 export type { default as Degree } from "./Degree";
-export type { default as Percentage } from "./Percentage";
 export type { default as FontSize } from "./FontSize";
 export type { default as FontWeight } from "./FontWeight";
 export type { default as Gutter } from "./Gutter";
+export type { default as Percentage } from "./Percentage";
+export type { default as ResponsiveBreakepointSize } from "./ResponsiveBreakepointSize";
+export type { default as ResponsiveFlexDirection } from "./ResponsiveFlexDirection";
+export type { default as ResponsiveGutter } from "./ResponsiveGutter";
 export type { default as SemanticColorName } from "./SemanticColorName";
 

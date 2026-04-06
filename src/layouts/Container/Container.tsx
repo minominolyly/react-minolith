@@ -5,6 +5,7 @@ import type { ColorName, SemanticColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Container.module.scss";
 import type ContainerProps from "./ContainerProps";
+import type { Interpolation, Theme } from "@emotion/react";
 
 export default function Container<
   BaseComponentColorNameType extends string =
@@ -34,148 +35,10 @@ export default function Container<
     propsClassNames.push(classNames["is-fluid"]);
   }
 
-  if (props.gutter) {
-    if (
-      typeof props.gutter === "number" ||
-      typeof props.gutter === "string" ||
-      "x" in props.gutter ||
-      "y" in props.gutter
-    ) {
-      propsClassNames.push(
-        ...classNameUtility.getGutterClassNames(classNames, props.gutter),
-      );
-    } else {
-      if ("default" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.default,
-          ),
-        );
-      }
-      if ("xsmall" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.xsmall,
-            "xsmall",
-          ),
-        );
-      }
-      if ("xsmallOrMore" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.xsmallOrMore,
-            "xsmall-or-more",
-          ),
-        );
-      }
-      if ("smallOrLess" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.smallOrLess,
-            "small-or-less",
-          ),
-        );
-      }
-      if ("small" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.small,
-            "small",
-          ),
-        );
-      }
-      if ("smallOrMore" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.smallOrMore,
-            "small-or-more",
-          ),
-        );
-      }
-      if ("mediumOrLess" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.mediumOrLess,
-            "medium-or-less",
-          ),
-        );
-      }
-      if ("medium" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.medium,
-            "medium",
-          ),
-        );
-      }
-      if ("mediumOrMore" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.mediumOrMore,
-            "medium-or-more",
-          ),
-        );
-      }
-      if ("largeOrLess" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.largeOrLess,
-            "large-or-less",
-          ),
-        );
-      }
-      if ("large" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.large,
-            "large",
-          ),
-        );
-      }
-      if ("largeOrMore" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.largeOrMore,
-            "large-or-more",
-          ),
-        );
-      }
-      if ("xlargeOrLess" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.xlargeOrLess,
-            "xlarge-or-less",
-          ),
-        );
-      }
-      if ("xlarge" in props.gutter) {
-        propsClassNames.push(
-          ...classNameUtility.getGutterClassNames(
-            classNames,
-            props.gutter.xlarge,
-            "xlarge",
-          ),
-        );
-      }
-    }
-  }
-
   assignedClassNames.push(...propsClassNames);
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -183,7 +46,14 @@ export default function Container<
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
+  const gutterCss = emotionStyleUtility.getContainerGutterCss(props.gutter);
+
+  const optionalCss = { ...gutterCss };
+
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    optionalCss,
+  );
 
   return (
     <div

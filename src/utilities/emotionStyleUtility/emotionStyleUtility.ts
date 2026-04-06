@@ -4,8 +4,16 @@
 import type { BaseComponentProps } from "../../models";
 import { css } from "@emotion/react";
 import type { CSSObject, Interpolation, Theme } from "@emotion/react";
-import type { ColorAttributes, ColorName } from "../../types";
+import type {
+  ColorAttributes,
+  ColorName,
+  Gutter,
+  ResponsiveBreakepointSize,
+  ResponsiveFlexDirection,
+  ResponsiveGutter,
+} from "../../types";
 import type { CSSInterpolation } from "@emotion/serialize";
+import { Exception } from "sass";
 
 const cssVariablePrefix = "minolith-";
 
@@ -280,6 +288,546 @@ function getCssObject(props: {
         borderLeftColor: props.borderLeftColor,
       }
     : undefined;
+}
+
+function getGutterCSSObject(
+  componentName: string,
+  gutter?: Gutter,
+): CSSObject | undefined {
+  if (gutter === undefined) {
+    return undefined;
+  }
+
+  if (typeof gutter === "string") {
+    return {
+      [`--minolith-${componentName}-gutter-x`]: gutter,
+      [`--minolith-${componentName}-gutter-y`]: gutter,
+    };
+  } else if (typeof gutter === "number") {
+    return {
+      [`--minolith-${componentName}-gutter-x`]: `${gutter}rem`,
+      [`--minolith-${componentName}-gutter-y`]: `${gutter}rem`,
+    };
+  } else {
+    let gutterX: CSSObject | undefined = undefined;
+    let gutterY: CSSObject | undefined = undefined;
+    if (typeof gutter.x === "string") {
+      gutterX = {
+        [`--minolith-${componentName}-gutter-x`]: gutter.x,
+      };
+    } else if (typeof gutter.x === "number") {
+      gutterX = {
+        [`--minolith-${componentName}-gutter-x`]: `${gutter.x}rem`,
+      };
+    }
+    if (typeof gutter.y === "string") {
+      gutterY = {
+        [`--minolith-${componentName}-gutter-y`]: gutter.y,
+      };
+    } else if (typeof gutter.y === "number") {
+      gutterY = {
+        [`--minolith-${componentName}-gutter-y`]: `${gutter.y}rem`,
+      };
+    }
+
+    return {
+      ...gutterX,
+      ...gutterY,
+    };
+  }
+}
+
+function getResponsiveFlexDirectionCSSObject(
+  responsiveFlexDirection?: ResponsiveFlexDirection,
+) {
+  if (responsiveFlexDirection === undefined) {
+    return undefined;
+  }
+
+  if (typeof responsiveFlexDirection === "string") {
+    return {
+      flexDirection: responsiveFlexDirection,
+    };
+  } else {
+    let cssObject: CSSObject = {};
+
+    if ("default" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        flexDirection: responsiveFlexDirection.default,
+      };
+    }
+
+    if ("xsmall" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("xsmall", {
+          flexDirection: responsiveFlexDirection.xsmall,
+        }),
+      };
+    }
+
+    if ("xsmallOrMore" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("xsmall", {
+          flexDirection: responsiveFlexDirection.xsmallOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("small", {
+          flexDirection: responsiveFlexDirection.xsmallOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("medium", {
+          flexDirection: responsiveFlexDirection.xsmallOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("large", {
+          flexDirection: responsiveFlexDirection.xsmallOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("xlarge", {
+          flexDirection: responsiveFlexDirection.xsmallOrMore,
+        }),
+      };
+    }
+
+    if ("smallOrLess" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("xsmall", {
+          flexDirection: responsiveFlexDirection.smallOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("small", {
+          flexDirection: responsiveFlexDirection.smallOrLess,
+        }),
+      };
+    }
+
+    if ("small" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("small", {
+          flexDirection: responsiveFlexDirection.small,
+        }),
+      };
+    }
+
+    if ("smallOrMore" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("small", {
+          flexDirection: responsiveFlexDirection.smallOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("medium", {
+          flexDirection: responsiveFlexDirection.smallOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("large", {
+          flexDirection: responsiveFlexDirection.smallOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("xlarge", {
+          flexDirection: responsiveFlexDirection.smallOrMore,
+        }),
+      };
+    }
+
+    if ("mediumOrLess" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("xsmall", {
+          flexDirection: responsiveFlexDirection.mediumOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("small", {
+          flexDirection: responsiveFlexDirection.mediumOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("medium", {
+          flexDirection: responsiveFlexDirection.mediumOrLess,
+        }),
+      };
+    }
+
+    if ("medium" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("medium", {
+          flexDirection: responsiveFlexDirection.medium,
+        }),
+      };
+    }
+
+    if ("mediumOrMore" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("medium", {
+          flexDirection: responsiveFlexDirection.mediumOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("large", {
+          flexDirection: responsiveFlexDirection.mediumOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("xlarge", {
+          flexDirection: responsiveFlexDirection.mediumOrMore,
+        }),
+      };
+    }
+
+    if ("largeOrLess" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("xsmall", {
+          flexDirection: responsiveFlexDirection.largeOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("small", {
+          flexDirection: responsiveFlexDirection.largeOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("medium", {
+          flexDirection: responsiveFlexDirection.largeOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("large", {
+          flexDirection: responsiveFlexDirection.largeOrLess,
+        }),
+      };
+    }
+
+    if ("large" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("large", {
+          flexDirection: responsiveFlexDirection.large,
+        }),
+      };
+    }
+
+    if ("largeOrMore" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("large", {
+          flexDirection: responsiveFlexDirection.largeOrMore,
+        }),
+        ...wrapResponsiveMediaQuery("xlarge", {
+          flexDirection: responsiveFlexDirection.largeOrMore,
+        }),
+      };
+    }
+
+    if ("xlargeOrLess" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("xsmall", {
+          flexDirection: responsiveFlexDirection.xlargeOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("small", {
+          flexDirection: responsiveFlexDirection.xlargeOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("medium", {
+          flexDirection: responsiveFlexDirection.xlargeOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("large", {
+          flexDirection: responsiveFlexDirection.xlargeOrLess,
+        }),
+        ...wrapResponsiveMediaQuery("xlarge", {
+          flexDirection: responsiveFlexDirection.xlargeOrLess,
+        }),
+      };
+    }
+
+    if ("xlarge" in responsiveFlexDirection) {
+      cssObject = {
+        ...cssObject,
+        ...wrapResponsiveMediaQuery("xlarge", {
+          flexDirection: responsiveFlexDirection.xlarge,
+        }),
+      };
+    }
+
+    return cssObject;
+  }
+}
+
+function getResponsiveGutterCSSObject(
+  componentName: string,
+  responsiveGutter?: ResponsiveGutter,
+): CSSObject | undefined {
+  if (responsiveGutter === undefined) {
+    return undefined;
+  }
+
+  if (
+    typeof responsiveGutter === "number" ||
+    typeof responsiveGutter === "string" ||
+    "x" in responsiveGutter ||
+    "y" in responsiveGutter
+  ) {
+    return getGutterCSSObject(componentName, responsiveGutter);
+  } else {
+    let cssObject: CSSObject = {};
+
+    if ("default" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.default,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...gutterCSSObject,
+        };
+      }
+    }
+
+    if ("xsmall" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.xsmall,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("xsmall", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("xsmallOrMore" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.xsmall,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("xsmall", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("small", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("medium", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("large", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("xlarge", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("smallOrLess" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.smallOrLess,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("xsmall", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("small", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("small" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.small,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("small", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("smallOrMore" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.smallOrMore,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("small", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("medium", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("large", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("xlarge", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("mediumOrLess" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.mediumOrLess,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("xsmall", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("small", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("medium", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("medium" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.medium,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("medium", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("mediumOrMore" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.mediumOrMore,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("medium", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("large", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("xlarge", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("largeOrLess" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.largeOrLess,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("xsmall", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("small", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("medium", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("large", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("large" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.large,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("large", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("largeOrMore" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.largeOrMore,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("large", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("xlarge", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("xlargeOrLess" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.xlargeOrLess,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("xsmall", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("small", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("medium", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("large", gutterCSSObject),
+          ...wrapResponsiveMediaQuery("xlarge", gutterCSSObject),
+        };
+      }
+    }
+
+    if ("xlarge" in responsiveGutter) {
+      const gutterCSSObject = getGutterCSSObject(
+        componentName,
+        responsiveGutter.xlarge,
+      );
+      if (gutterCSSObject) {
+        cssObject = {
+          ...cssObject,
+          ...wrapResponsiveMediaQuery("xlarge", gutterCSSObject),
+        };
+      }
+    }
+
+    return cssObject;
+  }
+}
+
+function wrapResponsiveMediaQuery(
+  size: ResponsiveBreakepointSize,
+  cssObject: CSSObject,
+): CSSObject {
+  // const responsiveBreakpointXsmall = 0;
+  const responsiveBreakpointSmall = 544;
+  const responsiveBreakpointMedium = 768;
+  const responsiveBreakpointLarge = 1024;
+  const responsiveBreakpointXlarge = 1200;
+  const responsiveBreakpointMaxWidthOffset = -0.02;
+
+  switch (size) {
+    case "xsmall":
+      return {
+        [`@media screen and (max-width: ${responsiveBreakpointSmall + responsiveBreakpointMaxWidthOffset}px)`]:
+          {
+            ...cssObject,
+          },
+      };
+    case "small":
+      return {
+        [`@media screen (min-width: ${responsiveBreakpointSmall}px) and (max-width: ${responsiveBreakpointMedium + responsiveBreakpointMaxWidthOffset}px)`]:
+          {
+            ...cssObject,
+          },
+      };
+    case "medium":
+      return {
+        [`@media screen (min-width: ${responsiveBreakpointMedium}px) and (max-width: ${responsiveBreakpointLarge + responsiveBreakpointMaxWidthOffset}px)`]:
+          {
+            ...cssObject,
+          },
+      };
+    case "large":
+      return {
+        [`@media screen (min-width: ${responsiveBreakpointLarge}px) and (max-width: ${responsiveBreakpointXlarge + responsiveBreakpointMaxWidthOffset}px)`]:
+          {
+            ...cssObject,
+          },
+      };
+    case "xlarge":
+      return {
+        [`@media screen and (min-width: ${responsiveBreakpointXlarge}px)`]: {
+          ...cssObject,
+        },
+      };
+  }
+}
+
+function getColumnsFlexDirectionCss(
+  responsiveFlexDirection?: ResponsiveFlexDirection,
+) {
+  return getResponsiveFlexDirectionCSSObject(responsiveFlexDirection);
+}
+
+// function getColumnsGutterCss(
+//   responsiveGutter?: ResponsiveGutter,
+// ): CSSObject | undefined {
+//   return getResponsiveGutterCSSObject("columns", responsiveGutter);
+// }
+
+function getContainerGutterCss(
+  responsiveGutter?: ResponsiveGutter,
+): CSSObject | undefined {
+  return getResponsiveGutterCSSObject("container", responsiveGutter);
 }
 
 function getEmotionCss<ColorNameType extends string>(
@@ -836,6 +1384,9 @@ function getEmotionCss<ColorNameType extends string>(
 }
 
 const emotionStyleUtility = {
+  getColumnsFlexDirectionCss,
+  // getColumnsGutterCss,
+  getContainerGutterCss,
   getColorVariable,
   getEmotionCss,
 };

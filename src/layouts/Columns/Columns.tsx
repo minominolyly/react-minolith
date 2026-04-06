@@ -7,10 +7,7 @@ import classNames from "./Columns.module.scss";
 import type ColumnsProps from "./ColumnsProps";
 
 export default function Columns<
-  BaseComponentColorNameType extends string =
-    | ColorName
-    | SemanticColorName
-    | "rainbow",
+  BaseComponentColorNameType extends string = ColorName | SemanticColorName,
 >(props: ColumnsProps<BaseComponentColorNameType>): ReactElement {
   const assignedProps = { ...props };
   delete assignedProps["flexDirection"];
@@ -30,107 +27,6 @@ export default function Columns<
   const assignedClassNames: string[] = [classNames["columns"]];
 
   const propsClassNames: string[] = [];
-  if (props.flexDirection) {
-    if (typeof props.flexDirection === "string") {
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection,
-        ),
-      );
-    } else {
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.default,
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.xsmallOrMore,
-          "xsmall-or-more",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.smallOrLess,
-          "small-or-less",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.small,
-          "small",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.smallOrMore,
-          "small-or-more",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.mediumOrLess,
-          "medium-or-less",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.medium,
-          "medium",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.mediumOrMore,
-          "medium-or-more",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.largeOrLess,
-          "large-or-less",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.large,
-          "large",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.largeOrMore,
-          "large-or-more",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.xlargeOrLess,
-          "xlarge-or-less",
-        ),
-      );
-      propsClassNames.push(
-        ...classNameUtility.setFlexDirectionClassNames(
-          classNames,
-          props.flexDirection.xlarge,
-          "xlarge",
-        ),
-      );
-    }
-  }
 
   if (props.gutter) {
     if (
@@ -273,7 +169,8 @@ export default function Columns<
 
   assignedClassNames.push(...propsClassNames);
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -281,7 +178,15 @@ export default function Columns<
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
+  const flexDirectionCss = emotionStyleUtility.getColumnsFlexDirectionCss(
+    props.flexDirection,
+  );
+  const optionalCss = { ...flexDirectionCss };
+
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    optionalCss,
+  );
 
   return (
     <div
