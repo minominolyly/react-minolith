@@ -5,11 +5,26 @@ import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./ModalContent.module.scss";
 import type ModalContentProps from "./ModalContentProps";
+import type BaseModalContentProps from "./BaseModalContentProps";
 
 export default function ModalContent<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: ModalContentProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseModalContentProps<BaseComponentColorNameType> =
+    ModalContentProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -19,8 +34,10 @@ export default function ModalContent<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["modal-content"]];
 
   const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
@@ -30,6 +47,7 @@ export default function ModalContent<
   if (props.className) {
     assignedClassNames.push(props.className);
   }
+
   const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return props.as ? (

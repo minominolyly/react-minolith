@@ -4,3 +4,6 @@ export * from "./Button";
 
 export type { default as ButtonProps } from "./ButtonProps";
 export * from "./ButtonProps";
+
+export type { default as BaseButtonProps } from "./BaseButtonProps";
+export * from "./BaseButtonProps";

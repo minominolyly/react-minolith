@@ -1,9 +1,8 @@
-import type { ColorName, SemanticColorName } from "../../types";
-import type { DivProps } from "../../components/Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseDotProps from "./BaseDotProps";
 
-export default interface DotProps<
-  BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-  dotSize?: "pin" | "polka" | "coin";
-}
+export default interface DotProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseDotProps<BaseComponentColorNameType> {}

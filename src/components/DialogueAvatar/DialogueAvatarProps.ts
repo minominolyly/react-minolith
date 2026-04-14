@@ -1,10 +1,10 @@
 import type { ClassAttributes, ImgHTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../react-minolith";
+import type BaseDialogueAvatarProps from "./BaseDialogueAvatarProps";
 
-export default interface DialogueAvatarProps<BaseComponentColorNameType extends string>
+export default interface DialogueAvatarProps<
+  BaseComponentColorNameType extends string,
+>
   extends
     ClassAttributes<HTMLImageElement>,
     ImgHTMLAttributes<HTMLImageElement>,
-    BaseComponentProps<BaseComponentColorNameType> {
-  hasBorder?: boolean;
-}
+    BaseDialogueAvatarProps<BaseComponentColorNameType> {}

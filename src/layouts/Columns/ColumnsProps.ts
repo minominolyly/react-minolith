@@ -1,9 +1,8 @@
-import type { DivProps } from "../../components/Div";
-import type { ResponsiveFlexDirection, ResponsiveGutter } from "../../types";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseColumnsProps from "./BaseColumnsProps";
 
-export default interface ColumnsProps<
-  BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  flexDirection?: ResponsiveFlexDirection;
-  gutter?: ResponsiveGutter;
-}
+export default interface ColumnsProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseColumnsProps<BaseComponentColorNameType> {}

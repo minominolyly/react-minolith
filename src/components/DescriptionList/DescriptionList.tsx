@@ -3,13 +3,28 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseDescriptionListProps from "./BaseDescriptionListProps";
 import classNames from "./DescriptionList.module.scss";
 import type DescriptionListProps from "./DescriptionListProps";
 
 export default function DescriptionList<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: DescriptionListProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseDescriptionListProps<BaseComponentColorNameType> =
+    DescriptionListProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["hasMarker"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -20,8 +35,10 @@ export default function DescriptionList<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames: string[] = [classNames["description-list"]];
 
   if (props.hasMarker) {
@@ -36,6 +53,7 @@ export default function DescriptionList<
   if (props.className) {
     assignedClassNames.push(props.className);
   }
+
   const css =
     emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 

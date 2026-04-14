@@ -1,8 +1,8 @@
-import type { ColorName, SemanticColorName } from "../../types";
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseMessageProps from "./BaseMessageProps";
 
-export default interface MessageProps<
-  BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-}
+export default interface MessageProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseMessageProps<BaseComponentColorNameType> {}

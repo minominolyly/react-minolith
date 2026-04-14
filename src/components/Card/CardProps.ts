@@ -1,8 +1,8 @@
-import type { ColorName, SemanticColorName } from "../../types";
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseCardProps from "./BaseCardProps";
 
-export default interface CardProps<
-  BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-}
+export default interface CardProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseCardProps<BaseComponentColorNameType> {}

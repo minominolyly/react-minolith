@@ -1,5 +1,10 @@
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseMessageHeaderProps from "./BaseMessageHeaderProps";
 
 export default interface MessageHeaderProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseMessageHeaderProps<BaseComponentColorNameType> {}

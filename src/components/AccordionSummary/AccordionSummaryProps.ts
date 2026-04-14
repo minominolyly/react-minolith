@@ -1,8 +1,10 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
+import type BaseAccordionSummaryProps from "./BaseAccordionSummaryProps";
 
-export default interface AccordionSummaryProps<BaseComponentColorNameType extends string>
+export default interface AccordionSummaryProps<
+  BaseComponentColorNameType extends string,
+>
   extends
     ClassAttributes<HTMLElement>,
     HTMLAttributes<HTMLElement>,
-    BaseComponentProps<BaseComponentColorNameType> {}
+    BaseAccordionSummaryProps<BaseComponentColorNameType> {}

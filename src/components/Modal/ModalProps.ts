@@ -1,12 +1,8 @@
 import type { ClassAttributes, DialogHTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
-import type { ColorName, SemanticColorName } from "../../types";
+import type BaseModalProps from "./BaseModalProps";
 
 export default interface ModalProps<BaseComponentColorNameType extends string>
   extends
     ClassAttributes<HTMLDialogElement>,
     DialogHTMLAttributes<HTMLDialogElement>,
-    BaseComponentProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-  isActive?: boolean | undefined;
-}
+    BaseModalProps<BaseComponentColorNameType> {}

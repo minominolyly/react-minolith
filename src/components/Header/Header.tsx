@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseHeaderProps from "./BaseHeaderProps";
 import classNames from "./Header.module.scss";
 import type HeaderProps from "./HeaderProps";
 
 export default function Header<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: HeaderProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseHeaderProps<BaseComponentColorNameType> =
+    HeaderProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   delete assignedProps["isSticky"];
   delete assignedProps["isFixed"];
@@ -23,8 +38,10 @@ export default function Header<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames: string[] = [classNames["header"]];
   if (props.isSticky) {
     assignedClassNames.push(classNames[`is-sticky`]);

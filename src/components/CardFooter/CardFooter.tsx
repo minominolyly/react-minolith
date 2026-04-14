@@ -3,13 +3,28 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseCardFooterProps from "./BaseCardFooterProps";
 import classNames from "./CardFooter.module.scss";
 import type CardFooterProps from "./CardFooterProps";
 
 export default function CardFooter<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: CardFooterProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseCardFooterProps<BaseComponentColorNameType> =
+    CardFooterProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -19,8 +34,10 @@ export default function CardFooter<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["card-footer"]];
 
   const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
@@ -30,6 +47,7 @@ export default function CardFooter<
   if (props.className) {
     assignedClassNames.push(props.className);
   }
+
   const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return props.as ? (

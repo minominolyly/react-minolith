@@ -1,5 +1,10 @@
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseCardFooterProps from "./BaseCardFooterProps";
 
 export default interface CardFooterProps<
   BaseComponentColorNameType extends string
-> extends DivProps<BaseComponentColorNameType> {}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseCardFooterProps<BaseComponentColorNameType> {}

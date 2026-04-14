@@ -1,25 +1,25 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Ruby from "./Ruby";
+import RubyWord from "./RubyWord";
 import Minolith from "../../base/Minolith";
-import RubyText from "../RubyText/RubyText";
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta = {
-  title: "Components/Ruby",
-  component: Ruby,
+  title: "Components/RubyWord",
+  component: RubyWord,
   tags: ["autodocs"],
   argTypes: {},
-} satisfies Meta<typeof Ruby>;
+} satisfies Meta<typeof RubyWord>;
 export default meta;
 type Story = StoryObj<typeof meta>;
+
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Plain: Story = {
   args: {},
   render: (props) => (
     <Minolith>
-      <Ruby {...props}>
-        {"試験"}
-        <RubyText>{"しけん"}</RubyText>
-      </Ruby>
+      <RubyWord rubyText={"るびぃ"} {...props}>
+        {"ルビィ"}
+      </RubyWord>
+      {"ちゃーん！"}
     </Minolith>
   ),
 };

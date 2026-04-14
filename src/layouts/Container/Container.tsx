@@ -3,13 +3,28 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseContainerProps from "./BaseContainerProps";
 import classNames from "./Container.module.scss";
 import type ContainerProps from "./ContainerProps";
 
 export default function Container<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: ContainerProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseContainerProps<BaseComponentColorNameType> =
+    ContainerProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["isFluid"];
   delete assignedProps["gutter"];
   //#region BaseComponentProps
@@ -21,6 +36,7 @@ export default function Container<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
 

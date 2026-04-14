@@ -4,3 +4,6 @@ export * from "./Footer";
 
 export type { default as FooterProps } from "./FooterProps";
 export * from "./FooterProps";
+
+export type { default as BaseFooterProps } from "./BaseFooterProps";
+export * from "./BaseFooterProps";

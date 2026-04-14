@@ -1,5 +1,10 @@
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseDialogueNameProps from "./BaseDialogueNameProps";
 
-export default interface DialogueNameProps<
+export default interface DialogueMessageInnerProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseDialogueNameProps<BaseComponentColorNameType> {}

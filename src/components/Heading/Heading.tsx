@@ -3,13 +3,28 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseHeadingProps from "./BaseHeadingProps";
 import classNames from "./Heading.module.scss";
 import type HeadingProps from "./HeadingProps";
 
 export default function Heading<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: HeadingProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseHeadingProps<BaseComponentColorNameType> =
+    HeadingProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["level"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -20,6 +35,7 @@ export default function Heading<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
   const level = props.level;
@@ -32,6 +48,7 @@ export default function Heading<
   if (props.className) {
     assignedClassNames.push(props.className);
   }
+
   const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   if (props.as) {

@@ -4,3 +4,6 @@ export * from "./Span";
 
 export type { default as SpanProps } from "./SpanProps";
 export * from "./SpanProps";
+
+export type { default as BaseSpanProps } from "./BaseSpanProps";
+export * from "./BaseSpanProps";

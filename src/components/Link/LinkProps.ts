@@ -1,11 +1,8 @@
 import type { AnchorHTMLAttributes, ClassAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
-import type { ColorName, SemanticColorName } from "../../types";
+import type BaseLinkProps from "./BaseLinkProps";
 
 export default interface LinkProps<BaseComponentColorNameType extends string>
   extends
     ClassAttributes<HTMLAnchorElement>,
     AnchorHTMLAttributes<HTMLAnchorElement>,
-    BaseComponentProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-}
+    BaseLinkProps<BaseComponentColorNameType> {}

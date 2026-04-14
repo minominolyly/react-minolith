@@ -1,17 +1,10 @@
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseNavAccordionProps from "./BaseNavAccordionProps";
 
 export default interface NavAccordionProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  isXSmall?: boolean | undefined;
-  isSmallOrLess?: boolean | undefined;
-  isSmall?: boolean | undefined;
-  isSmallOrMore?: boolean | undefined;
-  isMediumOrLess?: boolean | undefined;
-  isMedium?: boolean | undefined;
-  isMediumOrMore?: boolean | undefined;
-  isLargeOrLess?: boolean | undefined;
-  isLarge?: boolean | undefined;
-  isLargeOrMore?: boolean | undefined;
-  isXLarge?: boolean | undefined;
-}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseNavAccordionProps<BaseComponentColorNameType> {}

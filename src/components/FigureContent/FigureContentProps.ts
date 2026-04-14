@@ -1,5 +1,10 @@
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseFigureContentProps from "./BaseFigureContentProps";
 
-export default interface FigureContentProps<
+export default interface FigureCaptionProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseFigureContentProps<BaseComponentColorNameType> {}

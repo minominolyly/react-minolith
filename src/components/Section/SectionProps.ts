@@ -1,10 +1,8 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
+import type BaseSectionProps from "./BaseSectionProps";
 
-export default interface SectionProps<
-  BaseComponentColorNameType extends string,
->
+export default interface SectionProps<BaseComponentColorNameType extends string>
   extends
     ClassAttributes<HTMLElement>,
     HTMLAttributes<HTMLElement>,
-    BaseComponentProps<BaseComponentColorNameType> {}
+    BaseSectionProps<BaseComponentColorNameType> {}

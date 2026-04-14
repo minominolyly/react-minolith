@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseTextareaProps from "./BaseTextareaProps";
 import classNames from "./Textarea.module.scss";
 import type TextareaProps from "./TextareaProps";
 
 export default function Textarea<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: TextareaProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseTextareaProps<BaseComponentColorNameType> =
+    TextareaProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -21,15 +36,18 @@ export default function Textarea<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames: string[] = [classNames["input"]];
 
   if (props.colorName) {
     assignedClassNames.push(classNames[`is-${props.colorName}`]);
   }
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -54,7 +72,10 @@ export default function Textarea<
     ...colorNameCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    optionalCss,
+  );
 
   return (
     <textarea

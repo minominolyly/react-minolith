@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseButtonProps from "./BaseButtonProps";
 import classNames from "./Button.module.scss";
 import type ButtonProps from "./ButtonProps";
 
 export default function Button<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: ButtonProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseButtonProps<BaseComponentColorNameType> =
+    ButtonProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -21,8 +36,10 @@ export default function Button<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["button"]];
 
   const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);

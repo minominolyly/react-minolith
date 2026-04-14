@@ -4,3 +4,6 @@ export * from "./Rhombus";
 
 export type { default as RhombusProps } from "./RhombusProps";
 export * from "./RhombusProps";
+
+export type { default as BaseRhombusProps } from "./BaseRhombusProps";
+export * from "./BaseRhombusProps";

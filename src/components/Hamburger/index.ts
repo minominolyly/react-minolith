@@ -4,3 +4,6 @@ export * from "./Hamburger";
 
 export type { default as HamburgerProps } from "./HamburgerProps";
 export * from "./HamburgerProps";
+
+export type { default as BaseHamburgerProps } from "./BaseHamburgerProps";
+export * from "./BaseHamburgerProps";

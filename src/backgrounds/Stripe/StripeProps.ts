@@ -1,10 +1,8 @@
-import type { DivProps } from "../../components/Div";
-import type { ColorName, SemanticColorName } from "../../types";
-import type { Degree } from "../../types";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseStripeProps from "./BaseStripeProps";
 
-export default interface StripeProps<
-  BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-  degree?: Degree;
-}
+export default interface StripeProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseStripeProps<BaseComponentColorNameType> {}

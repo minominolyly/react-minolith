@@ -4,3 +4,6 @@ export * from "./Loader";
 
 export type { default as LoaderProps } from "./LoaderProps";
 export * from "./LoaderProps";
+
+export type { default as BaseLoaderProps } from "./BaseLoaderProps";
+export * from "./BaseLoaderProps";

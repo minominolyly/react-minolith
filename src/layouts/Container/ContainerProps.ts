@@ -1,9 +1,10 @@
-import type { DivProps } from "../../components/Div";
-import type { ResponsiveGutter } from "../../types";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseContainerProps from "./BaseContainerProps";
 
 export default interface ContainerProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  isFluid?: boolean;
-  gutter?: ResponsiveGutter;
-}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseContainerProps<BaseComponentColorNameType> {}

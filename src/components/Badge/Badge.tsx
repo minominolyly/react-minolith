@@ -6,11 +6,26 @@ import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Badge.module.scss";
 import type BadgeProps from "./BadgeProps";
+import type BaseBadgeProps from "./BaseBadgeProps";
 
 export default function Badge<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: BadgeProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseBadgeProps<BaseComponentColorNameType> =
+    BadgeProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   delete assignedProps["isSmall"];
   delete assignedProps["isClickable"];
@@ -23,8 +38,10 @@ export default function Badge<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["badge"]];
 
   if (props.isSmall) {
@@ -35,7 +52,8 @@ export default function Badge<
     assignedClassNames.push(classNames[`is-clickable`]);
   }
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -67,7 +85,10 @@ export default function Badge<
     ...colorNameCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    optionalCss,
+  );
 
   return props.as ? (
     <props.as

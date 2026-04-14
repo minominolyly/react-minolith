@@ -1,8 +1,8 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
+import type BaseBreadcrumbsNavProps from "./BaseBreadcrumbsNavProps";
 
 export default interface BreadcrumbsNavProps<BaseComponentColorNameType extends string>
   extends
     ClassAttributes<HTMLElement>,
     HTMLAttributes<HTMLElement>,
-    BaseComponentProps<BaseComponentColorNameType> {}
+    BaseBreadcrumbsNavProps<BaseComponentColorNameType> {}

@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseLoaderProps from "./BaseLoaderProps";
 import classNames from "./Loader.module.scss";
 import type LoaderProps from "./LoaderProps";
 
 export default function Loader<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: LoaderProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseLoaderProps<BaseComponentColorNameType> =
+    LoaderProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   delete assignedProps["size"];
   //#region BaseComponentProps
@@ -22,8 +37,10 @@ export default function Loader<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["loader"]];
 
   if (props.size) {

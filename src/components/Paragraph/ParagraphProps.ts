@@ -1,8 +1,10 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
+import type BaseParagraphProps from "./BaseParagraphProps";
 
-export default interface ParagraphProps<BaseComponentColorNameType extends string>
+export default interface ParagraphProps<
+  BaseComponentColorNameType extends string,
+>
   extends
     ClassAttributes<HTMLParagraphElement>,
     HTMLAttributes<HTMLParagraphElement>,
-    BaseComponentProps<BaseComponentColorNameType> {}
+    BaseParagraphProps<BaseComponentColorNameType> {}

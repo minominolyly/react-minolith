@@ -144,6 +144,10 @@
       "types": "./dist/components/Button/index.d.ts",
       "import": "./dist/components/Button/index.js"
     },
+    "./components/Canvas": {
+      "types": "./dist/components/Canvas/index.d.ts",
+      "import": "./dist/components/Canvas/index.js"
+    },
     "./components/Card": {
       "types": "./dist/components/Card/index.d.ts",
       "import": "./dist/components/Card/index.js"
@@ -163,6 +167,10 @@
     "./components/Definition": {
       "types": "./dist/components/Definition/index.d.ts",
       "import": "./dist/components/Definition/index.js"
+    },
+    "./components/Delete": {
+      "types": "./dist/components/Delete/index.d.ts",
+      "import": "./dist/components/Delete/index.js"
     },
     "./components/DescriptionDetails": {
       "types": "./dist/components/DescriptionDetails/index.d.ts",
@@ -227,6 +235,10 @@
     "./components/Footer": {
       "types": "./dist/components/Footer/index.d.ts",
       "import": "./dist/components/Footer/index.js"
+    },
+    "./components/Form": {
+      "types": "./dist/components/Form/index.d.ts",
+      "import": "./dist/components/Form/index.js"
     },
     "./components/Hamburger": {
       "types": "./dist/components/Hamburger/index.d.ts",
@@ -316,6 +328,10 @@
       "types": "./dist/components/NavStatic/index.d.ts",
       "import": "./dist/components/NavStatic/index.js"
     },
+    "./components/Output": {
+      "types": "./dist/components/Output/index.d.ts",
+      "import": "./dist/components/Output/index.js"
+    },
     "./components/Paragraph": {
       "types": "./dist/components/Paragraph/index.d.ts",
       "import": "./dist/components/Paragraph/index.js"
@@ -324,13 +340,29 @@
       "types": "./dist/components/Progress/index.d.ts",
       "import": "./dist/components/Progress/index.js"
     },
+    "./components/PreformattedText": {
+      "types": "./dist/components/PreformattedText/index.d.ts",
+      "import": "./dist/components/PreformattedText/index.js"
+    },
     "./components/Ruby": {
       "types": "./dist/components/Ruby/index.d.ts",
       "import": "./dist/components/Ruby/index.js"
     },
+    "./components/RubyParentheses": {
+      "types": "./dist/components/RubyParentheses/index.d.ts",
+      "import": "./dist/components/RubyParentheses/index.js"
+    },
     "./components/RubyText": {
       "types": "./dist/components/RubyText/index.d.ts",
       "import": "./dist/components/RubyText/index.js"
+    },
+    "./components/RubyWord": {
+      "types": "./dist/components/RubyWord/index.d.ts",
+      "import": "./dist/components/RubyWord/index.js"
+    },
+    "./components/Sample": {
+      "types": "./dist/components/Sample/index.d.ts",
+      "import": "./dist/components/Sample/index.js"
     },
     "./components/Section": {
       "types": "./dist/components/Section/index.d.ts",

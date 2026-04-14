@@ -4,3 +4,6 @@ export * from "./Progress";
 
 export type { default as ProgressProps } from "./ProgressProps";
 export * from "./ProgressProps";
+
+export type { default as BaseProgressProps } from "./BaseProgressProps";
+export * from "./BaseProgressProps";

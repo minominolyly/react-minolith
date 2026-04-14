@@ -3,13 +3,28 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseNavAccordionProps from "./BaseNavAccordionProps";
 import classNames from "./NavAccordion.module.scss";
 import type NavAccordionProps from "./NavAccordionProps";
 
 export default function NavAccordion<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: NavAccordionProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseNavAccordionProps<BaseComponentColorNameType> =
+    NavAccordionProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["isXSmall"];
   delete assignedProps["isSmallOrLess"];
   delete assignedProps["isSmall"];
@@ -30,8 +45,10 @@ export default function NavAccordion<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames: string[] = [classNames["nav-accordion"]];
 
   if (props.isXSmall) {
@@ -78,14 +95,17 @@ export default function NavAccordion<
     assignedClassNames.push(classNames[`is-xlarge`]);
   }
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
+
+  const css =
+    emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return props.as ? (
     <props.as

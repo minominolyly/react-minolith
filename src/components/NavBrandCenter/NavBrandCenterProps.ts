@@ -1,6 +1,9 @@
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseNavBrandCenterProps from "./BaseNavBrandCenterProps";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export default interface NavBrandCenterProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {}
+> extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseNavBrandCenterProps<BaseComponentColorNameType> {}

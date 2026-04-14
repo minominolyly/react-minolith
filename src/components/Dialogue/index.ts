@@ -4,3 +4,6 @@ export * from "./Dialogue";
 
 export type { default as DialogueProps } from "./DialogueProps";
 export * from "./DialogueProps";
+
+export type { default as BaseDialogueProps } from "./BaseDialogueProps";
+export * from "./BaseDialogueProps";

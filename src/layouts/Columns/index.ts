@@ -4,3 +4,6 @@ export * from "./Columns";
 
 export type { default as ColumnsProps } from "./ColumnsProps";
 export * from "./ColumnsProps";
+
+export type { default as BaseColumnsProps } from "./BaseColumnsProps";
+export * from "./BaseColumnsProps";

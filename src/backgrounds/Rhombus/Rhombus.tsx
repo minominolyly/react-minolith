@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseRhombusProps from "./BaseRhombusProps";
 import classNames from "./Rhombus.module.scss";
 import type RhombusProps from "./RhombusProps";
 
 export default function Rhombus<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: RhombusProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseRhombusProps<BaseComponentColorNameType> =
+    RhombusProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   delete assignedProps["size"];
   //#region BaseComponentProps
@@ -22,12 +37,14 @@ export default function Rhombus<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
 
   const assignedClassNames = [classNames["rhombus"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -61,7 +78,10 @@ export default function Rhombus<
     ...rhombusSizeCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    optionalCss,
+  );
 
   return props.as ? (
     <props.as

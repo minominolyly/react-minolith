@@ -4,3 +4,6 @@ export * from "./Breadcrumb";
 
 export type { default as BreadcrumbProps } from "./BreadcrumbProps";
 export * from "./BreadcrumbProps";
+
+export type { default as BaseBreadcrumbProps } from "./BaseBreadcrumbProps";
+export * from "./BaseBreadcrumbProps";

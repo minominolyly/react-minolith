@@ -20,7 +20,8 @@ export const Plain: Story = {
     <Minolith>
       {"Body"}
       <Modal {...props}>
-        <ModalContent>{"Modal"}</ModalContent>
+        {"Modal"}
+        <ModalContent>{"ModalContent"}</ModalContent>
       </Modal>
     </Minolith>
   ),

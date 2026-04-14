@@ -1,8 +1,8 @@
-import type { DivProps } from "../../components/Div";
-import type { ColorScheme } from "../../types";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseTabulaProps from "./BaseTabulaProps";
 
-export default interface TabulaProps<
-  BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorScheme?: ColorScheme;
-}
+export default interface TabulaProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseTabulaProps<BaseComponentColorNameType> {}

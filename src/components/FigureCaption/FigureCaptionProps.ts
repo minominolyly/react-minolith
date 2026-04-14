@@ -1,5 +1,5 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
+import type BaseFigureCaptionProps from "./BaseFigureCaptionProps";
 
 export default interface FigureCaptionProps<
   BaseComponentColorNameType extends string,
@@ -7,4 +7,4 @@ export default interface FigureCaptionProps<
   extends
     ClassAttributes<HTMLElement>,
     HTMLAttributes<HTMLElement>,
-    BaseComponentProps<BaseComponentColorNameType> {}
+    BaseFigureCaptionProps<BaseComponentColorNameType> {}

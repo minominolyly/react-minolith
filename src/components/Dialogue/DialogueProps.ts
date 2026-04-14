@@ -1,14 +1,10 @@
-import type { BorderWidth, ColorName, SemanticColorName } from "../../types";
-import type { DivProps } from "../Div";
-import type { Property } from "csstype";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseDialogueProps from "./BaseDialogueProps";
 
 export default interface DialogueProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-  avatarSize?: Property.Width;
-  borderStyle?: Property.BorderStyle;
-  borderWidth?: BorderWidth;
-  isAvatarCircle?: boolean;
-  isRight?: boolean;
-}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseDialogueProps<BaseComponentColorNameType> {}

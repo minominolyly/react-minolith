@@ -18,7 +18,7 @@ export const LightPlain: Story = {
   },
   render: (props) => (
     <Minolith colorScheme="light">
-      <Progress {...props} />
+      <Progress percentage={0} {...props} />
     </Minolith>
   ),
 };
@@ -29,7 +29,7 @@ export const DarkPlain: Story = {
   },
   render: (props) => (
     <Minolith colorScheme="dark">
-      <Progress {...props} />
+      <Progress percentage={0} {...props} />
     </Minolith>
   ),
 };

@@ -1,9 +1,8 @@
-import type { ColorName, SemanticColorName } from "../../types";
-import type { DivProps } from "../../components/Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseRhombusProps from "./BaseRhombusProps";
 
-export default interface RhombusProps<
-  BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-  size?: "small" | "large" | `${number}rem`;
-}
+export default interface RhombusProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseRhombusProps<BaseComponentColorNameType> {}

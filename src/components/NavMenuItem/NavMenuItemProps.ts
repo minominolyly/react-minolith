@@ -1,6 +1,10 @@
-import type { SpanProps } from "../Span";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseNavMenuItemProps from "./BaseNavMenuItemProps";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export default interface NavMenuItemProps<
   BaseComponentColorNameType extends string,
-> extends SpanProps<BaseComponentColorNameType> {}
+>
+  extends
+    ClassAttributes<HTMLSpanElement>,
+    HTMLAttributes<HTMLSpanElement>,
+    BaseNavMenuItemProps<BaseComponentColorNameType> {}

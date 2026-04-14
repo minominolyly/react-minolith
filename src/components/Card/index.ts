@@ -4,3 +4,6 @@ export * from "./Card";
 
 export type { default as CardProps } from "./CardProps";
 export * from "./CardProps";
+
+export type { default as BaseCardProps } from "./BaseCardProps";
+export * from "./BaseCardProps";

@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseDialogueProps from "./BaseDialogueProps";
 import classNames from "./Dialogue.module.scss";
 import type DialogueProps from "./DialogueProps";
 
 export default function Dialogue<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: DialogueProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseDialogueProps<BaseComponentColorNameType> =
+    DialogueProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   delete assignedProps["avatarSize"];
   delete assignedProps["borderStyle"];
@@ -26,8 +41,10 @@ export default function Dialogue<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["dialogue"]];
 
   if (props.isRight) {
@@ -40,7 +57,8 @@ export default function Dialogue<
     assignedClassNames.push(classNames[`is-avatar-circle`]);
   }
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -91,7 +109,10 @@ export default function Dialogue<
     ...borderWidthCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    optionalCss,
+  );
 
   return props.as ? (
     <props.as

@@ -1,13 +1,8 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
-import type { ColorName, SemanticColorName } from "../../types";
+import type BaseHeaderProps from "./BaseHeaderProps";
 
 export default interface HeaderProps<BaseComponentColorNameType extends string>
   extends
     ClassAttributes<HTMLElement>,
     HTMLAttributes<HTMLElement>,
-    BaseComponentProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-  isSticky?: boolean | undefined;
-  isFixed?: boolean | undefined;
-}
+    BaseHeaderProps<BaseComponentColorNameType> {}

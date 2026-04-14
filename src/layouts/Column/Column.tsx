@@ -3,13 +3,28 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseColumnProps from "./BaseColumnProps";
 import classNames from "./Column.module.scss";
 import type ColumnProps from "./ColumnProps";
 
 export default function Column<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: ColumnProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseColumnProps<BaseComponentColorNameType> =
+    ColumnProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["isFull"];
   delete assignedProps["size"];
   delete assignedProps["sizeXSmall"];
@@ -32,6 +47,7 @@ export default function Column<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
 

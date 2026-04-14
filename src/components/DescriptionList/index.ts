@@ -4,3 +4,6 @@ export * from "./DescriptionList";
 
 export type { default as DescriptionListProps } from "./DescriptionListProps";
 export * from "./DescriptionListProps";
+
+export type { default as BaseDescriptionListProps } from "./BaseDescriptionListProps";
+export * from "./BaseDescriptionListProps";

@@ -1,11 +1,8 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
-import type { ColorName, SemanticColorName } from "../../types";
+import type BaseFooterProps from "./BaseFooterProps";
 
 export default interface FooterProps<BaseComponentColorNameType extends string>
   extends
     ClassAttributes<HTMLElement>,
     HTMLAttributes<HTMLElement>,
-    BaseComponentProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-}
+    BaseFooterProps<BaseComponentColorNameType> {}

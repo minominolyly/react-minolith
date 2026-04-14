@@ -4,3 +4,6 @@ export * from "./DialogueContentContainer";
 
 export type { default as DialogueContentContainerProps } from "./DialogueContentContainerProps";
 export * from "./DialogueContentContainerProps";
+
+export type { default as BaseDialogueContentContainerProps } from "./BaseDialogueContentContainerProps";
+export * from "./BaseDialogueContentContainerProps";

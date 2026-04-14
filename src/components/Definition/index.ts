@@ -4,3 +4,6 @@ export * from "./Definition";
 
 export type { default as DefinitionProps } from "./DefinitionProps";
 export * from "./DefinitionProps";
+
+export type { default as BaseDefinitionProps } from "./BaseDefinitionProps";
+export * from "./BaseDefinitionProps";

@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseProgressProps from "./BaseProgressProps";
 import classNames from "./Progress.module.scss";
 import type ProgressProps from "./ProgressProps";
 
 export default function Progress<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: ProgressProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseProgressProps<BaseComponentColorNameType> =
+    ProgressProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -21,11 +36,14 @@ export default function Progress<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["progress"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -50,7 +68,10 @@ export default function Progress<
     ...percentageCss,
   };
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, optionalCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    optionalCss,
+  );
 
   return props.as ? (
     <props.as

@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseFooterProps from "./BaseFooterProps";
 import classNames from "./Footer.module.scss";
 import type FooterProps from "./FooterProps";
 
 export default function Footer<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: FooterProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseFooterProps<BaseComponentColorNameType> =
+    FooterProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -21,8 +36,10 @@ export default function Footer<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames: string[] = [classNames["footer"]];
 
   const utilityClassNames =

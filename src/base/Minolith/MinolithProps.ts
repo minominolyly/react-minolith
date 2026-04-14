@@ -1,5 +1,10 @@
-import type { TabulaProps } from "../Tabula";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseMinolithProps from "./BaseMinolithProps";
 
 export default interface MinolithProps<
   BaseComponentColorNameType extends string,
-> extends TabulaProps<BaseComponentColorNameType> {}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseMinolithProps<BaseComponentColorNameType> {}

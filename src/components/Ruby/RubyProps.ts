@@ -1,10 +1,8 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
+import type BaseRubyProps from "./BaseRubyProps";
 
 export default interface RubyProps<BaseComponentColorNameType extends string>
   extends
     ClassAttributes<HTMLElement>,
     HTMLAttributes<HTMLElement>,
-    BaseComponentProps<BaseComponentColorNameType> {
-  rubyText?: string;
-}
+    BaseRubyProps<BaseComponentColorNameType> {}

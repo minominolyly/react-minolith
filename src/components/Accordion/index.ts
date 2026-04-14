@@ -4,3 +4,6 @@ export * from "./Accordion";
 
 export type { default as AccordionProps } from "./AccordionProps";
 export * from "./AccordionProps";
+
+export type { default as BaseAccordionProps } from "./BaseAccordionProps";
+export * from "./BaseAccordionProps";

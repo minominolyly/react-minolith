@@ -5,11 +5,26 @@ import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./DescriptionDetails.module.scss";
 import type DescriptionDetailsProps from "./DescriptionDetailsProps";
+import type BaseDescriptionDetailsProps from "./BaseDescriptionDetailsProps";
 
 export default function DescriptionDetails<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: DescriptionDetailsProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseDescriptionDetailsProps<BaseComponentColorNameType> =
+    DescriptionDetailsProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   //#region BaseComponentProps
   delete assignedProps["fore"];
   delete assignedProps["back"];
@@ -19,8 +34,10 @@ export default function DescriptionDetails<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["description-details"]];
 
   const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);

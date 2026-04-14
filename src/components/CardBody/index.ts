@@ -4,3 +4,6 @@ export * from "./CardBody";
 
 export type { default as CardBodyProps } from "./CardBodyProps";
 export * from "./CardBodyProps";
+
+export type { default as BaseCardBodyProps } from "./BaseCardBodyProps";
+export * from "./BaseCardBodyProps";

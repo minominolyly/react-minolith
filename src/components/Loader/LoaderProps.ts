@@ -1,17 +1,8 @@
-import type { ColorName, SemanticColorName } from "../../types";
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseLoaderProps from "./BaseLoaderProps";
 
-type LoaderSize =
-  | "large"
-  | "xlarge"
-  | "xxlarge"
-  | "xxxlarge"
-  | "xxxxlarge"
-  | "xxxxxlarge";
-
-export default interface LoaderProps<
-  BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-  size?: LoaderSize;
-}
+export default interface LoaderProps<BaseComponentColorNameType extends string>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseLoaderProps<BaseComponentColorNameType> {}

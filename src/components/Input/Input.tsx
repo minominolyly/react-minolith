@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseInputProps from "./BaseInputProps";
 import classNames from "./Input.module.scss";
 import type InputProps from "./InputProps";
 
 export default function Input<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: InputProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseInputProps<BaseComponentColorNameType> =
+    InputProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -21,8 +36,10 @@ export default function Input<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames: string[] = [classNames["input"]];
 
   const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);

@@ -1,11 +1,10 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
-import type { ColorName, SemanticColorName } from "../../types";
+import type BaseBreadcrumbsProps from "./BaseBreadcrumbsProps";
 
-export default interface BreadcrumbsProps<BaseComponentColorNameType extends string>
+export default interface BreadcrumbsProps<
+  BaseComponentColorNameType extends string,
+>
   extends
     ClassAttributes<HTMLUListElement>,
     HTMLAttributes<HTMLUListElement>,
-    BaseComponentProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-}
+    BaseBreadcrumbsProps<BaseComponentColorNameType> {}

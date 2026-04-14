@@ -4,3 +4,6 @@ export * from "./Link";
 
 export type { default as LinkProps } from "./LinkProps";
 export * from "./LinkProps";
+
+export type { default as BaseLinkProps } from "./BaseLinkProps";
+export * from "./BaseLinkProps";

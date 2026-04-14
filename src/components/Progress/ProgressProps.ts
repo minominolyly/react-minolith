@@ -1,9 +1,10 @@
-import type { ColorName, Percentage, SemanticColorName } from "../../types";
-import type { DivProps } from "../Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseProgressProps from "./BaseProgressProps";
 
 export default interface ProgressProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {
-  colorName?: ColorName | SemanticColorName;
-  percentage: Percentage;
-}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseProgressProps<BaseComponentColorNameType> {}

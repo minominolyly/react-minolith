@@ -4,3 +4,6 @@ export * from "./Dot";
 
 export type { default as DotProps } from "./DotProps";
 export * from "./DotProps";
+
+export type { default as BaseDotProps } from "./BaseDotProps";
+export * from "./BaseDotProps";

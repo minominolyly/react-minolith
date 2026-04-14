@@ -1,10 +1,8 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
+import type BaseHeadingProps from "./BaseHeadingProps";
 
 export default interface HeadingProps<BaseComponentColorNameType extends string>
   extends
     ClassAttributes<HTMLHeadingElement>,
     HTMLAttributes<HTMLHeadingElement>,
-    BaseComponentProps<BaseComponentColorNameType> {
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
-}
+    BaseHeadingProps<BaseComponentColorNameType> {}

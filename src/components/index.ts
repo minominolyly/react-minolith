@@ -29,6 +29,9 @@ export * from "./BreadcrumbsNav";
 export { default as Button } from "./Button";
 export * from "./Button";
 
+export { default as Canvas } from "./Canvas";
+export * from "./Canvas";
+
 export { default as Card } from "./Card";
 export * from "./Card";
 
@@ -43,6 +46,9 @@ export * from "./CardHeader";
 
 export { default as Definition } from "./Definition";
 export * from "./Definition";
+
+export { default as Delete } from "./Delete";
+export * from "./Delete";
 
 export { default as DescriptionDetails } from "./DescriptionDetails";
 export * from "./DescriptionDetails";
@@ -92,6 +98,9 @@ export * from "./FigureContent";
 export { default as Footer } from "./Footer";
 export * from "./Footer";
 
+export { default as Form } from "./Form";
+export * from "./Form";
+
 export { default as Hamburger } from "./Hamburger";
 export * from "./Hamburger";
 
@@ -103,6 +112,9 @@ export * from "./Heading";
 
 export { default as Input } from "./Input";
 export * from "./Input";
+
+export { default as Insert } from "./Insert";
+export * from "./Insert";
 
 export { default as Label } from "./Label";
 export * from "./Label";
@@ -158,8 +170,14 @@ export * from "./NavMenuItem";
 export { default as NavStatic } from "./NavStatic";
 export * from "./NavStatic";
 
+export { default as Output } from "./Output";
+export * from "./Output";
+
 export { default as Paragraph } from "./Paragraph";
 export * from "./Paragraph";
+
+export { default as PreformattedText } from "./PreformattedText";
+export * from "./PreformattedText";
 
 export { default as Progress } from "./Progress";
 export * from "./Progress";
@@ -167,8 +185,17 @@ export * from "./Progress";
 export { default as Ruby } from "./Ruby";
 export * from "./Ruby";
 
+export { default as RubyParentheses } from "./RubyParentheses";
+export * from "./RubyParentheses";
+
 export { default as RubyText } from "./RubyText";
 export * from "./RubyText";
+
+export { default as RubyWord } from "./RubyWord";
+export * from "./RubyWord";
+
+export { default as Sample } from "./Sample";
+export * from "./Sample";
 
 export { default as Section } from "./Section";
 export * from "./Section";

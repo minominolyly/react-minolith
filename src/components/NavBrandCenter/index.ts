@@ -4,3 +4,6 @@ export * from "./NavBrandCenter";
 
 export type { default as NavBrandCenterProps } from "./NavBrandCenterProps";
 export * from "./NavBrandCenterProps";
+
+export type { default as BaseNavBrandCenterProps } from "./BaseNavBrandCenterProps";
+export * from "./BaseNavBrandCenterProps";

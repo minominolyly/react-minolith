@@ -1,5 +1,10 @@
-import type { DivProps } from "../../components/Div";
+import type { ClassAttributes, HTMLAttributes } from "react";
+import type BaseCenteringProps from "./BaseCenteringProps";
 
 export default interface CenteringProps<
   BaseComponentColorNameType extends string,
-> extends DivProps<BaseComponentColorNameType> {}
+>
+  extends
+    ClassAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
+    BaseCenteringProps<BaseComponentColorNameType> {}

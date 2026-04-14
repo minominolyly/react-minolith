@@ -4,13 +4,28 @@ import type { Interpolation, Theme } from "@emotion/react";
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseHamburgerProps from "./BaseHamburgerProps";
 import classNames from "./Hamburger.module.scss";
 import type HamburgerProps from "./HamburgerProps";
 
 export default function Hamburger<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: HamburgerProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseHamburgerProps<BaseComponentColorNameType> =
+    HamburgerProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   delete assignedProps["isActive"];
   delete assignedProps["crownInner"];
@@ -24,8 +39,10 @@ export default function Hamburger<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames = [classNames["hamburger"]];
 
   if (props.isActive) {

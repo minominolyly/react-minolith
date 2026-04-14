@@ -3,13 +3,28 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
+import type BaseTabulaProps from "./BaseTabulaProps";
 import classNames from "./Tabula.module.scss";
 import type TabulaProps from "./TabulaProps";
 
 export default function Tabula<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: TabulaProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseTabulaProps<BaseComponentColorNameType> =
+    TabulaProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorScheme"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -20,6 +35,7 @@ export default function Tabula<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
 

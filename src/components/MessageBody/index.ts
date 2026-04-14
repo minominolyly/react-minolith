@@ -4,3 +4,6 @@ export * from "./MessageBody";
 
 export type { default as MessageBodyProps } from "./MessageBodyProps";
 export * from "./MessageBodyProps";
+
+export type { default as BaseMessageBodyProps } from "./BaseMessageBodyProps";
+export * from "./BaseMessageBodyProps";

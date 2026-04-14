@@ -4,3 +4,6 @@ export * from "./NavMenu";
 
 export type { default as NavMenuProps } from "./NavMenuProps";
 export * from "./NavMenuProps";
+
+export type { default as BaseNavMenuProps } from "./BaseNavMenuProps";
+export * from "./BaseNavMenuProps";

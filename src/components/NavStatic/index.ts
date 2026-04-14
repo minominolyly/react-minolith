@@ -4,3 +4,6 @@ export * from "./NavStatic";
 
 export type { default as NavStaticProps } from "./NavStaticProps";
 export * from "./NavStaticProps";
+
+export type { default as BaseNavStaticProps } from "./BaseNavStaticProps";
+export * from "./BaseNavStaticProps";

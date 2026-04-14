@@ -1,5 +1,5 @@
 import type { ClassAttributes, HTMLAttributes } from "react";
-import type { BaseComponentProps } from "../../models";
+import type BaseAbbreviationProps from "./BaseAbbreviationProps";
 
 export default interface AbbreviationProps<
   BaseComponentColorNameType extends string,
@@ -7,4 +7,4 @@ export default interface AbbreviationProps<
   extends
     ClassAttributes<HTMLElement>,
     HTMLAttributes<HTMLElement>,
-    BaseComponentProps<BaseComponentColorNameType> {}
+    BaseAbbreviationProps<BaseComponentColorNameType> {}

@@ -3,14 +3,28 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
-import RubyText from "../RubyText";
+import type BaseRubyProps from "./BaseRubyProps";
 import classNames from "./Ruby.module.scss";
 import type RubyProps from "./RubyProps";
 
 export default function Ruby<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: RubyProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseRubyProps<BaseComponentColorNameType> =
+    RubyProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["rubyText"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -21,57 +35,35 @@ export default function Ruby<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
+
   const assignedClassNames: string[] = ["ruby", classNames["element"]];
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
   if (props.className) {
     assignedClassNames.push(props.className);
   }
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
-  const assignedRubyTextClassNames: string[] = [
-    "ruby-text",
-    classNames["element"],
-  ];
 
-  if (props.rubyText) {
-    assignedRubyTextClassNames.push(
-      ...classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props),
-    );
-    if (props.className) {
-      assignedRubyTextClassNames.push(props.className);
-    }
-  }
+  const css =
+    emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props);
 
   return props.as ? (
     <props.as
       {...assignedProps}
       className={assignedClassNames.join(" ")}
       css={css}
-    >
-      {props.children}
-      {props.rubyText ? (
-        <RubyText className={assignedRubyTextClassNames.join(" ")}>
-          {props.rubyText}
-        </RubyText>
-      ) : (
-        <></>
-      )}
-    </props.as>
+    />
   ) : (
-    <ruby {...assignedProps} className={assignedClassNames.join(" ")} css={css}>
-      {props.children}
-      {props.rubyText ? (
-        <RubyText className={assignedRubyTextClassNames.join(" ")}>
-          {props.rubyText}
-        </RubyText>
-      ) : (
-        <></>
-      )}
-    </ruby>
+    <ruby
+      {...assignedProps}
+      className={assignedClassNames.join(" ")}
+      css={css}
+    />
   );
 }

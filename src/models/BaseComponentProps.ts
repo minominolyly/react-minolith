@@ -9,14 +9,15 @@ import type SizingProps from "./SizingProps";
 import type SpacingProps from "./SpacingProps";
 
 export default interface BaseComponentProps<ColorNameType extends string> {
-  fore?: ForeProps<ColorNameType>;
-  back?: BackProps<ColorNameType>;
-  highlighter?: HighlighterProps<ColorNameType>;
-  border?: BorderProps<ColorNameType>;
-  positioning?: PositioningProps;
-  sizing?: SizingProps;
-  spacing?: SpacingProps;
-  css?: Interpolation<Theme>;
+  fore?: ForeProps<ColorNameType> | undefined;
+  back?: BackProps<ColorNameType> | undefined;
+  highlighter?: HighlighterProps<ColorNameType> | undefined;
+  border?: BorderProps<ColorNameType> | undefined;
+  positioning?: PositioningProps | undefined;
+  sizing?: SizingProps | undefined;
+  spacing?: SpacingProps | undefined;
+  css?: Interpolation<Theme> | undefined;
+  className?: string | undefined;
   as?: ElementType | undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;

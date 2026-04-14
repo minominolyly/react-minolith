@@ -6,11 +6,26 @@ import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import classNames from "./Accordion.module.scss";
 import type AccordionProps from "./AccordionProps";
+import type BaseAccordionProps from "./BaseAccordionProps";
 
 export default function Accordion<
   BaseComponentColorNameType extends string = ColorName | "rainbow",
->(props: AccordionProps<BaseComponentColorNameType>): ReactElement {
-  const assignedProps = { ...props };
+  PropsType extends BaseAccordionProps<BaseComponentColorNameType> =
+    AccordionProps<BaseComponentColorNameType>,
+>(props: PropsType): ReactElement {
+  const assignedProps = {
+    ...props,
+    fore: undefined,
+    back: undefined,
+    highlighter: undefined,
+    border: undefined,
+    positioning: undefined,
+    sizing: undefined,
+    spacing: undefined,
+    css: undefined,
+    as: undefined,
+  };
+
   delete assignedProps["colorName"];
   //#region BaseComponentProps
   delete assignedProps["fore"];
@@ -21,6 +36,7 @@ export default function Accordion<
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
   delete assignedProps["css"];
+  delete assignedProps["className"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
 
@@ -48,7 +64,8 @@ export default function Accordion<
       }
     : undefined;
 
-  const utilityClassNames = classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
+  const utilityClassNames =
+    classNameUtility.getUtilityClassNames<BaseComponentColorNameType>(props);
   if (utilityClassNames) {
     assignedClassNames.push(...utilityClassNames);
   }
@@ -56,7 +73,10 @@ export default function Accordion<
     assignedClassNames.push(props.className);
   }
 
-  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(props, colorNameCss);
+  const css = emotionStyleUtility.getEmotionCss<BaseComponentColorNameType>(
+    props,
+    colorNameCss,
+  );
 
   return props.as ? (
     <props.as
