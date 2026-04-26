@@ -52,7 +52,7 @@ function getComponentColorVariables<BaseComponentColorNameType extends string>(
           }`;
         } else {
           const lightCssVariable = `var(--${cssVariablePrefix}color-${elementPart.light.name}-${elementPart.light.lightness === 5 ? "05" : elementPart.light.lightness})`;
-          if (elementPart.light.alpha) {
+          if (elementPart.light.alpha !== undefined) {
             light = `oklch(from ${lightCssVariable} l c h / ${elementPart.light.alpha})`;
           } else {
             light = lightCssVariable;
@@ -68,7 +68,7 @@ function getComponentColorVariables<BaseComponentColorNameType extends string>(
           }`;
         } else {
           const darkCssVariable = `var(--${cssVariablePrefix}color-${elementPart.dark.name}-${elementPart.dark.lightness === 5 ? "05" : elementPart.dark.lightness})`;
-          if (elementPart.dark.alpha) {
+          if (elementPart.dark.alpha !== undefined) {
             dark = `oklch(from ${darkCssVariable} l c h / ${elementPart.dark.alpha})`;
           } else {
             dark = darkCssVariable;

@@ -7,6 +7,9 @@ const meta = {
   component: Badge,
   tags: ["autodocs"],
   argTypes: {
+    colorName: {
+      control: "text",
+    },
     isSmall: {
       type: "boolean",
     },

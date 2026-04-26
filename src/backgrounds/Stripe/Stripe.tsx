@@ -22,6 +22,7 @@ export default function Stripe<
     positioning: undefined,
     sizing: undefined,
     spacing: undefined,
+    className: undefined,
     css: undefined,
     as: undefined,
   };
@@ -36,8 +37,8 @@ export default function Stripe<
   delete assignedProps["positioning"];
   delete assignedProps["sizing"];
   delete assignedProps["spacing"];
-  delete assignedProps["css"];
   delete assignedProps["className"];
+  delete assignedProps["css"];
   delete assignedProps["as"];
   //#endregion BaseComponentProps
 

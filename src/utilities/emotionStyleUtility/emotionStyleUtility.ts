@@ -175,7 +175,7 @@ function getColorVariable<
     return "transparent";
   }
 
-  if (colorAttributes.alpha) {
+  if (colorAttributes.alpha !== undefined) {
     return `oklch(from var(--${cssVariablePrefix}color-${colorAttributes.name}-${
       colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
     }) l c h / ${colorAttributes.alpha})`;
@@ -203,7 +203,7 @@ function getHighlighterBackgroundVariable<
     return "transparent";
   }
 
-  if (colorAttributes.alpha) {
+  if (colorAttributes.alpha !== undefined) {
     return `linear-gradient(
     transparent 66.66%,
     oklch(from var(--${cssVariablePrefix}color-${colorAttributes.name}-${
@@ -244,7 +244,7 @@ function getSchemeColorHighlighterBackgroundVariable<
         return "transparent";
       }
 
-      if (colorAttributes.alpha) {
+      if (colorAttributes.alpha !== undefined) {
         return `oklch(from var(--${cssVariablePrefix}color-${colorAttributes.name}-${
           colorAttributes.lightness === 5 ? "05" : colorAttributes.lightness
         }) l c h / ${colorAttributes.alpha})`;

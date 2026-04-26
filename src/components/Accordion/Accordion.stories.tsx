@@ -8,7 +8,11 @@ const meta = {
   title: "Components/Accordion",
   component: Accordion,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    colorName: {
+      control: "text",
+    },
+  },
 } satisfies Meta<typeof Accordion>;
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -24,4 +28,3 @@ export const Plain: Story = {
     </Minolith>
   ),
 };
-
