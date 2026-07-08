@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseMessageBodyProps from "./BaseMessageBodyProps";
-import classNames from "./MessageBody.module.scss";
+import classNames from "../Message/Message.module.scss";
 import type MessageBodyProps from "./MessageBodyProps";
 
 export default function MessageBody<

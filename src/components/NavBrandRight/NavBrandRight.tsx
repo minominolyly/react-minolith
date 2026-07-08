@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseNavBrandRightProps from "./BaseNavBrandRightProps";
-import classNames from "./NavBrandRight.module.scss";
+import classNames from "../Nav/Nav.module.scss";
 import type NavBrandRightProps from "./NavBrandRightProps";
 
 export default function NavBrandRight<

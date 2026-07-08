@@ -3,7 +3,7 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
-import classNames from "./DescriptionDetails.module.scss";
+import classNames from "../DescriptionList/DescriptionList.module.scss";
 import type DescriptionDetailsProps from "./DescriptionDetailsProps";
 import type BaseDescriptionDetailsProps from "./BaseDescriptionDetailsProps";
 

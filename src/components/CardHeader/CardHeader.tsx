@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseCardHeaderProps from "./BaseCardHeaderProps";
-import classNames from "./CardHeader.module.scss";
+import classNames from "../Card/Card.module.scss";
 import type CardHeaderProps from "./CardHeaderProps";
 
 export default function CardHeader<

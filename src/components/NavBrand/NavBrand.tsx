@@ -3,7 +3,7 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
-import classNames from "./NavBrand.module.scss";
+import classNames from "../Nav/Nav.module.scss";
 import type NavBrandProps from "./NavBrandProps";
 import type BaseNavBrandProps from "./BaseNavBrandProps";
 

@@ -3,3 +3,6 @@
 );
 @forward "../../../node_modules/minolith/src/components/input.scss";
 
+.textarea-dummy {
+  color: transparent;
+}

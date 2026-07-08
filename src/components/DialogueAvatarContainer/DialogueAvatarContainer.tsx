@@ -3,7 +3,7 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
-import classNames from "./DialogueAvatarContainer.module.scss";
+import classNames from "../Dialogue/Dialogue.module.scss";
 import type DialogueAvatarContainerProps from "./DialogueAvatarContainerProps";
 import type BaseDialogueAvatarContainerProps from "./BaseDialogueAvatarContainerProps";
 

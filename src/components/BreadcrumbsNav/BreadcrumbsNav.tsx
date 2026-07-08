@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseBreadcrumbsNavProps from "./BaseBreadcrumbsNavProps";
-import classNames from "./BreadcrumbsNav.module.scss";
+import classNames from "../Breadcrumbs/Breadcrumbs.module.scss";
 import type BreadcrumbsNavProps from "./BreadcrumbsNavProps";
 
 export default function BreadcrumbsNav<

@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseColumnProps from "./BaseColumnProps";
-import classNames from "./Column.module.scss";
+import classNames from "../Columns/Columns.module.scss";
 import type ColumnProps from "./ColumnProps";
 
 export default function Column<

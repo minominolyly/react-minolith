@@ -3,7 +3,7 @@
 import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
-import classNames from "./AccordionDetails.module.scss";
+import classNames from "../Accordion/Accordion.module.scss";
 import type AccordionDetailsProps from "./AccordionDetailsProps";
 import type BaseAccordionDetailsProps from "./BaseAccordionDetailsProps";
 

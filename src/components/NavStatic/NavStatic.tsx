@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseNavStaticProps from "./BaseNavStaticProps";
-import classNames from "./NavStatic.module.scss";
+import classNames from "../Nav/Nav.module.scss";
 import type NavStaticProps from "./NavStaticProps";
 
 export default function NavStatic<

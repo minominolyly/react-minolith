@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseBreadcrumbProps from "./BaseBreadcrumbProps";
-import classNames from "./Breadcrumb.module.scss";
+import classNames from "../Breadcrumbs/Breadcrumbs.module.scss";
 import type BreadcrumbProps from "./BreadcrumbProps";
 
 export default function Breadcrumb<

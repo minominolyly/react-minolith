@@ -4,7 +4,7 @@ import { type ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseFigureCaptionProps from "./BaseFigureCaptionProps";
-import classNames from "./FigureCaption.module.scss";
+import classNames from "../Figure/Figure.module.scss";
 import type FigureCaptionProps from "./FigureCaptionProps";
 
 export default function FigureCaption<

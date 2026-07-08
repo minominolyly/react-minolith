@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseDialogueContentContainerProps from "./BaseDialogueContentContainerProps";
-import classNames from "./DialogueContentContainer.module.scss";
+import classNames from "../Dialogue/Dialogue.module.scss";
 import type DialogueContentContainerProps from "./DialogueContentContainerProps";
 
 export default function DialogueContentContainer<

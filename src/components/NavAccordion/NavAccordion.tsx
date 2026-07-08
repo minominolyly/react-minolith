@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseNavAccordionProps from "./BaseNavAccordionProps";
-import classNames from "./NavAccordion.module.scss";
+import classNames from "../Nav/Nav.module.scss";
 import type NavAccordionProps from "./NavAccordionProps";
 
 export default function NavAccordion<

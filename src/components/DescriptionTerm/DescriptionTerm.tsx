@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseDescriptionTermProps from "./BaseDescriptionTermProps";
-import classNames from "./DescriptionTerm.module.scss";
+import classNames from "../DescriptionList/DescriptionList.module.scss";
 import type DescriptionTermProps from "./DescriptionTermProps";
 
 export default function DescriptionTerm<

@@ -4,7 +4,7 @@ import type { ReactElement } from "react";
 import type { ColorName } from "../../types";
 import { classNameUtility, emotionStyleUtility } from "../../utilities";
 import type BaseFigureContentProps from "./BaseFigureContentProps";
-import classNames from "./FigureContent.module.scss";
+import classNames from "../Figure/Figure.module.scss";
 import type FigureContentProps from "./FigureContentProps";
 
 export default function FigureContent<
