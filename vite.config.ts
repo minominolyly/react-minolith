@@ -7,7 +7,6 @@ import { defineConfig } from "vite";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import dts from "vite-plugin-dts";
 import preserveDirectives from "rollup-preserve-directives";
-import { PreRenderedAsset, PreRenderedChunk } from "rollup";
 
 // https://vitejs.dev/config/
 import path from "node:path";
@@ -31,14 +30,13 @@ export default defineConfig({
     }),
   ],
   css: {
-    modules: {},
-    preprocessorOptions: {
-      scss: {},
-    },
+    transformer: "postcss",
   },
   build: {
     copyPublicDir: false,
-    emptyOutDir: false,
+    emptyOutDir: true,
+    minify: "oxc",
+    cssMinify: "esbuild",
     lib: {
       entry: resolve(dirname, "src/react-minolith.ts"),
       name: "ReactMinolith",
@@ -70,12 +68,14 @@ export default defineConfig({
           "@emotion/react/jsx-runtime": "EmotionReactJsxRuntime",
           "@emotion/react": "EmotionReact",
         },
-        assetFileNames: (chunkInfo: PreRenderedAsset) => {
-          return `assets/[name][extname]`;
+        assetFileNames: (chunkInfo) => {
+          return chunkInfo.names[0].replaceAll(".module", "");
         },
-        entryFileNames: (chunkInfo: PreRenderedChunk) => {
+        entryFileNames: (chunkInfo) => {
           return "[name].js";
         },
+        preserveModules: true,
+        preserveModulesRoot: "src",
       },
     },
   },
